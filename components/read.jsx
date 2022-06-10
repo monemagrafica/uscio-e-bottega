@@ -7,26 +7,26 @@ const todosCollection = collection(firestore, 'panini');
 import React, { useState, useEffect } from 'react';
 
 function Read() {
-    const [todos, setTodos] = useState([]);
+    const [prodotti, setProdotti] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const getTodos = async () => {
 
-        const todosQuery = query(todosCollection);
-        // get the todos
-        const querySnapshot = await getDocs(todosQuery);
+        const prodottiQuery = query(todosCollection);
+        // get the prodotti
+        const querySnapshot = await getDocs(prodottiQuery);
 
-        // map through todos adding them to an array
+        // map through prodotti adding them to an array
         const result = [];
         querySnapshot.forEach((snapshot) => {
             result.push(snapshot);
         });
         // set it to state
-        setTodos(result);
+        setProdotti(result);
     };
 
     useEffect(() => {
-        // get the todos
+        // get the prodotti
         getTodos();
         // reset loading
         setTimeout(() => {
@@ -34,14 +34,13 @@ function Read() {
         }, 2000)
     }, []);
 
-    console.log(todos);
+    console.log(prodotti);
     return (
         <div className="App">
-            {todos.map((item) => {
-                return (<><Image src={item._document.data.value.mapValue.fields.image.stringValue}alt="test" width={200} height={120}/>
-                
-                <div>{item._document.data.value.mapValue.fields.price.integerValue}</div>
-                </>)
+            {prodotti.map((item) => {
+                return (<div key={item._document.data.value.mapValue.fields.id.integerValue} style={{ width: 200 }}>{item._document.data.value.mapValue.fields.svg&&<Image src={item._document.data.value.mapValue.fields.svg.stringValue} alt="test" width={200} height={120} layout="responsive" />}
+                    <div>{item._document.data.value.mapValue.fields.price.integerValue}</div>
+                </div>)
             })
             }
         </div>
