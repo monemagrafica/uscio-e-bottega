@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Read from '../components/read'
+import ListaPanini from '../components/listaPanini'
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Read />
+        <ListaPanini />
       </main>
 
       <footer className={styles.footer}>
