@@ -10,6 +10,7 @@ const share = useContext(ShareContext)
     console.log(share);
     return (
         <div className="App">
+            
             {share.prodotti.map((item) => {
                 return (
                 <div key={item._document.data.value.mapValue.fields.id.integerValue} style={{ width: 200 }}>

@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "../styles/globals.scss";
 import { ContextData, ShareContext } from "../context/context";
 
 function MyApp({ Component, pageProps }) {
