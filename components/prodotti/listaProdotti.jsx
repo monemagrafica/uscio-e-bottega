@@ -3,38 +3,31 @@ import Image from 'next/image'
 import { ShareContext } from '../../context/context';
 import { useContext, useLayoutEffect } from 'react'
 import ListaSpec from './listaSpec';
-import React, { useEffect, useState, useRef } from 'react';
+import UiLista from './uiLista';
+import React, { useState, useRef } from 'react';
 import style from './prodotti.module.scss'
 
 function ListaPanini() {
     const share = useContext(ShareContext)
-
-    const [altezza, setAltezza] = useState()
     const lista = useRef()
     const itemsLista = useRef([])
     itemsLista.current = []
-    
 
-    useEffect(() => {
-        lista.current.scrollTop = altezza
-    
-    }, [altezza])
+    const [infoPanino, setInfoPanino] = useState(false)
 
-
-    function handleClickPanino(index) {
-
-     window.scroll({
-        top: itemsLista.current[index].offsetTop - (window.outerHeight / 2.5),
-        left: 0,
-        behavior: 'smooth'
-      })  
+    // funzione passata nella REF per creare un array con le ref di tutto il map
+    function itemToRef(e) {
+        if (e && !itemsLista.current.includes(e)) { itemsLista.current.push(e) }
     }
 
-
-function itemToRef (e){
-if(e && !itemsLista.current.includes(e)){itemsLista.current.push(e)}
-//console.log(itemsLista.current);
-}
+    function handleClickPanino(index) {
+        window.scroll({
+            top: itemsLista.current[index].offsetTop - (window.outerHeight / 2.5),
+            left: 0,
+            behavior: 'smooth'
+        })
+        setInfoPanino((prevIndex) => prevIndex === index ? false : index)
+    }
 
     return (
         <div ref={lista} className={style.listaProdotti}>
@@ -48,6 +41,7 @@ if(e && !itemsLista.current.includes(e)){itemsLista.current.push(e)}
                             </div>}
                         <h2>{datiPanino.name.stringValue}</h2>
                         <ListaSpec item={datiPanino} />
+                        {infoPanino === index && <UiLista data={datiPanino} />}
                     </div>)
             })
             }

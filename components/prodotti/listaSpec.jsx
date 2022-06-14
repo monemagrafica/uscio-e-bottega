@@ -5,7 +5,6 @@ function ListaSpec({ item }) {
 
     return (
         <div className={style.listaSpec}>
-            
             <ul>
                 {listaIngredienti['Tipologia panino'] && <li>{listaIngredienti['Tipologia panino'].stringValue}</li>}
                 {listaIngredienti['Formaggio'] && <li>{listaIngredienti['Formaggio'].stringValue}</li>}
