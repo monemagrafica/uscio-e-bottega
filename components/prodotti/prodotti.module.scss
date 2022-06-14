@@ -1,0 +1,41 @@
+@use '../../styles/variabili' as v;
+
+.wrapperSingolo{
+    text-align: center;
+    margin: 2rem auto;
+    padding:0 1rem;
+    .immaginePanino{
+        max-width: 200px;
+        display: block;
+        margin: 0 auto;
+    }
+    h2{
+        font-family: v.$titles;
+        margin: 0;
+        color:v.$brown
+    }
+}
+
+.listaSpec{
+    ul{
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        justify-content: center;
+        margin: 0;
+        li{
+            &::after{
+                content:','
+            }
+            &:last-child::after{
+                content:''
+            }
+        }
+       
+    }
+}
+
+.listaProdotti{
+    margin-top: 80px;
+}

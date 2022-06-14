@@ -1,0 +1,46 @@
+@use '../styles/variabili' as v;
+
+.title{
+    font-size: 2rem;
+    font-family: v.$titles;
+    color:v.$brown;
+    background-color: v.$midbrown;
+    padding: 2rem 1rem 1rem 1rem;
+    border-radius: 20px;
+    position: relative;
+    top: -30px;
+    z-index: 0;
+
+
+}
+.boxmain {
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+
+
+}
+.mainPage{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+}
+.imagePanino{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    z-index: 1;
+    max-width: 220px;
+}
+.imageSpesa{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    z-index: 1;
+    max-width: 230px;
+}
