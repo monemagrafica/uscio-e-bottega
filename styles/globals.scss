@@ -24,7 +24,6 @@ a {
 main{
   margin-top: 4rem;
   position: relative;
-
 }
 
 h1 {
@@ -67,6 +66,7 @@ nav .search {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  margin-top: 0;
 
   .wrapper-login {
     position: relative;

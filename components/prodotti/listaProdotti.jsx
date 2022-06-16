@@ -13,6 +13,7 @@ function ListaProdotti() {
 
     return (
         <div ref={lista} className={style.listaProdotti}>
+           
             {share.prodotti.map((item, index) => {
                 const datiPanino = item._document.data.value.mapValue.fields
                 return (

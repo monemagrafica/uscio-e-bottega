@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import FormLogin from '../components/formLogin/formLogin'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Home() {
 

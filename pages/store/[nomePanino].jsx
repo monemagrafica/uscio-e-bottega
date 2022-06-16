@@ -1,16 +1,17 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import Layout from '../../components/layout/layout'
+
 import { ShareContext } from '../../context/context';
 import Image from 'next/image'
 import style from './store.module.scss'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import Loader from '../../components/loader/loader';
 
 
 function SchedaPanino() {
   const [datiContext, setDatiContext] = useState(false)
-  const dati = useContext(ShareContext)
+  
   const router = useRouter()
   
    useEffect(() => {
@@ -30,14 +31,9 @@ const listaIngredienti = datiPanino && datiPanino.ingredients.mapValue.fields
 console.log(listaIngredienti);
   
   return (
-    <Layout>
-      <AnimatePresence>
-        {datiPanino ?
-          <motion.main
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
+    <>
+        {datiContext ?
+          <main>
             <div className={style.wrapperPanino}>
               <div className={style.wrapperImage}>
                 <Image src={datiPanino.svg.stringValue} layout='responsive' width={290} height={200} alt={datiPanino.name.stringValue} />
@@ -94,9 +90,9 @@ console.log(listaIngredienti);
               </div>
               <Link href="/store"><button>back</button></Link>
             </div>
-          </motion.main> : <p>...loadin</p>}
-      </AnimatePresence>
-    </Layout>
+          </main> : <p>loading</p>}
+  
+    </>
   )
 }
 

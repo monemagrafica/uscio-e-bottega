@@ -5,6 +5,11 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 function UiLista(data) {
+
+
+const datiPerScheda = JSON.stringify(data.data)
+
+
 console.log(data);
   const animateInfo = {
 
@@ -41,12 +46,13 @@ console.log(data);
       >
         <span>{data.data.price.integerValue}.00<BiEuro /></span>
       </motion.div>
+      <Link href={`/store/${data.data.slug.stringValue}`}>test</Link>
       <Link
       href={{
         pathname:'/store/[slug]',
         query:{
           slug: data.data.slug.stringValue,
-          data: JSON.stringify(data.data)
+          data: datiPerScheda
         }
       }}
       >
