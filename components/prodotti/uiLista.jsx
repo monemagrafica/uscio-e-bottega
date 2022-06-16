@@ -46,16 +46,7 @@ console.log(data);
       >
         <span>{data.data.price.integerValue}.00<BiEuro /></span>
       </motion.div>
-      <Link href={`/store/${data.data.slug.stringValue}`}>test</Link>
-      <Link
-      href={{
-        pathname:'/store/[slug]',
-        query:{
-          slug: data.data.slug.stringValue,
-          data: datiPerScheda
-        }
-      }}
-      >
+      <Link href={`/store/${data.data.slug.stringValue}`} scroll={false}>
         <motion.div
           className={style.info}
           variants={animateIcon}

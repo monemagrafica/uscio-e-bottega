@@ -12,8 +12,7 @@ console.log(router)
 
     <Layout>
       <ContextData>
-        <AnimatePresence
-          exitBeforeEnter>
+        <AnimatePresence exitBeforeEnter>
           <motion.div
             key={router.asPath}
             initial={{ opacity: 0 }}

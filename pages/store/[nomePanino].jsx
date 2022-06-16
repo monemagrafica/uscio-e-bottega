@@ -1,38 +1,38 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-
 import { ShareContext } from '../../context/context';
 import Image from 'next/image'
 import style from './store.module.scss'
 import { motion } from 'framer-motion'
-import Loader from '../../components/loader/loader';
+
 
 
 function SchedaPanino() {
   const [datiContext, setDatiContext] = useState(false)
-  
+
   const router = useRouter()
-  
-   useEffect(() => {
- 
-    if (router.query.data) {
+  const context = useContext(ShareContext)
+  console.log('context', context);
 
-      let datiPanino = JSON.parse(router.query.data)
-  
-      setDatiContext(datiPanino)
-    
+  useEffect(() => {
+
+    if (router.query.nomePanino && context.prodotti.length) {
+      const dati = context.prodotti.filter((item)=>item._document.data.value.mapValue.fields.slug.stringValue ===  router.query.nomePanino  )
+      setDatiContext(dati)
     }
-  }, [router]) 
+  }, [router, context])
 
-const datiPanino = datiContext && datiContext
+console.log(datiContext);
+
+const datiPanino =datiContext && datiContext[0]._document.data.value.mapValue.fields
 const listaIngredienti = datiPanino && datiPanino.ingredients.mapValue.fields
 
-console.log(listaIngredienti);
-  
+ 
+
   return (
     <>
-        {datiContext ?
+          {datiPanino ?
           <main>
             <div className={style.wrapperPanino}>
               <div className={style.wrapperImage}>
@@ -90,8 +90,8 @@ console.log(listaIngredienti);
               </div>
               <Link href="/store"><button>back</button></Link>
             </div>
-          </main> : <p>loading</p>}
-  
+          </main> : <p>loading</p>} 
+ 
     </>
   )
 }
