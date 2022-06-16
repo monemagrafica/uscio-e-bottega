@@ -3,11 +3,11 @@ import Image from 'next/image'
 import ListaSpec from './listaSpec';
 import UiLista from './uiLista';
 import style from './prodotti.module.scss'
-import {motion, AnimatePresence } from 'framer-motion'
+import {motion} from 'framer-motion'
 
 
 
-function ListaProdottiItem({ item, index, key, setInfoPanino, infoPanino }) {
+function ListaProdottiItem({ item, index, setInfoPanino, infoPanino }) {
 
 
     const animateListItem = {
@@ -41,11 +41,11 @@ function ListaProdottiItem({ item, index, key, setInfoPanino, infoPanino }) {
             ref={singoloPanino}
             onClick={() => handleClickPanino(index)}
             className={style.wrapperSingolo}
-            key={key}
+            
             variants={animateListItem}
             initial="initial"
             whileInView="animate"
-            layoutId="panino"
+      
         >
             {datiPanino.svg &&
                 <div className={style.immaginePanino} id={datiPanino.id.integerValue}>

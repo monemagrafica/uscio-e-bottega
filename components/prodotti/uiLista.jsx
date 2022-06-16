@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 function UiLista(data) {
-
+console.log(data);
   const animateInfo = {
 
     initial: {
@@ -45,7 +45,8 @@ function UiLista(data) {
       href={{
         pathname:'/store/[slug]',
         query:{
-          slug: data.data.slug.stringValue
+          slug: data.data.slug.stringValue,
+          data: JSON.stringify(data.data)
         }
       }}
       >

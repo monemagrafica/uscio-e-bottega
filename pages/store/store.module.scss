@@ -9,17 +9,19 @@
 
 .wrapperInfo {
 
-    margin: 5rem auto 0 auto;
+    margin: 4rem auto 0 auto;
     h2 {
         font-family: v.$titles;
         color: v.$brown;
         font-size: 2.5rem;
-        margin: 1rem 0 0 0;
+        margin:0 0 1rem 0;
     }
 
     h3 {
         font-family: v.$titles;
         line-height: 1;
+        margin: 13px 0 0 0;
+        
     }
 
     .title {
@@ -60,12 +62,22 @@ ul.listaSpec {
 }
 
 .headerSalse {
-    display: flex;
-    justify-content: center;
+
     margin-top: 1rem;
 
     h3 {
-        margin-left: 1rem;
+        margin:0
+    }
+
+}
+
+.headerGuarnizioni {
+
+    margin-top: 1.5rem;
+
+    h3 {
+        margin:0
+        
     }
 
 }
@@ -76,24 +88,19 @@ ul.listaSalse {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    justify-content: center;
+    justify-content: flex-start;
     margin: 0;
     font-size: 1.1rem;
     font-weight: bold;
     background-color: v.$midbrown;
     padding: 10px;
-    margin: 0 20px;
+    margin: 0 10px;
     border-radius: 10px;
 
-    li {
-        &::after {
-            content: ",";
-            padding-right: 5px;
-        }
 
-        &:last-child::after {
-            content: "";
-        }
+    li {
+     text-align: center;
+     width: 100%;
     }
 }
 
@@ -125,5 +132,13 @@ ul.listaSalse {
         vertical-align: middle;
         font-size: 1.2rem;
         height: 100%;
+    }
+}
+
+.wrapperSpec{
+
+    display: flex;
+    div{
+        flex: 1;
     }
 }

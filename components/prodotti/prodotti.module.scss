@@ -68,7 +68,7 @@
 
   .price {
     font-family: v.$titles;
-    color: v.$brown;
+    color: v.$lightbrown;
     font-size: 3rem;
     letter-spacing: -5px;
     width: 100%;
@@ -77,7 +77,7 @@
 
     span {
       display: inline-block;
-      background-color: rgb(237, 230, 224);
+      background-color: v.$price;
       padding: 7px 10px;
       box-shadow: 2px 1px 4px rgb(0 0 0 / 12%);
       transform: rotate(355deg);
