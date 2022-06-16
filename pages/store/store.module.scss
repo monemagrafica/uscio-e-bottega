@@ -34,6 +34,7 @@
     .title {
         width: 200px;
         text-align: left;
+        line-height: 1;
     
     }
 }
@@ -53,6 +54,7 @@ ul.listaSpec {
         font-size: 1.1rem;
         font-weight: bold;
         color: v.$black;
+        align-items: center;
     }
 }
 
