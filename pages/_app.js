@@ -12,7 +12,7 @@ console.log(router)
 
     <Layout>
       <ContextData>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence exitBeforeEnter  onExitComplete={() => window.scrollTo(0, 0)}>
           <motion.div
             key={router.asPath}
             initial={{ opacity: 0 }}
