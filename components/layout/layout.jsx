@@ -8,7 +8,7 @@ function Layout({ children }) {
     console.log('layout', router);
 
     return (
-        <>
+    
             <div>
                 {router.asPath !== '/' && <Navbar />}
                 <div>
@@ -16,7 +16,7 @@ function Layout({ children }) {
                 </div>
 
             </div>
-        </>
+       
     )
 }
 

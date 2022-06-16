@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './prodotti.module.scss'
+import style from '../../pages/store/store.module.scss'
 import { BiEuro } from 'react-icons/bi'
 import { motion } from 'framer-motion'
 import Link from 'next/link'

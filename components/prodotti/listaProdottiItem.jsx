@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import Image from 'next/image'
 import ListaSpec from './listaSpec';
 import UiLista from './uiLista';
-import style from './prodotti.module.scss'
+import style from '../../pages/store/store.module.scss'
 import {motion} from 'framer-motion'
 
 

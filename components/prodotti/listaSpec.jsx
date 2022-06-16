@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './prodotti.module.scss'
+import style from '../../pages/store/store.module.scss'
 function ListaSpec({ item }) {
     let listaIngredienti = item.ingredients.mapValue.fields
 

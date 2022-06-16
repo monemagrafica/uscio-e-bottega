@@ -1,7 +1,7 @@
 import { ShareContext } from '../../context/context';
 import { useContext } from 'react'
 import React, { useState, useRef } from 'react';
-import style from './prodotti.module.scss'
+import style from '../../pages/store/store.module.scss'
 import ListaProdottiItem from './listaProdottiItem';
 
 
