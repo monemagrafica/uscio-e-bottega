@@ -52,7 +52,7 @@ const listaIngredienti = datiPanino && datiPanino.ingredients.mapValue.fields
                     {listaIngredienti['Insaccato'] &&
                       <li> <Image src="/images/insaccati.svg" width={100} height={30} layout="fixed" alt="icona panino" /> <span className={style.title}>{listaIngredienti['Insaccato'].stringValue}</span></li>}
                   </ul>
-                  <h3>Verdure, salse e guarnizioni:</h3>
+                  
                   <div className={style.wrapperSpec}>
                     {listaIngredienti['Verdure o guarnizioni'] &&
                     <div>

@@ -8,19 +8,26 @@
 }
 
 .wrapperInfo {
-
-    margin: 4rem auto 0 auto;
+    margin: 1rem auto 0 auto;
+    position: relative;
+    z-index: 1;
     h2 {
-        font-family: v.$titles;
-        color: v.$brown;
+        font-family: "short stack";
+        color: white;
         font-size: 2.5rem;
-        margin:0 0 1rem 0;
+        padding: 10px;
+        background-color: rgb(224 109 91 / 84%);
+        max-width: 90%;
+        border-radius: 5px;
+        display: block;
+        margin: 0 auto 1rem auto;
+        transform: rotate(-4deg);
     }
 
     h3 {
         font-family: v.$titles;
         line-height: 1;
-        margin: 13px 0 0 0;
+        margin: 26px 0 0 0;
         
     }
 
@@ -51,7 +58,7 @@ ul.listaSpec {
 
 .wrapperImage {
     width: 100%;
-    height: 170px;
+    height: 120px;
     background-color: v.$darkRed;
 
     span {
@@ -89,12 +96,11 @@ ul.listaSalse {
     flex-wrap: wrap;
     list-style: none;
     justify-content: flex-start;
-    margin: 0;
     font-size: 1.1rem;
     font-weight: bold;
     background-color: v.$midbrown;
-    padding: 10px;
-    margin: 0 10px;
+    padding: 22px 10px 10px 10px;
+    margin: -26px 10px 0 10px;
     border-radius: 10px;
 
 
@@ -211,7 +217,7 @@ ul.listaSalse {
   
     .price {
       font-family: v.$titles;
-      color: v.$lightbrown;
+      color: white;
       font-size: 3rem;
       letter-spacing: -5px;
       width: 100%;
@@ -220,7 +226,7 @@ ul.listaSalse {
   
       span {
         display: inline-block;
-        background-color: v.$price;
+        background-color: v.$red;
         padding: 7px 10px;
         box-shadow: 2px 1px 4px rgb(0 0 0 / 12%);
         transform: rotate(355deg);
