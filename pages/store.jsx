@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import ListaProdotti from '../components/prodotti/listaProdotti'
 import Layout from '../components/layout/layout'
+import {motion} from 'framer-motion'
 export default function Home() {
   return (
     <Layout>
@@ -11,7 +11,7 @@ export default function Home() {
           <meta name="description" content="uscio e bottega app" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main >
+        <main>
           <ListaProdotti />
         </main>
       </div>

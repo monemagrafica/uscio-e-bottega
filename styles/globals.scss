@@ -2,6 +2,7 @@
 @import "./variabili";
 @import "./mixin/media";
 
+
 html,
 body {
   padding: 0;
@@ -20,6 +21,12 @@ a {
   box-sizing: border-box;
 }
 
+main{
+  margin-top: 4rem;
+  position: relative;
+
+}
+
 h1 {
   color: $red;
   font-size: 50px;
@@ -33,7 +40,7 @@ nav {
   z-index: 100;
   top: 0;
   height: 60px;
-  background-color: $midbrown;
+  background-color: $lightbrown;
   padding-bottom: 5px;
 }
 

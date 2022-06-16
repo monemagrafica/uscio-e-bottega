@@ -10,7 +10,7 @@ function ContextData({children}) {
     const [prodotti, setProdotti] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const getTodos = async () => {
+    const getProdotti = async () => {
 
         const prodottiQuery = query(todosCollection);
         // get the prodotti
@@ -27,7 +27,7 @@ function ContextData({children}) {
 
     useEffect(() => {
         // get the prodotti
-        getTodos();
+        getProdotti();
         // reset loading
         setTimeout(() => {
             setLoading(false);

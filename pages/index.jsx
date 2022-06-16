@@ -46,7 +46,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='login-page'>
+      <main className='login-page' >
         <motion.div
           className="wrapper-logo"
           variants={animazioneLogo}

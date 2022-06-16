@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import style from '../styles/main.module.scss'
 import Layout from '../components/layout/layout'
+import {motion} from 'framer-motion'
 function Main() {
     return (
         <Layout>
@@ -12,7 +13,7 @@ function Main() {
                     <meta name="description" content="uscio e bottega app" />
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
-                <main className={style.mainPage}>
+                <main className={style.mainPage} >
                     <div className={style.boxmain}>
                         <div className={style.imagePanino}>
                             <Image src="/images/main-panino.svg" layout='responsive' width={147} height={89} alt="main-panino" />

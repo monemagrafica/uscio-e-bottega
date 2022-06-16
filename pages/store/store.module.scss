@@ -1,0 +1,129 @@
+@use '../../styles/variabili'as v;
+
+.wrapperPanino {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.wrapperInfo {
+
+    margin: 5rem auto 0 auto;
+    h2 {
+        font-family: v.$titles;
+        color: v.$brown;
+        font-size: 2.5rem;
+        margin: 1rem 0 0 0;
+    }
+
+    h3 {
+        font-family: v.$titles;
+        line-height: 1;
+    }
+
+    .title {
+        width: 200px;
+        text-align: left;
+    
+    }
+}
+
+ul.listaSpec {
+    padding: 0;
+    list-style: none;
+
+    padding: 10px;
+    margin: 0 20px;
+    position: relative;
+    border-radius: 10px;
+
+    li {
+        display: flex;
+        justify-content: center;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: v.$black;
+    }
+}
+
+.wrapperImage {
+    width: 100%;
+    height: 170px;
+    background-color: v.$darkRed;
+
+    span {
+        max-width: 330px;
+        display: block;
+        margin: 0 auto !important;
+    }
+}
+
+.headerSalse {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+
+    h3 {
+        margin-left: 1rem;
+    }
+
+}
+
+
+ul.listaSalse {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: v.$midbrown;
+    padding: 10px;
+    margin: 0 20px;
+    border-radius: 10px;
+
+    li {
+        &::after {
+            content: ",";
+            padding-right: 5px;
+        }
+
+        &:last-child::after {
+            content: "";
+        }
+    }
+}
+
+.dati {
+    margin: 0;
+    position: relative;
+}
+
+.addToCart{
+    background-color: v.$red;
+    max-width: 300px;
+    width: 100%;
+    height: 50px;
+    line-height: 46px;
+    font-size: 2rem;
+    color: white;
+    display: inline-block;
+    margin: 2rem auto 0 auto;
+    border-radius: 30px;
+
+    .icon{
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+
+    }
+    span{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1.2rem;
+        height: 100%;
+    }
+}
