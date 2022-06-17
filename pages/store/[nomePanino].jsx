@@ -41,7 +41,11 @@ function SchedaPanino() {
     animate: { opacity: 1, top: 0, scale: 1 },
     exit: { opacity: 0 },
   }
-
+  const animatePanino = {
+    initial: { opacity: 0, top: 20, scale: 0.8 },
+    animate: { opacity: 1, top: 0, scale: 1 },
+    exit: { opacity: 0 },
+  }
   return (
 
     <AnimatePresence>
@@ -55,9 +59,14 @@ function SchedaPanino() {
             exit={{ opacity: 0 }}
           >
             <div className={style.wrapperPanino}>
-              <div className={style.wrapperImage}>
+              <motion.div 
+            className={style.wrapperImage}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={animatePanino}>
                 <Image src={datiPanino.svg.stringValue} layout='responsive' width={290} height={200} alt={datiPanino.name.stringValue} />
-              </div>
+              </motion.div>
               <div className={style.wrapperInfo}>
                 <div className={style.headerScheda}>
                   <motion.h2
