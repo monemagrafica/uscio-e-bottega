@@ -1,265 +1,309 @@
 @use '../../styles/variabili'as v;
 
 .wrapperPanino {
-    width: 100%;
-    display: block;
-    margin: 0 auto;
-    text-align: center;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wrapperSchedaPanino{
+  height: 100vh;
 }
 
 .wrapperInfo {
-    margin: 1rem auto 0 auto;
-    position: relative;
-    z-index: 1;
-    h2 {
-        font-family: "short stack";
-        color: white;
-        font-size: 2.5rem;
-        padding: 10px;
-        background-color: rgb(224 109 91 / 84%);
-        max-width: 90%;
-        border-radius: 5px;
-        display: block;
-        margin: 0 auto 1rem auto;
-        transform: rotate(-4deg);
-    }
+  margin: 1rem auto 0 auto;
+  position: relative;
+  z-index: 1;
 
-    h3 {
-        font-family: v.$titles;
-        line-height: 1;
-        margin: 26px 0 0 0;
-        
-    }
+  h2 {
+    font-family: "short stack";
+    color: white;
+    font-size: 7vw;
+    padding: 10px;
+    background-color: rgb(224 109 91 / 84%);
+    max-width: 90%;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto 1rem auto;
+    transform: rotate(-4deg);
+  }
 
-    .title {
-        width: 200px;
-        text-align: left;
-        line-height: 1;
-    
-    }
+  h3 {
+    font-family: v.$titles;
+    line-height: 1;
+    margin: 40px 0 0 0;
+  }
+
+  .title {
+    width: 200px;
+    text-align: left;
+    line-height: 1;
+
+  }
 }
 
 ul.listaSpec {
-    padding: 0;
-    list-style: none;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  border-radius: 10px;
+  background-color: v.$backSchedaInfo;
+  padding: 10px;
+  margin: 1rem 15px 0 15px;
+  border-radius: 10px;
 
-    padding: 10px;
-    margin: 0 20px;
-    position: relative;
-    border-radius: 10px;
-
-    li {
-        display: flex;
-        justify-content: center;
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: v.$black;
-        align-items: center;
-    }
+  li {
+    display: flex;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: v.$black;
+    align-items: center;
+  }
 }
 
 .wrapperImage {
-    width: 100%;
-    height: 120px;
-    background-color: v.$darkRed;
+  width: 100%;
+  height: 120px;
+  background-color: v.$darkRed;
 
-    span {
-        max-width: 330px;
-        display: block;
-        margin: 0 auto !important;
-    }
+  span {
+    max-width: 330px;
+    display: block;
+    margin: 0 auto !important;
+  }
 }
 
 .headerSalse {
 
-    margin-top: 1rem;
+  margin-top: 1rem;
 
-    h3 {
-        margin:0
-    }
+  h3 {
+    margin: 0
+  }
 
 }
 
 .headerGuarnizioni {
 
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 
-    h3 {
-        margin:0
-        
-    }
+  h3 {
+    margin: 0
+  }
 
 }
 
 
 ul.listaSalse {
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    justify-content: flex-start;
-    font-size: 1.1rem;
-    font-weight: bold;
-    background-color: v.$midbrown;
-    padding: 22px 10px 10px 10px;
-    margin: -26px 10px 0 10px;
-    border-radius: 10px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: flex-start;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: v.$backSchedaInfo;
+  padding: 22px 10px 10px 10px;
+  margin: -26px 10px 0 10px;
+  border-radius: 10px;
 
 
-    li {
-     text-align: center;
-     width: 100%;
-    }
+  li {
+    text-align: center;
+    width: 100%;
+  }
 }
 
 .dati {
-    margin: 0;
-    position: relative;
+  margin: 0;
+  position: relative;
 }
 
-.addToCart{
-    background-color: v.$red;
-    max-width: 300px;
-    width: 100%;
-    height: 50px;
-    line-height: 46px;
-    font-size: 2rem;
-    color: white;
-    display: inline-block;
-    margin: 2rem auto 0 auto;
-    border-radius: 30px;
 
-    .icon{
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
 
-    }
-    span{
-        display: inline-block;
-        vertical-align: middle;
-        font-size: 1.2rem;
-        height: 100%;
-    }
-}
+.wrapperSpec {
 
-.wrapperSpec{
+  display: flex;
 
-    display: flex;
-    div{
-        flex: 1;
-    }
+  div {
+    flex: 1;
+  }
 }
 
 
 .wrapperSingolo {
-    text-align: center;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    position: relative;
-    .immaginePanino {
-      max-width: 200px;
-      display: block;
-      margin: 0 auto;
-    }
-  
-    h2 {
-      font-family: v.$titles;
-      margin: 0;
-      color: v.$brown;
-    }
+  text-align: center;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  position: relative;
+
+  .immaginePanino {
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
   }
-  
-  .listaSpec {
-    ul {
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      list-style: none;
-      justify-content: center;
-      margin: 0;
-  
-      li {
-        margin: 3px 0;
-        &::after {
-          content: ",";
-        }
-  
-        &:last-child::after {
-          content: "";
-        }
-      }
-    }
+
+  h2 {
+    font-family: v.$titles;
+    margin: 0;
+    color: v.$brown;
   }
-  
-  .listaProdotti {
-    margin-top: 80px;
-    position: relative;
-  }
-  
-  .uiLista {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: hsla(0,0%,100%,.627);
-    border-radius: 50%;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    outline: 5px solid #dbccc0;
+}
+
+.listaSpec {
+  ul {
+    padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    padding: 1rem 0;
-    height: 200px;
-  
-    .price {
-      font-family: v.$titles;
-      color: white;
-      font-size: 3rem;
-      letter-spacing: -5px;
-      width: 100%;
-      line-height: 1;
-      position:relative;
-  
-      span {
-        display: inline-block;
-        background-color: v.$red;
-        padding: 7px 10px;
-        box-shadow: 2px 1px 4px rgb(0 0 0 / 12%);
-        transform: rotate(355deg);
+    list-style: none;
+    justify-content: center;
+    margin: 0;
+
+    li {
+      margin: 3px 0;
+
+      &::after {
+        content: ",";
       }
-      svg {
-        top: 7px;
-        position: relative;
+
+      &:last-child::after {
+        content: "";
       }
     }
-  
-    .info {
-      width: 50px;
-      height: 50px;
-      background-color: v.$green;
-      font-size: 2rem;
-      color: white;
-      border-radius: 50%;
-      line-height: 50px;
-      margin: 0.5rem;
-      position: relative;
-    }
-  
-    .addToCart {
-      width: 50px;
-      height: 50px;
+  }
+}
+
+.listaProdotti {
+  margin-top: 80px;
+  position: relative;
+}
+
+.uiLista {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(27deg 100% 93% / 53%);
+  border-radius: 50%;
+  width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  outline: 5px solid #d1b9a6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  height: 180px;
+
+  .price {
+    font-family: v.$titles;
+    color: white;
+    font-size: 3rem;
+    letter-spacing: -5px;
+    width: 100%;
+    line-height: 1;
+    position: relative;
+
+    span {
+      display: block;
       background-color: v.$red;
-      font-size: 2rem;
-      color: white;
-      border-radius: 50%;
-      line-height: 50px;
-      margin: 1rem;
+      padding: 7px 15px;
+      width: 220px;
+      margin: 0 auto;
+      box-shadow: 2px 1px 4px rgb(0 0 0 / 12%);
+      transform: rotate(355deg);
+      position: relative;
+      left: -24px;
+      top: -4px;
+    }
+
+    svg {
+      top: 7px;
       position: relative;
     }
   }
+
+  .info {
+    width: 50px;
+    height: 50px;
+    background-color: v.$green;
+    font-size: 2rem;
+    color: white;
+    border-radius: 50%;
+    line-height: 50px;
+    margin: 0.5rem;
+    position: relative;
+  }
+
+  .addToCart {
+    width: 50px;
+    height: 50px;
+    background-color: v.$red;
+    font-size: 2rem;
+    color: white;
+    border-radius: 50%;
+    line-height: 50px;
+    margin: 1rem;
+    position: relative;
+  }
+}
+
+
+
+.footerScheda{
+  position: sticky;
+  display: flex;
+  align-items: center;
+  background-color: v.$midbrown;
+  padding: 20px 5px;
+  width: 100%;
+  bottom: 0px;
+  z-index: 1;
+  .wrapSchedaNav {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    .backButton{  
+      background-color: v.$brownBackBtn;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.5rem;
+      color: white;
+      display: inline-block;
+      border-radius: 30px;
+      padding-top: 4px;}
+
+      .addToCart {
+        background-color: v.$red;
+        width: 230px;
+        height: 50px;
+        line-height: 46px;
+        font-size: 2rem;
+        color: white;
+        display: inline-block;
+        margin-left: 20px;
+        border-radius: 30px;
+  
+        .icon {
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+  
+        }
+  
+        span {
+          display: inline-block;
+          vertical-align: middle;
+          font-size: 1.2rem;
+          height: 100%;
+        }
+      }
+  }
+}

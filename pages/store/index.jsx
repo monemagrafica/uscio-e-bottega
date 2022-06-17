@@ -8,7 +8,7 @@ export default function Home() {
  
   return (
 
-    <div>
+    <>
       <Head>
         <title>Uscio e Bottega</title>
         <meta name="description" content="uscio e bottega app" />
@@ -18,7 +18,7 @@ export default function Home() {
 
         <ListaProdotti />
       </main>
-    </div>
+    </>
 
   )
 }

@@ -7,10 +7,6 @@ import Link from 'next/link'
 function UiLista(data) {
 
 
-const datiPerScheda = JSON.stringify(data.data)
-
-
-console.log(data);
   const animateInfo = {
 
     initial: {
