@@ -8,7 +8,7 @@
 }
 
 .wrapperSchedaPanino{
-  height: 100vh;
+  height: 82vh;
 }
 
 .wrapperInfo {
@@ -17,6 +17,7 @@
   z-index: 1;
 
   h2 {
+    position: relative;
     font-family: "short stack";
     color: white;
     font-size: 7vw;
@@ -99,13 +100,14 @@ ul.listaSpec {
 ul.listaSalse {
   padding: 0;
   display: flex;
+  max-width: 250px;
   flex-wrap: wrap;
   list-style: none;
   justify-content: flex-start;
   font-size: 1.1rem;
   font-weight: bold;
   background-color: v.$backSchedaInfo;
-  padding: 22px 10px 10px 10px;
+  padding: 22px 20px 10px 20px;
   margin: -26px 10px 0 10px;
   border-radius: 10px;
 
@@ -126,9 +128,12 @@ ul.listaSalse {
 .wrapperSpec {
 
   display: flex;
-
-  div {
+justify-content: center;
+ >div {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -252,8 +257,6 @@ ul.listaSalse {
     position: relative;
   }
 }
-
-
 
 .footerScheda{
   position: sticky;

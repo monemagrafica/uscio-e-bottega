@@ -23,6 +23,14 @@ function SchedaPanino() {
   datiPanino = datiPanino && datiPanino[0]?._document.data.value.mapValue.fields
   const listaIngredienti = datiPanino && datiPanino.ingredients.mapValue.fields
   console.log('dati', datiPanino)
+
+const animateTitle = {
+  initial:{opacity:0, top:20, scale:0.8, rotate:9},
+  animate:{opacity:1, top:0, scale:1, rotate:-4, transition:{delay: 0.3}},
+  exit:{opacity:0},
+}
+
+
   return (
 
     <AnimatePresence>
@@ -32,7 +40,7 @@ function SchedaPanino() {
       <>  <motion.main
       className={style.wrapperSchedaPanino}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{ opacity: 1}}
           exit={{ opacity: 0 }}
         >
           <div className={style.wrapperPanino}>
@@ -40,7 +48,12 @@ function SchedaPanino() {
               <Image src={datiPanino.svg.stringValue} layout='responsive' width={290} height={200} alt={datiPanino.name.stringValue} />
             </div>
             <div className={style.wrapperInfo}>
-              <h2>{datiPanino.name.stringValue}</h2>
+              <motion.h2
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={animateTitle}
+              >{datiPanino.name.stringValue}</motion.h2>
               <div className={style.dati}>
                 <h3>Ingredienti:</h3>
                 <ul className={style.listaSpec}>
@@ -70,7 +83,8 @@ function SchedaPanino() {
                         })
                         }
                       </ul></div>}
-                  {listaIngredienti['Salse'] && <div> <div className={style.headerSalse}>
+                  {listaIngredienti['Salse'] && <div> 
+                    <div className={style.headerSalse}>
                     <Image src="/images/salsa.svg" width={70} height={70} layout="fixed" alt="icona panino" />
                   </div>
                     <ul className={style.listaSalse}>
