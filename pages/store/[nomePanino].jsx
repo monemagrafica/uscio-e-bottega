@@ -33,7 +33,7 @@ function SchedaPanino() {
   }
   const animatePrezzo = {
     initial: { opacity: 0, top: 20, rotate: -150 },
-    animate: { opacity: 1, top: 0, rotate: 10, transition: { delay: 2} },
+    animate: { opacity: 1, top: 0, rotate: 10, transition: { delay: 0.7} },
     exit: { opacity: 0 },
   }
   const animateLista = {
@@ -93,11 +93,11 @@ function SchedaPanino() {
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    transition={{ delay: 0.5, ease:'easeInOut' }}
+                    transition={{ delay: 1, ease:'easeOut' }}
                     variants={animateLista}
                   >
                     <div className={style.immagineIngredienti}>
-                      <Image src="/images/pane.svg" width={70} height={42} layout="fixed" alt="icona panino" />
+                      <Image src="/images/pane.svg" width={80} height={52} layout="fixed" alt="icona panino" />
                     </div>
                     <ul className={style.listaSpec}>
                       {listaIngredienti['Tipologia panino'] &&
@@ -112,7 +112,7 @@ function SchedaPanino() {
                       initial="initial"
                       animate="animate"
                       exit="exit"
-                      transition={{ delay: 1, ease:'easeInOut' }}
+                      transition={{ delay: 1.3, ease:'easeOut' }}
                       variants={animateLista}
                     >
                       <div className={style.immagineIngredienti}>
@@ -136,7 +136,7 @@ function SchedaPanino() {
                         initial="initial"
                         animate="animate"
                         exit="exit"
-                        transition={{ delay: 1.5, ease:'easeInOut' }}
+                        transition={{ delay: 1.6, ease:'easeOut' }}
                         variants={animateLista}
                       >
                         <div className={style.headerGuarnizioni}>
@@ -157,7 +157,7 @@ function SchedaPanino() {
                         initial="initial"
                         animate="animate"
                         exit="exit"
-                        transition={{ delay: 1.5 }}
+                        transition={{ delay: 1.9, ease:'easeOut' }}
                         variants={animateLista}
                       >
                         <div className={style.headerSalse}>

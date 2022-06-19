@@ -59,6 +59,16 @@ nav .search {
 .trigger, .cart{
   padding: 10px;
 }
+
+//ANCHOR: Layout
+.layout{
+  height: 100vh;
+}
+.wrapper-main{
+  height: 100%;
+}
+
+
 //ANCHOR: LOGIN PAGE
 .login-page {
   display: flex;

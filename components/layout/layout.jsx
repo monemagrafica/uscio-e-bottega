@@ -1,6 +1,8 @@
 import React from 'react'
 import Navbar from '../navbar/navbar'
 import { useRouter } from 'next/router';
+
+
 function Layout({ children }) {
 
     const router = useRouter()
@@ -8,11 +10,11 @@ function Layout({ children }) {
 
     return (
     
-            <div>
+            <div className="layout">
                 {router.asPath !== '/' && <Navbar />}
-                <div>
+             
                     {children}
-                </div>
+               
 
             </div>
        

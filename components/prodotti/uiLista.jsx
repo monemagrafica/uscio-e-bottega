@@ -21,8 +21,8 @@ console.log('info',data);
     exit:{opacity:0, transform: 'scale(0.9)'}
   }
   const animatePrice = {
-    initial: { opacity: 0, top: -20, rotate: 10 },
-    animate: { opacity: 1, top: 0, rotate:-2, transition: { delay: 0.2, ease:'easeIn' } }
+    initial: { opacity: 0, top: -20, rotate: 80 },
+    animate: { opacity: 1, top: 0, rotate:-2, transition: { delay: 0.2, type: "spring", stiffness:100 } }
   }
   const animateIcon = {
     initial: { opacity: 0, top: 20 },

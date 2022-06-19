@@ -18,6 +18,7 @@ console.log(router)
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            className="wrapper-main"
           >
             <Component {...pageProps} />
           </motion.div>
