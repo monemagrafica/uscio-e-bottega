@@ -9,7 +9,7 @@
 
 .wrapperSchedaPanino{
   height: auto;
-  padding-bottom: 100px;
+  //padding-bottom: 100px;
 }
 
 .wrapperInfo {
@@ -244,6 +244,7 @@ margin: 0 15px;
     span {
       display: block;
       background-color: v.$brownBackBtn;
+      outline: 3px solid white;
       padding: 7px 15px;
       width: 140px;
       margin: 0 auto;
@@ -251,6 +252,7 @@ margin: 0 15px;
       transform: rotate(355deg);
       transform-origin:center;
       position: relative;
+
     
       border-radius: 5px;
     }

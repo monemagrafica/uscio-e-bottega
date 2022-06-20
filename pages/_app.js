@@ -18,7 +18,7 @@ console.log(router)
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="wrapper-main"
+            className={`wrapper-main ${router.asPath === '/store' ? 'store':''}`}
           >
             <Component {...pageProps} />
           </motion.div>

@@ -65,7 +65,14 @@ nav .search {
   height: 100vh;
 }
 .wrapper-main{
+
+  height: 82%;
+  overflow: scroll;
+}
+.wrapper-main.store{
+
   height: 100%;
+  overflow: scroll;
 }
 
 
