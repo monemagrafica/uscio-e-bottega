@@ -28,12 +28,12 @@ function SchedaPanino() {
 
   const animateTitle = {
     initial: { opacity: 0, top: 20, scale: 0.8, rotate: 9 },
-    animate: { opacity: 1, top: 0, scale: 1, rotate: -4, transition: { delay: 0.3 } },
+    animate: { opacity: 1, top: 0, scale: 1, rotate: -4, transition: { delay: 0.7 } },
     exit: { opacity: 0 },
   }
   const animatePrezzo = {
     initial: { opacity: 0, top: 20, rotate: -150 },
-    animate: { opacity: 1, top: 0, rotate: 10, transition: { delay: 0.7} },
+    animate: { opacity: 1, top: 0, rotate: 10, transition: { delay: 1 } },
     exit: { opacity: 0 },
   }
   const animateLista = {
@@ -42,9 +42,14 @@ function SchedaPanino() {
     exit: { opacity: 0 },
   }
   const animatePanino = {
-    initial: { opacity: 0, top: 20, scale: 0.8 },
-    animate: { opacity: 1, top: 0, scale: 1 },
+    initial: { opacity: 0, top: '30vh', scale: 0.5 },
+    animate: { opacity: 1, top: ['30vh', '25vh', '0vh'], scale: 1,  transition: { duration:.7, ease:'easeOut' } },
     exit: { opacity: 0 },
+  }
+  const animateOpacity = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { delay: 1.3 } },
+    exit: { opacity: 0 }
   }
   return (
 
@@ -59,14 +64,18 @@ function SchedaPanino() {
             exit={{ opacity: 0 }}
           >
             <div className={style.wrapperPanino}>
-              <motion.div 
-            className={style.wrapperImage}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={animatePanino}>
-                <Image src={datiPanino.svg.stringValue} layout='responsive' width={290} height={200} alt={datiPanino.name.stringValue} />
-              </motion.div>
+              <div
+                className={style.wrapperImage}
+              >
+                <motion.div className={style.immaginePaninoScheda}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={animatePanino}
+                >
+                  <Image src={datiPanino.svg.stringValue} layout='responsive' width={290} height={200} alt={datiPanino.name.stringValue} />
+                </motion.div>
+              </div>
               <div className={style.wrapperInfo}>
                 <div className={style.headerScheda}>
                   <motion.h2
@@ -87,13 +96,18 @@ function SchedaPanino() {
                     {datiPanino.price.integerValue},00<BiEuro />
                   </motion.div>
                 </div>
-                <div className={style.dati}>
+                <motion.div className={style.dati}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={animateOpacity}
+                >
                   <h3>Ingredienti:</h3>
                   <motion.div className={style.wrapperListaSpec}
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    transition={{ delay: 1, ease:'easeOut' }}
+                    transition={{ delay: 1.5, ease: 'easeOut' }}
                     variants={animateLista}
                   >
                     <div className={style.immagineIngredienti}>
@@ -112,7 +126,7 @@ function SchedaPanino() {
                       initial="initial"
                       animate="animate"
                       exit="exit"
-                      transition={{ delay: 1.3, ease:'easeOut' }}
+                      transition={{ delay: 1.8, ease: 'easeOut' }}
                       variants={animateLista}
                     >
                       <div className={style.immagineIngredienti}>
@@ -136,7 +150,7 @@ function SchedaPanino() {
                         initial="initial"
                         animate="animate"
                         exit="exit"
-                        transition={{ delay: 1.6, ease:'easeOut' }}
+                        transition={{ delay: 1.9, ease: 'easeOut' }}
                         variants={animateLista}
                       >
                         <div className={style.headerGuarnizioni}>
@@ -157,7 +171,7 @@ function SchedaPanino() {
                         initial="initial"
                         animate="animate"
                         exit="exit"
-                        transition={{ delay: 1.9, ease:'easeOut' }}
+                        transition={{ delay: 2.2, ease: 'easeOut' }}
                         variants={animateLista}
                       >
                         <div className={style.headerSalse}>
@@ -173,11 +187,13 @@ function SchedaPanino() {
                           }
                         </ul></motion.div>}
                   </div>
-                </div>
+                </motion.div>
 
               </div>
             </div>
-          </motion.main> <Footer /></> : '...loading'}
+          </motion.main>
+          <Footer />
+        </> : '...loading'}
 
     </AnimatePresence>
   )

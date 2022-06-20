@@ -90,6 +90,7 @@ ul.listaSpec {
   width: 100%;
   height: 120px;
   background-color: v.$darkRed;
+  position: relative;
 
   span {
     max-width: 330px;
@@ -339,4 +340,8 @@ margin: 0 15px;
         }
       }
   }
+}
+
+.immaginePaninoScheda{
+    position: relative;
 }
