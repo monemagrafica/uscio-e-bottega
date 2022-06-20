@@ -9,6 +9,8 @@ const todosCollection = collection(firestore, 'panini');
 function ContextData({children}) {
     const [prodotti, setProdotti] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [selezionePanino, setSelezionePanino] = useState(false)
+    const [openCart, setOpenCart] = useState(false)
 
     const getProdotti = async () => {
 
@@ -36,10 +38,12 @@ function ContextData({children}) {
 
 
 const DataShare = {
-    prodotti: prodotti
+    prodotti: prodotti ? prodotti : false,
+    selezionePanino: selezionePanino,
+    setSelezionePanino: setSelezionePanino,
+    openCart: openCart,
+    setOpenCart: setOpenCart
 }
-
-
     return (
     <ShareContext.Provider value={DataShare}>
       {children}

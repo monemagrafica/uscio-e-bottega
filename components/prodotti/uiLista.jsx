@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 function UiLista({data, infoPanino, index}) {
 
-console.log('info',data);
+
   const animateInfo = {
 
     initial: {

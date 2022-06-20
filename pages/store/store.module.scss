@@ -1,4 +1,4 @@
-@use '../../styles/variabili'as v;
+@use "../../styles/variabili" as v;
 
 .wrapperPanino {
   width: 100%;
@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-.wrapperSchedaPanino{
+.wrapperSchedaPanino {
   height: auto;
   //padding-bottom: 100px;
 }
@@ -43,10 +43,8 @@
     width: 200px;
     text-align: left;
     line-height: 1;
-
-
   }
-  .prezzoScheda{
+  .prezzoScheda {
     font-size: 1.4rem;
     font-family: "short stack";
     background-color: v.$brownBackBtn;
@@ -64,16 +62,15 @@
 }
 
 ul.listaSpec {
-   
-    list-style: none;
-    position: relative;
-    border-radius: 10px;
-    background-color: #e1d3c8;
-    padding: 10px;
-    margin: 0rem 15px 0 -32px;
-    border-radius: 10px;
-    z-index: -1;
-    padding-left: 47px;
+  list-style: none;
+  position: relative;
+  border-radius: 10px;
+  background-color: #e1d3c8;
+  padding: 10px;
+  margin: 0rem 15px 0 -32px;
+  border-radius: 10px;
+  z-index: -1;
+  padding-left: 47px;
 
   li {
     display: flex;
@@ -100,23 +97,16 @@ ul.listaSpec {
 }
 
 .headerSalse {
-
   h3 {
-    margin: 0
+    margin: 0;
   }
-
 }
 
 .headerGuarnizioni {
-
-
-
   h3 {
-    margin: 0
+    margin: 0;
   }
-
 }
-
 
 ul.listaSalse {
   padding: 0;
@@ -133,7 +123,6 @@ ul.listaSalse {
   margin: -26px 10px 0 10px;
   border-radius: 10px;
 
-
   li {
     text-align: center;
     width: 100%;
@@ -141,25 +130,21 @@ ul.listaSalse {
 }
 
 .dati {
-  margin: 4rem 0 0 0;
+  margin: 5rem 0 0 0;
   position: relative;
 }
 
-
-
 .wrapperSpec {
-
   display: flex;
-justify-content: center;
-margin: 0 15px;
- >div {
+  justify-content: center;
+  margin: 0 15px;
+  > div {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 }
-
 
 .wrapperSingolo {
   text-align: center;
@@ -177,7 +162,7 @@ margin: 0 15px;
     font-family: v.$titles;
     margin: 0;
     color: v.$brown;
-  } 
+  }
 }
 
 .listaSpec {
@@ -202,11 +187,10 @@ margin: 0 15px;
     }
   }
 }
-.wrapperListaSpec{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+.wrapperListaSpec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .listaProdotti {
   margin-top: 80px;
@@ -251,10 +235,9 @@ margin: 0 15px;
       margin: 0 auto;
       box-shadow: 2px 1px 4px rgb(0 0 0 / 12%);
       transform: rotate(355deg);
-      transform-origin:center;
+      transform-origin: center;
       position: relative;
 
-    
       border-radius: 5px;
     }
 
@@ -289,7 +272,7 @@ margin: 0 15px;
   }
 }
 
-.footerScheda{
+.footerScheda {
   position: fixed;
   display: flex;
   align-items: center;
@@ -303,7 +286,7 @@ margin: 0 15px;
     text-align: center;
     justify-content: center;
     width: 100%;
-    .backButton{  
+    .backButton {
       background-color: v.$brownBackBtn;
       width: 50px;
       height: 50px;
@@ -312,36 +295,161 @@ margin: 0 15px;
       color: white;
       display: inline-block;
       border-radius: 30px;
-      padding-top: 4px;}
+      padding-top: 4px;
+    }
 
-      .addToCart {
-        background-color: v.$red;
-        width: 230px;
-        height: 50px;
-        line-height: 46px;
-        font-size: 2rem;
-        color: white;
+    .addToCart {
+      background-color: v.$red;
+      width: 230px;
+      height: 50px;
+      line-height: 46px;
+      font-size: 2rem;
+      color: white;
+      display: inline-block;
+      margin-left: 20px;
+      border-radius: 30px;
+
+      .icon {
         display: inline-block;
-        margin-left: 20px;
-        border-radius: 30px;
-  
-        .icon {
-          display: inline-block;
-          height: 100%;
-          vertical-align: middle;
-  
-        }
-  
-        span {
-          display: inline-block;
-          vertical-align: middle;
-          font-size: 1.2rem;
-          height: 100%;
-        }
+        height: 100%;
+        vertical-align: middle;
       }
+
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1.2rem;
+        height: 100%;
+      }
+    }
   }
 }
 
-.immaginePaninoScheda{
-    position: relative;
+.immaginePaninoScheda {
+  position: relative;
+}
+
+//ANCHOR: cart
+.wrapperCart {
+  position: absolute;
+  opacity: 0;
+  bottom: 0px;
+  left: 0;
+  height: 50vh;
+  width: 100%;
+  background-color: v.$backSchedaInfo;
+  z-index: -1;
+  box-shadow: 0px -1px 5px 0px #7b5b4c6b;
+  .headerCart {
+    background-color: v.$midbrown;
+    padding: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+  h2{  font-family: v.$titles; color: v.$brown;margin-right: 15px;}
+  }
+  .close {
+    border: 0;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin: 11px;
+    background-color: #a58164;
+    color: white;
+    font-size: 1rem;
+    line-height: 45px;
+    display: block;
+    
+    svg {
+      position: relative;
+      
+    }
+  }
+}
+
+.wrapperItemCart {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 5px;
+  border-top: 2px solid v.$midbrown;
+  padding: 10px 0;
+  .note {
+    border: 0;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    margin: 0 10px;
+    outline: 0;
+    border-radius: 5px;
+    background-color: v.$brownBackBtn;
+    color: white;
+    font-size: 1rem;
+    line-height: 35px;
+  }
+  .wrapperNomePanino {
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    h2 {
+      font-size: 1rem;
+    }
+  }
+  .dettagli {
+    width: 100%;
+    overflow: hidden;
+
+    ul {
+      width: 100%;
+      position: relative;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: v.$midbrown;
+      li {
+        display: flex;
+        align-items: center;
+        margin: 5px;
+        input {
+          border: 0;
+          outline: 0;
+        }
+      }
+    }
+  }
+  .cartQuantita {
+    display: flex;
+
+    button {
+      border: 0;
+      height: 30px;
+      width: 30px;
+      padding: 0;
+      margin: 0 10px;
+      outline: 0;
+      border-radius: 5px;
+      background-color: v.$brownBackBtn;
+      color: white;
+      font-size: 1rem;
+      line-height: 35px;
+    }
+    .inputQuantita {
+      input {
+        border: 0;
+        height: 30px;
+        max-width: 40px;
+        padding: 0;
+        margin: 0;
+        outline: 0;
+        border-radius: 5px;
+        text-align: center;
+      }
+    }
+  }
 }

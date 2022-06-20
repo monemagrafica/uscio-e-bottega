@@ -2,6 +2,8 @@ import React from 'react'
 import {BiMenu, BiSearchAlt, BiCart} from 'react-icons/bi'
 
 function Navbar() {
+
+
   return (
     <nav>
     <div className="trigger">

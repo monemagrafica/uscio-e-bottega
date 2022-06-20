@@ -15,7 +15,7 @@ const animateLista = {
 }
 const animatePanino = {
     initial: { opacity: 0, top: '30vh', scale: 0.5 },
-    animate: { opacity: 1, top: ['30vh', '30vh', '0vh'], scale: 1, transition: { duration: .7, ease: 'easeOut' } },
+    animate: { opacity: 1, top: ['30vh', '30vh', "30vh", '0vh'], scale: 1, transition: { duration: .7, ease: [0.89, 0, 0.97, 0.49]  } },
     exit: { opacity: 0 },
 }
 const animateOpacity = {
@@ -24,10 +24,22 @@ const animateOpacity = {
     exit: { opacity: 0 }
 }
 
+const animateCart = {
+    initial: { opacity: 0,bottom:-50, zIndex:0 },
+    animate: { opacity: 1,bottom:0, zIndex:1 },
+    exit: { opacity: 0, bottom:-50, zIndex:0 }
+}
+const animateDettagli = {
+    initial: { top: -50 },
+    animate: { top:0,  transition:{duration: .5} },
+    exit: { top:-50 }
+}
 export {
     animateTitle,
     animatePrezzo,
     animateLista,
     animatePanino,
-    animateOpacity
+    animateOpacity,
+    animateCart,
+    animateDettagli
 }
