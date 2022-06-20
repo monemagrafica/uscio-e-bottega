@@ -62,20 +62,19 @@ nav .search {
 
 //ANCHOR: Layout
 .layout{
-  height: 100vh;
-}
-.wrapper-main{
-
-  height: 82%;
-  overflow: scroll;
+  height: 100%;
 }
 .wrapper-main.store{
-
-  height: 100%;
-  overflow: scroll;
+  height: 80%;
+  overflow: visible;
+  margin-bottom: 0;
 }
 
-
+.wrapper-main{
+  
+  overflow: scroll;
+  margin-bottom: 90px;
+}
 //ANCHOR: LOGIN PAGE
 .login-page {
   display: flex;
