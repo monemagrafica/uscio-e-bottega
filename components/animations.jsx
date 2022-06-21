@@ -25,9 +25,9 @@ const animateOpacity = {
 }
 
 const animateCart = {
-    initial: { opacity: 0,bottom:-50, zIndex:0 },
-    animate: { opacity: 1,bottom:0, zIndex:1 },
-    exit: { opacity: 0, bottom:-50, zIndex:0 }
+    initial: { opacity: 0,top:'100%' },
+    animate: { opacity: 1,top:'0', transition:{duration:.7,ease: [0.89, 0, 0.97, 1]  }},
+    exit: { opacity: 0, top:'100%', transition:{duration:.7, ease: [0.89, 0, 0.97, 1] } }
 }
 const animateDettagli = {
     initial: { top: -50 },
