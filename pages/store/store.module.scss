@@ -349,7 +349,11 @@ ul.listaSalse {
     justify-content: space-between;
     align-items: center;
     padding: 0px;
-  h2{  font-family: v.$titles; color: v.$brown;margin-right: 15px;}
+    h2 {
+      font-family: v.$titles;
+      color: v.$brown;
+      margin-right: 15px;
+    }
   }
   .close {
     border: 0;
@@ -362,10 +366,9 @@ ul.listaSalse {
     font-size: 1rem;
     line-height: 45px;
     display: block;
-    
+
     svg {
       position: relative;
-      
     }
   }
 }
@@ -383,7 +386,7 @@ ul.listaSalse {
     height: 30px;
     width: 30px;
     padding: 0;
-    margin: 0 10px;
+    margin: 0 7px;
     outline: 0;
     border-radius: 5px;
     background-color: v.$brownBackBtn;
@@ -400,10 +403,29 @@ ul.listaSalse {
       font-size: 1rem;
     }
   }
+
   .dettagli {
     width: 100%;
     overflow: hidden;
+    
+    
+    .wrapperDettagli {
+      position: relative;
+      margin-top: -100%;
+      transition: margin-top ease-out .5s;
+      &.dettagliOpen{
+        opacity: 1;
+        margin-top: 0;
 
+      }
+    }
+    .noteDettagli {
+      display: flex;
+      justify-content: space-around;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: v.$brownNoteDettagli;
+    }
     ul {
       width: 100%;
       position: relative;
@@ -418,6 +440,9 @@ ul.listaSalse {
         display: flex;
         align-items: center;
         margin: 5px;
+        padding: 5px;
+        background: v.$brownNeon;
+        border-radius: 5px;
         input {
           border: 0;
           outline: 0;
@@ -455,3 +480,4 @@ ul.listaSalse {
     }
   }
 }
+

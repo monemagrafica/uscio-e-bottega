@@ -26,13 +26,13 @@ const animateOpacity = {
 
 const animateCart = {
     initial: { opacity: 0,top:'100%' },
-    animate: { opacity: 1,top:'0', transition:{duration:.7,ease: [0.89, 0, 0.97, 1]  }},
-    exit: { opacity: 0, top:'100%', transition:{duration:.7, ease: [0.89, 0, 0.97, 1] } }
+    animate: { opacity: 1,top:'0', transition:{duration:.5,ease: [0, 0, 0.97, 1]  }},
+    exit: { opacity: 0, top:'100%', transition:{duration:.5, ease: [0, 0, 0.97, 1] } }
 }
 const animateDettagli = {
-    initial: { top: -50 },
-    animate: { top:0,  transition:{duration: .5} },
-    exit: { top:-50 }
+    initial: { marginTop: '-100%' },
+    animate: { marginTop:0,  transition:{duration: .5} },
+    exit: { marginTop:'-100%', transition:{duration: .5} }
 }
 export {
     animateTitle,

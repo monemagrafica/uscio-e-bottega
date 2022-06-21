@@ -22,9 +22,9 @@ function Cart({ dati, openCart, setOpenCart }) {
             >
                 <div className={style.headerCart}><button className={style.close} onClick={() => setOpenCart(false)}><BiArrowBack /></button> <h2>Il tuo carrello</h2></div>
                 <div className={style.wrapperItemCart}>
-                {(dati.ingredients.mapValue.fields.Salse) && <button className={style.note} onClick={()=>setDettagli((prevState)=> !prevState)}><BiChevronDown /></button> } 
+                <button className={style.note} onClick={()=>setDettagli((prevState)=> !prevState)}><BiChevronDown /></button> 
                     <div className={style.wrapperNomePanino}>
-                        <Image src={dati.svg.stringValue} width={60} height={60} alt="immagine panino" />
+                        <Image src={dati.svg.stringValue} width={50} height={50} alt="immagine panino" />
                         <h2>{dati.name.stringValue}</h2>
                     </div>
                   <Quantita qt={dati.quantita}/>
