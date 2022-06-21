@@ -1,13 +1,17 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import style from '../../pages/store/store.module.scss'
 import { BiArrowBack } from 'react-icons/bi'
 import Link from 'next/link'
+import { ToasterAggiuntoCart } from '../toaster/toaster'
 
-function Footer({datiPanino, setSelezionePanino, setOpenCart}) {
- 
+
+function Footer({datiPanino, setSelezionePanino}) {
+const [openToaster, setOpenToaster] = useState(false)
+
   function setCart (datiPanino) {
     setSelezionePanino({...datiPanino, quantita:1})
-    setOpenCart(true)
+    setOpenToaster(true)
+  
   }
     return (
         <footer className={style.footerScheda}>
@@ -20,6 +24,7 @@ function Footer({datiPanino, setSelezionePanino, setOpenCart}) {
                   onClick={()=>setCart(datiPanino)}
                 ><div className={style.icon}>+</div> <span>Aggiungi al carrello</span></div>
               </div>
+<ToasterAggiuntoCart />
         </footer>
     )
 }

@@ -3,7 +3,7 @@ import Navbar from '../navbar/navbar'
 import { useRouter } from 'next/router';
 import Cart from '../cart/cart';
 import { ShareContext } from '../../context/context';
-import {  AnimatePresence } from 'framer-motion'
+
 function Layout({ children }) {
 
     const router = useRouter()
@@ -12,14 +12,12 @@ function Layout({ children }) {
 
     return (
         <div className="layout">
-            {router.asPath !== '/' && <Navbar />}
+            {router.asPath !== '/' && <Navbar statoCarrello={dati.selezionePanino ? true : false} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />}
             <>
                 {children}
-                {
-                        <Cart dati={dati?.selezionePanino} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />
-                   }
+                <Cart dati={dati?.selezionePanino} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />
             </>
-
+          
         </div>
 
     )

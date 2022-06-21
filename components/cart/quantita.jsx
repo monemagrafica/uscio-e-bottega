@@ -13,7 +13,7 @@ function Quantita({qt}) {
         <div className={style.cartQuantita}>
             <button className="more" onClick={()=>less(quantita)}><BiMinus />
             </button><label htmlFor="quantita" className={style.inputQuantita}>
-                <input ref={quantita} value={qt} type='number' id="quantita" /></label>
+                <input ref={quantita} defaultValue={qt} type='number' id="quantita" /></label>
             <button className="more" onClick={()=>more(quantita)}><BiPlus /></button>
         </div>
     )

@@ -29,10 +29,10 @@ const animateCart = {
     animate: { opacity: 1,top:'0', transition:{duration:.5,ease: [0, 0, 0.97, 1]  }},
     exit: { opacity: 0, top:'100%', transition:{duration:.5, ease: [0, 0, 0.97, 1] } }
 }
-const animateDettagli = {
-    initial: { marginTop: '-100%' },
-    animate: { marginTop:0,  transition:{duration: .5} },
-    exit: { marginTop:'-100%', transition:{duration: .5} }
+const animateEmptyCart = {
+    initial: { top: [-30] },
+    animate: { top:[-30, 0, 0, 0 -30 ],  transition:{duration: 2} },
+   
 }
 export {
     animateTitle,
@@ -41,5 +41,6 @@ export {
     animatePanino,
     animateOpacity,
     animateCart,
-    animateDettagli
+    animateEmptyCart
+  
 }

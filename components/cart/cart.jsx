@@ -8,7 +8,7 @@ import Dettagli from './dettagli'
 import {BiChevronDown,BiArrowBack } from 'react-icons/bi'
 
 function Cart({ dati, openCart, setOpenCart }) {
-    console.log(dati)
+    
     
     const [dettagli, setDettagli] = useState(false)
 

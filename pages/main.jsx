@@ -6,7 +6,7 @@ import Layout from '../components/layout/layout'
 import {motion} from 'framer-motion'
 function Main() {
     return (
-        <Layout>
+        
             <div>
                 <Head>
                     <title>Uscio e Bottega</title>
@@ -32,7 +32,7 @@ function Main() {
                     </div>
                 </main>
             </div>
-        </Layout>
+      
     )
 }
 

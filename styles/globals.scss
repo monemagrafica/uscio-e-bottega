@@ -1,19 +1,19 @@
+@use "./variabili" as v;
 @import "./fonts";
-@import "./variabili";
 @import "./mixin/media";
-
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: $fontPrimary;
+  font-family: v.$fontPrimary;
   font-size: 16px;
-  background-color: $lightbrown;
+  background-color: v.$lightbrown;
 }
-input, textarea{
-  border:none;
-  outline:none;
+input,
+textarea {
+  border: none;
+  outline: none;
   border-radius: 5px;
 }
 a {
@@ -25,13 +25,13 @@ a {
   box-sizing: border-box;
 }
 
-main{
+main {
   margin-top: 4rem;
   position: relative;
 }
 
 h1 {
-  color: $red;
+  color: v.$red;
   font-size: 50px;
 }
 // ANCHOR: layout
@@ -43,39 +43,65 @@ nav {
   z-index: 100;
   top: 0;
   height: 60px;
-  background-color: $lightbrown;
+  background-color: v.$lightbrown;
   padding-bottom: 5px;
 }
 
 nav .icon {
   font-size: 2rem;
-  color: $brown
+  color: v.$brown;
 }
 
 nav .search {
-  background-color: #DBCCC0;
+  background-color: #dbccc0;
   padding: 12px 30px 10px 30px;
   position: relative;
   top: 0px;
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
 }
-.trigger, .cart{
+.trigger,
+.cart {
   padding: 10px;
+  position: relative;
 }
-
+.empty-cart {
+  position: absolute;
+  top: 17px;
+  left: -83px;
+  background: aliceblue;
+  width: 100px;
+  height: 100px;
+  padding: 3px;
+  font-size: 14px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 50%;
+  color: v.$brown;
+  background-color: v.$red;
+  svg {
+    top: 5px;
+    position: relative;
+    font-size: 2rem;
+  }
+  span {
+    display: block;
+    color: white;
+    line-height: 1;
+    margin-top: 10px;
+  }
+}
 //ANCHOR: Layout
-.layout{
+.layout {
   height: 100%;
 }
-.wrapper-main.store{
+.wrapper-main.store {
   height: 80%;
   overflow: visible;
   margin-bottom: 0;
 }
 
-.wrapper-main{
-  
+.wrapper-main {
   overflow: scroll;
   margin-bottom: 90px;
 }
@@ -111,11 +137,11 @@ nav .search {
       border-radius: 20px;
       border: 0;
       padding: 15px 10px;
-      font-family: $titles;
+      font-family: v.$titles;
       width: 100%;
     }
     button {
-      background-color: $brown;
+      background-color: v.$brown;
       color: white;
       font-size: 1.4rem;
       border-radius: 30px;
@@ -125,7 +151,5 @@ nav .search {
 
 // ANCHOR: lista prodotti
 
-
-.lista-prodotti{
-
+.lista-prodotti {
 }

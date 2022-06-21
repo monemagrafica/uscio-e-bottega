@@ -1,6 +1,6 @@
 import React from 'react'
 import style from '../../pages/store/store.module.scss'
-import { animateDettagli } from '../animations'
+
 
 function Dettagli({ salse, dettagli }) {
     return (
@@ -10,7 +10,7 @@ function Dettagli({ salse, dettagli }) {
                 {salse && <ul>
                     {salse.map((item, index) => {
                         return (<li key={index}>
-                            <input type="checkbox" id={item.stringValue} name={item.stringValue} value={item.stringValue} />
+                            <input type="checkbox" id={item.stringValue} name={item.stringValue} defaultValue={item.stringValue} />
                             <label htmlFor={item.stringValue}>{item.stringValue}</label><br></br>
                         </li>)
                     })}
