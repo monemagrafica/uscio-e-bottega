@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react'
 import style from '../../pages/store/store.module.scss'
 import { BiPlus, BiMinus } from 'react-icons/bi'
-function Quantita({qt}) {
+function Quantita() {
+
     const quantita = useRef()
     function more (inputRef){
         inputRef.current.value++
@@ -13,7 +14,7 @@ function Quantita({qt}) {
         <div className={style.cartQuantita}>
             <button className="more" onClick={()=>less(quantita)}><BiMinus />
             </button><label htmlFor="quantita" className={style.inputQuantita}>
-                <input ref={quantita} defaultValue={qt} type='number' id="quantita" /></label>
+                <input ref={quantita} defaultValue={0} type='number' id="quantita" /></label>
             <button className="more" onClick={()=>more(quantita)}><BiPlus /></button>
         </div>
     )

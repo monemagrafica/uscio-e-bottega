@@ -234,7 +234,7 @@ ul.listaSalse {
     span {
       display: block;
       background-color: v.$brownBackBtn;
-      outline: 3px solid white;
+      outline: 3px solid v.$brownNeon;
       padding: 7px 15px;
       width: 140px;
       margin: 0 auto;
@@ -461,8 +461,7 @@ ul.listaSalse {
       display: flex;
       flex-wrap: wrap;
       margin: 0;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding: 20px 10px;
       background-color: v.$midbrown;
 
       li {

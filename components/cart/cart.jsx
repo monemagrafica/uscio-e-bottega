@@ -27,7 +27,7 @@ function Cart({ dati, openCart, setOpenCart }) {
                         <Image src={dati.svg.stringValue} width={50} height={50} alt="immagine panino" />
                         <h2>{dati.name.stringValue}</h2>
                     </div>
-                  <Quantita qt={dati.quantita}/>
+                  <Quantita />
                   { <Dettagli dettagli={dettagli} salse={dati.ingredients.mapValue.fields.Salse?.arrayValue.values} />}
                 </div>
             </motion.div>}

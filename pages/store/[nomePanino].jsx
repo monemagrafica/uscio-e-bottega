@@ -20,18 +20,20 @@ function SchedaPanino() {
   const dati = useContext(ShareContext)
 
   useEffect(() => {
-
     if (dati.prodotti.length !== 0) setDatiContext(true)
-
   }, [dati])
+
+
   const router = useRouter()
+
   const slug = router.query.nomePanino
+
   let datiPanino = datiContext && dati.prodotti.filter((item) => item._document.data.value.mapValue.fields.slug.stringValue === slug)
   datiPanino = datiPanino && datiPanino[0]?._document.data.value.mapValue.fields
   const listaIngredienti = datiPanino && datiPanino.ingredients.mapValue.fields
 
 
-
+console.log(dati.selezionePanino);
   return (
 
     <AnimatePresence>
@@ -173,10 +175,10 @@ function SchedaPanino() {
               </div>
             </div>
           </motion.main>
-          <Footer 
-          datiPanino={datiPanino} 
-          setSelezionePanino={dati.setSelezionePanino} 
-         />
+          <Footer
+            datiPanino={datiPanino}
+            setSelezionePanino={dati.setSelezionePanino}
+          />
         </> : '...loading'}
 
     </AnimatePresence>

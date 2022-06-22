@@ -28,4 +28,4 @@ function ToasterAggiuntoCart({openToaster}) {
     , document.body)
 }
 
-export  {ToasterAggiuntoCart}
+export default memo(ToasterAggiuntoCart)
