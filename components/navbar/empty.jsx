@@ -7,7 +7,7 @@ function Empty({animateC, statoCarrello}) {
     {(animateC && !statoCarrello) &&
         <motion.div className="empty-cart"
             initial={{ top: -150, rotate: 180 }}
-            animate={{ top: 0, rotate:360, transition: { duration: 1.5, ease:'easeOut' } }}
+            animate={{ top: 0, rotate:360, transition: { duration: 1, ease:'easeOut' } }}
             exit={{top:-150}}
         >
             <BiSad /> <span>Carrello vuoto e triste</span>

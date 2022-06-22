@@ -26,13 +26,18 @@ const animateOpacity = {
 
 const animateCart = {
     initial: { opacity: 0,top:'100%' },
-    animate: { opacity: 1,top:'0', transition:{duration:.5, ease:[0,.84,.62,.33]  }},
-    exit: { opacity: 0, top:'100%', transition:{duration:.5, ease: 'easeOut' } }
+    animate: { opacity: 1,top:'60px', transition:{duration:.5, ease:[0,.84,.62,.33]  }},
+    exit: { opacity: 0, top:'100%', transition:{duration:1, ease: 'easeOut' } }
 }
 const animateEmptyCart = {
     initial: { top: [-30] },
     animate: { top:[-30, 0, 0, 0 -30 ],  transition:{duration: 2} },
    
+}
+const animateRiepilogo = {
+    initial: { opacity: 0,left:'100%' },
+    animate: { opacity: 1,left:'0px', transition:{duration:.5, ease:[0,.84,.62,.33]  }},
+    exit: { opacity: 0, left:'100%', transition:{duration:.5, ease: 'easeOut' } }
 }
 export {
     animateTitle,
@@ -41,6 +46,7 @@ export {
     animatePanino,
     animateOpacity,
     animateCart,
-    animateEmptyCart
+    animateEmptyCart,
+    animateRiepilogo
   
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import style from '../../pages/store/store.module.scss'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 function Plus1({ plusOne, setPlusOne }) {
 

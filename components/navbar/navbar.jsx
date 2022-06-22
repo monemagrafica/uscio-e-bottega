@@ -10,15 +10,17 @@ function Navbar({ setOpenCart, statoCarrello }) {
     useEffect(() => {
 
             if (animateC) {
-                setTimeout(() => setAnimateC(false), 1500)
+                setTimeout(() => setAnimateC(false), 2000)
             }
      
     }, [animateC]);
 
     const handleStatoCarrello = () => {
+      if(statoCarrello){
         setOpenCart((prevState) => !prevState)
-        setAnimateC(true)
-    }
+       }
+        setAnimateC(true)}
+    
 
     return (
         <nav>

@@ -316,7 +316,7 @@ ul.listaSalse {
       margin-left: 20px;
       border-radius: 30px;
       touch-action: pan-x;
-      position:relative;
+      position: relative;
 
       .icon {
         display: inline-block;
@@ -334,15 +334,26 @@ ul.listaSalse {
   }
 }
 
+.buttonOrdine {
+  background-color: v.$brownBackBtn;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  font-family: v.$titles;
+  font-size: 1rem;
+  display: block;
+  margin: 1rem 1rem 0 auto;
+}
+
 .immaginePaninoScheda {
   position: relative;
 }
 
 //ANCHOR: cart
 .wrapperCart {
-  position: absolute;
+  position: fixed;
   opacity: 0;
-  padding: 60px 0 0 0;
+
   left: 0;
   height: 100%;
   width: 100%;
@@ -421,7 +432,8 @@ ul.listaSalse {
   .dettagli {
     width: 100%;
     overflow: hidden;
-
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 
     .wrapperDettagli {
       position: relative;
@@ -515,15 +527,62 @@ ul.listaSalse {
 
 ///ANCHOR: plusOne
 
-.plusOne{
+.plusOne {
   position: absolute;
   background-color: v.$red;
   box-shadow: 0px 0px 2px #813333;
   color: white;
   font-size: 2rem;
   border-radius: 50%;
-  width:30px;
-  height:30px;
+  width: 30px;
+  height: 30px;
   line-height: 30px;
   left: 15px;
+}
+
+//ANCHOR: riepilogo
+
+.riepilogo {
+  background-color: v.$lightbrown;
+  top: 60px;
+
+
+  .wrapperItemriepilogo{
+    background-color: v.$brownNeon;
+    margin: 15px;
+    border-radius: 15px;
+  }
+  li {
+    display: flex;
+  }
+  .immagineRiepilogo{
+    width: 100px;
+  }
+  .totale {
+    text-align: right;
+    padding:0 15px;
+
+    h2 {
+      margin: 0;
+      border-bottom: 2px dotted v.$brownBackBtn;
+    }
+
+    .prezzoTotale {
+      font-size: 2rem;
+
+    }
+  }
+
+  .itemRiepilogo {
+    margin-left: 10px;
+
+    span {
+      font-weight: bold;
+    }
+
+    h2 {
+      margin: 0;
+      font-family:v.$titles;
+    }
+  }
 }

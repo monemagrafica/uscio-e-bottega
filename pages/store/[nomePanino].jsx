@@ -33,7 +33,6 @@ function SchedaPanino() {
   const listaIngredienti = datiPanino && datiPanino.ingredients.mapValue.fields
 
 
-console.log(dati.selezionePanino);
   return (
 
     <AnimatePresence>
@@ -141,8 +140,8 @@ console.log(dati.selezionePanino);
 
                         </div>
                         <ul className={style.listaSalse}>
-                          {listaIngredienti['Verdure o guarnizioni'].arrayValue.values.map((item, index) => {
-                            return (<li key={index}>
+                          {listaIngredienti['Verdure o guarnizioni'].arrayValue.values.map((item) => {
+                            return (<li key={item.stringValue}>
                               <span>{item.stringValue}</span>
                             </li>
                             )
@@ -161,8 +160,8 @@ console.log(dati.selezionePanino);
                           <Image src="/images/salsa.svg" width={70} height={70} layout="fixed" alt="icona panino" />
                         </div>
                         <ul className={style.listaSalse}>
-                          {listaIngredienti['Salse'].arrayValue.values.map((item, index) => {
-                            return (<li key={index}>
+                          {listaIngredienti['Salse'].arrayValue.values.map((item) => {
+                            return (<li key={item.stringValue}>
                               <span className={style.title}>{item.stringValue}</span>
                             </li>
                             )
