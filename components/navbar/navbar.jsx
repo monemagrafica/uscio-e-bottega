@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { BiMenu, BiSearchAlt, BiCart, BiSad } from 'react-icons/bi'
-import { motion, AnimatePresence } from 'framer-motion'
+import { BiMenu, BiSearchAlt, BiCart } from 'react-icons/bi'
 
+import Empty from './empty'
 function Navbar({ setOpenCart, statoCarrello }) {
 
     const [animateC, setAnimateC] = useState(false)
 
 
     useEffect(() => {
-        setTimeout(() => {
+
             if (animateC) {
-                setTimeout(() => setAnimateC(false), 1000)
+                setTimeout(() => setAnimateC(false), 1500)
             }
-        }, 2000); 
-
-
+     
     }, [animateC]);
 
     const handleStatoCarrello = () => {
@@ -38,16 +36,7 @@ function Navbar({ setOpenCart, statoCarrello }) {
                 <div className="icon">
                     <BiCart />
                 </div>
-                <AnimatePresence>
-                    {(animateC && !statoCarrello) &&
-                        <motion.div className="empty-cart"
-                            initial={{ top: -150, rotate: 180 }}
-                            animate={{ top: 0, rotate:360, transition: { duration: 1, ease:'easeOut' } }}
-                            exit={{top:-150}}
-                        >
-                            <BiSad /> <span>Carrello vuoto e triste</span>
-                        </motion.div>}
-                </AnimatePresence>
+       <Empty animateC={animateC} statoCarrello={statoCarrello} />
             </div>
         </nav>
     )

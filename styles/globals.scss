@@ -149,7 +149,22 @@ nav .search {
   }
 }
 
+
 // ANCHOR: lista prodotti
 
 .lista-prodotti {
+}
+
+//ANCHOR: toaster
+
+.Toastify__toast-container {
+  z-index: 102;
+}
+div#addedPanino {
+background-color: v.$green;
+color: white;
+font-family: v.$titles;
+height: 100px;
+text-align: center;
+
 }

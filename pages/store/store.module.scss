@@ -1,4 +1,4 @@
-@use "../../styles/variabili" as v;
+@use "../../styles/variabili"as v;
 
 .wrapperPanino {
   width: 100%;
@@ -44,6 +44,7 @@
     text-align: left;
     line-height: 1;
   }
+
   .prezzoScheda {
     font-size: 1.4rem;
     font-family: "short stack";
@@ -138,7 +139,8 @@ ul.listaSalse {
   display: flex;
   justify-content: center;
   margin: 0 15px;
-  > div {
+
+  >div {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -187,11 +189,13 @@ ul.listaSalse {
     }
   }
 }
+
 .wrapperListaSpec {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .listaProdotti {
   margin-top: 80px;
   position: relative;
@@ -226,6 +230,7 @@ ul.listaSalse {
     line-height: 1;
     position: relative;
     left: -3px;
+
     span {
       display: block;
       background-color: v.$brownBackBtn;
@@ -281,11 +286,13 @@ ul.listaSalse {
   width: 100%;
   bottom: 0px;
   z-index: 1;
+
   .wrapSchedaNav {
     display: flex;
     text-align: center;
     justify-content: center;
     width: 100%;
+
     .backButton {
       background-color: v.$brownBackBtn;
       width: 50px;
@@ -308,6 +315,8 @@ ul.listaSalse {
       display: inline-block;
       margin-left: 20px;
       border-radius: 30px;
+      touch-action: pan-x;
+      position:relative;
 
       .icon {
         display: inline-block;
@@ -349,12 +358,15 @@ ul.listaSalse {
     justify-content: space-between;
     align-items: center;
     padding: 0px;
+    margin-bottom: 1rem;
+
     h2 {
       font-family: v.$titles;
       color: v.$brown;
       margin-right: 15px;
     }
   }
+
   .close {
     border: 0;
     border-radius: 50%;
@@ -379,8 +391,9 @@ ul.listaSalse {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 5px;
-  border-top: 2px solid v.$midbrown;
+  border-top: 3px dotted v.$midbrown;
   padding: 10px 0;
+
   .note {
     border: 0;
     height: 30px;
@@ -394,6 +407,7 @@ ul.listaSalse {
     font-size: 1rem;
     line-height: 35px;
   }
+
   .wrapperNomePanino {
     display: flex;
     flex: 1;
@@ -407,25 +421,39 @@ ul.listaSalse {
   .dettagli {
     width: 100%;
     overflow: hidden;
-    
-    
+
+
     .wrapperDettagli {
       position: relative;
       margin-top: -100%;
       transition: margin-top ease-out .5s;
-      &.dettagliOpen{
+
+      &.dettagliOpen {
         opacity: 1;
         margin-top: 0;
 
       }
     }
+
     .noteDettagli {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       padding-top: 10px;
       padding-bottom: 10px;
       background-color: v.$brownNoteDettagli;
+
+      h3 {
+        background-color: v.$brownNeon;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        line-height: 38px;
+        font-size: 1rem;
+        text-align: center;
+        margin-right: 1rem;
+      }
     }
+
     ul {
       width: 100%;
       position: relative;
@@ -436,6 +464,7 @@ ul.listaSalse {
       padding-top: 10px;
       padding-bottom: 10px;
       background-color: v.$midbrown;
+
       li {
         display: flex;
         align-items: center;
@@ -443,6 +472,7 @@ ul.listaSalse {
         padding: 5px;
         background: v.$brownNeon;
         border-radius: 5px;
+
         input {
           border: 0;
           outline: 0;
@@ -450,6 +480,7 @@ ul.listaSalse {
       }
     }
   }
+
   .cartQuantita {
     display: flex;
 
@@ -466,6 +497,7 @@ ul.listaSalse {
       font-size: 1rem;
       line-height: 35px;
     }
+
     .inputQuantita {
       input {
         border: 0;
@@ -481,3 +513,18 @@ ul.listaSalse {
   }
 }
 
+
+///ANCHOR: plusOne
+
+.plusOne{
+  position: absolute;
+  background-color: v.$red;
+  box-shadow: 0px 0px 2px #813333;
+  color: white;
+  font-size: 2rem;
+  border-radius: 50%;
+  width:30px;
+  height:30px;
+  line-height: 30px;
+  left: 15px;
+}

@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import ReactDOM from "react-dom"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { memo } from "react";
+function ToasterAggiuntoCart({openToaster}) {
 
-function ToasterAggiuntoCart({ statoCarrello }) {
-    const [carrelloUpdate, setCarrelloUpdate] = useState(false)
+   
+   
 
-    useEffect(() => {
-
-        setCarrelloUpdate((prevState)=> (prevState === true & statoCarrello) ? false : true )
-        
-    }, [statoCarrello])
-
-    if (carrelloUpdate) {
-        toast('🦄 Wow so easy!', {
-            position: "top-right",
+    if (openToaster) {
+        toast('Panino aggiunto al carrello!', {
+            position: "bottom-right",
             toastId: 'addedPanino',
             autoClose: 2000,
             hideProgressBar: true,
@@ -24,11 +21,11 @@ function ToasterAggiuntoCart({ statoCarrello }) {
         });
     }
 
-    return (
-        <div>
+    return ReactDOM.createPortal(
+
             <ToastContainer />
-        </div>
-    )
+       
+    , document.body)
 }
 
 export  {ToasterAggiuntoCart}

@@ -176,7 +176,7 @@ function SchedaPanino() {
           <Footer 
           datiPanino={datiPanino} 
           setSelezionePanino={dati.setSelezionePanino} 
-          setOpenCart={dati.setOpenCart} />
+         />
         </> : '...loading'}
 
     </AnimatePresence>

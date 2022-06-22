@@ -17,7 +17,6 @@ function Layout({ children }) {
                 {children}
                 <Cart dati={dati?.selezionePanino} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />
             </>
-          
         </div>
 
     )
