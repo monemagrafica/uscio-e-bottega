@@ -9,7 +9,7 @@ const todosCollection = collection(firestore, 'panini');
 function ContextData({children}) {
     const [prodotti, setProdotti] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [selezionePanini, setselezionePanini] = useState(false)
+    const [selezionePanini, setselezionePanini] = useState([])
     const [openCart, setOpenCart] = useState(false)
     const [openToaster, setOpenToaster] = useState(false)
 

@@ -6,13 +6,13 @@ import Link from 'next/link'
 import Plus1 from '../cart/plus1'
 
 
-function Footer({ datiPanino, setselezionePanini,setOpenToaster }) {
+function Footer({ datiPanino,selezionePanini, setselezionePanini,setOpenToaster }) {
  
   const [plusOne, setPlusOne] = useState(false)
 
 
   function setCart(newDatiPanino) { 
-    setselezionePanini({ ...newDatiPanino, quantita: newDatiPanino.quantita++ })
+    setselezionePanini([...selezionePanini,{ ...newDatiPanino, quantita: newDatiPanino.quantita++ }])
     setOpenToaster(true)
     setPlusOne(true)
   }
@@ -28,7 +28,6 @@ function Footer({ datiPanino, setselezionePanini,setOpenToaster }) {
           className={style.addToCart}
           onClick={() => setCart(datiPanino)}
         ><div className={style.icon}>+</div> <span>Aggiungi al carrello</span>
-
           <Plus1 plusOne={plusOne}  setPlusOne={setPlusOne} />
         </div>
       </div>

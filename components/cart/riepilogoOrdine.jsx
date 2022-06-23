@@ -7,7 +7,7 @@ import { animateRiepilogo } from '../animations'
 import Image from 'next/image'
 
 function RiepilogoOrdine({ openRiepilogo, setOpenRiepilogo, dati }) {
-    console.log(dati);
+
     return (
         <AnimatePresence>
             {openRiepilogo && <motion.div className={`${style.wrapperCart} ${style.riepilogo}`}
@@ -16,22 +16,23 @@ function RiepilogoOrdine({ openRiepilogo, setOpenRiepilogo, dati }) {
                 animate="animate"
                 exit="exit"
             >
-
                 <div className={style.headerCart}><button className={style.close} onClick={() => setOpenRiepilogo(false)}><BiArrowBack /></button>
                     <h2>Riepilogo ordine</h2>
                 </div>
                 <ul className={style.wrapperItemriepilogo}>
-                    <li>
+                 {dati.map((item)=>{
+                     return ( <li key={item.id.integerValue}>
                         <div className={style.immagineRiepilogo}>
-                            <Image src={dati.svg.stringValue} width={100} height={100} alt="immagine panino" />
+                            <Image src={item.svg.stringValue} width={100} height={100} alt="immagine panino" />
                         </div>
                         <div className={style.itemRiepilogo}>
-                            <h2>{dati.name.stringValue}</h2>
+                            <h2>{item.name.stringValue}</h2>
                             <div><span>Quantita:</span> 34</div>
                             <div><span>Salse:</span> maionese</div>
                             <div><span>Note:</span> se possibile mettere la lattuga invece del radicchio</div>
                         </div>
-                    </li>
+                    </li>)
+                 })  }
                 </ul>
                 <div className={style.totale}>
                     <h2>TOTALE:</h2>

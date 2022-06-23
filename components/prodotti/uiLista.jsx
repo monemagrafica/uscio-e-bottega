@@ -10,18 +10,17 @@ function UiLista({
   data,
   infoPanino,
   index,
+  selezionePanini,
   setselezionePanini,
   setOpenToaster }) {
 
   function setCart(e, newDatiPanino) {
     e.stopPropagation();
-    setselezionePanini({ ...newDatiPanino, quantita: newDatiPanino.quantita++ })
+    setselezionePanini([...selezionePanini,{ ...newDatiPanino, quantita: newDatiPanino.quantita++ }])
     setOpenToaster(true)
     setPlusOne(true)
-    console.log('event', e);
   }
-
-  console.log('test', data);
+console.log('selezionePanini',selezionePanini);
 
   const [plusOne, setPlusOne] = useState(false)
 

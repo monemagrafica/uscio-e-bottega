@@ -177,6 +177,7 @@ function SchedaPanino() {
           <Footer
             datiPanino={datiPanino}
             setselezionePanini={dati.setselezionePanini}
+            selezionePanini={dati.selezionePanini}
             setOpenToaster={dati.setOpenToaster}
           />
         </> : '...loading'}

@@ -23,6 +23,7 @@ function ListaProdotti() {
                         index={index}
                         setInfoPanino={setInfoPanino} 
                         infoPanino={infoPanino}
+                        selezionePanini={share.selezionePanini}
                         setselezionePanini={share.setselezionePanini}
                         openToaster={share.openToaster}
                         setOpenToaster={share.setOpenToaster}

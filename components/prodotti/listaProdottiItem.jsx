@@ -12,6 +12,7 @@ function ListaProdottiItem({
     index,
     setInfoPanino,
     infoPanino,
+    selezionePanini,
     setselezionePanini,
     openToaster,
     setOpenToaster, }) {
@@ -50,6 +51,7 @@ function ListaProdottiItem({
                 infoPanino={infoPanino}
                 index={index}
                 data={datiPanino}
+                selezionePanini={selezionePanini}
                 setselezionePanini={setselezionePanini}
                 openToaster={openToaster}
                 setOpenToaster={setOpenToaster}
