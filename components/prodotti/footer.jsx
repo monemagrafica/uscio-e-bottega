@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import style from '../../pages/store/store.module.scss'
 import { BiArrowBack } from 'react-icons/bi'
 import Link from 'next/link'
-import  ToasterAggiuntoCart  from '../toaster/toaster'
+
 import Plus1 from '../cart/plus1'
 
 
-function Footer({ datiPanino, setSelezionePanino }) {
-  const [openToaster, setOpenToaster] = useState(false)
+function Footer({ datiPanino, setSelezionePanino,setOpenToaster }) {
+ 
   const [plusOne, setPlusOne] = useState(false)
 
 
@@ -32,7 +32,7 @@ function Footer({ datiPanino, setSelezionePanino }) {
           <Plus1 plusOne={plusOne}  setPlusOne={setPlusOne} />
         </div>
       </div>
-      <ToasterAggiuntoCart openToaster={openToaster} />
+
     </footer>
   )
 }

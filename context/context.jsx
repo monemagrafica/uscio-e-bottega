@@ -11,7 +11,7 @@ function ContextData({children}) {
     const [loading, setLoading] = useState(true);
     const [selezionePanino, setSelezionePanino] = useState(false)
     const [openCart, setOpenCart] = useState(false)
-    
+    const [openToaster, setOpenToaster] = useState(false)
 
     const getProdotti = async () => {
 
@@ -43,7 +43,9 @@ const DataShare = {
     selezionePanino: selezionePanino,
     setSelezionePanino: setSelezionePanino,
     openCart: openCart,
-    setOpenCart: setOpenCart
+    setOpenCart: setOpenCart,
+    openToaster: openToaster,
+    setOpenToaster: setOpenToaster
 }
     return (
     <ShareContext.Provider value={DataShare}>

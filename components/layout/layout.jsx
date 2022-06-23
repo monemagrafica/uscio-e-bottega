@@ -3,6 +3,7 @@ import Navbar from '../navbar/navbar'
 import { useRouter } from 'next/router';
 import Cart from '../cart/cart';
 import { ShareContext } from '../../context/context';
+import ToasterAggiuntoCart from '../toaster/toaster'
 
 function Layout({ children }) {
 
@@ -16,8 +17,8 @@ function Layout({ children }) {
             <>
                 {children}
                 <Cart dati={dati?.selezionePanino} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />
-               
             </>
+            <ToasterAggiuntoCart openToaster={dati?.openToaster} />
         </div>
 
     )

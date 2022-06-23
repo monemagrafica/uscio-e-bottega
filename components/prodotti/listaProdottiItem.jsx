@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import Image from 'next/image'
 import ListaSpec from './listaSpec';
 import UiLista from './uiLista';
@@ -7,7 +7,10 @@ import { motion } from 'framer-motion'
 
 
 
+
 function ListaProdottiItem({ item, index, setInfoPanino, infoPanino }) {
+
+
 
 
     const animateListItem = {

@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import ReactDOM from "react-dom"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { memo } from "react";
-function ToasterAggiuntoCart({openToaster}) {
+import React, { memo } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-   
-   
+function ToasterAggiuntoCart({ openToaster }) {
+
+
+
 
     if (openToaster) {
         toast('Panino aggiunto al carrello!', {
@@ -21,11 +20,9 @@ function ToasterAggiuntoCart({openToaster}) {
         });
     }
 
-    return ReactDOM.createPortal(
 
-            <ToastContainer />
-       
-    , document.body)
+      return  <ToastContainer />
+      
 }
 
 export default memo(ToasterAggiuntoCart)
