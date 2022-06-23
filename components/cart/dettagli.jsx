@@ -8,9 +8,10 @@ function Dettagli({ salse, dettagli }) {
 
             <div className={`${[style.wrapperDettagli, dettagli && style.dettagliOpen].join(' ')}`}>
                 {salse && <ul>
-                    {salse.map((item, index) => {
-                        return (<li key={item.stringValue}>
-                            <input type="checkbox" id={item.stringValue} name={item.stringValue} defaultValue={item.stringValue} />
+                    {salse.map((item) => {
+                        return (
+                        <li key={item.stringValue}>
+                            <input type="checkbox" defaultChecked={true}  id={item.stringValue} name={item.stringValue} value={item.stringValue} />
                             <label htmlFor={item.stringValue}>{item.stringValue}</label><br></br>
                         </li>)
                     })}

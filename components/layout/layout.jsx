@@ -16,7 +16,12 @@ function Layout({ children }) {
             {router.asPath !== '/' && <Navbar statoCarrello={dati.selezionePanini.length ? true : false} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />}
             <>
                 {children}
-                <Cart dati={dati?.selezionePanini} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />
+                <Cart 
+                dati={dati?.selezionePanini} 
+                openCart={dati.openCart} 
+                setOpenCart={dati.setOpenCart} 
+                setSelezionaPanini={dati.setSelezionaPanini}
+                />
             </>
             <ToasterAggiuntoCart openToaster={dati?.openToaster} />
         </div>

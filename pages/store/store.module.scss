@@ -168,6 +168,9 @@ ul.listaSalse {
 }
 
 .listaSpec {
+
+  max-width: 340px;
+margin: 0 auto;
   ul {
     padding: 0;
     display: flex;
@@ -203,6 +206,7 @@ ul.listaSalse {
 
 .uiLista {
   position: absolute;
+  box-shadow: 0px 0px 0px 5px #cdb39c;
   top: 0;
   width: 100%;
   height: 100%;
@@ -214,7 +218,6 @@ ul.listaSalse {
   margin-right: auto;
   left: 0;
   right: 0;
-  outline: 5px solid #d1b9a6;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -353,7 +356,7 @@ ul.listaSalse {
 .wrapperCart {
   position: fixed;
   opacity: 0;
-
+  padding-bottom: 70px;
   left: 0;
   height: 100%;
   width: 100%;
@@ -389,10 +392,20 @@ ul.listaSalse {
     font-size: 1rem;
     line-height: 45px;
     display: block;
+    padding: 0;
 
     svg {
       position: relative;
     }
+  }
+  .wrapDatiItem{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #f1dfd2;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 5px;
   }
 }
 
@@ -402,7 +415,7 @@ ul.listaSalse {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 5px;
-  border-top: 3px dotted v.$midbrown;
+  border-top: 2px dotted v.$brownBackBtn;
   padding: 10px 0;
 
   .note {
@@ -426,6 +439,7 @@ ul.listaSalse {
 
     h2 {
       font-size: 1rem;
+      margin-left: 10px;
     }
   }
 
@@ -554,6 +568,7 @@ ul.listaSalse {
   }
   li {
     display: flex;
+    margin-bottom: 1rem;
   }
   .immagineRiepilogo{
     width: 100px;
@@ -565,6 +580,7 @@ ul.listaSalse {
     h2 {
       margin: 0;
       border-bottom: 2px dotted v.$brownBackBtn;
+      font-family: v.$titles;
     }
 
     .prezzoTotale {
