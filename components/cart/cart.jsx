@@ -11,12 +11,15 @@ function Cart({ dati, openCart, setOpenCart, setSelezionaPanini }) {
     const [openRiepilogo, setOpenRiepilogo] = useState(false)
     const [cancelPaninoID, setCancelPaninoID] = useState(false)
     const [datiAggiornati, setDatiAggiornati] = useState()
-console.log(cancelPaninoID);
+    console.log('dati aggiornati',cancelPaninoID);
 
     useEffect(() => {
-       if(cancelPaninoID) {setDatiAggiornati(dati.filter((item)=>item.id.integervalue !== cancelPaninoID))}
-  else{setDatiAggiornati(dati)}
-    },[cancelPaninoID, dati])
+        if (cancelPaninoID) { 
+            setDatiAggiornati(dati.filter((item) => item.id.integerValue !== cancelPaninoID)) 
+            
+        }
+        else { setDatiAggiornati(dati) }
+    }, [cancelPaninoID, dati])
 
     return (
         <AnimatePresence>

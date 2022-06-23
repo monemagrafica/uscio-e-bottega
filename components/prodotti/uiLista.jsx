@@ -16,7 +16,7 @@ function UiLista({
 
   function setCart(e, newDatiPanino) {
     e.stopPropagation();
-    setselezionePanini([...selezionePanini,{ ...newDatiPanino, quantita: 1 }])
+    setselezionePanini([...selezionePanini, { ...newDatiPanino, quantita: 1 }])
     setOpenToaster(true)
     setPlusOne(true)
   }
@@ -26,47 +26,49 @@ function UiLista({
 
   return (
 
-    <> <AnimatePresence>{(infoPanino === index) &&
-      <motion.div
-        className={style.uiLista}
-        variants={animateInfo}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-      >
+    <>
+      <AnimatePresence>{(infoPanino === index) &&
         <motion.div
-          className={style.price}
-          variants={animatePrice}
+          className={style.uiLista}
+          variants={animateInfo}
           initial="initial"
           animate="animate"
+          exit="exit"
         >
-          <span>{data.price.integerValue}.00<BiEuro /></span>
-        </motion.div>
-        <Link href={`/store/${data.slug.stringValue}`} scroll={false}>
           <motion.div
-            className={style.info}
+            className={style.price}
+            variants={animatePrice}
+            initial="initial"
+            animate="animate"
+          >
+            <span>{data.price.integerValue}.00<BiEuro /></span>
+          </motion.div>
+          <Link href={`/store/${data.slug.stringValue}`} scroll={false}>
+            <motion.div
+              className={style.info}
+              variants={animateIcon}
+              initial="initial"
+              animate="animate"
+              transition={{ delay: 0.3, duration: 0.3 }}
+            >i
+            </motion.div>
+          </Link>
+          <motion.div
+            className={style.addToCart}
             variants={animateIcon}
             initial="initial"
             animate="animate"
-            transition={{ delay: 0.3, duration: 0.3 }}
-          >i
+            transition={{ delay: 0.5, duration: 0.3 }}
+            onClick={(e) => setCart(e, data)}
+          >+
+            <Plus1 plusOne={plusOne} setPlusOne={setPlusOne} />
           </motion.div>
-        </Link>
-        <motion.div
-          className={style.addToCart}
-          variants={animateIcon}
-          initial="initial"
-          animate="animate"
-          transition={{ delay: 0.5, duration: 0.3 }}
-          onClick={(e) => setCart(e, data)}
-        >+
-          <Plus1 plusOne={plusOne} setPlusOne={setPlusOne} />
         </motion.div>
-      </motion.div>
 
-    }
+      }
 
-    </AnimatePresence></>
+      </AnimatePresence>
+    </>
   )
 }
 
