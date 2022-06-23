@@ -9,7 +9,7 @@ import { BiArrowBack } from 'react-icons/bi'
 function Cart({ dati, openCart, setOpenCart }) {
 
 
-    const [dettagli, setDettagli] = useState(true)
+
     const [openRiepilogo, setOpenRiepilogo] = useState(false)
     return (
         <AnimatePresence>
@@ -22,7 +22,7 @@ function Cart({ dati, openCart, setOpenCart }) {
                 >
                     <div className={style.headerCart}><button className={style.close} onClick={() => setOpenCart(false)}><BiArrowBack /></button> <h2>Il tuo carrello</h2></div>
 
-                    <ItemCart dati={dati} dettagli={dettagli} setDettagli={setDettagli} />
+                    <ItemCart dati={dati}  />
 
                     <button className={style.buttonOrdine} onClick={() => setOpenRiepilogo(true)}>Riepilogo</button>
                 </motion.div>

@@ -13,10 +13,10 @@ function Layout({ children }) {
 
     return (
         <div className="layout">
-            {router.asPath !== '/' && <Navbar statoCarrello={dati.selezionePanino ? true : false} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />}
+            {router.asPath !== '/' && <Navbar statoCarrello={dati.selezionePanini ? true : false} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />}
             <>
                 {children}
-                <Cart dati={dati?.selezionePanino} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />
+                <Cart dati={dati?.selezionePanini} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />
             </>
             <ToasterAggiuntoCart openToaster={dati?.openToaster} />
         </div>

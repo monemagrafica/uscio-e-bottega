@@ -23,6 +23,9 @@ function ListaProdotti() {
                         index={index}
                         setInfoPanino={setInfoPanino} 
                         infoPanino={infoPanino}
+                        setselezionePanini={share.setselezionePanini}
+                        openToaster={share.openToaster}
+                        setOpenToaster={share.setOpenToaster}
                         />)
             })
             }

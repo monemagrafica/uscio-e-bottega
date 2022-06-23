@@ -4,28 +4,17 @@ import ListaSpec from './listaSpec';
 import UiLista from './uiLista';
 import style from '../../pages/store/store.module.scss'
 import { motion } from 'framer-motion'
+import { animateListItem } from '../animations';
 
 
-
-
-function ListaProdottiItem({ item, index, setInfoPanino, infoPanino }) {
-
-
-
-
-    const animateListItem = {
-        initial: {
-            opacity: 0,
-            top: 20
-        },
-        animate: {
-            opacity: 1,
-            top: 0
-        }
-
-    }
-
-
+function ListaProdottiItem({
+    item,
+    index,
+    setInfoPanino,
+    infoPanino,
+    setselezionePanini,
+    openToaster,
+    setOpenToaster, }) {
 
     const datiPanino = item._document.data.value.mapValue.fields
 
@@ -48,17 +37,24 @@ function ListaProdottiItem({ item, index, setInfoPanino, infoPanino }) {
             initial="initial"
             whileInView="animate"
         >
-            <div>     
+            <div>
                 {datiPanino.svg &&
-                <div className={style.immaginePanino} id={datiPanino.id.integerValue}>
-                    <Image src={datiPanino.svg.stringValue} alt="test" width={200} height={120} layout="responsive" />
-                </div>}
+                    <div className={style.immaginePanino} id={datiPanino.id.integerValue}>
+                        <Image src={datiPanino.svg.stringValue} alt="test" width={200} height={120} layout="responsive" />
+                    </div>}
                 <h2>{datiPanino.name.stringValue}</h2>
                 <ListaSpec item={datiPanino} />
             </div>
-            
-               <UiLista infoPanino={infoPanino} index={index} data={datiPanino} />
-          
+
+            <UiLista
+                infoPanino={infoPanino}
+                index={index}
+                data={datiPanino}
+                setselezionePanini={setselezionePanini}
+                openToaster={openToaster}
+                setOpenToaster={setOpenToaster}
+            />
+
 
         </motion.div>
     )

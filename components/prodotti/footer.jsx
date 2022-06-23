@@ -6,13 +6,13 @@ import Link from 'next/link'
 import Plus1 from '../cart/plus1'
 
 
-function Footer({ datiPanino, setSelezionePanino,setOpenToaster }) {
+function Footer({ datiPanino, setselezionePanini,setOpenToaster }) {
  
   const [plusOne, setPlusOne] = useState(false)
 
 
   function setCart(newDatiPanino) { 
-    setSelezionePanino({ ...newDatiPanino, quantita: newDatiPanino.quantita++ })
+    setselezionePanini({ ...newDatiPanino, quantita: newDatiPanino.quantita++ })
     setOpenToaster(true)
     setPlusOne(true)
   }

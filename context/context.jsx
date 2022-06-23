@@ -9,7 +9,7 @@ const todosCollection = collection(firestore, 'panini');
 function ContextData({children}) {
     const [prodotti, setProdotti] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [selezionePanino, setSelezionePanino] = useState(false)
+    const [selezionePanini, setselezionePanini] = useState(false)
     const [openCart, setOpenCart] = useState(false)
     const [openToaster, setOpenToaster] = useState(false)
 
@@ -40,8 +40,8 @@ function ContextData({children}) {
 
 const DataShare = {
     prodotti: prodotti ? prodotti : false,
-    selezionePanino: selezionePanino,
-    setSelezionePanino: setSelezionePanino,
+    selezionePanini: selezionePanini,
+    setselezionePanini: setselezionePanini,
     openCart: openCart,
     setOpenCart: setOpenCart,
     openToaster: openToaster,

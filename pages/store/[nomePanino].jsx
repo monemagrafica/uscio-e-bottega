@@ -176,7 +176,7 @@ function SchedaPanino() {
           </motion.main>
           <Footer
             datiPanino={datiPanino}
-            setSelezionePanino={dati.setSelezionePanino}
+            setselezionePanini={dati.setselezionePanini}
             setOpenToaster={dati.setOpenToaster}
           />
         </> : '...loading'}

@@ -1,69 +1,73 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from '../../pages/store/store.module.scss'
 import { BiEuro } from 'react-icons/bi'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import { animateInfo, animatePrice, animateIcon } from '../animations'
+import Plus1 from '../cart/plus1'
 
-function UiLista({data, infoPanino, index}) {
+function UiLista({
+  data,
+  infoPanino,
+  index,
+  setselezionePanini,
+  setOpenToaster }) {
 
-
-  const animateInfo = {
-
-    initial: {
-      transform: 'scale(0.8)',
-      opacity: 0
-    },
-    animate: {
-      transform: 'scale(1)',
-      opacity: 1,
-      transition: { type: "spring", stiffness: 60 }
-    },
-    exit:{opacity:0, transform: 'scale(0.9)'}
+  function setCart(e, newDatiPanino) {
+    e.stopPropagation();
+    setselezionePanini({ ...newDatiPanino, quantita: newDatiPanino.quantita++ })
+    setOpenToaster(true)
+    setPlusOne(true)
+    console.log('event', e);
   }
-  const animatePrice = {
-    initial: { opacity: 0, top: -20, rotate: 80 },
-    animate: { opacity: 1, top: 0, rotate:-2, transition: { delay: 0.2, type: "spring", stiffness:100 } }
-  }
-  const animateIcon = {
-    initial: { opacity: 0, top: 20 },
-    animate: { opacity: 1, top: 0 }
-  }
+
+  console.log('test', data);
+
+  const [plusOne, setPlusOne] = useState(false)
+
   return (
-    
-     <> <AnimatePresence>{(infoPanino === index) &&
+
+    <> <AnimatePresence>{(infoPanino === index) &&
+      <motion.div
+        className={style.uiLista}
+        variants={animateInfo}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
         <motion.div
-          className={style.uiLista}
-          variants={animateInfo}
+          className={style.price}
+          variants={animatePrice}
           initial="initial"
           animate="animate"
-          exit="exit"
         >
+          <span>{data.price.integerValue}.00<BiEuro /></span>
+        </motion.div>
+        <Link href={`/store/${data.slug.stringValue}`} scroll={false}>
           <motion.div
-            className={style.price}
-            variants={animatePrice}
-            initial="initial"
-            animate="animate"
-          >
-            <span>{data.price.integerValue}.00<BiEuro /></span>
-          </motion.div>
-          <Link href={`/store/${data.slug.stringValue}`} scroll={false}>
-            <motion.div
-              className={style.info}
-              variants={animateIcon}
-              initial="initial"
-              animate="animate"
-              transition={{ delay: 0.3, duration: 0.3 }}
-            >i
-            </motion.div>
-          </Link>
-          <motion.div
-            className={style.addToCart}
+            className={style.info}
             variants={animateIcon}
             initial="initial"
             animate="animate"
-            transition={{ delay: 0.5, duration: 0.3 }}
-          >+</motion.div>
-        </motion.div>}</AnimatePresence></>
+            transition={{ delay: 0.3, duration: 0.3 }}
+          >i
+          </motion.div>
+        </Link>
+        <motion.div
+          className={style.addToCart}
+          variants={animateIcon}
+          initial="initial"
+          animate="animate"
+          transition={{ delay: 0.5, duration: 0.3 }}
+          onClick={(e) => setCart(e, data)}
+        >+
+          <Plus1 plusOne={plusOne} setPlusOne={setPlusOne} />
+        </motion.div>
+      </motion.div>
+
+    }
+
+    </AnimatePresence></>
   )
 }
 

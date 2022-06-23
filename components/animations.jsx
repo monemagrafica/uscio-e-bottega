@@ -15,7 +15,7 @@ const animateLista = {
 }
 const animatePanino = {
     initial: { opacity: 0, top: '30vh', scale: 0.5 },
-    animate: { opacity: 1, top: ['30vh', '30vh', "30vh", '0vh'], scale: 1, transition: { duration: .7, ease: [0.89, 0, 0.97, 0.49]  } },
+    animate: { opacity: 1, top: ['30vh', '30vh', "30vh", '0vh'], scale: 1, transition: { duration: .7, ease: [0.89, 0, 0.97, 0.49] } },
     exit: { opacity: 0 },
 }
 const animateOpacity = {
@@ -25,20 +25,42 @@ const animateOpacity = {
 }
 
 const animateCart = {
-    initial: { opacity: 0,top:'100%' },
-    animate: { opacity: 1,top:'60px', transition:{duration:.5, ease:[0,.84,.62,.33]  }},
-    exit: { opacity: 0, top:'100%', transition:{duration:1, ease: 'easeOut' } }
+    initial: { opacity: 0, top: '100%' },
+    animate: { opacity: 1, top: '60px', transition: { duration: .5, ease: [0, .84, .62, .33] } },
+    exit: { opacity: 0, top: '100%', transition: { duration: 1, ease: 'easeOut' } }
 }
 const animateEmptyCart = {
     initial: { top: [-30] },
-    animate: { top:[-30, 0, 0, 0 -30 ],  transition:{duration: 2} },
-   
+    animate: { top: [-30, 0, 0, 0 - 30], transition: { duration: 2 } },
+
 }
 const animateRiepilogo = {
-    initial: { opacity: 0,left:'100%' },
-    animate: { opacity: 1,left:'0px', transition:{duration:.5, ease:[0,.84,.62,.33]  }},
-    exit: { opacity: 0, left:'100%', transition:{duration:.5, ease: 'easeOut' } }
+    initial: { opacity: 0, left: '100%' },
+    animate: { opacity: 1, left: '0px', transition: { duration: .5, ease: [0, .84, .62, .33] } },
+    exit: { opacity: 0, left: '100%', transition: { duration: .5, ease: 'easeOut' } }
 }
+
+const animateListItem = {
+    initial: {opacity: 0, top: 20 },
+    animate: { opacity: 1, top: 0 }
+}
+const animateInfo = {
+    initial: { transform: 'scale(0.8)', opacity: 0},
+    animate: {transform: 'scale(1)', opacity: 1, transition: { type: "spring", stiffness: 60 } },
+    exit:{opacity:0, transform: 'scale(0.9)'}
+  }
+  const animatePrice = {
+    initial: { opacity: 0, top: -20, rotate: 80 },
+    animate: { opacity: 1, top: 0, rotate:-2, transition: { delay: 0.2, type: "spring", stiffness:100 } }
+  }
+  const animateIcon = {
+    initial: { opacity: 0, top: 20 },
+    animate: { opacity: 1, top: 0 }
+  }
+
+
+
+
 export {
     animateTitle,
     animatePrezzo,
@@ -47,6 +69,9 @@ export {
     animateOpacity,
     animateCart,
     animateEmptyCart,
-    animateRiepilogo
-  
+    animateRiepilogo,
+    animateListItem,
+    animateInfo,
+    animatePrice,
+    animateIcon
 }

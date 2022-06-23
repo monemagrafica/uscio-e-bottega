@@ -363,7 +363,7 @@ ul.listaSalse {
   overflow: scroll;
 
   .headerCart {
-    background-color: v.$midbrown;
+    background-color: v.$brownBackHeadCart;
     padding: 1px;
     display: flex;
     justify-content: space-between;
@@ -373,7 +373,7 @@ ul.listaSalse {
 
     h2 {
       font-family: v.$titles;
-      color: v.$brown;
+      color: v.$lightbrown;
       margin-right: 15px;
     }
   }

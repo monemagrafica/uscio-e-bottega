@@ -1,11 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
 import style from '../../pages/store/store.module.scss'
 import Quantita from './quantita'
 import Dettagli from './dettagli'
 import { BiChevronDown } from 'react-icons/bi'
 import Image from 'next/image'
 
-function ItemCart({dati, dettagli, setDettagli}) {
+function ItemCart({dati}) {
+
+
+  const [dettagli, setDettagli] = useState(true)
+
   return (
 <div className={style.wrapperItemCart}>
     <button className={style.note} onClick={() => setDettagli((prevState) => !prevState)}><BiChevronDown /></button>
