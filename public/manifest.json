@@ -1,7 +1,7 @@
 {
     "theme_color": "#D4C9A7",
     "background_color": "#D4C9A7",
-    "display": "browser",
+    "display": "standalone",
     "scope": "/",
     "start_url": "/",
     "name": "Uscio e Bottega",
