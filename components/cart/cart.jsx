@@ -9,17 +9,8 @@ import { BiArrowBack } from 'react-icons/bi'
 function Cart({ dati, openCart, setOpenCart, setSelezionaPanini }) {
 
     const [openRiepilogo, setOpenRiepilogo] = useState(false)
-    const [cancelPaninoID, setCancelPaninoID] = useState(false)
-    const [datiAggiornati, setDatiAggiornati] = useState()
-    console.log('dati aggiornati',cancelPaninoID);
+   
 
-    useEffect(() => {
-        if (cancelPaninoID) { 
-            setDatiAggiornati(dati.filter((item) => item.id.integerValue !== cancelPaninoID)) 
-            
-        }
-        else { setDatiAggiornati(dati) }
-    }, [cancelPaninoID, dati])
 
     return (
         <AnimatePresence>
@@ -32,13 +23,13 @@ function Cart({ dati, openCart, setOpenCart, setSelezionaPanini }) {
                 >
                     <div className={style.headerCart}><button className={style.close} onClick={() => setOpenCart(false)}><BiArrowBack /></button> <h2>Il tuo carrello</h2></div>
                     <ul>
-                        {datiAggiornati.map((item) => {
-                            return (<li key={item.id.indegerValue}> <ItemCart setCancelPaninoID={setCancelPaninoID} dati={item} /></li>)
+                        {dati.map((item) => {
+                            return (<li key={item.id.indegerValue}> <ItemCart  dati={item} /></li>)
                         })}
                     </ul>
                     <button className={style.buttonOrdine} onClick={() => setOpenRiepilogo(true)}>Riepilogo</button>
                 </motion.div>
-                    <RiepilogoOrdine dati={datiAggiornati} openRiepilogo={openRiepilogo} setOpenRiepilogo={setOpenRiepilogo} /></>
+                    <RiepilogoOrdine dati={dati} openRiepilogo={openRiepilogo} setOpenRiepilogo={setOpenRiepilogo} /></>
             }
         </AnimatePresence>
     )

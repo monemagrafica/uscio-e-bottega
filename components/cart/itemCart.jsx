@@ -8,7 +8,7 @@ import Image from 'next/image'
 function ItemCart({ dati, setCancelPaninoID }) {
 
 
-  const [dettagli, setDettagli] = useState(true)
+  const [dettagli, setDettagli] = useState(false)
 
  
   return (
@@ -20,9 +20,12 @@ function ItemCart({ dati, setCancelPaninoID }) {
           <h2>{dati.name.stringValue}</h2>
         </div>
         <Quantita setDettagli={setDettagli} />
-        <button onClick={()=>setCancelPaninoID(dati.id.integerValue)}>x</button>
+        <button className={style.buttonCancelItem} onClick={()=>false}>x</button>
       </div>
       {<Dettagli dettagli={dettagli} salse={dati.ingredients.mapValue.fields.Salse?.arrayValue.values} />}
+      <div className={style.expandDettagli} onClick={() => setDettagli((prevState) => !prevState)}>
+      <BiChevronDown /> Note
+      </div>
     </div>
   )
 }

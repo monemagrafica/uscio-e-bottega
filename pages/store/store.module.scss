@@ -417,21 +417,45 @@ margin: 0 auto;
   margin: 0 5px;
   border-top: 2px dotted v.$brownBackBtn;
   padding: 10px 0;
-
-  .note {
+  button {
     border: 0;
     height: 30px;
     width: 30px;
     padding: 0;
-    margin: 0 7px;
+    margin: 0 10px;
     outline: 0;
     border-radius: 5px;
     background-color: v.$brownBackBtn;
     color: white;
     font-size: 1rem;
     line-height: 35px;
+    &.buttonCancelItem{
+      background-color: v.$darkRed;
+      line-height: 30px;
+    }
   }
-
+  .note {
+    border: 0;
+    height: 30px;
+    width: 10px;
+    padding: 0;
+    margin:0 10px 0 0;
+    outline: 0;
+    border-radius: 0px;
+    background-color:transparent;
+    color: v.$black;
+    font-size: 1rem;
+    line-height: 35px;
+  }
+  .expandDettagli{
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: v.$brownBackBtn;
+    text-align: center;
+    padding: 5px;
+    color: v.$backSchedaInfo;
+  }
   .wrapperNomePanino {
     display: flex;
     flex: 1;
@@ -446,8 +470,7 @@ margin: 0 auto;
   .dettagli {
     width: 100%;
     overflow: hidden;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+
 
     .wrapperDettagli {
       position: relative;
@@ -509,19 +532,7 @@ margin: 0 auto;
   .cartQuantita {
     display: flex;
 
-    button {
-      border: 0;
-      height: 30px;
-      width: 30px;
-      padding: 0;
-      margin: 0 10px;
-      outline: 0;
-      border-radius: 5px;
-      background-color: v.$brownBackBtn;
-      color: white;
-      font-size: 1rem;
-      line-height: 35px;
-    }
+
 
     .inputQuantita {
       input {
