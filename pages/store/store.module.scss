@@ -170,7 +170,8 @@ ul.listaSalse {
 .listaSpec {
 
   max-width: 340px;
-margin: 0 auto;
+  margin: 0 auto;
+
   ul {
     padding: 0;
     display: flex;
@@ -398,7 +399,8 @@ margin: 0 auto;
       position: relative;
     }
   }
-  .wrapDatiItem{
+
+  .wrapDatiItem {
     width: 100%;
     display: flex;
     align-items: center;
@@ -417,6 +419,7 @@ margin: 0 auto;
   margin: 0 5px;
   border-top: 2px dotted v.$brownBackBtn;
   padding: 10px 0;
+
   button {
     border: 0;
     height: 30px;
@@ -429,33 +432,37 @@ margin: 0 auto;
     color: white;
     font-size: 1rem;
     line-height: 35px;
-    &.buttonCancelItem{
+
+    &.buttonCancelItem {
       background-color: v.$darkRed;
       line-height: 30px;
     }
   }
+
   .note {
     border: 0;
     height: 30px;
     width: 10px;
     padding: 0;
-    margin:0 10px 0 0;
+    margin: 0 10px 0 0;
     outline: 0;
     border-radius: 0px;
-    background-color:transparent;
+    background-color: transparent;
     color: v.$black;
     font-size: 1rem;
     line-height: 35px;
   }
-  .expandDettagli{
+
+  .expandDettagli {
     width: 100%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: v.$brownBackBtn;
     text-align: center;
     padding: 5px;
-    color: v.$backSchedaInfo;
+    color: v.$backInput;
   }
+
   .wrapperNomePanino {
     display: flex;
     flex: 1;
@@ -514,16 +521,27 @@ margin: 0 auto;
       background-color: v.$midbrown;
 
       li {
-        display: flex;
-        align-items: center;
-        margin: 5px;
-        padding: 5px;
-        background: v.$brownNeon;
-        border-radius: 5px;
+
+
 
         input {
           border: 0;
           outline: 0;
+
+          &:checked~label {
+            background-color: v.$brownBackBtn;
+            color: white;
+          }
+
+        }
+
+        label {
+          background-color: v.$brownNeon;
+          color: v.$black;
+          margin: 5px;
+          padding: 5px;
+          border-radius: 5px;
+          transition: all ease-in-out 0.3s;
         }
       }
     }
@@ -572,21 +590,26 @@ margin: 0 auto;
   top: 60px;
 
 
-  .wrapperItemriepilogo{
+  .wrapperItemriepilogo {
     background-color: v.$brownNeon;
     margin: 15px;
     border-radius: 15px;
   }
+
   li {
     display: flex;
     margin-bottom: 1rem;
+    border-bottom: 2px dotted v.$brownNoteDettagli;
+    padding-bottom: 14px;
   }
-  .immagineRiepilogo{
+
+  .immagineRiepilogo {
     width: 100px;
   }
+
   .totale {
     text-align: right;
-    padding:0 15px;
+    padding: 0 15px;
 
     h2 {
       margin: 0;
@@ -609,7 +632,7 @@ margin: 0 auto;
 
     h2 {
       margin: 0;
-      font-family:v.$titles;
+      font-family: v.$titles;
     }
   }
 }

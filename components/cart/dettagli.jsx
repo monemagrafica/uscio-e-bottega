@@ -11,8 +11,11 @@ function Dettagli({ salse, dettagli }) {
                     {salse.map((item) => {
                         return (
                         <li key={item.stringValue}>
+                            
                             <input type="checkbox" defaultChecked={true}  id={item.stringValue} name={item.stringValue} value={item.stringValue} />
-                            <label htmlFor={item.stringValue}>{item.stringValue}</label><br></br>
+                            <label htmlFor={item.stringValue}>
+                            {item.stringValue}
+                            </label><br></br>
                         </li>)
                     })}
                 </ul>}

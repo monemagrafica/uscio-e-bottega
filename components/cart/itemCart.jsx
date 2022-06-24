@@ -16,7 +16,7 @@ function ItemCart({ dati, setCancelPaninoID }) {
       <div className={style.wrapDatiItem}>
         <button className={style.note} onClick={() => setDettagli((prevState) => !prevState)}><BiChevronDown /></button>
         <div className={style.wrapperNomePanino} onClick={() => setDettagli((prevState) => !prevState)}>
-          <Image src={dati.svg.stringValue} width={50} height={50} alt="immagine panino" />
+          <Image src={dati.svg.stringValue} width={40} height={40} alt="immagine panino" />
           <h2>{dati.name.stringValue}</h2>
         </div>
         <Quantita setDettagli={setDettagli} />
