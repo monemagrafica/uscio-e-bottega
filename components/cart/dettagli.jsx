@@ -1,21 +1,30 @@
 import React from 'react'
 import style from '../../pages/store/store.module.scss'
+import Image from 'next/image'
+import { v4 as uuidv4 } from 'uuid';
 
 
-function Dettagli({ salse, dettagli }) {
+function Dettagli({ salse, dettagli, immagine }) {
+    const uid=uuidv4()
+    console.log('uuid', uid);
     return (
         <div className={style.dettagli}>
-
             <div className={`${[style.wrapperDettagli, dettagli && style.dettagliOpen].join(' ')}`}>
+            <div className={style.immagineDettagli}>
+                <Image src={immagine} width={300} height={200} alt="immagine panino" />
+            </div>
                 {salse && <ul>
                     {salse.map((item) => {
+                       
                         return (
                         <li key={item.stringValue}>
-                            
-                            <input type="checkbox" defaultChecked={true}  id={item.stringValue} name={item.stringValue} value={item.stringValue} />
-                            <label htmlFor={item.stringValue}>
-                            {item.stringValue}
-                            </label><br></br>
+                          <form>
+                              
+                              <input type="checkbox" defaultChecked={true}  id={uid} name={item.stringValue} value={item.stringValue} />
+                              <label htmlFor={uid}>
+                              {item.stringValue}
+                              </label><br></br>
+                          </form>
                         </li>)
                     })}
                 </ul>}

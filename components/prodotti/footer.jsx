@@ -12,7 +12,7 @@ function Footer({ datiPanino,selezionePanini, setselezionePanini,setOpenToaster 
 
 
   function setCart(newDatiPanino) { 
-    setselezionePanini([...selezionePanini,{ ...newDatiPanino, quantita: newDatiPanino.quantita++ }])
+    setselezionePanini([...selezionePanini,{ ...newDatiPanino, quantita: 1 }])
     setOpenToaster(true)
     setPlusOne(true)
   }

@@ -6,12 +6,12 @@ import RiepilogoOrdine from './riepilogoOrdine'
 import ItemCart from './itemCart'
 import { BiArrowBack } from 'react-icons/bi'
 
-function Cart({ dati, openCart, setOpenCart, setSelezionaPanini }) {
+function Cart({ dati, openCart, setOpenCart }) {
 
     const [openRiepilogo, setOpenRiepilogo] = useState(false)
-   
 
 
+console.log(dati);
     return (
         <AnimatePresence>
             {(openCart && dati.length) &&
@@ -23,14 +23,15 @@ function Cart({ dati, openCart, setOpenCart, setSelezionaPanini }) {
                 >
                     <div className={style.headerCart}><button className={style.close} onClick={() => setOpenCart(false)}><BiArrowBack /></button> <h2>Il tuo carrello</h2></div>
                     <ul>
-                        {dati.map((item) => {
-                            return (<li key={item.id.indegerValue}> <ItemCart  dati={item} /></li>)
+                        {dati.map((item, index) => {
+                            return (<li key={index}> <ItemCart dati={item} /></li>)
                         })}
                     </ul>
                     <button className={style.buttonOrdine} onClick={() => setOpenRiepilogo(true)}>Riepilogo</button>
                 </motion.div>
                     <RiepilogoOrdine dati={dati} openRiepilogo={openRiepilogo} setOpenRiepilogo={setOpenRiepilogo} /></>
             }
+
         </AnimatePresence>
     )
 }

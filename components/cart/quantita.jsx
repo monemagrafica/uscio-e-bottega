@@ -10,7 +10,7 @@ function Quantita({setDettagli}) {
     }
     function less (inputRef){
         if (inputRef.current.value > 0 ){inputRef.current.value--} else {inputRef.current.value=0}
-        if(inputRef.current.value <= 0){setDettagli(false)}
+        //if(inputRef.current.value <= 0){setDettagli(false)}
       
     }
     return (

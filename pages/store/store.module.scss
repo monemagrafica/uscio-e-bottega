@@ -444,7 +444,7 @@ ul.listaSalse {
     height: 30px;
     width: 10px;
     padding: 0;
-    margin: 0 10px 0 0;
+    margin: 0 5px 0 0;
     outline: 0;
     border-radius: 0px;
     background-color: transparent;
@@ -469,15 +469,27 @@ ul.listaSalse {
     align-items: center;
 
     h2 {
-      font-size: 1rem;
-      margin-left: 10px;
+      font-size: 14px;
+      margin-left: 5px;
     }
   }
 
   .dettagli {
     width: 100%;
     overflow: hidden;
-
+    
+    .immagineDettagli{
+      text-align: center;
+      background-color: #dcc2af;
+      height: 100px;
+      overflow: hidden;
+    span{
+    top: -50px;
+    }
+      img{
+        width: 50px;
+      }
+    }
 
     .wrapperDettagli {
       position: relative;
@@ -496,17 +508,18 @@ ul.listaSalse {
       justify-content: center;
       padding-top: 10px;
       padding-bottom: 10px;
-      background-color: v.$brownNoteDettagli;
+      background-color: #c0a48e;
 
       h3 {
         background-color: v.$brownNeon;
         border-radius: 50%;
         width: 40px;
         height: 40px;
-        line-height: 38px;
-        font-size: 1rem;
+        line-height: 40px;
+        font-size: 13px;
         text-align: center;
         margin-right: 1rem;
+        text-transform: uppercase;
       }
     }
 
@@ -537,7 +550,7 @@ ul.listaSalse {
 
         label {
           background-color: v.$brownNeon;
-          color: v.$black;
+          color: #ac9a9a;
           margin: 5px;
           padding: 5px;
           border-radius: 5px;
@@ -556,7 +569,7 @@ ul.listaSalse {
       input {
         border: 0;
         height: 30px;
-        max-width: 40px;
+        max-width: 30px;
         padding: 0;
         margin: 0;
         outline: 0;
