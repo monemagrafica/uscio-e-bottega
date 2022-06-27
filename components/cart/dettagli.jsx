@@ -11,7 +11,7 @@ function Dettagli({ salse, dettagli, immagine }) {
         <div className={style.dettagli}>
             <div className={`${[style.wrapperDettagli, dettagli && style.dettagliOpen].join(' ')}`}>
             <div className={style.immagineDettagli}>
-                <Image src={immagine} width={300} height={200} alt="immagine panino" />
+                <Image src={immagine} width={500} height={300} alt="immagine panino" />
             </div>
                 {salse && <ul>
                     {salse.map((item) => {
@@ -20,8 +20,8 @@ function Dettagli({ salse, dettagli, immagine }) {
                         <li key={item.stringValue}>
                           <form>
                               
-                              <input type="checkbox" defaultChecked={true}  id={uid} name={item.stringValue} value={item.stringValue} />
-                              <label htmlFor={uid}>
+                              <input type="checkbox" defaultChecked={true}  id={`${uid}___${item.stringValue}`} name={item.stringValue} value={item.stringValue} />
+                              <label htmlFor={`${uid}___${item.stringValue}`}>
                               {item.stringValue}
                               </label><br></br>
                           </form>

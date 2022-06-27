@@ -16,7 +16,7 @@ function RiepilogoOrdine({ openRiepilogo, setOpenRiepilogo, dati }) {
                 animate="animate"
                 exit="exit"
             >
-                <div className={style.headerCart}><button className={style.close} onClick={() => setOpenRiepilogo(false)}><BiArrowBack /></button>
+                <div className={style.headerCart}><button className="close" onClick={() => setOpenRiepilogo(false)}><BiArrowBack /></button>
                     <h2>Riepilogo ordine</h2>
                 </div>
                 <ul className={style.wrapperItemriepilogo}>

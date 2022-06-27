@@ -1,0 +1,27 @@
+@use "../../styles/variabili"as v;
+
+.search{
+    text-align: center;
+    h1{
+        font-family: v.$titles;
+        margin-left: 1rem;
+    }
+    h2{
+        font-family: v.$titles;
+        font-size: 2rem;
+        color: v.$black;
+    }
+    .searchInput {
+        width: 90%;
+        margin: 0 auto;
+        padding: 15px;
+        border-radius: 20px;
+    }
+    .headerRicerca{
+        display: flex;
+        align-items: center;
+    }
+    .close{
+        margin-right: 2rem;
+    }
+}

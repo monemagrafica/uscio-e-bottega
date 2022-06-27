@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BiMenu, BiSearchAlt, BiCart } from 'react-icons/bi'
-
+import Link from 'next/link'
 import Empty from './empty'
 function Navbar({ setOpenCart, statoCarrello }) {
 
@@ -29,11 +29,13 @@ function Navbar({ setOpenCart, statoCarrello }) {
                     <BiMenu />
                 </div>
             </div>
-            <div className="search">
-                <div className="icon">
-                    <BiSearchAlt />
+            <Link href="/search">
+                <div className="search">
+                    <div className="icon">
+                        <BiSearchAlt />
+                    </div>
                 </div>
-            </div>
+            </Link>
             <div className="cart" onClick={() => handleStatoCarrello()}>
                 <div className="icon">
                     <BiCart />

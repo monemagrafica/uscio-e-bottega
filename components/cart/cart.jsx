@@ -21,7 +21,7 @@ console.log(dati);
                     animate="animate"
                     exit="exit"
                 >
-                    <div className={style.headerCart}><button className={style.close} onClick={() => setOpenCart(false)}><BiArrowBack /></button> <h2>Il tuo carrello</h2></div>
+                    <div className={style.headerCart}><button className="close" onClick={() => setOpenCart(false)}><BiArrowBack /></button> <h2>Il tuo carrello</h2></div>
                     <ul>
                         {dati.map((item, index) => {
                             return (<li key={index}> <ItemCart dati={item} /></li>)
