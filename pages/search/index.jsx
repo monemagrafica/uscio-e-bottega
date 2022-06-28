@@ -15,11 +15,17 @@ function Search() {
 
   const dati = useContext(ShareContext)
   const prodotti = dati.prodotti
-
+console.log(prodotti);
   function risultatiRicerca(inputString) {
-    const prodottiByNome = prodotti.filter((item) => item._document.data.value.mapValue.fields.name.stringValue.toLowerCase().includes(inputString.toLowerCase()))
+    
+    const prodottiByNome = prodotti.filter((item) =>{ 
+      return item._document.data.value.mapValue.fields.name.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
+             item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Formaggio?.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
+             item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Insaccato?.stringValue.toLowerCase().includes(inputString.toLowerCase())
+    })
+    
     setFiltroRicerca(inputString && prodottiByNome)
-    console.log(inputString);
+
   }
 
   return (
@@ -29,10 +35,11 @@ function Search() {
       variants={animateSearchPage}
     >
       <div className={style.headerRicerca}><button className="close" onClick={() => router.back()}><BiArrowBack /></button> <h1>Ricerca</h1></div>
+      <h2 className={style.subSearch}>Ricerca per nome o ingrediente</h2>
       <label htmlFor="search" >
-        <input onChange={() => risultatiRicerca(inputRicerca.current.value)} ref={inputRicerca} type="text" className={style.searchInput} id="search" placeholder='cerca panino' />
+        <input onChange={() => risultatiRicerca(inputRicerca.current.value)} ref={inputRicerca} type="text" className={style.searchInput} id="search" placeholder='cerca' />
       </label>
-      {filtroRicerca.length && <div className={style.wrapperListaSearch}>
+      {(filtroRicerca.length > 0) && <div className={style.wrapperListaSearch}>
         {filtroRicerca?.map((item) => {
 
           return (<SearchList
