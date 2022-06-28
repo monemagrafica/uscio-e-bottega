@@ -222,3 +222,47 @@ text-align: center;
   border-radius: 50%;
   left: 21px;
 }
+
+
+// ANCHOR: search page
+
+.search{
+  text-align: center;
+  h1{
+      font-family: v.$titles;
+      margin:0 1rem 0 0;
+      color: white;
+      font-size: 24px;
+
+  }
+  .subSearch{
+      font-size: 20px;
+      margin-bottom: 1rem;
+  }
+  h2{
+      font-family: v.$titles;
+      font-size: 2rem;
+      color: v.$black;
+      margin: 10px 0;
+  }
+  .searchInput {
+      width: 90%;
+      margin: 0 auto;
+      padding: 15px;
+      border-radius: 20px;
+  }
+  .headerRicerca{
+      display: flex;
+      align-items: center;
+      background-color: v.$brownBackHeadCart;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding: 10px 0;
+  }
+  .close{
+      margin-right: 2rem;
+  }
+  .wrapperListaSearch{
+      padding: 0 20px;
+  }
+}
