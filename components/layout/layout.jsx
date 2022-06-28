@@ -13,7 +13,8 @@ function Layout({ children }) {
 
     return (
         <div className="layout">
-            {router.asPath !== '/' && <Navbar statoCarrello={dati.selezionePanini.length ? true : false} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />}
+            {router.asPath !== '/' && 
+            <Navbar statoCarrello={dati.selezionePanini.length} openCart={dati.openCart} setOpenCart={dati.setOpenCart} />}
             <>
                 {children}
                 <Cart 

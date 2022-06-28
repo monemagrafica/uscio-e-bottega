@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { BiMenu, BiSearchAlt, BiCart } from 'react-icons/bi'
+import { BiMenu, BiSearchAlt } from 'react-icons/bi'
+import { BsCart, BsCartFill } from 'react-icons/bs'
 import Link from 'next/link'
 import Empty from './empty'
+
 function Navbar({ setOpenCart, statoCarrello }) {
 
     const [animateC, setAnimateC] = useState(false)
@@ -9,18 +11,19 @@ function Navbar({ setOpenCart, statoCarrello }) {
 
     useEffect(() => {
 
-            if (animateC) {
-                setTimeout(() => setAnimateC(false), 2000)
-            }
-     
+        if (animateC) {
+            setTimeout(() => setAnimateC(false), 2000)
+        }
+
     }, [animateC]);
 
     const handleStatoCarrello = () => {
-      if(statoCarrello){
-        setOpenCart((prevState) => !prevState)
-       }
-        setAnimateC(true)}
-    
+        if (statoCarrello) {
+            setOpenCart((prevState) => !prevState)
+        }
+        setAnimateC(true)
+    }
+
 
     return (
         <nav>
@@ -38,9 +41,16 @@ function Navbar({ setOpenCart, statoCarrello }) {
             </Link>
             <div className="cart" onClick={() => handleStatoCarrello()}>
                 <div className="icon">
-                    <BiCart />
+                    {statoCarrello ?
+                        <>
+                            <BsCartFill />
+                            <div className="quantitaCart">{statoCarrello}</div>
+                        </> :
+                        <BsCart />
+                    }
+
                 </div>
-       <Empty animateC={animateC} statoCarrello={statoCarrello} />
+                <Empty animateC={animateC} statoCarrello={statoCarrello} />
             </div>
         </nav>
     )
