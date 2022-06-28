@@ -39,7 +39,7 @@ console.log(prodotti);
       <label htmlFor="search" >
         <input onChange={() => risultatiRicerca(inputRicerca.current.value)} ref={inputRicerca} type="text" className="searchInput" id="search" placeholder='cerca' />
       </label>
-      {(filtroRicerca.length > 0) && <div className={style.wrapperListaSearch}>
+      {(filtroRicerca.length > 0) && <div className="wrapperListaSearch">
         {filtroRicerca?.map((item) => {
 
           return (<SearchList
