@@ -7,6 +7,7 @@ import style from './store.module.scss'
 import { motion, AnimatePresence } from 'framer-motion'
 import Footer from '../../components/prodotti/footer';
 import { BiEuro } from 'react-icons/bi'
+import LoaderImage from '../../components/loader/loaderImage';
 import {
   animateTitle,
   animatePrezzo,
@@ -180,7 +181,7 @@ function SchedaPanino() {
             selezionePanini={dati.selezionePanini}
             setOpenToaster={dati.setOpenToaster}
           />
-        </> : '...loading'}
+        </> : <LoaderImage />}
 
     </AnimatePresence>
   )

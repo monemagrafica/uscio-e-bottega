@@ -3,7 +3,7 @@ import style from './loader.module.scss'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-function Loader() {
+function LoaderImage() {
     return (
         <div className={style.loader}>
             <motion.div
@@ -18,4 +18,4 @@ function Loader() {
     )
 }
 
-export default Loader
+export default LoaderImage

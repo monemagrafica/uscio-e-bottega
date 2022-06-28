@@ -26,10 +26,13 @@ function ContextData({children}) {
         });
         // set it to state
         setProdotti(result);
+
+       
     };
 
     useEffect(() => {
         // get the prodotti
+        
         getProdotti();
         // reset loading
         setTimeout(() => {

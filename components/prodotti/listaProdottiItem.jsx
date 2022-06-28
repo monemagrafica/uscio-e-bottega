@@ -17,7 +17,7 @@ function ListaProdottiItem({
     openToaster,
     setOpenToaster, }) {
 
-    const datiPanino = item._document.data.value.mapValue.fields
+    const datiPanino =item._document.data.value.mapValue.fields 
 
     function handleClickPanino(index) {
         window.scroll({
@@ -41,7 +41,9 @@ function ListaProdottiItem({
             <div>
                 {datiPanino.svg &&
                     <div className={style.immaginePanino} id={datiPanino.id.integerValue}>
-                        <Image src={datiPanino.svg.stringValue} alt="test" width={200} height={120} layout="responsive" />
+                        
+                            <Image src={datiPanino.svg.stringValue} alt="test" width={200} height={120} layout="responsive" /> 
+                  
                     </div>}
                 <h2>{datiPanino.name.stringValue}</h2>
                 <ListaSpec item={datiPanino} />

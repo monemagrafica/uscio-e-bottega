@@ -1,18 +1,18 @@
 import { ShareContext } from '../../context/context';
 import { useContext } from 'react'
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, Suspense, lazy } from 'react';
 import style from '../../pages/store/store.module.scss'
 import ListaProdottiItem from './listaProdottiItem';
-
+import LoaderImage from '../loader/loaderImage';
 
 
 function ListaProdotti() {
     const lista = useRef()
     const share = useContext(ShareContext)
     const [infoPanino, setInfoPanino] = useState(false)
-
+console.log('share',share.prodotti);
     return (
-        <div ref={lista} className={style.listaProdotti}>
+      <> {(share.prodotti.length) ? <div ref={lista} className={style.listaProdotti}>
            
             {share.prodotti.map((item, index) => {
                 const datiPanino = item._document.data.value.mapValue.fields
@@ -30,7 +30,7 @@ function ListaProdotti() {
                         />)
             })
             }
-        </div>
+        </div> : <LoaderImage />}</>
     )
 }
 
