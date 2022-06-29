@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import {getAuth} from "firebase/auth"
 // Your web app's Firebase configuration
-initializeApp({
+const conf = initializeApp({
   apiKey: "AIzaSyCPBioSozTKawGag568eidc1aNLWStimz8",
   authDomain: "uscio-e-bottega.firebaseapp.com",
   databaseURL: "https://uscio-e-bottega.firebaseio.com",
@@ -13,6 +14,8 @@ initializeApp({
 // Initialize Firebase
 
 // export Firebase so it can be used elsewhere 
-const firestore = getFirestore();
+ const firestore = getFirestore();
 
-export { firestore };
+export { firestore }; 
+
+export const auth = getAuth(conf)

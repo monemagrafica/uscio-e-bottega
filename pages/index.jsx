@@ -1,10 +1,14 @@
+import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
-import FormLogin from '../components/formLogin/formLogin'
+import FormLogin from '../components/form/formLogin'
+import FormSignUp from '../components/form/formSignUp'
+import GoogleLogin from '../components/form/googleLogin'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Home() {
 
+  const [formAuth, setFormAuth] = React.useState(false)
 
   const animazioneLogo = {
     initial: {
@@ -64,7 +68,11 @@ export default function Home() {
           animate="animate"
           transition={{ delay: 0.5 }}
         >
-          <FormLogin />
+          {formAuth === 1 ? <FormSignUp />: formAuth === 0 ? <FormLogin /> : <GoogleLogin />}
+          <button onClick={()=> setFormAuth(0)}>login</button>
+          <button onClick={()=> setFormAuth(1)}>register</button>
+          <button onClick={()=> setFormAuth(2)}>google</button>
+
         </motion.div>
         <motion.div
           className="wrapper-back"
