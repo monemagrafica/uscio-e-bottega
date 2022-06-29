@@ -18,8 +18,8 @@ import {
 
 function SchedaPanino() {
   const [datiContext, setDatiContext] = useState(false)
-  const dati = useContext(ShareContext)
-
+  let dati = useContext(ShareContext)
+  dati=dati.DataShare
   useEffect(() => {
     if (dati.prodotti.length !== 0) setDatiContext(true)
   }, [dati])

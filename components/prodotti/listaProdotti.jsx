@@ -8,7 +8,8 @@ import LoaderImage from '../loader/loaderImage';
 
 function ListaProdotti() {
     const lista = useRef()
-    const share = useContext(ShareContext)
+    let share = useContext(ShareContext)
+    share = share.DataShare
     const [infoPanino, setInfoPanino] = useState(false)
 console.log('share',share.prodotti);
     return (

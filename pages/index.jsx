@@ -1,14 +1,19 @@
-import React from 'react'
+import React,{useContext, useState} from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import FormLogin from '../components/form/formLogin'
 import FormSignUp from '../components/form/formSignUp'
 import GoogleLogin from '../components/form/googleLogin'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { ShareContext } from '../context/context'
 
 export default function Home() {
 
-  const [formAuth, setFormAuth] = React.useState(false)
+  const context = useContext(ShareContext)
+  const dati = context.DataShare
+  const userData = context.authFirebase
+console.log('userdata', userData);
+  const [formAuth, setFormAuth] = useState(false)
 
   const animazioneLogo = {
     initial: {
@@ -68,7 +73,10 @@ export default function Home() {
           animate="animate"
           transition={{ delay: 0.5 }}
         >
-          {formAuth === 1 ? <FormSignUp />: formAuth === 0 ? <FormLogin /> : <GoogleLogin />}
+          {formAuth === 1 ? 
+          <FormSignUp auth={userData} />: formAuth === 0 ?
+          <FormLogin auth={userData} /> : 
+          <GoogleLogin auth={userData} />}
           <button onClick={()=> setFormAuth(0)}>login</button>
           <button onClick={()=> setFormAuth(1)}>register</button>
           <button onClick={()=> setFormAuth(2)}>google</button>

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import ListaProdotti from '../../components/prodotti/listaProdotti'
 
 
-export default function Home() {
+export default function Store() {
 
   return (
     <>

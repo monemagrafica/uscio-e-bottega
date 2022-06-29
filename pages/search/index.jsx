@@ -13,17 +13,18 @@ function Search() {
   const inputRicerca = useRef()
   const [filtroRicerca, setFiltroRicerca] = useState([])
 
-  const dati = useContext(ShareContext)
+  let dati = useContext(ShareContext)
+  dati = dati.DataShare
   const prodotti = dati.prodotti
-console.log(prodotti);
+  console.log(prodotti);
   function risultatiRicerca(inputString) {
-    
-    const prodottiByNome = prodotti.filter((item) =>{ 
+
+    const prodottiByNome = prodotti.filter((item) => {
       return item._document.data.value.mapValue.fields.name.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
-             item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Formaggio?.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
-             item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Insaccato?.stringValue.toLowerCase().includes(inputString.toLowerCase())
+        item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Formaggio?.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
+        item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Insaccato?.stringValue.toLowerCase().includes(inputString.toLowerCase())
     })
-    
+
     setFiltroRicerca(inputString && prodottiByNome)
 
   }
