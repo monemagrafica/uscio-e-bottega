@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-
-function FormSignUp({ auth }) {
+import { motion, AnimatePresence } from 'framer-motion'
+import { animateLogin } from '../animations'
+function FormSignUp({ auth, formAuth, setFormAuth }) {
 
 
   const [email, setEmail] = useState("")
@@ -15,17 +16,26 @@ function FormSignUp({ auth }) {
   }
 
   return (
-    <div className='wrapperLogin'>
-      <form className='form-login' onSubmit={() => console.log('test')}>
-        <label htmlFor="user">
-          <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Nome Utente' name="user" id="user" />
-        </label>
-        <label htmlFor="password">
-          <input onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder='Password' id="password" />
-        </label>
-        <button onClick={(e) => signUp(e)}>Registrati</button>
-      </form>
-    </div>
+    <><AnimatePresence > {(formAuth === 1) &&
+      <motion.div
+        className='wrapperLogin'
+        initial='initial'
+        animate='animate'
+        exit='exit'
+        variants={animateLogin}
+      >
+        <form className='form-login'>
+          <label htmlFor="user">
+            <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Nome Utente' name="user" id="user" />
+          </label>
+          <label htmlFor="password">
+            <input onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder='Password' id="password" />
+          </label>
+          <button onClick={(e) => signUp(e)}>Registrati</button>
+          <button className='back-login' onClick={()=>setFormAuth(false)}>Back</button>
+        </form>
+      </motion.div>}
+    </AnimatePresence></>
   )
 }
 

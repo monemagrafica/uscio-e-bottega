@@ -11,7 +11,7 @@ function Cart({ dati, openCart, setOpenCart }) {
     const [openRiepilogo, setOpenRiepilogo] = useState(false)
 
 
-console.log(dati);
+
     return (
         <AnimatePresence>
             {(openCart && dati.length) &&

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
-
-
-function FormLogin({ auth }) {
+import { motion, AnimatePresence } from 'framer-motion'
+import { animateLogin } from '../animations'
+function FormLogin({ auth, formAuth, setFormAuth }) {
 
   const router = useRouter()
   const [email, setEmail] = useState("")
@@ -18,17 +18,25 @@ function FormLogin({ auth }) {
   }
 
   return (
-    <div className='wrapperLogin'>
-      <form className='form-login' onSubmit={() => console.log('test')}>
-        <label htmlFor="user">
-          <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Nome Utente' name="user" id="user" />
-        </label>
-        <label htmlFor="password">
-          <input onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder='Password' id="password" />
-        </label>
-        <button onClick={(e) => login(e)}>Entra</button>
-      </form>
-    </div>
+    <> <AnimatePresence > {(formAuth === 0) &&
+      <motion.div
+        className='wrapperLogin'
+        initial='initial'
+        animate='animate'
+        exit='exit'
+        variants={animateLogin}
+      >
+        <form className='form-login' onSubmit={() => console.log('test')}>
+          <label htmlFor="user">
+            <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Nome Utente' name="user" id="user" />
+          </label>
+          <label htmlFor="password">
+            <input onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder='Password' id="password" />
+          </label>
+          <button onClick={(e) => login(e)}>Entra</button>
+          <button className='back-login' onClick={()=>setFormAuth(false)}>Back</button>
+        </form>
+      </motion.div>}</AnimatePresence></>
   )
 }
 

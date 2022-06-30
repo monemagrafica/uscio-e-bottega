@@ -132,9 +132,11 @@ nav .search {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100vh;
-  margin-top: 0;
+  margin-top: 0rem;
+  padding-top: 4rem;
+
 
   .wrapper-login {
     position: relative;
@@ -152,6 +154,7 @@ nav .search {
   .form-login {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     input,
     button {
@@ -160,6 +163,13 @@ nav .search {
       border: 0;
       padding: 15px 10px;
       font-family: v.$titles;
+      width: 100%;
+      &.back-login{
+        margin-top: 1rem;
+        background-color: v.$brownBackBtn;
+      }
+    }
+    label{
       width: 100%;
     }
     button {
@@ -264,5 +274,40 @@ text-align: center;
   }
   .wrapperListaSearch{
       padding: 0 20px;
+  }
+}
+
+//ANCHOR: login page
+
+.wrapper-login{
+  text-align: center;
+  button{
+    font-family: v.$titles;
+    background-color: transparent;
+    font-size: 2rem;
+    display: block;
+    margin: 1rem auto;
+  }
+  .google-login-button{
+    background-color: v.$backInput;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 60px;
+  
+  }
+  .back-login{
+    margin-top: 1rem;
+    background-color: v.$brownBackBtn;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 37px;
+    font-size: 1.5rem;
+  }
+  p{
+    font-size: 1rem;
+    background-color: v.$brownNoteDettagli;
+    padding: 1rem;
+    border-radius: 20px;
   }
 }

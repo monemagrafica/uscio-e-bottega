@@ -4,8 +4,7 @@ import {
     onAuthStateChanged,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
-    GoogleAuthProvider,
-    signInWithPopup
+
 } from "firebase/auth";
 import { collection, QueryDocumentSnapshot, DocumentData, query, where, limit, getDocs } from "@firebase/firestore";
 
@@ -15,7 +14,7 @@ const todosCollection = collection(firestore, 'panini');
 
 function ContextData({ children }) {
     const [prodotti, setProdotti] = useState([]);
- 
+
     const [selezionePanini, setselezionePanini] = useState([])
     const [openCart, setOpenCart] = useState(false)
     const [openToaster, setOpenToaster] = useState(false)
@@ -35,11 +34,12 @@ function ContextData({ children }) {
         setProdotti(result);
     };
 
-    const [user, setUser] = useState()
-    const [loading, setLoading]= useState(true)
-
+    const [user, setUser] = useState(null )
+    const [loading, setLoading] = useState(true)
+console.log(loading);
     useEffect(() => {
-        // get the prodotti
+
+        //evita che si disconnetta al refresh dell'applicazione (?)
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser({
@@ -51,25 +51,27 @@ function ContextData({ children }) {
 
             setLoading(false)
         })
-        getProdotti();
- 
-        return () => unsubscribe()
-    }, []);
 
+        // get the prodotti
+        return () => unsubscribe()
+
+    }, []);
+    
+    useEffect(()=>{if(user) getProdotti()},[user])
 
     function handleLogin(email, password) {
         return signInWithEmailAndPassword(auth, email, password)
     }
-    
-    function handleSignUp (email, password) {
-        return createUserWithEmailAndPassword( auth, email, password)
-      }
-      
-const logout = async ()=> {
-    console.log("logout");
-    setUser(null)
-    await auth.signOut();
-};
+
+    function handleSignUp(email, password) {
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
+
+    const logout = async () => {
+        console.log("logout");
+        setUser(null)
+        await auth.signOut();
+    };
 
     const DataShare = {
         prodotti: prodotti ? prodotti : false,
@@ -82,9 +84,9 @@ const logout = async ()=> {
     }
     const authFirebase = {
         user: user,
-        handleLogin:handleLogin,
-        handleSignUp:handleSignUp,
-        logout:logout
+        handleLogin: handleLogin,
+        handleSignUp: handleSignUp,
+        logout: logout
     }
 
     return (

@@ -3,7 +3,7 @@ import Navbar from '../navbar/navbar'
 import { useRouter } from 'next/router';
 import Cart from '../cart/cart';
 import { ShareContext } from '../../context/context';
-import ToasterAggiuntoCart from '../toaster/toaster'
+import ToasterAggiuntoCart, { ToasterLoggedInMemo } from '../toaster/toaster'
 
 
 
@@ -18,7 +18,7 @@ function Layout({ children }) {
         if(!authData){
             router.push('/')
         }
-    },[router, authData])
+    },[])
 
     return (
         <div className="layout">
@@ -34,6 +34,7 @@ function Layout({ children }) {
                         setSelezionaPanini={dati.setSelezionaPanini}
                     />
                     <ToasterAggiuntoCart dati={dati?.selezionePanini} openToaster={dati?.openToaster} />
+                    <ToasterLoggedInMemo authData={authData } />
                 </>
             }
             {(router.asPath === '/' || !authData) && <>{ children }</>}

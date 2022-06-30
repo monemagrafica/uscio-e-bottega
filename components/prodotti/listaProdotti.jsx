@@ -1,6 +1,6 @@
 import { ShareContext } from '../../context/context';
 import { useContext } from 'react'
-import React, { useState, useRef, Suspense, lazy } from 'react';
+import React, { useState, useRef} from 'react';
 import style from '../../pages/store/store.module.scss'
 import ListaProdottiItem from './listaProdottiItem';
 import LoaderImage from '../loader/loaderImage';
@@ -11,7 +11,7 @@ function ListaProdotti() {
     let share = useContext(ShareContext)
     share = share.DataShare
     const [infoPanino, setInfoPanino] = useState(false)
-console.log('share',share.prodotti);
+
     return (
       <> {(share.prodotti.length) ? <div ref={lista} className={style.listaProdotti}>
            

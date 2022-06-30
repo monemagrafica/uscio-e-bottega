@@ -1,18 +1,31 @@
-import React,{useContext, useState} from 'react'
+import React, { useContext, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import FormLogin from '../components/form/formLogin'
 import FormSignUp from '../components/form/formSignUp'
-import GoogleLogin from '../components/form/googleLogin'
-import { motion } from 'framer-motion'
+
+import { motion, AnimatePresence } from 'framer-motion'
+import { animateLogin } from '../components/animations'
 import { ShareContext } from '../context/context'
+import { FcGoogle } from 'react-icons/fc'
+
+
+
+function LoginUi({ tipoForm, setFormAuth }) {
+if(tipoForm === false){
+      return (
+        <> <button className='google-login-button' onClick={() => setFormAuth(2)}><FcGoogle /></button>
+          <button className='back-login' onClick={() => setFormAuth(0)}>login</button>
+          <button className='back-login' onClick={() => setFormAuth(1)}>register</button>
+        </>)}
+}
+
 
 export default function Home() {
 
   const context = useContext(ShareContext)
-  const dati = context.DataShare
   const userData = context.authFirebase
-console.log('userdata', userData);
+console.log(userData);
   const [formAuth, setFormAuth] = useState(false)
 
   const animazioneLogo = {
@@ -73,13 +86,32 @@ console.log('userdata', userData);
           animate="animate"
           transition={{ delay: 0.5 }}
         >
-          {formAuth === 1 ? 
-          <FormSignUp auth={userData} />: formAuth === 0 ?
-          <FormLogin auth={userData} /> : 
-          <GoogleLogin auth={userData} />}
-          <button onClick={()=> setFormAuth(0)}>login</button>
-          <button onClick={()=> setFormAuth(1)}>register</button>
-          <button onClick={()=> setFormAuth(2)}>google</button>
+
+
+          <AnimatePresence>   
+            {formAuth !== false ? <motion.div
+            className="wrapper-form-login"
+            initial='initial'
+            animate='animate'
+            exit='exit'
+            variants={animateLogin}
+          >
+            <FormSignUp setFormAuth={setFormAuth} formAuth={formAuth} auth={userData} />
+
+            <FormLogin setFormAuth={setFormAuth} formAuth={formAuth} auth={userData} />
+          </motion.div>
+            :
+            <motion.div
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              variants={animateLogin}
+            >
+              <LoginUi tipoForm={formAuth} setFormAuth={setFormAuth} />
+              <button onClick={()=>userData.logout()}>logout</button>
+            </motion.div>
+          }
+          </AnimatePresence>
 
         </motion.div>
         <motion.div
@@ -90,6 +122,7 @@ console.log('userdata', userData);
         >
           <Image src="/images/backlogin.jpg" layout='fill' alt="backlogin" />
         </motion.div>
+     
       </main>
 
 

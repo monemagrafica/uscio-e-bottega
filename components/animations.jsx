@@ -61,7 +61,11 @@ const animateInfo = {
     initial: { opacity: 0, top: -200 },
     animate: { opacity: 1, top: 0 }
   }
-
+  const animateLogin = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 }
+  }
 
 
 
@@ -78,5 +82,6 @@ export {
     animateInfo,
     animatePrice,
     animateIcon,
-    animateSearchPage
+    animateSearchPage,
+    animateLogin
 }
