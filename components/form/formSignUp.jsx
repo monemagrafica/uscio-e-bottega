@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { animateLogin } from '../animations'
+
 function FormSignUp({ auth, formAuth, setFormAuth }) {
 
-
+  const router = useRouter()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -11,12 +13,12 @@ function FormSignUp({ auth, formAuth, setFormAuth }) {
     e.preventDefault()
     try {
       await auth.handleSignUp(email, password)
-      console.log('logged');
+      router.push('/store')
     } catch (err) { console.log(err); }
   }
 
   return (
-    <><AnimatePresence > {(formAuth === 1) &&
+    <><AnimatePresence> {(formAuth === 1) &&
       <motion.div
         className='wrapperLogin'
         initial='initial'

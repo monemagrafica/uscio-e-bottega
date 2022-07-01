@@ -15,8 +15,8 @@ function LoginUi({ tipoForm, setFormAuth }) {
   if (tipoForm === false) {
     return (
       <> <button className='google-login-button' onClick={() => setFormAuth(2)}><FcGoogle /></button>
-        <button className='back-login' onClick={() => setFormAuth(0)}>login</button>
-        <button className='back-login' onClick={() => setFormAuth(1)}>register</button>
+        <button className='back-login' onClick={() => setFormAuth(0)}>Login</button>
+        <button className='back-login' onClick={() => setFormAuth(1)}>Registrati</button>
       </>)
   }
 }
@@ -81,6 +81,7 @@ export default function Home() {
         </motion.div>
 
         {userData.user?.uid ?
+
           <button className='logout' onClick={() => userData.logout()}>logout</button>
           :
           <motion.div
@@ -101,9 +102,14 @@ export default function Home() {
                   exit='exit'
                   variants={animateLogin}
                 >
-                  <FormSignUp setFormAuth={setFormAuth} formAuth={formAuth} auth={userData} />
-
-                  <FormLogin setFormAuth={setFormAuth} formAuth={formAuth} auth={userData} />
+                  <FormSignUp
+                    setFormAuth={setFormAuth}
+                    formAuth={formAuth}
+                    auth={userData} />
+                  <FormLogin
+                    setFormAuth={setFormAuth}
+                    formAuth={formAuth}
+                    auth={userData} />
                 </motion.div>
                 :
                 <motion.div
@@ -112,6 +118,7 @@ export default function Home() {
                   exit='exit'
                   variants={animateLogin}
                 >
+
                   <LoginUi tipoForm={formAuth} setFormAuth={setFormAuth} />
 
                 </motion.div>
