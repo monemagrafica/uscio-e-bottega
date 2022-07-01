@@ -4,7 +4,7 @@ import { BsCart, BsCartFill } from 'react-icons/bs'
 import Link from 'next/link'
 import Empty from './empty'
 
-function Navbar({ setOpenCart, statoCarrello }) {
+function Navbar({ setOpenCart, statoCarrello, setOpenDrawer }) {
 
     const [animateC, setAnimateC] = useState(false)
 
@@ -27,7 +27,7 @@ function Navbar({ setOpenCart, statoCarrello }) {
 
     return (
         <nav>
-            <div className="trigger">
+            <div className="trigger" onClick={()=>setOpenDrawer((prev)=>!prev)}>
                 <div className="icon">
                     <BiMenu />
                 </div>

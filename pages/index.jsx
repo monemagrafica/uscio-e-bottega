@@ -12,12 +12,13 @@ import { FcGoogle } from 'react-icons/fc'
 
 
 function LoginUi({ tipoForm, setFormAuth }) {
-if(tipoForm === false){
-      return (
-        <> <button className='google-login-button' onClick={() => setFormAuth(2)}><FcGoogle /></button>
-          <button className='back-login' onClick={() => setFormAuth(0)}>login</button>
-          <button className='back-login' onClick={() => setFormAuth(1)}>register</button>
-        </>)}
+  if (tipoForm === false) {
+    return (
+      <> <button className='google-login-button' onClick={() => setFormAuth(2)}><FcGoogle /></button>
+        <button className='back-login' onClick={() => setFormAuth(0)}>login</button>
+        <button className='back-login' onClick={() => setFormAuth(1)}>register</button>
+      </>)
+  }
 }
 
 
@@ -25,7 +26,7 @@ export default function Home() {
 
   const context = useContext(ShareContext)
   const userData = context.authFirebase
-console.log(userData);
+  console.log(userData);
   const [formAuth, setFormAuth] = useState(false)
 
   const animazioneLogo = {
@@ -79,41 +80,45 @@ console.log(userData);
           <Image src="/images/logo.svg" width={240} height={240} layout="responsive" alt="logo" />
         </motion.div>
 
-        <motion.div
-          className="wrapper-login"
-          variants={animazioneForm}
-          initial="initial"
-          animate="animate"
-          transition={{ delay: 0.5 }}
-        >
-
-
-          <AnimatePresence>   
-            {formAuth !== false ? <motion.div
-            className="wrapper-form-login"
-            initial='initial'
-            animate='animate'
-            exit='exit'
-            variants={animateLogin}
+        {userData.user?.uid ?
+          <button className='logout' onClick={() => userData.logout()}>logout</button>
+          :
+          <motion.div
+            className="wrapper-login"
+            variants={animazioneForm}
+            initial="initial"
+            animate="animate"
+            transition={{ delay: 0.5 }}
           >
-            <FormSignUp setFormAuth={setFormAuth} formAuth={formAuth} auth={userData} />
 
-            <FormLogin setFormAuth={setFormAuth} formAuth={formAuth} auth={userData} />
-          </motion.div>
-            :
-            <motion.div
-              initial='initial'
-              animate='animate'
-              exit='exit'
-              variants={animateLogin}
-            >
-              <LoginUi tipoForm={formAuth} setFormAuth={setFormAuth} />
-              <button onClick={()=>userData.logout()}>logout</button>
-            </motion.div>
-          }
-          </AnimatePresence>
 
-        </motion.div>
+            <AnimatePresence>
+              {formAuth !== false ?
+                <motion.div
+                  className="wrapper-form-login"
+                  initial='initial'
+                  animate='animate'
+                  exit='exit'
+                  variants={animateLogin}
+                >
+                  <FormSignUp setFormAuth={setFormAuth} formAuth={formAuth} auth={userData} />
+
+                  <FormLogin setFormAuth={setFormAuth} formAuth={formAuth} auth={userData} />
+                </motion.div>
+                :
+                <motion.div
+                  initial='initial'
+                  animate='animate'
+                  exit='exit'
+                  variants={animateLogin}
+                >
+                  <LoginUi tipoForm={formAuth} setFormAuth={setFormAuth} />
+
+                </motion.div>
+              }
+            </AnimatePresence>
+
+          </motion.div>}
         <motion.div
           className="wrapper-back"
           variants={animazioneBackgroung}
@@ -122,7 +127,7 @@ console.log(userData);
         >
           <Image src="/images/backlogin.jpg" layout='fill' alt="backlogin" />
         </motion.div>
-     
+
       </main>
 
 

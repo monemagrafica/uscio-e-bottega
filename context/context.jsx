@@ -1,12 +1,22 @@
 import React, { createContext, useState, useEffect } from "react"
 import { firestore, auth } from '../firebase/initFirebase';
+import { useRouter } from 'next/router'
 import {
     onAuthStateChanged,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
 
 } from "firebase/auth";
-import { collection, QueryDocumentSnapshot, DocumentData, query, where, limit, getDocs } from "@firebase/firestore";
+
+import {
+    collection,
+    QueryDocumentSnapshot,
+    DocumentData,
+    query,
+    where,
+    limit,
+    getDocs
+} from "@firebase/firestore";
 
 const ShareContext = createContext();
 const todosCollection = collection(firestore, 'panini');
@@ -14,11 +24,11 @@ const todosCollection = collection(firestore, 'panini');
 
 function ContextData({ children }) {
     const [prodotti, setProdotti] = useState([]);
-
+    const route = useRouter()
     const [selezionePanini, setselezionePanini] = useState([])
     const [openCart, setOpenCart] = useState(false)
     const [openToaster, setOpenToaster] = useState(false)
-
+    const [openDrawer, setOpenDrawer] = useState(false)
     const getProdotti = async () => {
 
         const prodottiQuery = query(todosCollection);
@@ -34,9 +44,9 @@ function ContextData({ children }) {
         setProdotti(result);
     };
 
-    const [user, setUser] = useState(null )
+    const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-console.log(loading);
+ 
     useEffect(() => {
 
         //evita che si disconnetta al refresh dell'applicazione (?)
@@ -56,8 +66,8 @@ console.log(loading);
         return () => unsubscribe()
 
     }, []);
-    
-    useEffect(()=>{if(user) getProdotti()},[user])
+
+    useEffect(() => { if (user) getProdotti() }, [user])
 
     function handleLogin(email, password) {
         return signInWithEmailAndPassword(auth, email, password)
@@ -69,6 +79,8 @@ console.log(loading);
 
     const logout = async () => {
         console.log("logout");
+        route.push('/')
+        setOpenDrawer(false)
         setUser(null)
         await auth.signOut();
     };
@@ -80,6 +92,8 @@ console.log(loading);
         openCart: openCart,
         setOpenCart: setOpenCart,
         openToaster: openToaster,
+        openDrawer: openDrawer,
+        setOpenDrawer: setOpenDrawer,
         setOpenToaster: setOpenToaster,
     }
     const authFirebase = {

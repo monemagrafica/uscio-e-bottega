@@ -21,8 +21,8 @@ function ToasterAggiuntoCart({ openToaster }) {
     }
 
 
-      return  <ToastContainer />
-      
+    return <ToastContainer />
+
 }
 
 
@@ -30,12 +30,11 @@ function ToasterLoggedIn({ authData }) {
 
     const [userStato, setUserStato] = useState(null)
 
+    useEffect(() => {
+        if (authData.uid) { setUserStato(authData.uid) }
+    }, [])
 
-    useEffect(()=>{
-        if(authData?.uid){setUserStato((prev)=>{return prev !== authData.uid ? authData.uid : null})}
-    },[])
-
-console.log('userstato',userStato);
+    console.log('userstato', userStato);
     if (userStato !== null) {
         toast('Benvenuto!', {
             position: "bottom-right",
@@ -50,11 +49,10 @@ console.log('userstato',userStato);
     }
 
 
-      return  <ToastContainer />
-      
+    return <ToastContainer />
+
 }
 const ToasterLoggedInMemo = memo(ToasterLoggedIn)
+const ToasterAggiuntoCartMemo = memo(ToasterAggiuntoCart)
 
-export {ToasterLoggedInMemo}
-
-export default memo(ToasterAggiuntoCart)
+export { ToasterLoggedInMemo, ToasterAggiuntoCartMemo }

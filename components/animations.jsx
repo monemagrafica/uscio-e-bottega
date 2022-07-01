@@ -26,7 +26,7 @@ const animateOpacity = {
 
 const animateCart = {
     initial: { opacity: 0, top: '100%' },
-    animate: { opacity: 1, top: '60px', transition: { duration: .5, ease: [0, .84, .62, .33] } },
+    animate: { opacity: 1, top: '60px', transition: { duration: .5, ease: 'easeIn' } },
     exit: { opacity: 0, top: '100%', transition: { duration: 1, ease: 'easeOut' } }
 }
 const animateEmptyCart = {
@@ -36,7 +36,7 @@ const animateEmptyCart = {
 }
 const animateRiepilogo = {
     initial: { opacity: 0, left: '100%' },
-    animate: { opacity: 1, left: '0px', transition: { duration: .5, ease: [0, .84, .62, .33] } },
+    animate: { opacity: 1, left: '0px', transition: { duration: .5, ease: 'easeIn' } },
     exit: { opacity: 0, left: '100%', transition: { duration: .5, ease: 'easeOut' } }
 }
 
@@ -66,6 +66,11 @@ const animateInfo = {
     animate: { opacity: 1 },
     exit: { opacity: 0 }
   }
+  const animateDrawer = {
+    initial: { opacity: 0, left: -500 },
+    animate: { opacity: 1, left:0, transition: { duration: .5, ease: 'easeIn' } },
+    exit: { opacity: 0, left:-500, transition: { duration: .5, ease: 'easeIn' } }
+  }
 
 
 
@@ -83,5 +88,6 @@ export {
     animatePrice,
     animateIcon,
     animateSearchPage,
-    animateLogin
+    animateLogin,
+    animateDrawer
 }

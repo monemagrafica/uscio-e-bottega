@@ -278,7 +278,18 @@ text-align: center;
 }
 
 //ANCHOR: login page
-
+.login-page{
+  .logout{
+    z-index: 100;
+    font-family: v.$titles;
+    background-color: v.$brownBackBtn;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 37px;
+    font-size: 1.5rem;
+  
+  }
+}
 .wrapper-login{
   text-align: center;
   button{
@@ -309,5 +320,33 @@ text-align: center;
     background-color: v.$brownNoteDettagli;
     padding: 1rem;
     border-radius: 20px;
+  }
+}
+
+
+//ANCHOR: Drawer
+
+.wrapper-drawer {
+  position: fixed;
+  top: 60px;
+  z-index: 100;
+  background-color: #e1d3c8f0;
+  height: 100vh;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2{
+    font-family: v.$titles;
+  }
+  button{
+    font-family: v.$titles;
+    font-size: 1.5rem;
+    background-color: v.$brownBackBtn;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 25px;
+
   }
 }
