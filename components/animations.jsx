@@ -41,37 +41,67 @@ const animateRiepilogo = {
 }
 
 const animateListItem = {
-    initial: {opacity: 0, top: 20 },
+    initial: { opacity: 0, top: 20 },
     animate: { opacity: 1, top: 0 }
 }
 const animateInfo = {
-    initial: { transform: 'scale(0.8)', opacity: 0},
-    animate: {transform: 'scale(1)', opacity: 1, transition: { type: "spring", stiffness: 60 } },
-    exit:{opacity:0, transform: 'scale(0.9)'}
-  }
-  const animatePrice = {
+    initial: { transform: 'scale(0.8)', opacity: 0 },
+    animate: { transform: 'scale(1)', opacity: 1, transition: { type: "spring", stiffness: 60 } },
+    exit: { opacity: 0, transform: 'scale(0.9)' }
+}
+const animatePrice = {
     initial: { opacity: 0, top: -20, rotate: 80 },
-    animate: { opacity: 1, top: 0, rotate:-2, transition: { delay: 0.2, type: "spring", stiffness:100 } }
-  }
-  const animateIcon = {
+    animate: { opacity: 1, top: 0, rotate: -2, transition: { delay: 0.2, type: "spring", stiffness: 100 } }
+}
+const animateIcon = {
     initial: { opacity: 0, top: 20 },
     animate: { opacity: 1, top: 0 }
-  }
-  const animateSearchPage = {
+}
+const animateSearchPage = {
     initial: { opacity: 0, top: -200 },
     animate: { opacity: 1, top: 0 }
-  }
-  const animateLogin = {
+}
+const animateLogin = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     exit: { opacity: 0 }
-  }
-  const animateDrawer = {
+}
+const animateDrawer = {
     initial: { opacity: 0, left: -500 },
-    animate: { opacity: 1, left:0, transition: { duration: .5, ease: 'easeIn' } },
-    exit: { opacity: 0, left:-500, transition: { duration: .5, ease: 'easeIn' } }
-  }
+    animate: { opacity: 1, left: 0, transition: { duration: .5, ease: 'easeIn' } },
+    exit: { opacity: 0, left: -500, transition: { duration: .5, ease: 'easeIn' } }
+}
 
+const animazioneLogo = {
+    initial: {
+        opacity: 0,
+        top: -50
+    },
+    animate: {
+        opacity: 1,
+        top: 0
+    }
+}
+const animazioneForm = {
+    initial: {
+        opacity: 0,
+        top: 50
+    },
+    animate: {
+        opacity: 1,
+        top: 0
+    }
+}
+const animazioneBackground = {
+    initial: {
+        opacity: 0,
+
+    },
+    animate: {
+        opacity: 1,
+
+    }
+}
 
 
 export {
@@ -89,5 +119,8 @@ export {
     animateIcon,
     animateSearchPage,
     animateLogin,
-    animateDrawer
+    animateDrawer,
+    animazioneLogo,
+    animazioneForm,
+    animazioneBackground
 }

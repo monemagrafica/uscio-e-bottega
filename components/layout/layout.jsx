@@ -17,7 +17,7 @@ function Layout({ children }) {
     useEffect(()=>{
         if(!authData){
             router.push('/')
-        }
+        } else {router.push('/store')}
     },[])
 
     return (

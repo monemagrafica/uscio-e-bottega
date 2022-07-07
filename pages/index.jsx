@@ -3,12 +3,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import FormLogin from '../components/form/formLogin'
 import FormSignUp from '../components/form/formSignUp'
-
 import { motion, AnimatePresence } from 'framer-motion'
 import { animateLogin } from '../components/animations'
 import { ShareContext } from '../context/context'
 import { FcGoogle } from 'react-icons/fc'
-
+import { animazioneLogo, animazioneForm, animazioneBackground } from '../components/animations'
 
 
 function LoginUi({ tipoForm, setFormAuth }) {
@@ -29,36 +28,6 @@ export default function Home() {
 
   const [formAuth, setFormAuth] = useState(false)
 
-  const animazioneLogo = {
-    initial: {
-      opacity: 0,
-      top: -50
-    },
-    animate: {
-      opacity: 1,
-      top: 0
-    }
-  }
-  const animazioneForm = {
-    initial: {
-      opacity: 0,
-      top: 50
-    },
-    animate: {
-      opacity: 1,
-      top: 0
-    }
-  }
-  const animazioneBackgroung = {
-    initial: {
-      opacity: 0,
-
-    },
-    animate: {
-      opacity: 1,
-
-    }
-  }
 
 
   return (
@@ -128,7 +97,7 @@ export default function Home() {
           </motion.div>}
         <motion.div
           className="wrapper-back"
-          variants={animazioneBackgroung}
+          variants={animazioneBackground}
           initial="initial"
           animate="animate"
         >
