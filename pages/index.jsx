@@ -26,7 +26,7 @@ export default function Home() {
 
   const context = useContext(ShareContext)
   const userData = context.authFirebase
-  console.log(userData);
+
   const [formAuth, setFormAuth] = useState(false)
 
   const animazioneLogo = {

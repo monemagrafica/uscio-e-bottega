@@ -8,8 +8,8 @@ import LoaderImage from '../loader/loaderImage';
 
 function ListaProdotti() {
     const lista = useRef()
-    let share = useContext(ShareContext)
-    share = share.DataShare
+    const data = useContext(ShareContext)
+    const share = data.DataShare
     const [infoPanino, setInfoPanino] = useState(false)
 
     return (
@@ -24,10 +24,11 @@ function ListaProdotti() {
                         index={index}
                         setInfoPanino={setInfoPanino} 
                         infoPanino={infoPanino}
-                        selezionePanini={share.selezionePanini}
-                        setselezionePanini={share.setselezionePanini}
+                        cart={share.cart}
+                        addToCart={share.addToCart}
                         openToaster={share.openToaster}
                         setOpenToaster={share.setOpenToaster}
+  
                         />)
             })
             }

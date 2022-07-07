@@ -5,27 +5,21 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { animateInfo, animatePrice, animateIcon } from '../animations'
 import Plus1 from '../cart/plus1'
-
+import { v4 as uuidv4 } from 'uuid';
 function UiLista({
   data,
   infoPanino,
   index,
-  selezionePanini,
-  setselezionePanini,
-  setOpenToaster }) {
-
-  function setCart(e, newDatiPanino) {
-    e.stopPropagation();
-    setselezionePanini([...selezionePanini, { ...newDatiPanino, quantita: 1 }])
-    setOpenToaster(true)
-    setPlusOne(true)
-  }
+  cart,
+  addToCart,
+  
+ }) {
 
 
   const [plusOne, setPlusOne] = useState(false)
+  const idPanino=uuidv4()
 
   return (
-
     <>
       <AnimatePresence>{(infoPanino === index) &&
         <motion.div
@@ -59,7 +53,7 @@ function UiLista({
             initial="initial"
             animate="animate"
             transition={{ delay: 0.5, duration: 0.3 }}
-            onClick={(e) => setCart(e, data)}
+            onClick={(e) => { addToCart(e, data, idPanino ); setPlusOne(true)}}
           >+
             <Plus1 plusOne={plusOne} setPlusOne={setPlusOne} />
           </motion.div>

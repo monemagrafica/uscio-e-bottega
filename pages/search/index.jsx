@@ -16,7 +16,7 @@ function Search() {
   let dati = useContext(ShareContext)
   dati = dati.DataShare
   const prodotti = dati.prodotti
-  console.log(prodotti);
+ 
   function risultatiRicerca(inputString) {
 
     const prodottiByNome = prodotti.filter((item) => {

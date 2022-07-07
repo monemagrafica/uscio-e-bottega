@@ -12,7 +12,7 @@ function FormLogin({ auth, formAuth, setFormAuth }) {
     e.preventDefault()
     try {
       await auth.handleLogin(email, password)
-      console.log('logged')
+  
       router.push('/store')
     } catch (err) { console.log(err); }
   }

@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 function Dettagli({ salse, dettagli, immagine }) {
     const uid=uuidv4()
-    console.log('uuid', uid);
+   
     return (
         <div className={style.dettagli}>
             <div className={`${[style.wrapperDettagli, dettagli && style.dettagliOpen].join(' ')}`}>

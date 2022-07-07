@@ -21,7 +21,7 @@ function RiepilogoOrdine({ openRiepilogo, setOpenRiepilogo, dati }) {
                 </div>
                 <ul className={style.wrapperItemriepilogo}>
                  {dati.map((item, index)=>{
-                     console.log('riepilogo', item);
+                
                    if(item.quantita > 0 )  return ( <li key={index}>
                         <div className={style.immagineRiepilogo}>
                             <Image src={item.svg.stringValue} width={100} height={100} alt="immagine panino" />

@@ -34,7 +34,7 @@ function ToasterLoggedIn({ authData }) {
         if (authData.uid) { setUserStato(authData.uid) }
     }, [])
 
-    console.log('userstato', userStato);
+
     if (userStato !== null) {
         toast('Benvenuto!', {
             position: "bottom-right",

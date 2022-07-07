@@ -5,7 +5,7 @@ import Dettagli from './dettagli'
 import { BiChevronDown } from 'react-icons/bi'
 
 
-function ItemCart({ dati }) {
+function ItemCart({ dati, removeFromCart }) {
 
   const [dettagli, setDettagli] = useState(false)
  
@@ -17,7 +17,7 @@ function ItemCart({ dati }) {
           <h2>{dati.name.stringValue}</h2>
         </div>
         <Quantita setDettagli={setDettagli} />
-        <button className={style.buttonCancelItem} onClick={()=>false}>x</button>
+        <button className={style.buttonCancelItem} onClick={()=>removeFromCart(dati.idPanino)}>x</button>
       </div>
       {<Dettagli immagine={dati.svg.stringValue} dettagli={dettagli} salse={dati.ingredients.mapValue.fields.Salse?.arrayValue.values} />}
       <div className={style.expandDettagli} onClick={() => setDettagli((prevState) => !prevState)}>

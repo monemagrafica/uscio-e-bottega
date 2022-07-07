@@ -26,7 +26,7 @@ function Layout({ children }) {
             {(router.asPath !== '/' && authData)  &&
                 <>
                     <Navbar 
-                    statoCarrello={dati.selezionePanini.length} 
+                    statoCarrello={dati.cart.length} 
                     openCart={dati.openCart} 
                     setOpenCart={dati.setOpenCart} 
                    
@@ -34,12 +34,13 @@ function Layout({ children }) {
                     />
                     {children}
                     <Cart
-                        dati={dati?.selezionePanini}
+                        dati={dati?.cart}
                         openCart={dati.openCart}
+                        removeFromCart={dati.removeFromCart}
                         setOpenCart={dati.setOpenCart}
                         setSelezionaPanini={dati.setSelezionaPanini}
                     />
-                    <ToasterAggiuntoCartMemo dati={dati?.selezionePanini} openToaster={dati?.openToaster} />
+                    <ToasterAggiuntoCartMemo dati={dati?.cart} openToaster={dati?.openToaster} />
                     <ToasterLoggedInMemo authData={authData } />
                     <Drawer logout={context.authFirebase.logout} openDrawer={dati.openDrawer}  authData={authData}/>
                 </>

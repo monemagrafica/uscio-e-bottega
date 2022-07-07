@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { animateDrawer } from './animations'
 
 function Drawer({ openDrawer, logout, authData }) {
-console.log(authData);
+
 const name = authData.email.split('@')[0]
     return (
         <>  
