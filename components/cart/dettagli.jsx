@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 function Dettagli({ salse, dettagli, immagine }) {
+    
     const uid=uuidv4()
    
     return (
@@ -20,7 +21,13 @@ function Dettagli({ salse, dettagli, immagine }) {
                         <li key={item.stringValue}>
                           <form>
                               
-                              <input type="checkbox" defaultChecked={true}  id={`${uid}___${item.stringValue}`} name={item.stringValue} value={item.stringValue} />
+                              <input 
+                              type="checkbox" 
+                              defaultChecked={true}  
+                              id={`${uid}___${item.stringValue}`} 
+                              name={item.stringValue} 
+                              value={item.stringValue} />
+
                               <label htmlFor={`${uid}___${item.stringValue}`}>
                               {item.stringValue}
                               </label><br></br>

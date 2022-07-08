@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import style from '../../pages/store/store.module.scss'
 import { motion, AnimatePresence } from 'framer-motion'
 import { animateCart } from '../animations'
@@ -9,7 +9,13 @@ import { BiArrowBack } from 'react-icons/bi'
 function Cart({ dati, openCart, setOpenCart, removeFromCart }) {
 
     const [openRiepilogo, setOpenRiepilogo] = useState(false)
-console.log(dati);
+    console.log(dati);
+    useEffect(() => {
+        if (!dati.length) {
+            setOpenCart(false)
+        }
+    }, [dati])
+    
     return (
         <AnimatePresence>
             {(openCart && dati.length) &&

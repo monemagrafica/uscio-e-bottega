@@ -26,8 +26,7 @@ function ListaProdotti() {
                         infoPanino={infoPanino}
                         cart={share.cart}
                         addToCart={share.addToCart}
-                        openToaster={share.openToaster}
-                        setOpenToaster={share.setOpenToaster}
+  
   
                         />)
             })

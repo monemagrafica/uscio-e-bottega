@@ -179,7 +179,7 @@ function SchedaPanino() {
             datiPanino={datiPanino}
             addToCart={dati.addToCart}
             cart={dati.cart}
-            setOpenToaster={dati.setOpenToaster}
+       
           />
         </> : <LoaderImage />}
 

@@ -30,7 +30,8 @@ function ContextData({ children }) {
     const route = useRouter()
     const [cart, setCart] = useState([])
     const [openCart, setOpenCart] = useState(false)
-    const [openToaster, setOpenToaster] = useState(false)
+    const [addPaninoToaster, setaddPaninoToaster] = useState(false)
+    const [removePaninoToaster, setRemovePaninoToaster] = useState(false)
     const [openDrawer, setOpenDrawer] = useState(false)
     const [errorDb, setErrorDb] = useState(false)
 
@@ -54,6 +55,7 @@ function ContextData({ children }) {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
+
     useEffect(() => {
 
         //LOGIN - evita che si disconnetta al refresh dell'applicazione (?)
@@ -69,10 +71,11 @@ function ContextData({ children }) {
             setLoading(false)
         })
 
-
         return () => unsubscribe()
 
     }, []);
+
+
 
     useEffect(() => { if (user) getProdotti() }, [user])
 
@@ -80,14 +83,13 @@ function ContextData({ children }) {
     function addToCart(e, newDatiPanino, id) {
         e.stopPropagation();
         setCart([...cart, { idPanino: id, ...newDatiPanino, quantita: 1 }])
-        setOpenToaster(true)
+        setaddPaninoToaster(true)
 
     }
 
     function removeFromCart(id) {
-
-      setCart(cart.filter((item) => item.idPanino !== id))
-
+        setCart(cart.filter((item) => item.idPanino !== id))
+        setRemovePaninoToaster(true)
     }
 
     function handleLogin(email, password) {
@@ -113,10 +115,12 @@ function ContextData({ children }) {
         removeFromCart: removeFromCart,
         openCart: openCart,
         setOpenCart: setOpenCart,
-        openToaster: openToaster,
         openDrawer: openDrawer,
         setOpenDrawer: setOpenDrawer,
-        setOpenToaster: setOpenToaster,
+        addPaninoToaster: addPaninoToaster,
+        setaddPaninoToaster: setaddPaninoToaster,
+        removePaninoToaster: removePaninoToaster,
+        setRemovePaninoToaster: setRemovePaninoToaster
 
     }
 

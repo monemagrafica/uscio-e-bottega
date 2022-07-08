@@ -14,8 +14,6 @@ function ListaProdottiItem({
     infoPanino,
     cart,
     addToCart,
-    openToaster,
-    setOpenToaster,
     
      }) {
 
@@ -57,8 +55,7 @@ function ListaProdottiItem({
                 data={datiPanino}
                 cart={cart}
                 addToCart={addToCart}
-                openToaster={openToaster}
-                setOpenToaster={setOpenToaster}
+       
        
             />
 

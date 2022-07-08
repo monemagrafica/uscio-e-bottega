@@ -3,7 +3,7 @@ import Navbar from '../navbar/navbar'
 import { useRouter } from 'next/router';
 import Cart from '../cart/cart';
 import { ShareContext } from '../../context/context';
-import  { ToasterLoggedInMemo, ToasterAggiuntoCartMemo } from '../toaster/toaster'
+import  { ToasterLoggedInMemo, ToasterAggiuntoCart, ToasterRimossoCart } from '../toaster/toaster'
 import Drawer from '../drawer';
 
 
@@ -19,7 +19,7 @@ function Layout({ children }) {
             router.push('/')
         } else {router.push('/store')}
     },[])
-
+console.log(dati.openCart);
     return (
         <div className="layout">
 
@@ -29,7 +29,6 @@ function Layout({ children }) {
                     statoCarrello={dati.cart.length} 
                     openCart={dati.openCart} 
                     setOpenCart={dati.setOpenCart} 
-                   
                     setOpenDrawer={dati.setOpenDrawer} 
                     />
                     {children}
@@ -40,8 +39,9 @@ function Layout({ children }) {
                         setOpenCart={dati.setOpenCart}
                         setSelezionaPanini={dati.setSelezionaPanini}
                     />
-                    <ToasterAggiuntoCartMemo dati={dati?.cart} openToaster={dati?.openToaster} />
+                    <ToasterAggiuntoCart addPaninoToaster={dati.addPaninoToaster} setaddPaninoToaster={dati.setaddPaninoToaster}  />
                     <ToasterLoggedInMemo authData={authData } />
+                    <ToasterRimossoCart removePaninoToaster={dati.removePaninoToaster} setRemovePaninoToaster={dati.setRemovePaninoToaster} />
                     <Drawer logout={context.authFirebase.logout} openDrawer={dati.openDrawer}  authData={authData}/>
                 </>
             }
