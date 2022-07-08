@@ -18,17 +18,17 @@ import {
     getDocs
 } from "@firebase/firestore";
 
-
+const ISSERVER = typeof window === "undefined";
 
 const ShareContext = createContext()
 const todosCollection = collection(firestore, 'panini')
-
-
+const cartFromLocalStorage = !ISSERVER ? JSON.parse(localStorage.getItem("cart")) :[] 
+console.log('cart',cartFromLocalStorage);
 function ContextData({ children }) {
 
     const [prodotti, setProdotti] = useState([])
     const route = useRouter()
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(cartFromLocalStorage)
     const [openCart, setOpenCart] = useState(false)
     const [addPaninoToaster, setaddPaninoToaster] = useState(false)
     const [removePaninoToaster, setRemovePaninoToaster] = useState(false)
@@ -78,13 +78,13 @@ function ContextData({ children }) {
 
 
     useEffect(() => { if (user) getProdotti() }, [user])
-
+    
+    useEffect(()=>{ localStorage.setItem("cart", JSON.stringify(cart)) },[cart] )
 
     function addToCart(e, newDatiPanino, id) {
         e.stopPropagation();
         setCart([...cart, { idPanino: id, ...newDatiPanino, quantita: 1 }])
         setaddPaninoToaster(true)
-
     }
 
     function removeFromCart(id) {
