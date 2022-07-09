@@ -22,8 +22,10 @@ const ISSERVER = typeof window === "undefined";
 
 const ShareContext = createContext()
 const todosCollection = collection(firestore, 'panini')
+
+// controllo per NEXTJS, per accedere al localstorage
 const cartFromLocalStorage = !ISSERVER ? JSON.parse(localStorage.getItem("cart")) :[] 
-console.log('cart',cartFromLocalStorage);
+
 function ContextData({ children }) {
 
     const [prodotti, setProdotti] = useState([])
