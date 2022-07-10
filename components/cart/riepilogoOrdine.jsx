@@ -28,9 +28,9 @@ function RiepilogoOrdine({ openRiepilogo, setOpenRiepilogo, dati }) {
                         </div>
                         <div className={style.itemRiepilogo}>
                             <h2>{item.name.stringValue}</h2>
-                            <div><span>Quantita:</span> 34</div>
+                            <div><span>Quantita:</span>{item.quantita}</div>
                             <div><span>Salse:</span> maionese</div>
-                            <div><span>Note:</span> se possibile mettere la lattuga invece del radicchio</div>
+                            <div><span>Note:</span> {item.note}</div>
                         </div>
                     </li>)
                  })  }

@@ -14,7 +14,7 @@ function FormLogin({ auth, formAuth, setFormAuth }) {
       await auth.handleLogin(email, password)
   
       router.push('/store')
-    } catch (err) { console.log(err); }
+    } catch (err) { (err); }
   }
 
   return (
@@ -26,7 +26,7 @@ function FormLogin({ auth, formAuth, setFormAuth }) {
         exit='exit'
         variants={animateLogin}
       >
-        <form className='form-login' onSubmit={() => console.log('test')}>
+        <form className='form-login' onSubmit={() => ('test')}>
           <label htmlFor="user">
             <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Nome Utente' name="user" id="user" />
           </label>

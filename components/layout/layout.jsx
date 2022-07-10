@@ -19,14 +19,15 @@ function Layout({ children }) {
             router.push('/')
         } else {router.push('/store')}
     },[])
-console.log(dati.openCart);
+
+    
     return (
         <div className="layout">
 
             {(router.asPath !== '/' && authData)  &&
                 <>
                     <Navbar 
-                    statoCarrello={dati.cart.length} 
+                    statoCarrello={dati.cart?.length} 
                     openCart={dati.openCart} 
                     setOpenCart={dati.setOpenCart} 
                     setOpenDrawer={dati.setOpenDrawer} 
@@ -38,6 +39,7 @@ console.log(dati.openCart);
                         removeFromCart={dati.removeFromCart}
                         setOpenCart={dati.setOpenCart}
                         setSelezionaPanini={dati.setSelezionaPanini}
+                        updateItem={dati.updateItem}
                     />
                     <ToasterAggiuntoCart addPaninoToaster={dati.addPaninoToaster} setaddPaninoToaster={dati.setaddPaninoToaster}  />
                     <ToasterLoggedInMemo authData={authData } />

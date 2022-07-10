@@ -24,19 +24,18 @@ const ShareContext = createContext()
 const todosCollection = collection(firestore, 'panini')
 
 // controllo per NEXTJS, per accedere al localstorage
-const cartFromLocalStorage = !ISSERVER ? JSON.parse(localStorage.getItem("cart")) :[] 
+const cartFromLocalStorage = !ISSERVER && JSON.parse(localStorage.getItem("cart"))
 
 function ContextData({ children }) {
 
     const [prodotti, setProdotti] = useState([])
     const route = useRouter()
-    const [cart, setCart] = useState(cartFromLocalStorage)
+    const [cart, setCart] = useState(cartFromLocalStorage || [])
     const [openCart, setOpenCart] = useState(false)
     const [addPaninoToaster, setaddPaninoToaster] = useState(false)
     const [removePaninoToaster, setRemovePaninoToaster] = useState(false)
     const [openDrawer, setOpenDrawer] = useState(false)
     const [errorDb, setErrorDb] = useState(false)
-
 
 
     const getProdotti = async () => {
@@ -69,7 +68,6 @@ function ContextData({ children }) {
                     displayName: user.displayName
                 })
             } else { setUser(null) }
-
             setLoading(false)
         })
 
@@ -80,8 +78,11 @@ function ContextData({ children }) {
 
 
     useEffect(() => { if (user) getProdotti() }, [user])
-    
-    useEffect(()=>{ localStorage.setItem("cart", JSON.stringify(cart)) },[cart] )
+
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart))
+
+    }, [cart])
 
     function addToCart(e, newDatiPanino, id) {
         e.stopPropagation();
@@ -89,6 +90,20 @@ function ContextData({ children }) {
         setaddPaninoToaster(true)
     }
 
+    function updateItem(dettagli) {
+
+        const newArray = cart.map((item) => {
+            if (item.idPanino === dettagli.idPanino) {
+                item.quantita = dettagli.quantita || 1
+                item.note = dettagli.note
+            }
+            return item
+        })
+
+        setCart(newArray)
+       
+    }
+ 
     function removeFromCart(id) {
         setCart(cart.filter((item) => item.idPanino !== id))
         setRemovePaninoToaster(true)
@@ -115,6 +130,7 @@ function ContextData({ children }) {
         cart: cart,
         addToCart: addToCart,
         removeFromCart: removeFromCart,
+        updateItem: updateItem,
         openCart: openCart,
         setOpenCart: setOpenCart,
         openDrawer: openDrawer,
@@ -122,7 +138,7 @@ function ContextData({ children }) {
         addPaninoToaster: addPaninoToaster,
         setaddPaninoToaster: setaddPaninoToaster,
         removePaninoToaster: removePaninoToaster,
-        setRemovePaninoToaster: setRemovePaninoToaster
+        setRemovePaninoToaster: setRemovePaninoToaster,
 
     }
 
