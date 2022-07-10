@@ -21,7 +21,8 @@ function UiLista({
 
   return (
     <>
-      <AnimatePresence>{(infoPanino === index) &&
+      <AnimatePresence>
+        {(infoPanino === index) &&
         <motion.div
           className={style.uiLista}
           variants={animateInfo}

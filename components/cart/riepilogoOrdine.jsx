@@ -20,20 +20,20 @@ function RiepilogoOrdine({ openRiepilogo, setOpenRiepilogo, dati }) {
                     <h2>Riepilogo ordine</h2>
                 </div>
                 <ul className={style.wrapperItemriepilogo}>
-                 {dati.map((item, index)=>{
-                
-                   if(item.quantita > 0 )  return ( <li key={index}>
-                        <div className={style.immagineRiepilogo}>
-                            <Image src={item.svg.stringValue} width={100} height={100} alt="immagine panino" />
-                        </div>
-                        <div className={style.itemRiepilogo}>
-                            <h2>{item.name.stringValue}</h2>
-                            <div><span>Quantita:</span>{item.quantita}</div>
-                            <div><span>Salse:</span> maionese</div>
-                            <div><span>Note:</span> {item.note}</div>
-                        </div>
-                    </li>)
-                 })  }
+                    {dati.map((item, index) => {
+                        if (item.quantita > 0) return (
+                            <li key={index}>
+                                <div className={style.immagineRiepilogo}>
+                                    <Image src={item.svg.stringValue} width={100} height={100} alt="immagine panino" />
+                                </div>
+                                <div className={style.itemRiepilogo}>
+                                    <h2>{item.name.stringValue}</h2>
+                                    <div><span>Quantita:</span>{item.quantita}</div>
+                                    <div><span>Salse:</span> maionese</div>
+                                    <div><span>Note:</span> {item.note}</div>
+                                </div>
+                            </li>)
+                    })}
                 </ul>
                 <div className={style.totale}>
                     <h2>TOTALE:</h2>
