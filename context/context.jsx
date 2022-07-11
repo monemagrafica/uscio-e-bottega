@@ -93,9 +93,11 @@ function ContextData({ children }) {
     function updateItem(dettagli) {
 
         const newArray = cart.map((item) => {
+
             if (item.idPanino === dettagli.idPanino) {
                 item.quantita = dettagli.quantita || 1
                 item.note = dettagli.note
+                item.salse = dettagli.salse
             }
             return item
         })
@@ -150,7 +152,7 @@ function ContextData({ children }) {
         errorDb: errorDb,
         setErrorDb: setErrorDb
     }
-
+console.log('cart',cart);
 
     return (
         <ShareContext.Provider value={{ DataShare, authFirebase }}>

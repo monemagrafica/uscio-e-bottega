@@ -22,7 +22,10 @@ function Cart({ dati, openCart, setOpenCart, removeFromCart, updateItem }) {
     useEffect(() => {
         updateItem(update)
     }, [update])
-console.log('dati', dati);
+
+ 
+
+
     return (
         <AnimatePresence>
             {(openCart && dati.length) &&

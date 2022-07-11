@@ -41,7 +41,7 @@ function Layout({ children }) {
                         setSelezionaPanini={dati.setSelezionaPanini}
                         updateItem={dati.updateItem}
                     />
-                    <ToasterAggiuntoCart addPaninoToaster={dati.addPaninoToaster} setaddPaninoToaster={dati.setaddPaninoToaster}  />
+                    <ToasterAggiuntoCart addPaninoToaster={dati.addPaninoToaster} setaddPaninoToaster={dati.setaddPaninoToaster}  /> 
                     <ToasterLoggedInMemo authData={authData } />
                     <ToasterRimossoCart removePaninoToaster={dati.removePaninoToaster} setRemovePaninoToaster={dati.setRemovePaninoToaster} />
                     <Drawer logout={context.authFirebase.logout} openDrawer={dati.openDrawer}  authData={authData}/>
