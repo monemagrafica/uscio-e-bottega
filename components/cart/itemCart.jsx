@@ -19,7 +19,7 @@ function ItemCart({ dati, removeFromCart, setUpdate, update }) {
             <h2>{dati.name.stringValue}</h2>
           </div>
           <Quantita valueCampoQuantita={dati.quantita} update={update} idAddedPanino={dati.idAddedPanino} setUpdate={setUpdate} setDettagli={setDettagli} />
-          <button className={style.buttonCancelItem} onClick={() => removeFromCart(dati.idAddedPanino)}>x</button>
+          <button className={style.buttonCancelItem} onClick={() => {removeFromCart(dati.idAddedPanino); setUpdate({})}}>x</button>
         </div>
         {<Dettagli
           idAddedPanino={dati.idAddedPanino}
@@ -29,9 +29,7 @@ function ItemCart({ dati, removeFromCart, setUpdate, update }) {
           immagine={dati.svg.stringValue}
           dettagli={dettagli}
           salse={dati.ingredients.mapValue.fields.Salse?.arrayValue.values}
-          listaSalse={dati.salse}
           />
-          
           }
           
         <div className={style.expandDettagli} onClick={() => setDettagli((prevState) => !prevState)}>

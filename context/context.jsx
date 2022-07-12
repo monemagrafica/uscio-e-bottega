@@ -85,8 +85,9 @@ function ContextData({ children }) {
     }, [cart])
 
     function addToCart(e, newDatiPanino, id) {
+        console.log('newdatipanino', newDatiPanino);
         e.stopPropagation();
-        const arrayFromSalse = newDatiPanino.ingredients.mapValue.fields.Salse.arrayValue.values.map((item) => {
+        const arrayFromSalse = newDatiPanino.ingredients.mapValue.fields.Salse?.arrayValue.values.map((item) => {
             return item.stringValue
         })
 
@@ -95,7 +96,7 @@ function ContextData({ children }) {
     }
 
     function updateItem(dettagli) {
-
+console.log('dettagli', dettagli);
         const newArray = cart.map((item) => {
 
             if (item.idAddedPanino === dettagli.idAddedPanino) {
@@ -105,9 +106,7 @@ function ContextData({ children }) {
             }
             return item
         })
-
         setCart(newArray)
-
     }
 
     function removeFromCart(id) {

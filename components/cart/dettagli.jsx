@@ -1,19 +1,29 @@
-import React,{useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import style from '../../pages/store/store.module.scss'
 import Image from 'next/image'
 
+function Dettagli({ salse, dettagli, immagine, idAddedPanino, setUpdate, update, note }) {
+console.log('id', idAddedPanino);
+    const arrayFromSalse = salse && salse.map((item) => {
+        return item.stringValue
+    })
 
+    const [arraySalseUpdate, setArraySalseUpdate] = useState(arrayFromSalse || [])
 
-function Dettagli({ listaSalse ,salse, dettagli, immagine, idAddedPanino, setUpdate, update, note }) {
+    const [noteCampo, setNoteCampo] = useState('')
 
-    const [arraySalseUpdate, setArraySalseUpdate ] = useState(listaSalse)
-    const [check, setCheck] = useState(false)
+    console.log('note', noteCampo);
+
+    useEffect(() => {
+
+        setUpdate({ ...update, idAddedPanino: idAddedPanino, note: noteCampo, salse: arraySalseUpdate })
+
+    }, [arraySalseUpdate, noteCampo])
 
     function checkboxSalse(checked, salsa) {
-        console.log('checked', checked);
 
         if (!checked) {
-              if (arraySalseUpdate.length) {
+            if (arraySalseUpdate.length) {
                 const arrayFiltrato = arraySalseUpdate.filter((item) => {
                     if (item !== salsa) {
                         return item
@@ -21,12 +31,12 @@ function Dettagli({ listaSalse ,salse, dettagli, immagine, idAddedPanino, setUpd
                 })
                 setArraySalseUpdate(arrayFiltrato)
                 console.log('salse', arraySalseUpdate);
-                setUpdate({ ...update, idAddedPanino: idAddedPanino, salse: arraySalseUpdate })
+
             }
         }
         else {
-           setArraySalseUpdate([...arraySalseUpdate, salsa])
-           setUpdate({ ...update, idAddedPanino: idAddedPanino, salse: arraySalseUpdate })
+            setArraySalseUpdate([...arraySalseUpdate, salsa])
+
         }
     }
 
@@ -61,11 +71,9 @@ function Dettagli({ listaSalse ,salse, dettagli, immagine, idAddedPanino, setUpd
                 </ul>}
                 <div className={style.noteDettagli}>
                     <h3>note</h3>
-                    <textarea onChange={(e) => setUpdate({ ...update, idAddedPanino: idAddedPanino, note: e.target.value })} defaultValue={note || ''} name="note" id="note" cols="30" rows="5"></textarea>
+                    <textarea onChange={(e) => setNoteCampo(e.target.value)} defaultValue={note} name="note" id="note" cols="30" rows="5"></textarea>
                 </div>
             </div>
-
-
         </div>
     )
 }

@@ -23,9 +23,6 @@ function Cart({ dati, openCart, setOpenCart, removeFromCart, updateItem }) {
         updateItem(update)
     }, [update])
 
- 
-
-
     return (
         <AnimatePresence>
             {(openCart && dati.length) &&

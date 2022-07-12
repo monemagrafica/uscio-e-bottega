@@ -1,26 +1,32 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import style from '../../pages/store/store.module.scss'
 import { BiPlus, BiMinus } from 'react-icons/bi'
 
 function Quantita({ setDettagli, update, setUpdate, idAddedPanino, valueCampoQuantita }) {
 
-    const quantita = useRef()
 
-    function more(inputRef) {
-        inputRef.current.value++
+    const [quantita, setQuantita] = useState(1)
+    
+    useEffect(()=>{
+        setUpdate({...update, idAddedPanino: idAddedPanino, quantita: quantita })
+    }, [quantita])
+
+    function more() {
         setDettagli(true)
-        setUpdate({...update, idAddedPanino: idAddedPanino, quantita: inputRef.current.value })
+        setQuantita((prev)=>prev + 1)
     }
 
-    function less(inputRef) {
-        if (inputRef.current.value > 1) { inputRef.current.value-- } else { inputRef.current.value = 1 }
-        setUpdate({...update, idAddedPanino: idAddedPanino, quantita: inputRef.current.value })
+    function less() {
+        if (quantita > 1) { setQuantita((prev)=>prev - 1) } else { setQuantita(1) }
+        
     }
+    console.log('quantita', quantita);
+    console.log('quantitaInCart', valueCampoQuantita);
     return (
         <div className={style.cartQuantita}>
             <button className="more" onClick={() => less(quantita)}><BiMinus />
             </button><label htmlFor="quantita" className={style.inputQuantita}>
-                <input ref={quantita} defaultValue={valueCampoQuantita||1} type='number' id="quantita" /></label>
+                <input value={valueCampoQuantita} type='number' id="quantita" /></label>
             <button className="more" onClick={() => more(quantita)}><BiPlus /></button>
         </div>
     )
