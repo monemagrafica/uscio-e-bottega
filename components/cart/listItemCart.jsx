@@ -11,7 +11,7 @@ function ListItemCart({ dati, removeFromCart, setUpdate, update }) {
                 {dati.map((item) => {
                     return (
                         <motion.li
-                            key={item.idPanino}
+                            key={item.idAddedPanino}
                             variants={animateListCart}
                             initial="initial"
                             animate="animate"

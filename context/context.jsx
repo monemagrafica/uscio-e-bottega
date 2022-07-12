@@ -86,7 +86,11 @@ function ContextData({ children }) {
 
     function addToCart(e, newDatiPanino, id) {
         e.stopPropagation();
-        setCart([...cart, { idPanino: id, ...newDatiPanino, quantita: 1 }])
+        const arrayFromSalse = newDatiPanino.ingredients.mapValue.fields.Salse.arrayValue.values.map((item) => {
+            return item.stringValue
+        })
+
+        setCart([...cart, { idAddedPanino: id, ...newDatiPanino, quantita: 1, salse: arrayFromSalse }])
         setaddPaninoToaster(true)
     }
 
@@ -94,20 +98,20 @@ function ContextData({ children }) {
 
         const newArray = cart.map((item) => {
 
-            if (item.idPanino === dettagli.idPanino) {
+            if (item.idAddedPanino === dettagli.idAddedPanino) {
                 item.quantita = dettagli.quantita || 1
                 item.note = dettagli.note
-                item.salse = dettagli.salse
+                item.salse = dettagli.salse || [] 
             }
             return item
         })
 
         setCart(newArray)
-       
+
     }
- 
+
     function removeFromCart(id) {
-        setCart(cart.filter((item) => item.idPanino !== id))
+        setCart(cart.filter((item) => item.idAddedPanino !== id))
         setRemovePaninoToaster(true)
     }
 
@@ -152,7 +156,7 @@ function ContextData({ children }) {
         errorDb: errorDb,
         setErrorDb: setErrorDb
     }
-console.log('cart',cart);
+    console.log('cart', cart);
 
     return (
         <ShareContext.Provider value={{ DataShare, authFirebase }}>

@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 function Footer({ datiPanino, cart, addToCart,  }) {
  
   const [plusOne, setPlusOne] = useState(false)
-  const idPanino = uuidv4()
+  const idAddedPanino = uuidv4()
   
   return (
     <footer className={style.footerScheda}>
@@ -18,7 +18,7 @@ function Footer({ datiPanino, cart, addToCart,  }) {
         </Link>
         <div
           className={style.addToCart}
-          onClick={(e) => { addToCart(e, datiPanino, idPanino ); setPlusOne(true)}}
+          onClick={(e) => { addToCart(e, datiPanino, idAddedPanino ); setPlusOne(true)}}
         ><div className={style.icon}>+</div> <span>Aggiungi al carrello</span>
           <Plus1 plusOne={plusOne}  setPlusOne={setPlusOne} />
         </div>

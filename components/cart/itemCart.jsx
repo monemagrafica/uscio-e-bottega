@@ -18,18 +18,22 @@ function ItemCart({ dati, removeFromCart, setUpdate, update }) {
           <div className={style.wrapperNomePanino} onClick={() => setDettagli((prevState) => !prevState)}>
             <h2>{dati.name.stringValue}</h2>
           </div>
-          <Quantita valueCampoQuantita={dati.quantita} update={update} idPanino={dati.idPanino} setUpdate={setUpdate} setDettagli={setDettagli} />
-          <button className={style.buttonCancelItem} onClick={() => removeFromCart(dati.idPanino)}>x</button>
+          <Quantita valueCampoQuantita={dati.quantita} update={update} idAddedPanino={dati.idAddedPanino} setUpdate={setUpdate} setDettagli={setDettagli} />
+          <button className={style.buttonCancelItem} onClick={() => removeFromCart(dati.idAddedPanino)}>x</button>
         </div>
         {<Dettagli
-          idPanino={dati.idPanino}
+          idAddedPanino={dati.idAddedPanino}
           setUpdate={setUpdate}
           update={update}
           note={dati.note}
-          
           immagine={dati.svg.stringValue}
           dettagli={dettagli}
-          salse={dati.ingredients.mapValue.fields.Salse?.arrayValue.values} />}
+          salse={dati.ingredients.mapValue.fields.Salse?.arrayValue.values}
+          listaSalse={dati.salse}
+          />
+          
+          }
+          
         <div className={style.expandDettagli} onClick={() => setDettagli((prevState) => !prevState)}>
           <BiChevronDown /> Note
         </div>
