@@ -3,7 +3,7 @@ import ItemCart from './itemCart'
 import { motion, AnimatePresence } from 'framer-motion'
 import { animateListCart } from '../animations'
 
-function ListItemCart({ dati, removeFromCart, setUpdate, update }) {
+function ListItemCart({ dati, removeFromCart, setCartAggiornato }) {
 
     return (
         <ul>
@@ -16,7 +16,7 @@ function ListItemCart({ dati, removeFromCart, setUpdate, update }) {
                             initial="initial"
                             animate="animate"
                             exit="exit">
-                            <ItemCart  update={update} setUpdate={setUpdate} dati={item} removeFromCart={removeFromCart} />
+                            <ItemCart setCartAggiornato={setCartAggiornato}  dati={item} removeFromCart={removeFromCart} />
                         </motion.li>
                     )
                 })}

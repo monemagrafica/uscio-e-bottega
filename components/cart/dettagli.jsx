@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import style from '../../pages/store/store.module.scss'
 import Image from 'next/image'
 
-function Dettagli({ salse, dettagli, immagine, idAddedPanino, setUpdate, update, note }) {
-console.log('id', idAddedPanino);
+function Dettagli({ salse, dettagli, immagine, idAddedPanino, note }) {
+
     const arrayFromSalse = salse && salse.map((item) => {
         return item.stringValue
     })
@@ -12,13 +12,7 @@ console.log('id', idAddedPanino);
 
     const [noteCampo, setNoteCampo] = useState('')
 
-    console.log('note', noteCampo);
 
-    useEffect(() => {
-
-        setUpdate({ ...update, idAddedPanino: idAddedPanino, note: noteCampo, salse: arraySalseUpdate })
-
-    }, [arraySalseUpdate, noteCampo])
 
     function checkboxSalse(checked, salsa) {
 
@@ -30,7 +24,7 @@ console.log('id', idAddedPanino);
                     }
                 })
                 setArraySalseUpdate(arrayFiltrato)
-                console.log('salse', arraySalseUpdate);
+               
 
             }
         }

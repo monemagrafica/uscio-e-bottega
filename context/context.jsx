@@ -36,7 +36,7 @@ function ContextData({ children }) {
     const [removePaninoToaster, setRemovePaninoToaster] = useState(false)
     const [openDrawer, setOpenDrawer] = useState(false)
     const [errorDb, setErrorDb] = useState(false)
-
+    const [update, setUpdate] = useState([])
 
     const getProdotti = async () => {
 
@@ -79,13 +79,16 @@ function ContextData({ children }) {
 
     useEffect(() => { if (user) getProdotti() }, [user])
 
-    useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cart))
-
-    }, [cart])
+    useEffect(() => {localStorage.setItem("cart", JSON.stringify(cart))}, [cart])
+    useEffect(() => {if(update.length){
+        setCart(update)
+    }}, [update])
+    
+ 
+    
 
     function addToCart(e, newDatiPanino, id) {
-        console.log('newdatipanino', newDatiPanino);
+      
         e.stopPropagation();
         const arrayFromSalse = newDatiPanino.ingredients.mapValue.fields.Salse?.arrayValue.values.map((item) => {
             return item.stringValue
@@ -95,19 +98,7 @@ function ContextData({ children }) {
         setaddPaninoToaster(true)
     }
 
-    function updateItem(dettagli) {
-console.log('dettagli', dettagli);
-        const newArray = cart.map((item) => {
 
-            if (item.idAddedPanino === dettagli.idAddedPanino) {
-                item.quantita = dettagli.quantita || 1
-                item.note = dettagli.note
-                item.salse = dettagli.salse || [] 
-            }
-            return item
-        })
-        setCart(newArray)
-    }
 
     function removeFromCart(id) {
         setCart(cart.filter((item) => item.idAddedPanino !== id))
@@ -135,7 +126,6 @@ console.log('dettagli', dettagli);
         cart: cart,
         addToCart: addToCart,
         removeFromCart: removeFromCart,
-        updateItem: updateItem,
         openCart: openCart,
         setOpenCart: setOpenCart,
         openDrawer: openDrawer,
@@ -144,6 +134,8 @@ console.log('dettagli', dettagli);
         setaddPaninoToaster: setaddPaninoToaster,
         removePaninoToaster: removePaninoToaster,
         setRemovePaninoToaster: setRemovePaninoToaster,
+        update:update,
+        setUpdate:setUpdate
 
     }
 
@@ -156,7 +148,7 @@ console.log('dettagli', dettagli);
         setErrorDb: setErrorDb
     }
     console.log('cart', cart);
-
+    console.log('update', update);
     return (
         <ShareContext.Provider value={{ DataShare, authFirebase }}>
             {loading ? null : children}

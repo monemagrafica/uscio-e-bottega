@@ -39,7 +39,8 @@ function Layout({ children }) {
                         removeFromCart={dati.removeFromCart}
                         setOpenCart={dati.setOpenCart}
                         setSelezionaPanini={dati.setSelezionaPanini}
-                        updateItem={dati.updateItem}
+                        update={dati.update}
+                        setUpdate={dati.setUpdate}
                     />
                     <ToasterAggiuntoCart addPaninoToaster={dati.addPaninoToaster} setaddPaninoToaster={dati.setaddPaninoToaster}  /> 
                     <ToasterLoggedInMemo authData={authData } />
