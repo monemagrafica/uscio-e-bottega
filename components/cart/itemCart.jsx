@@ -14,8 +14,8 @@ function ItemCart({ dati, removeFromCart, setCartAggiornato }) {
 
   const [dettagliOpen, setDettagliOpen] = useState(false)
 
-  const [quantita, setQuantita] = useState(1)
-  const [note, setNote] = useState('')
+  const [quantita, setQuantita] = useState(dati.quantita || 1)
+  const [note, setNote] = useState(dati.note || '')
   const [salseLista, setSalseLista] = useState(dati.salse || arrayFromSalse)
 
 
@@ -41,6 +41,7 @@ function ItemCart({ dati, removeFromCart, setCartAggiornato }) {
           <Quantita
             valueCampoQuantita={dati.quantita}
             setQuantita={setQuantita}
+            quantita={quantita}
             idAddedPanino={dati.idAddedPanino}
             setDettagliOpen={setDettagliOpen}
           />

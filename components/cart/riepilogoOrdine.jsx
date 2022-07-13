@@ -29,7 +29,7 @@ function RiepilogoOrdine({ openRiepilogo, setOpenRiepilogo, dati }) {
                                 <div className={style.itemRiepilogo}>
                                     <h2>{item.name.stringValue}</h2>
                                     <div><span>Quantita:</span>{item.quantita}</div>
-                                    <div><span>Salse:</span> maionese</div>
+                                    <div><span>Salse:</span><ul className={style.salseRiepilogo}>{item.salse.map((item)=> <li key={item}>{item}</li>)}</ul> </div>
                                     <div><span>Note:</span> {item.note}</div>
                                 </div>
                             </li>)

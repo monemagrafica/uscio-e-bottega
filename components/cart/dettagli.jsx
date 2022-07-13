@@ -32,12 +32,15 @@ function Dettagli({ salseLista, arrayFromSalse, dettagliOpen, immagine, idAddedP
                 </div>
                 {arrayFromSalse && <ul>
                     {arrayFromSalse.map((item) => {
+                        
+                        const presenteInCart = salseLista.includes(item)
+
                         return (
                             <li key={item}>
                                 <form>
                                     <input
                                         type="checkbox"
-                                        defaultChecked={true}
+                                        defaultChecked={presenteInCart}
                                         id={`${idAddedPanino}___${item}`}
                                         name={item}
                                         value={item}

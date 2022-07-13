@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import style from '../../pages/store/store.module.scss'
 import { BiPlus, BiMinus } from 'react-icons/bi'
 
-function Quantita({ setDettagliOpen, setQuantita, valueCampoQuantita }) {
+function Quantita({ setDettagliOpen, setQuantita, valueCampoQuantita, quantita }) {
 
     function more(value) {
         setDettagliOpen(true)

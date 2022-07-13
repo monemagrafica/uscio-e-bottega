@@ -1,4 +1,4 @@
-@use "../../styles/variabili"as v;
+@use "../../styles/variabili" as v;
 
 .wrapperPanino {
   width: 100%;
@@ -140,7 +140,7 @@ ul.listaSalse {
   justify-content: center;
   margin: 0 15px;
 
-  >div {
+  > div {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -168,7 +168,6 @@ ul.listaSalse {
 }
 
 .listaSpec {
-
   max-width: 340px;
   margin: 0 auto;
 
@@ -381,8 +380,6 @@ ul.listaSalse {
     }
   }
 
-  
-
   .wrapDatiItem {
     width: 100%;
     display: flex;
@@ -461,16 +458,16 @@ ul.listaSalse {
   .dettagli {
     width: 100%;
     overflow: hidden;
-    
-    .immagineDettagli{
+
+    .immagineDettagli {
       text-align: center;
       background-color: #dcc2af;
       height: 100px;
       overflow: hidden;
-    span{
-    top: -60px;
-    }
-      img{
+      span {
+        top: -60px;
+      }
+      img {
         width: 50px;
       }
     }
@@ -478,12 +475,11 @@ ul.listaSalse {
     .wrapperDettagli {
       position: relative;
       margin-top: -100%;
-      transition: margin-top ease-out .5s;
+      transition: margin-top ease-out 0.5s;
 
       &.dettagliOpen {
         opacity: 1;
         margin-top: 0;
-
       }
     }
 
@@ -518,18 +514,14 @@ ul.listaSalse {
       background-color: v.$midbrown;
 
       li {
-
-
-
         input {
           border: 0;
           outline: 0;
 
-          &:checked~label {
+          &:checked ~ label {
             background-color: v.$brownBackBtn;
             color: white;
           }
-
         }
 
         label {
@@ -547,8 +539,6 @@ ul.listaSalse {
   .cartQuantita {
     display: flex;
 
-
-
     .inputQuantita {
       input {
         border: 0;
@@ -563,7 +553,6 @@ ul.listaSalse {
     }
   }
 }
-
 
 ///ANCHOR: plusOne
 
@@ -585,7 +574,6 @@ ul.listaSalse {
 .riepilogo {
   background-color: v.$lightbrown;
   top: 60px;
-
 
   .wrapperItemriepilogo {
     background-color: v.$brownNeon;
@@ -616,7 +604,6 @@ ul.listaSalse {
 
     .prezzoTotale {
       font-size: 2rem;
-
     }
   }
 
@@ -631,5 +618,20 @@ ul.listaSalse {
       margin: 0;
       font-family: v.$titles;
     }
+  }
+}
+
+.salseRiepilogo {
+  display: inline-block;
+  vertical-align: text-top;
+  padding: 0;
+  max-width: 188px;
+
+  li {
+    display: inline-block;
+    margin-left: 5px;
+    margin-bottom: 0;
+    padding: 0;
+    border-bottom: 0;
   }
 }
