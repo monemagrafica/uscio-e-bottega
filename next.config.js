@@ -9,7 +9,7 @@ const nextConfig = withPWA({
     dangerouslyAllowSVG: true,
     domains: ["firebasestorage.googleapis.com"],
     quality: 100,
-    unoptimized: true,
+   
   },
   i18n: {
     locales: ["it"],
