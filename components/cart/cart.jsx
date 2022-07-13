@@ -32,7 +32,7 @@ function Cart({ dati, openCart, setOpenCart, removeFromCart, setUpdate, update }
 
     }, [cartAggiornato])
 
-console.log('update', update);
+
 
 /*     function updateItem() {
         const newArray = cart.map((item) => {

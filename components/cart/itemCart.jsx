@@ -7,46 +7,63 @@ import { BiChevronDown } from 'react-icons/bi'
 
 function ItemCart({ dati, removeFromCart, setCartAggiornato }) {
 
-  const [quantita, setQuantita] = useState(1)
-  const [dettagli, setDettagli] = useState(false)
+  const arrayListaSalse = dati.ingredients.mapValue.fields.Salse
+  const arrayFromSalse = arrayListaSalse?.arrayValue.values.map((item) => {
+    return item.stringValue
+  })
 
-  console.log(quantita);
+  const [dettagliOpen, setDettagliOpen] = useState(false)
+
+  const [quantita, setQuantita] = useState(1)
+  const [note, setNote] = useState('')
+  const [salseLista, setSalseLista] = useState(dati.salse || arrayFromSalse)
+
+
   useEffect(() => {
-    setCartAggiornato((prev)=>{return {...prev, quantita:quantita, idAddedPanino: dati.idAddedPanino}})
-  },[quantita])
+    setCartAggiornato((prev) => { return { 
+      ...prev, 
+      quantita: quantita, 
+      idAddedPanino: dati.idAddedPanino, 
+      note: note, 
+      salse:salseLista } })
+  }, [quantita, note, salseLista])
+
+
   return (
     <>
       {dati && <div
         className={style.wrapperItemCart}>
         <div className={style.wrapDatiItem}>
           <button className={style.note} onClick={() => setDettagli((prevState) => !prevState)}><BiChevronDown /></button>
-          <div className={style.wrapperNomePanino} onClick={() => setDettagli((prevState) => !prevState)}>
+          <div className={style.wrapperNomePanino} onClick={() => setDettagliOpen((prevState) => !prevState)}>
             <h2>{dati.name.stringValue}</h2>
           </div>
           <Quantita
             valueCampoQuantita={dati.quantita}
             setQuantita={setQuantita}
             idAddedPanino={dati.idAddedPanino}
-            setDettagli={setDettagli}
-
+            setDettagliOpen={setDettagliOpen}
           />
           <button className={style.buttonCancelItem}
             onClick={() => {
               removeFromCart(dati.idAddedPanino);
-             
+
             }
             }>x</button>
         </div>
         <Dettagli
           idAddedPanino={dati.idAddedPanino}
-          note={dati.note}
+          noteCart={dati.note}
+          setNote={setNote}
           immagine={dati.svg.stringValue}
-          dettagli={dettagli}
-          salse={dati.ingredients.mapValue.fields.Salse?.arrayValue.values}
+          dettagliOpen={dettagliOpen}
+          arrayFromSalse={arrayFromSalse}
+          setSalseLista={setSalseLista}
+          salseLista={salseLista}
         />
 
 
-        <div className={style.expandDettagli} onClick={() => setDettagli((prevState) => !prevState)}>
+        <div className={style.expandDettagli} onClick={() => setDettagliOpen((prevState) => !prevState)}>
           <BiChevronDown /> Note
         </div>
       </div>}
