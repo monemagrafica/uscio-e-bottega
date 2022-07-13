@@ -42,7 +42,7 @@ function ListaProdottiItem({
                 {datiPanino.svg &&
                     <div className={style.immaginePanino} id={datiPanino.id.integerValue}>
 
-                        <Image src={datiPanino.svg.stringValue} alt="test" width={200} height={120} layout="responsive" />
+                        <Image quality={100} src={datiPanino.svg.stringValue} alt="test" width={200} height={120} layout="responsive" />
 
                     </div>}
                 <h2>{datiPanino.name.stringValue}</h2>
