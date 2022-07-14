@@ -367,6 +367,7 @@ ul.listaSalse {
   background-color: #e1d3c8f0;
   z-index: 1;
   overflow: scroll;
+  z-index: 100;
 
   .headerCart {
     background-color: v.$brownBackHeadCart;
@@ -577,7 +578,7 @@ ul.listaSalse {
 
 .riepilogo {
   background-color: v.$lightbrown;
-  top: 60px;
+  top: 0px;
 
   .wrapperItemriepilogo {
     background-color: v.$brownNeon;
@@ -604,6 +605,7 @@ ul.listaSalse {
       margin: 0;
       border-bottom: 2px dotted v.$brownBackBtn;
       font-family: v.$titles;
+      
     }
 
     .prezzoTotale {
@@ -613,6 +615,7 @@ ul.listaSalse {
 
   .itemRiepilogo {
     margin-left: 10px;
+    padding-top: 15px;
 
     span {
       font-weight: bold;
@@ -621,6 +624,7 @@ ul.listaSalse {
     h2 {
       margin: 0;
       font-family: v.$titles;
+      font-size: 1.3rem;
     }
   }
 }

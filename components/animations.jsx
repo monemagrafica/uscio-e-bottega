@@ -26,7 +26,7 @@ const animateOpacity = {
 
 const animateCart = {
     initial: { opacity: 0, top: '100%' },
-    animate: { opacity: 1, top: '60px', transition: { duration: .5, ease: 'easeIn' } },
+    animate: { opacity: 1, top: '0px', transition: { duration: .5, ease: 'easeIn' } },
     exit: { opacity: 0, top: '100%', transition: { duration: 1, ease: 'easeOut' } }
 }
 const animateEmptyCart = {

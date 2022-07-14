@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef } from 'react'
 import Image from 'next/image'
 import ListaSpec from './listaSpec';
 import UiLista from './uiLista';
@@ -29,13 +29,7 @@ function ListaProdottiItem({
     }
 
     const singoloPanino = useRef()
-    const [immagine, setImmagine] = useState()   
 
-    useEffect(() => {
-        if(datiPanino.svg.stringValue)setImmagine(datiPanino.svg.stringValue)
-    },[datiPanino])
-
-console.log('immagine',immagine);
     return (
         <motion.div
             ref={singoloPanino}
