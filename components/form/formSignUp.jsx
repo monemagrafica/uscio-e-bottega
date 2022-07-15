@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { animateLogin } from '../animations'
-
+import {FcGoogle} from 'react-icons/fc'
 function FormSignUp({ auth, formAuth, setFormAuth }) {
 
   const router = useRouter()
@@ -18,14 +18,15 @@ function FormSignUp({ auth, formAuth, setFormAuth }) {
   }
 
   return (
-    <><AnimatePresence> {(formAuth === 1) &&
+    <><AnimatePresence exitBeforeEnter> {(formAuth === 1) &&
       <motion.div
-        className='wrapperLogin'
+        className='wrappersignup'
         initial='initial'
         animate='animate'
         exit='exit'
         variants={animateLogin}
       >
+     
         <form className='form-login'>
           <label htmlFor="user">
             <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Nome Utente' name="user" id="user" />
@@ -34,8 +35,9 @@ function FormSignUp({ auth, formAuth, setFormAuth }) {
             <input onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder='Password' id="password" />
           </label>
           <button onClick={(e) => signUp(e)}>Registrati</button>
-          <button className='back-login' onClick={()=>setFormAuth(false)}>Back</button>
         </form>
+        <div className="google-registrazione-ui"><span>Registrati con:</span><button className='google-login-button' onClick={() => setFormAuth(2)}><FcGoogle /></button></div>
+          <button className='back-login' onClick={(e)=>{e.preventDefault();setFormAuth(0)}}>Back</button>
       </motion.div>}
     </AnimatePresence></>
   )

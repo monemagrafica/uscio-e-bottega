@@ -62,9 +62,9 @@ const animateSearchPage = {
     animate: { opacity: 1, top: 0 }
 }
 const animateLogin = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 }
+    initial: { opacity: 0, top:20 },
+    animate: { opacity: 1, top:0, transition:{duration:1} },
+    exit: { opacity: 0, top:20, transition:{duration:1} }
 }
 const animateDrawer = {
     initial: { opacity: 0, left: -500 },
@@ -85,11 +85,11 @@ const animazioneLogo = {
 const animazioneForm = {
     initial: {
         opacity: 0,
-        top: 50
+        
     },
     animate: {
         opacity: 1,
-        top: 0
+        
     }
 }
 const animazioneBackground = {

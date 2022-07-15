@@ -22,7 +22,7 @@ function Layout({ children }) {
 
     
     return (
-        <div className="layout">
+        <div className={`layout ${router.asPath==='/' && 'login'}`}>
 
             {(router.asPath !== '/' && authData)  &&
                 <>

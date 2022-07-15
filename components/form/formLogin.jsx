@@ -18,7 +18,7 @@ function FormLogin({ auth, formAuth, setFormAuth }) {
   }
 
   return (
-    <> <AnimatePresence > {(formAuth === 0) &&
+    <> <AnimatePresence exitBeforeEnter > {(formAuth === 0) &&
       <motion.div
         className='wrapperLogin'
         initial='initial'
@@ -34,7 +34,7 @@ function FormLogin({ auth, formAuth, setFormAuth }) {
             <input onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder='Password' id="password" />
           </label>
           <button onClick={(e) => login(e)}>Entra</button>
-          <button className='back-login' onClick={()=>setFormAuth(false)}>Back</button>
+          <button className='button-register' onClick={(e) => {e.preventDefault();setFormAuth(1)}}>Registrati!</button>
         </form>
       </motion.div>}</AnimatePresence></>
   )
