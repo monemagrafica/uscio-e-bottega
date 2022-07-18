@@ -4,7 +4,7 @@ import { ShareContext } from '../../context/context';
 import { useContext, useState, useEffect } from 'react'
 import Image from 'next/image'
 import style from './store.module.scss'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import Footer from '../../components/prodotti/footer';
 import { BiEuro } from 'react-icons/bi'
 import LoaderImage from '../../components/loader/loaderImage';
@@ -13,13 +13,14 @@ import {
   animatePrezzo,
   animateLista,
   animatePanino,
-  animateOpacity
+  animateOpacity,
+  animatePiccante
 } from '../../components/animations'
 
 function SchedaPanino() {
   const [datiContext, setDatiContext] = useState(false)
   let dati = useContext(ShareContext)
-  dati=dati.DataShare
+  dati = dati.DataShare
   useEffect(() => {
     if (dati.prodotti.length !== 0) setDatiContext(true)
   }, [dati])
@@ -33,6 +34,26 @@ function SchedaPanino() {
   datiPanino = datiPanino && datiPanino[0]?._document.data.value.mapValue.fields
   const listaIngredienti = datiPanino && datiPanino.ingredients.mapValue.fields
 
+  const animationControls = useAnimation();
+
+  async function sequence() {
+    await animationControls.start({opacity:0 });
+    await animationControls.start({ rotate: -360, opacity:0 });
+    await animationControls.start({ rotate: 0, opacity:1 });
+    await animationControls.start({ scale: 1 });
+    animationControls.start({
+      y: -5, 
+      transition: {
+        ease: "easeInOut",
+        duration: 1,
+        repeat: Infinity,
+        repeatType: "reverse"
+      }
+    });
+  }
+  useEffect(() => {
+    sequence();
+  }, [datiContext]);
 
   return (
 
@@ -55,7 +76,7 @@ function SchedaPanino() {
                   animate="animate"
                   exit="exit"
                   variants={animatePanino}
-                >
+                > 
                   <Image src={datiPanino.svg.stringValue} layout='responsive' width={290} height={200} alt={datiPanino.name.stringValue} />
                 </motion.div>
               </div>
@@ -77,7 +98,14 @@ function SchedaPanino() {
                     variants={animatePrezzo}
                   >
                     {datiPanino.price.integerValue},00<BiEuro />
+
                   </motion.div>
+                  <motion.div
+                     animate={animationControls}
+                    className={style.piccante}>
+                    {datiPanino.spicy.booleanValue ?
+                      <Image src="/images/piccante.svg" width="30" height="31" alt="piccante" layout='fill' /> :
+                      ''}</motion.div>
                 </div>
                 <motion.div className={style.dati}
                   initial="initial"
@@ -179,7 +207,7 @@ function SchedaPanino() {
             datiPanino={datiPanino}
             addToCart={dati.addToCart}
             cart={dati.cart}
-       
+
           />
         </> : <LoaderImage />}
 

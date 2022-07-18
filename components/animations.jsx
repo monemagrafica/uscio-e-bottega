@@ -62,9 +62,9 @@ const animateSearchPage = {
     animate: { opacity: 1, top: 0 }
 }
 const animateLogin = {
-    initial: { opacity: 0, top:20 },
-    animate: { opacity: 1, top:0, transition:{duration:1} },
-    exit: { opacity: 0, top:20, transition:{duration:1} }
+    initial: { opacity: 0, top: 20 },
+    animate: { opacity: 1, top: 0, transition: { duration: 1 } },
+    exit: { opacity: 0, top: 20, transition: { duration: 1 } }
 }
 const animateDrawer = {
     initial: { opacity: 0, left: -500 },
@@ -85,11 +85,11 @@ const animazioneLogo = {
 const animazioneForm = {
     initial: {
         opacity: 0,
-        
+
     },
     animate: {
         opacity: 1,
-        
+
     }
 }
 const animazioneBackground = {
@@ -103,8 +103,17 @@ const animazioneBackground = {
     }
 }
 const animateListCart = {
-    initial: { opacity: 0,  },
-    animate: { opacity: 1, transition :{duration:0.3} } ,
+    initial: { opacity: 0, },
+    animate: { opacity: 1, transition: { duration: 0.3 } },
+    exit: { opacity: 0 }
+}
+const animatePiccante = {
+    initial: { opacity: 0, top: -100 },
+    animate: {
+        opacity: 1, top: 15, transition: {
+            duration: 0.5, delay: 1
+        }
+    },
     exit: { opacity: 0 }
 }
 
@@ -127,5 +136,6 @@ export {
     animazioneLogo,
     animazioneForm,
     animazioneBackground,
-    animateListCart
+    animateListCart,
+    animatePiccante
 }

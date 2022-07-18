@@ -131,7 +131,7 @@ ul.listaSalse {
 }
 
 .dati {
-  margin: 5rem 0 0 0;
+  margin: 2rem 0 0 0;
   position: relative;
 }
 
@@ -491,14 +491,14 @@ ul.listaSalse {
     .noteDettagli {
       display: flex;
       justify-content: center;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: #c0a48e;
+
+      background-color: #d7bba6;
+      padding: 10px;
 
       h3 {
         background-color: v.$brownNeon;
         border-radius: 50%;
-        width: 40px;
+        width: 48px;
         height: 40px;
         line-height: 40px;
         font-size: 13px;
@@ -642,4 +642,12 @@ ul.listaSalse {
     padding: 0;
     border-bottom: 0;
   }
+}
+.piccante{
+  width: 70px;
+  position: relative;
+  height: 70px;
+  margin: 0px 33px 0 auto;
+  top: 15px;
+  opacity: 0;
 }

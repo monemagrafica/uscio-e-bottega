@@ -7,14 +7,25 @@ function FormLogin({ auth, formAuth, setFormAuth }) {
   const router = useRouter()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [controlForm, setControlForm] = useState('')
+
+  const errori = {
+    nofield: 'Campi obbligarori',
+    errore: 'Dati non corretti'
+  }
+
 
   async function login(e) {
     e.preventDefault()
-    try {
-      await auth.handleLogin(email, password)
-  
-      router.push('/store')
-    } catch (err) { (err); }
+    if (!email || !password) {
+      setControlForm(errori.nofield)
+    } else {
+      try {
+        await auth.handleLogin(email, password)
+        router.push('/store')
+      } catch (err) { (err); }
+    }
+
   }
 
   return (
@@ -26,15 +37,22 @@ function FormLogin({ auth, formAuth, setFormAuth }) {
         exit='exit'
         variants={animateLogin}
       >
+        {controlForm && controlForm}
         <form className='form-login' onSubmit={() => ('test')}>
           <label htmlFor="user">
-            <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Nome Utente' name="user" id="user" />
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              placeholder='Nome Utente'
+              name="user" id="user"
+
+            />
           </label>
           <label htmlFor="password">
             <input onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder='Password' id="password" />
           </label>
           <button onClick={(e) => login(e)}>Entra</button>
-          <button className='button-register' onClick={(e) => {e.preventDefault();setFormAuth(1)}}>Registrati!</button>
+          <button className='button-register' onClick={(e) => { e.preventDefault(); setFormAuth(1) }}>Registrati!</button>
         </form>
       </motion.div>}</AnimatePresence></>
   )
