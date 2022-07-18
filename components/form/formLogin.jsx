@@ -11,7 +11,8 @@ function FormLogin({ auth, formAuth, setFormAuth }) {
 
   const errori = {
     nofield: 'Campi obbligarori',
-    errore: 'Dati non corretti'
+    errore: 'Dati non corretti',
+    firebase: 'Errore connessione, controllare email e password'
   }
 
 
@@ -23,7 +24,7 @@ function FormLogin({ auth, formAuth, setFormAuth }) {
       try {
         await auth.handleLogin(email, password)
         router.push('/store')
-      } catch (err) { (err); }
+      } catch (err) { setControlForm(errori.firebase) }
     }
 
   }
@@ -43,7 +44,7 @@ function FormLogin({ auth, formAuth, setFormAuth }) {
             <input
               onChange={(e) => setEmail(e.target.value)}
               type="text"
-              placeholder='Nome Utente'
+              placeholder='Email'
               name="user" id="user"
 
             />
