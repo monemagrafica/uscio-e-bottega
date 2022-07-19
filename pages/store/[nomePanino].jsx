@@ -13,8 +13,7 @@ import {
   animatePrezzo,
   animateLista,
   animatePanino,
-  animateOpacity,
-  animatePiccante
+  animateOpacity
 } from '../../components/animations'
 
 function SchedaPanino() {

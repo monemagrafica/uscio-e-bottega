@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import Layout from "../components/layout/layout";
 import { motion } from "framer-motion";
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 

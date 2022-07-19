@@ -78,7 +78,6 @@ function ContextData({ children }) {
 
 
     useEffect(() => { if (user) getProdotti() }, [user])
-
     useEffect(() => {localStorage.setItem("cart", JSON.stringify(cart))}, [cart])
     useEffect(() => {if(update.length && cart.length){
         setCart(update)

@@ -147,7 +147,7 @@ nav .search {
     display: inline-block;
     margin: 0rem 0 0 auto;
   }
-  .google-registrazione-ui{
+  .google-registrazione-ui {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -165,7 +165,7 @@ nav .search {
     flex-direction: column;
     align-items: center;
     width: 100%;
-  
+
     input,
     button {
       margin: 0.5rem 0;
@@ -174,7 +174,6 @@ nav .search {
       padding: 15px 10px;
       font-family: v.$titles;
       width: 100%;
-  
     }
     label {
       width: 100%;
@@ -187,7 +186,7 @@ nav .search {
         margin-top: 1rem;
         background-color: v.$brownNoteDettagli;
         color: v.$brown;
-        padding: 1rem .5rem;
+        padding: 1rem 0.5rem;
         border-radius: 37px;
         font-size: 1rem;
         max-width: 130px;
@@ -301,10 +300,11 @@ div#addedPanino {
     font-size: 1.5rem;
   }
 }
-.wrapperLogin,.wrappersignup {
+.wrapperLogin,
+.wrappersignup {
   height: 284px;
   position: absolute;
-width: 100%;
+  width: 100%;
 }
 .wrapper-login {
   text-align: center;
@@ -317,7 +317,7 @@ width: 100%;
     background-color: transparent;
     font-size: 2rem;
     display: block;
-    margin:1rem 0 0 10px;
+    margin: 1rem 0 0 10px;
   }
   .google-login-button {
     background-color: v.$backInput;
@@ -354,17 +354,85 @@ width: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding-top: 2rem;
+  padding: 2rem 2rem;
+  .presentazione {
+    background-color: v.$brownNeon;
+    padding: 10px;
+    margin: 1rem 0;
+    transform: rotate(-5deg);
+  }
   h2 {
     font-family: v.$titles;
+    margin: 1rem 0 0 0;
   }
-  button {
+  p {
+    margin: 10px 0 0 0;
+    span {
+      font-family: v.$titles;
+      color: v.$brown;
+      letter-spacing: -1px;
+      font-size: 1.2rem;
+    }
+  }
+  button.logout {
     font-family: v.$titles;
     font-size: 1.5rem;
     background-color: v.$brownBackBtn;
     color: white;
     padding: 10px 15px;
     border-radius: 25px;
+    margin-top: 30%;
+  }
+  .image-drawer {
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+  .user-data {
+    text-align: center;
+    padding: 0 1rem;
+  }
+}
+.wrapper-interne {
+  margin-top: 100px;
+  padding: 0 2rem;
+  font-family: v.$titles;
+  &.chi-siamo {
+    text-align: center;
+    p {
+      margin-bottom: 0;
+    }
+    .dati {
+      li {
+        margin-top: 10px;
+      }
+    }
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  h2 {
+    margin: 0;
+  }
+  ul {
+    margin: 0;
+  }
+  ol {
+    li {
+      margin-top: 10px;
+    }
+  }
+  button {
+    border-radius: 20px;
+    padding: 10px;
+    background-color: v.$darkRed;
+    color: white;
+    font-family: v.$titles;
+    margin: 0 auto;
+    display: block;
   }
 }

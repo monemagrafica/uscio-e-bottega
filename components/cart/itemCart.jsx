@@ -65,7 +65,7 @@ function ItemCart({ dati, removeFromCart, setCartAggiornato }) {
 
 
         <div className={style.expandDettagli} onClick={() => setDettagliOpen((prevState) => !prevState)}>
-          <BiChevronDown /> Note
+          <BiChevronDown /> Personalizzami
         </div>
       </div>}
     </>
