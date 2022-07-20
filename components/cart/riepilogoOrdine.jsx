@@ -35,14 +35,14 @@ console.log(totale);
                                     <div><span>Quantita:</span>{item.quantita}</div>
                                     {item.salse&&<div><span>Salse:</span><ul className={style.salseRiepilogo}>{item.salse.map((item)=> <li key={item}>{item}</li>)}</ul> </div>}
                                     {item.note&&<div><span>Note:</span> {item.note}</div>}
-                                    {item.price&&<div><span>Prezzo:</span> €{item.price.integerValue}</div>}
+                                    {item.price&&<div><span>Prezzo:</span> €{item.price.integerValue},00</div>}
                                 </div>
                             </li>)
                     })}
                 </ul>
                 <div className={style.totale}>
                     <h2>TOTALE:</h2>
-                    <div className={style.prezzoTotale}>{totale}<BiEuro /></div>
+                    <div className={style.prezzoTotale}>{totale},00<BiEuro /></div>
                 </div>
                 <button className={style.buttonOrdine} >Vai al pagamento</button>
             </motion.div>}
