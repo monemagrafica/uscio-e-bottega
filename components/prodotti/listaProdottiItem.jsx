@@ -49,7 +49,7 @@ function ListaProdottiItem({
                             height={120}
                             layout="responsive"
                             placeholder='blur'
-                            blurDataURL='/images/loader.svg'
+                            blurDataURL='/images/placeholderpanino.jpg'
                         />
                     </div>}
                 <h2>{datiPanino.name.stringValue}</h2>
