@@ -42,14 +42,21 @@ function ListaProdottiItem({
             <div>
                 {datiPanino.svg &&
                     <div className={style.immaginePanino} id={datiPanino.id.integerValue}>
-
-                        <Image src={datiPanino.svg.stringValue} alt="test" width={200} height={120} layout="responsive" />
+                        <Image
+                            src={datiPanino.svg.stringValue}
+                            alt="test"
+                            width={200}
+                            height={120}
+                            layout="responsive"
+                            placeholder='blur'
+                            blurDataURL='/images/loader.svg'
+                        />
                     </div>}
                 <h2>{datiPanino.name.stringValue}</h2>
 
-               <ListaSpec item={datiPanino} />
+                <ListaSpec item={datiPanino} />
             </div>
- 
+
             <UiLista
                 infoPanino={infoPanino}
                 index={index}
