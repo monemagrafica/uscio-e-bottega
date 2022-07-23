@@ -42,15 +42,13 @@ function ListaProdottiItem({
             <div>
                 {datiPanino.svg &&
                     <div className={style.immaginePanino} id={datiPanino.id.integerValue}>
-                        <Image
+                        {datiPanino.svg.stringValue ? <Image
                             src={datiPanino.svg.stringValue}
                             alt="test"
                             width={200}
                             height={120}
                             layout="responsive"
-                            placeholder='blur'
-                            blurDataURL='/images/placeholderpanino.jpg'
-                        />
+                        /> : 'loading'}
                     </div>}
                 <h2>{datiPanino.name.stringValue}</h2>
 
