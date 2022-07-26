@@ -40,7 +40,7 @@ function ListaProdottiItem({
             whileInView="animate"
         >
             <div>
-                {datiPanino.svg ? 
+                {datiPanino.svg.stringValue ? 
                     <div className={style.immaginePanino} id={datiPanino.id.integerValue}>
                         <Image
                             src={datiPanino.svg.stringValue}
@@ -56,6 +56,7 @@ function ListaProdottiItem({
                             height={120}
                             layout="fixed"
                         />}
+
                 <h2>{datiPanino.name.stringValue}</h2>
 
                 <ListaSpec item={datiPanino} />

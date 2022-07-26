@@ -22,12 +22,13 @@ function Search() {
     const prodottiByNome = prodotti.filter((item) => {
       return item._document.data.value.mapValue.fields.name.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
         item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Formaggio?.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
-        item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Insaccato?.stringValue.toLowerCase().includes(inputString.toLowerCase())
+        item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Insaccato?.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
+        item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Salse?.arrayValue.values.some((item)=>item.stringValue.toLowerCase().includes(inputString.toLowerCase()))
     })
-
     setFiltroRicerca(inputString && prodottiByNome)
 
   }
+console.log('datiprodotti', prodotti);
 
   return (
     <motion.main className="search"
