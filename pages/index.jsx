@@ -34,10 +34,7 @@ export default function Home() {
       </Head>
 
       <main className='login-page' >
-        <div className='web-app-warning'>
-          <Image src="/images/logo.svg" width={240} height={240} layout="intrinsic" alt="logo" />
-          <div>Questa è una WebApp, accedi al login tramite smartphone!</div>
-        </div>
+
         <motion.div
           className="wrapper-logo"
           variants={animazioneLogo}
