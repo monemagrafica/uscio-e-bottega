@@ -2,15 +2,16 @@ import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import style from '../../pages/store/store.module.scss'
 import { BiArrowBack, BiEuro } from 'react-icons/bi'
-import { animateRiepilogo } from '../animations'
+import { animateRiepilogo } from '../utils/animations'
 
 import Image from 'next/image'
 
 function RiepilogoOrdine({ openRiepilogo, setOpenRiepilogo, dati }) {
-const totale = dati.reduce((acc, item)=>{
-   
-    return acc+(parseInt(item.price.integerValue)*item.quantita)},0)
-console.log(totale);
+    const totale = dati.reduce((acc, item) => {
+
+        return acc + (parseInt(item.price.integerValue) * item.quantita)
+    }, 0)
+    console.log(totale);
     return (
         <AnimatePresence>
             {openRiepilogo && <motion.div className={`${style.wrapperCart} ${style.riepilogo}`}
@@ -24,7 +25,7 @@ console.log(totale);
                 </div>
                 <ul className={style.wrapperItemriepilogo}>
                     {dati.map((item, index) => {
-                        console.log('price', parseInt(item.price.integerValue)+2);
+                        console.log('price', parseInt(item.price.integerValue) + 2);
                         if (item.quantita > 0) return (
                             <li key={index}>
                                 <div className={style.immagineRiepilogo}>
@@ -33,9 +34,9 @@ console.log(totale);
                                 <div className={style.itemRiepilogo}>
                                     <h2>{item.name.stringValue}</h2>
                                     <div><span>Quantita:</span>{item.quantita}</div>
-                                    {item.salse&&<div><span>Salse:</span><ul className={style.salseRiepilogo}>{item.salse.map((item)=> <li key={item}>{item}</li>)}</ul> </div>}
-                                    {item.note&&<div><span>Note:</span> {item.note}</div>}
-                                    {item.price&&<div><span>Prezzo:</span> €{item.price.integerValue},00</div>}
+                                    {item.salse && <div><span>Salse:</span><ul className={style.salseRiepilogo}>{item.salse.map((item) => <li key={item}>{item}</li>)}</ul> </div>}
+                                    {item.note && <div><span>Note:</span> {item.note}</div>}
+                                    {item.price && <div><span>Prezzo:</span> €{item.price.integerValue},00</div>}
                                 </div>
                             </li>)
                     })}

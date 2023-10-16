@@ -3,7 +3,7 @@ import style from '../../pages/store/store.module.scss'
 import { BiEuro } from 'react-icons/bi'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import { animateInfo, animatePrice, animateIcon } from '../animations'
+import { animateInfo, animatePrice, animateIcon } from '../utils/animations'
 import Plus1 from '../cart/plus1'
 import { v4 as uuidv4 } from 'uuid';
 function UiLista({

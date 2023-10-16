@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { animateDrawer } from './animations'
+import { animateDrawer } from './utils/animations'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
@@ -8,11 +8,11 @@ function Drawer({ setOpenDrawer, openDrawer, logout, authData }) {
     const router = useRouter()
     const name = authData.email.split('@')[0]
 
-    function openTutorial () {
+    function openTutorial() {
         router.push('/tutorial')
         setOpenDrawer(false)
     }
-    function openChiSiamo () {
+    function openChiSiamo() {
         router.push('/chi-siamo')
         setOpenDrawer(false)
     }
@@ -28,14 +28,14 @@ function Drawer({ setOpenDrawer, openDrawer, logout, authData }) {
                     exit='exit'
                 >
                     <div className="image-drawer">
-                        <Image src="/images/logo.svg" alt="uscio e bottega logo" layout="fill"/>
+                        <Image src="/images/logo.svg" alt="uscio e bottega logo" layout="fill" />
                     </div>
                     <div className="user-data">
                         <h2>Ciao {name}!</h2>
                         <p className='presentazione'>Tramite questa app potrai ordinare i tuoi <span>panini preferiti</span>, modificarli e... mangiarli</p>
-                        <p style={{textDecoration:'underline'}} onClick={()=>openTutorial()}>  Vuoi capire come ordinare un panino?</p>
-                        <p style={{textDecoration:'underline'}} onClick={()=>openChiSiamo()}>  Vuoi conoscerci meglio?</p>
-                     
+                        <p style={{ textDecoration: 'underline' }} onClick={() => openTutorial()}>  Vuoi capire come ordinare un panino?</p>
+                        <p style={{ textDecoration: 'underline' }} onClick={() => openChiSiamo()}>  Vuoi conoscerci meglio?</p>
+
                     </div>
                     <div className="datiApp">
 

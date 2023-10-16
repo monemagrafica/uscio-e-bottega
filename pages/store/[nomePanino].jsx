@@ -15,7 +15,7 @@ import {
   animateLista,
   animatePanino,
   animateOpacity
-} from '../../components/animations'
+} from '../../components/utils/animations'
 
 function SchedaPanino({ panino }) {
 

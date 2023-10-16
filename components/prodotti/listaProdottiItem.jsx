@@ -4,7 +4,7 @@ import ListaSpec from './listaSpec';
 import UiLista from './uiLista';
 import style from '../../pages/store/store.module.scss'
 import { motion } from 'framer-motion'
-import { animateListItem } from '../animations';
+import { animateListItem } from '../utils/animations';
 
 
 function ListaProdottiItem({

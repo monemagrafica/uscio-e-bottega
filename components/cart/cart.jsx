@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import style from '../../pages/store/store.module.scss'
 import { motion, AnimatePresence } from 'framer-motion'
-import { animateCart } from '../animations'
+import { animateCart } from '../utils/animations'
 import RiepilogoOrdine from './riepilogoOrdine'
 
 import ListItemCart from './listItemCart'
