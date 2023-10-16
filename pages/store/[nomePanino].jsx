@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import { fetchDataFromFirebase } from '../../firebase/utils'
 import { ShareContext } from '../../context/context';
 import { useContext, useState, useEffect } from 'react'
 import Image from 'next/image'
@@ -16,7 +17,8 @@ import {
   animateOpacity
 } from '../../components/animations'
 
-function SchedaPanino() {
+function SchedaPanino({ panino }) {
+
   const [datiContext, setDatiContext] = useState(false)
   let dati = useContext(ShareContext)
   dati = dati.DataShare
@@ -29,19 +31,19 @@ function SchedaPanino() {
 
   const slug = router.query.nomePanino
 
-  let datiPanino = datiContext && dati.prodotti.filter((item) => item._document.data.value.mapValue.fields.slug.stringValue === slug)
-  datiPanino = datiPanino && datiPanino[0]?._document.data.value.mapValue.fields
-  const listaIngredienti = datiPanino && datiPanino.ingredients.mapValue.fields
+  let datiPanino = panino
+  datiPanino = datiPanino && datiPanino[0]
+  const listaIngredienti = datiPanino && datiPanino.ingredients
 
   const animationControls = useAnimation();
 
   async function sequence() {
-    await animationControls.start({opacity:0 });
-    await animationControls.start({ rotate: -360, opacity:0 });
-    await animationControls.start({ rotate: 0, opacity:1 });
+    await animationControls.start({ opacity: 0 });
+    await animationControls.start({ rotate: -360, opacity: 0 });
+    await animationControls.start({ rotate: 0, opacity: 1 });
     await animationControls.start({ scale: 1 });
     animationControls.start({
-      y: -5, 
+      y: -5,
       transition: {
         ease: "easeInOut",
         duration: 1,
@@ -75,8 +77,8 @@ function SchedaPanino() {
                   animate="animate"
                   exit="exit"
                   variants={animatePanino}
-                > 
-                  <Image src={datiPanino.svg.stringValue} layout='responsive' width={290} height={200} alt={datiPanino.name.stringValue} />
+                >
+                  <Image src={datiPanino.svg} layout='responsive' width={290} height={200} alt={datiPanino.name} />
                 </motion.div>
               </div>
               <div className={style.wrapperInfo}>
@@ -87,7 +89,7 @@ function SchedaPanino() {
                     exit="exit"
                     variants={animateTitle}
                   >
-                    {datiPanino.name.stringValue}
+                    {datiPanino.name}
                   </motion.h2>
                   <motion.div
                     className={style.prezzoScheda}
@@ -96,13 +98,13 @@ function SchedaPanino() {
                     exit="exit"
                     variants={animatePrezzo}
                   >
-                    {datiPanino.price.integerValue},00<BiEuro />
+                    {datiPanino.price},00<BiEuro />
 
                   </motion.div>
                   <motion.div
-                     animate={animationControls}
+                    animate={animationControls}
                     className={style.piccante}>
-                    {datiPanino.spicy.booleanValue ?
+                    {datiPanino.spicy ?
                       <Image src="/images/piccante.svg" width="30" height="31" alt="piccante" layout='fill' /> :
                       ''}</motion.div>
                 </div>
@@ -126,7 +128,7 @@ function SchedaPanino() {
                     <ul className={style.listaSpec}>
                       {listaIngredienti['Tipologia panino'] &&
                         <li>
-                          <span className={style.title}>{listaIngredienti['Tipologia panino'].stringValue}</span>
+                          <span className={style.title}>{listaIngredienti['Tipologia panino']}</span>
                         </li>}
                     </ul>
                   </motion.div>
@@ -145,9 +147,9 @@ function SchedaPanino() {
 
                       <ul className={style.listaSpec}>
                         {listaIngredienti['Formaggio'] &&
-                          <li><span className={style.title}> {listaIngredienti['Formaggio'].stringValue}</span></li>}
+                          <li><span className={style.title}> {listaIngredienti['Formaggio']}</span></li>}
                         {listaIngredienti['Insaccato'] &&
-                          <li><span className={style.title}>{listaIngredienti['Insaccato'].stringValue}</span></li>}
+                          <li><span className={style.title}>{listaIngredienti['Insaccato']}</span></li>}
                       </ul>
                     </motion.div>}
 
@@ -168,9 +170,9 @@ function SchedaPanino() {
 
                         </div>
                         <ul className={style.listaSalse}>
-                          {listaIngredienti['Verdure o guarnizioni'].arrayValue.values.map((item) => {
-                            return (<li key={item.stringValue}>
-                              <span>{item.stringValue}</span>
+                          {listaIngredienti['Verdure o guarnizioni'].map((item) => {
+                            return (<li key={item}>
+                              <span>{item}</span>
                             </li>
                             )
                           })
@@ -188,9 +190,9 @@ function SchedaPanino() {
                           <Image src="/images/salsa.svg" width={70} height={70} layout="fixed" alt="icona panino" />
                         </div>
                         <ul className={style.listaSalse}>
-                          {listaIngredienti['Salse'].arrayValue.values.map((item) => {
-                            return (<li key={item.stringValue}>
-                              <span className={style.title}>{item.stringValue}</span>
+                          {listaIngredienti['Salse'].map((item) => {
+                            return (<li key={item}>
+                              <span className={style.title}>{item}</span>
                             </li>
                             )
                           })
@@ -215,3 +217,13 @@ function SchedaPanino() {
 }
 
 export default SchedaPanino
+
+export const getServerSideProps = (async (context) => {
+  console.log(context.query.id, 'context')
+  const data = await fetchDataFromFirebase('panini')
+  const panino = data.filter((item) => {
+    return item.id === context.query.id
+  })
+
+  return { props: { panino } }
+}) 

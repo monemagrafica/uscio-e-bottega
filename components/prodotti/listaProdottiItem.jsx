@@ -17,7 +17,7 @@ function ListaProdottiItem({
 
 }) {
 
-    const datiPanino = item._document.data.value.mapValue.fields
+    const datiPanino = item
 
     function handleClickPanino(index) {
         window.scroll({
@@ -40,24 +40,24 @@ function ListaProdottiItem({
             whileInView="animate"
         >
             <div>
-                {datiPanino.svg.stringValue ? 
+                {datiPanino.svg ?
                     <div className={style.immaginePanino} id={datiPanino.id.integerValue}>
                         <Image
-                            src={datiPanino.svg.stringValue}
+                            src={datiPanino.svg}
                             alt="test"
                             width={200}
                             height={120}
                             layout="responsive"
                         />
-                    </div> :  <Image
-                            src='/images/placeholderpanino.jpg'
-                            alt="test"
-                            width={120}
-                            height={120}
-                            layout="fixed"
-                        />}
+                    </div> : <Image
+                        src='/images/placeholderpanino.jpg'
+                        alt="test"
+                        width={120}
+                        height={120}
+                        layout="fixed"
+                    />}
 
-                <h2>{datiPanino.name.stringValue}</h2>
+                <h2>{datiPanino.name}</h2>
 
                 <ListaSpec item={datiPanino} />
             </div>

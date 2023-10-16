@@ -4,11 +4,19 @@ import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import Layout from "../components/layout/layout";
 import { motion } from "framer-motion";
-import Head from 'next/head'
+import Head from "next/head";
+import Error from "next/error";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-
+  if (pageProps.error) {
+    return (
+      <Error
+        statusCode={pageProps.error.statusCode}
+        title={pageProps.error.message}
+      />
+    );
+  }
   return (
     <ContextData>
       <Layout>

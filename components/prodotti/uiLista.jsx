@@ -36,9 +36,12 @@ function UiLista({
               initial="initial"
               animate="animate"
             >
-              <span>{data.price.integerValue}.00<BiEuro /></span>
+              <span>{data.price}.00<BiEuro /></span>
             </motion.div>
-            <Link href={`/store/${data.slug.stringValue}`} scroll={false}>
+            <Link href={{
+              pathname: `/store/${data.slug}`,
+              query: { id: data.id }
+            }} scroll={false}>
               <motion.div
                 className={style.info}
                 variants={animateIcon}

@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import ListaProdotti from '../../components/prodotti/listaProdotti'
+import { fetchDataFromFirebase } from '../../firebase/utils'
 
 
-export default function Store() {
+export default function Store({ data }) {
 
   return (
     <>
@@ -12,8 +13,14 @@ export default function Store() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <ListaProdotti />
+        <ListaProdotti prodotti={data} />
       </main>
     </>
   )
 }
+
+export const getServerSideProps = (async () => {
+  const data = await fetchDataFromFirebase('panini')
+
+  return { props: { data } }
+}) 
