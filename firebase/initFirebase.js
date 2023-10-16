@@ -1,21 +1,20 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import {getAuth} from "firebase/auth"
-// Your web app's Firebase configuration
+import { getAuth } from "firebase/auth";
+
+// Configurazione firebase
+const fireKey = {};
 const conf = initializeApp({
-  apiKey: "AIzaSyCPBioSozTKawGag568eidc1aNLWStimz8",
-  authDomain: "uscio-e-bottega.firebaseapp.com",
-  databaseURL: "https://uscio-e-bottega.firebaseio.com",
-  projectId: "uscio-e-bottega",
-  storageBucket: "uscio-e-bottega.appspot.com",
-  messagingSenderId: "432749972173",
-  appId: "1:432749972173:web:45de77219ee2ed2ee1b784"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 });
-// Initialize Firebase
 
-// export Firebase so it can be used elsewhere 
- const firestore = getFirestore();
+const firestore = getFirestore();
+const auth = getAuth(conf);
 
-export { firestore }; 
-
-export const auth = getAuth(conf)
+export { firestore, auth };
