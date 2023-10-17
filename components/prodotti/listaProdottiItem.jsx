@@ -10,8 +10,8 @@ import { animateListItem } from '../utils/animations';
 function ListaProdottiItem({
     item,
     index,
-    setInfoPanino,
-    infoPanino,
+    setSelectedPanino,
+    selectedPanino,
     cart,
     addToCart,
 
@@ -25,7 +25,7 @@ function ListaProdottiItem({
             left: 0,
             behavior: 'smooth'
         })
-        setInfoPanino((prevIndex) => prevIndex === index ? false : index)
+        setSelectedPanino((prevIndex) => prevIndex === index ? false : index)
     }
 
     const singoloPanino = useRef()
@@ -63,7 +63,7 @@ function ListaProdottiItem({
             </div>
 
             <UiLista
-                infoPanino={infoPanino}
+                selectedPanino={selectedPanino}
                 index={index}
                 data={datiPanino}
                 cart={cart}

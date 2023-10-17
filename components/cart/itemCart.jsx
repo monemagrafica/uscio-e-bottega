@@ -5,28 +5,17 @@ import Dettagli from './dettagli'
 import { BiChevronDown } from 'react-icons/bi'
 
 
-function ItemCart({ dati, removeFromCart, setCartAggiornato }) {
+function ItemCart({ dati, setCartAggiornato, removeFromCart }) {
 
-  const arrayListaSalse = dati.ingredients.mapValue.fields.Salse
-  const arrayFromSalse = arrayListaSalse?.arrayValue.values.map((item) => {
-    return item.stringValue
+  const arrayListaSalse = dati.ingredients.Salse
+  const arrayFromSalse = arrayListaSalse.map((item) => {
+    return item
   })
 
   const [dettagliOpen, setDettagliOpen] = useState(false)
-
-  const [quantita, setQuantita] = useState(dati.quantita || 1)
   const [note, setNote] = useState(dati.note || '')
-  const [salseLista, setSalseLista] = useState(dati.salse || arrayFromSalse)
 
 
-  useEffect(() => {
-    setCartAggiornato((prev) => { return { 
-      ...prev, 
-      quantita: quantita, 
-      idAddedPanino: dati.idAddedPanino, 
-      note: note, 
-      salse:salseLista } })
-  }, [quantita, note, salseLista])
 
 
   return (
@@ -36,31 +25,26 @@ function ItemCart({ dati, removeFromCart, setCartAggiornato }) {
         <div className={style.wrapDatiItem}>
           <button className={style.note} onClick={() => setDettagli((prevState) => !prevState)}><BiChevronDown /></button>
           <div className={style.wrapperNomePanino} onClick={() => setDettagliOpen((prevState) => !prevState)}>
-            <h2>{dati.name.stringValue}</h2>
+            <h2>{dati.name}</h2>
           </div>
           <Quantita
             valueCampoQuantita={dati.quantita}
-            setQuantita={setQuantita}
-            quantita={quantita}
+            quantita={dati.quantita}
             idAddedPanino={dati.idAddedPanino}
             setDettagliOpen={setDettagliOpen}
           />
           <button className={style.buttonCancelItem}
-            onClick={() => {
-              removeFromCart(dati.idAddedPanino);
-
-            }
+            onClick={() => { removeFromCart(dati.idAddedPanino); }
             }>x</button>
         </div>
         <Dettagli
           idAddedPanino={dati.idAddedPanino}
           noteCart={dati.note}
           setNote={setNote}
-          immagine={dati.svg.stringValue}
+          immagine={dati.svg}
           dettagliOpen={dettagliOpen}
           arrayFromSalse={arrayFromSalse}
-          setSalseLista={setSalseLista}
-          salseLista={salseLista}
+          salseLista={dati.salse}
         />
 
 

@@ -1,24 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import style from '../../pages/store/store.module.scss'
 import Image from 'next/image'
+import cartContext from '../../context/cart/cartContext'
 
 function Dettagli({ salseLista, arrayFromSalse, dettagliOpen, immagine, idAddedPanino, noteCart, setNote, setSalseLista }) {
+
+    const { changeSalse } = useContext(cartContext)
 
     function checkboxSalse(checked, salsa) {
 
         if (!checked) {
-            console.log('salselista', salseLista);
+
             if (salseLista.length) {
                 const arrayFiltrato = salseLista.filter((item) => {
                     if (item !== salsa) {
                         return item
                     }
                 })
-                setSalseLista(arrayFiltrato)
+
+                changeSalse(idAddedPanino, arrayFiltrato)
             }
         }
         else {
-            setSalseLista([...salseLista, salsa])
+            changeSalse(idAddedPanino, [...salseLista, salsa])
         }
     }
 
@@ -32,7 +36,7 @@ function Dettagli({ salseLista, arrayFromSalse, dettagliOpen, immagine, idAddedP
                 </div>
                 {arrayFromSalse && <ul>
                     {arrayFromSalse.map((item) => {
-                        
+
                         const presenteInCart = salseLista.includes(item)
 
                         return (

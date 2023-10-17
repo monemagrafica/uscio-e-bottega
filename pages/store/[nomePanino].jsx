@@ -9,6 +9,8 @@ import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import Footer from '../../components/prodotti/footer';
 import { BiEuro } from 'react-icons/bi'
 import LoaderImage from '../../components/loader/loaderImage';
+import cartContext from '../../context/cart/cartContext'
+
 import {
   animateTitle,
   animatePrezzo,
@@ -19,20 +21,18 @@ import {
 
 function SchedaPanino({ panino }) {
 
-  const [datiContext, setDatiContext] = useState(false)
-  let dati = useContext(ShareContext)
-  dati = dati.DataShare
-  useEffect(() => {
-    if (dati.prodotti.length !== 0) setDatiContext(true)
-  }, [dati])
+
+
+  const { addToCart, cart } = useContext(cartContext)
+
 
 
   const router = useRouter()
 
-  const slug = router.query.nomePanino
 
   let datiPanino = panino
   datiPanino = datiPanino && datiPanino[0]
+
   const listaIngredienti = datiPanino && datiPanino.ingredients
 
   const animationControls = useAnimation();
@@ -54,13 +54,13 @@ function SchedaPanino({ panino }) {
   }
   useEffect(() => {
     sequence();
-  }, [datiContext]);
+  }, []);
 
   return (
 
     <AnimatePresence>
 
-      {datiPanino && datiContext ?
+      {datiPanino ?
         <>
           <motion.main
             className={style.wrapperSchedaPanino}
@@ -206,8 +206,8 @@ function SchedaPanino({ panino }) {
           </motion.main>
           <Footer
             datiPanino={datiPanino}
-            addToCart={dati.addToCart}
-            cart={dati.cart}
+            newAddToCart={addToCart}
+
 
           />
         </> : <LoaderImage />}
@@ -219,7 +219,7 @@ function SchedaPanino({ panino }) {
 export default SchedaPanino
 
 export const getServerSideProps = (async (context) => {
-  console.log(context.query.id, 'context')
+
   const data = await fetchDataFromFirebase('panini')
   const panino = data.filter((item) => {
     return item.id === context.query.id

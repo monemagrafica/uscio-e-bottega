@@ -3,11 +3,10 @@ import style from '../../pages/store/store.module.scss'
 import { motion, AnimatePresence } from 'framer-motion'
 import { animateCart } from '../utils/animations'
 import RiepilogoOrdine from './riepilogoOrdine'
-
 import ListItemCart from './listItemCart'
 import { BiArrowBack } from 'react-icons/bi'
 
-function Cart({ dati, openCart, setOpenCart, removeFromCart, setUpdate }) {
+function Cart({ dati, openCart, setOpenCart, removeFromCart, setUpdate, addToCart }) {
 
     const [openRiepilogo, setOpenRiepilogo] = useState(false)
 
@@ -30,23 +29,8 @@ function Cart({ dati, openCart, setOpenCart, removeFromCart, setUpdate }) {
         })
         setUpdate(agg)
 
+        //cartAggiornato && addToCart(cartAggiornato, cartAggiornato.idAddedPanino)
     }, [cartAggiornato])
-
-
-
-    /*     function updateItem() {
-            const newArray = cart.map((item) => {
-                console.log('idPanino',item.idAddedPanino === update.idAddedPanino)
-                if (item.idAddedPanino === update.idAddedPanino) {
-                    console.log('idPanino',update.quantita)
-                    item.quantita = update.quantita || 1
-                    item.note = update.note
-                    item.salse = update.salse || []
-                }
-                return item
-            })
-            setCart(newArray)
-        } */
 
 
     return (
@@ -56,8 +40,7 @@ function Cart({ dati, openCart, setOpenCart, removeFromCart, setUpdate }) {
                     variants={animateCart}
                     initial="initial"
                     animate="animate"
-                    exit="exit"
-                >
+                    exit="exit">
                     <div className={style.headerCart}><button className="close" onClick={() => setOpenCart(false)}><BiArrowBack /></button> <h2>Il tuo carrello</h2></div>
                     <ListItemCart setCartAggiornato={setCartAggiornato} dati={dati} removeFromCart={removeFromCart} />
                     <button className={style.buttonOrdine} onClick={() => { setOpenRiepilogo(true) }}>Riepilogo</button>

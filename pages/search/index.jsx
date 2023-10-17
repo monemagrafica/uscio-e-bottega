@@ -1,7 +1,7 @@
 import React, { useRef, useState, useContext } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { animateSearchPage } from '../../components/animations'
+import { animateSearchPage } from '../../components/utils/animations'
 import { BiArrowBack } from 'react-icons/bi'
 import { useRouter } from 'next/router'
 import { ShareContext } from '../../context/context'
@@ -16,19 +16,19 @@ function Search() {
   let dati = useContext(ShareContext)
   dati = dati.DataShare
   const prodotti = dati.prodotti
- 
+
   function risultatiRicerca(inputString) {
 
     const prodottiByNome = prodotti.filter((item) => {
       return item._document.data.value.mapValue.fields.name.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
         item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Formaggio?.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
         item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Insaccato?.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
-        item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Salse?.arrayValue.values.some((item)=>item.stringValue.toLowerCase().includes(inputString.toLowerCase()))
+        item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Salse?.arrayValue.values.some((item) => item.stringValue.toLowerCase().includes(inputString.toLowerCase()))
     })
     setFiltroRicerca(inputString && prodottiByNome)
 
   }
-console.log('datiprodotti', prodotti);
+
 
   return (
     <motion.main className="search"

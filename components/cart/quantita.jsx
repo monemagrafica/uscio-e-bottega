@@ -1,17 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext, useRef } from 'react'
 import style from '../../pages/store/store.module.scss'
 import { BiPlus, BiMinus } from 'react-icons/bi'
+import cartContext from '../../context/cart/cartContext'
 
-function Quantita({ setDettagliOpen, setQuantita, valueCampoQuantita, quantita }) {
 
-    function more(value) {
+function Quantita({ setDettagliOpen, setQuantita, idAddedPanino, quantita }) {
+
+    const { changeQuantity, cart } = useContext(cartContext)
+    const inputQuantita = useRef(null)
+    console.log(cart, 'cart')
+    function more() {
         setDettagliOpen(true)
-        setQuantita((prev) => prev + 1)
-        
+        if (inputQuantita.current.value >= 0) {
+            inputQuantita.current.value = quantita + 1
+            changeQuantity(idAddedPanino, quantita + 1)
+        }
     }
 
     function less(value) {
-        if (value > 1) { setQuantita((prev) => prev - 1) } else { setQuantita(1) }
+        if (inputQuantita.current.value > 0) {
+            inputQuantita.current.value = quantita - 1
+            changeQuantity(idAddedPanino, quantita - 1)
+        }
     }
 
 
@@ -19,7 +29,7 @@ function Quantita({ setDettagliOpen, setQuantita, valueCampoQuantita, quantita }
         <div className={style.cartQuantita}>
             <button className="more" onClick={() => less(quantita)}><BiMinus />
             </button><label htmlFor="quantita" className={style.inputQuantita}>
-                <input defaultValue={valueCampoQuantita} key={valueCampoQuantita} type='number' id="quantita" /></label>
+                <input ref={inputQuantita} defaultValue={quantita} type='number' id="quantita" disabled /></label>
             <button className="more" onClick={() => more(quantita)}><BiPlus /></button>
         </div>
     )

@@ -8,7 +8,7 @@ import Plus1 from '../cart/plus1'
 import { v4 as uuidv4 } from 'uuid';
 function UiLista({
   data,
-  infoPanino,
+  selectedPanino,
   index,
   cart,
   addToCart,
@@ -22,7 +22,7 @@ function UiLista({
   return (
     <>
       <AnimatePresence>
-        {(infoPanino === index) &&
+        {(selectedPanino === index) &&
           <motion.div
             className={style.uiLista}
             variants={animateInfo}
@@ -57,7 +57,10 @@ function UiLista({
               initial="initial"
               animate="animate"
               transition={{ delay: 0.5, duration: 0.3 }}
-              onClick={(e) => { addToCart(e, data, idAddedPanino); setPlusOne(true) }}
+              onClick={(e) => {
+                addToCart(data, idAddedPanino);
+                setPlusOne(true)
+              }}
             >+
               <Plus1 plusOne={plusOne} setPlusOne={setPlusOne} />
             </motion.div>

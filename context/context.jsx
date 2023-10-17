@@ -10,11 +10,7 @@ import {
 
 import {
     collection,
-    QueryDocumentSnapshot,
-    DocumentData,
     query,
-    where,
-    limit,
     getDocs
 } from "@firebase/firestore";
 
@@ -78,19 +74,21 @@ function ContextData({ children }) {
 
 
     useEffect(() => { if (user) getProdotti() }, [user])
-    useEffect(() => {localStorage.setItem("cart", JSON.stringify(cart))}, [cart])
-    useEffect(() => {if(update.length && cart.length){
-        setCart(update)
-    }}, [update])
-    
- 
-    
+    useEffect(() => { localStorage.setItem("cart", JSON.stringify(cart)) }, [cart])
+    useEffect(() => {
+        if (update.length && cart.length) {
+            setCart(update)
+        }
+    }, [update])
+
+
+
 
     function addToCart(e, newDatiPanino, id) {
-      
+
         e.stopPropagation();
-        const arrayFromSalse = newDatiPanino.ingredients.mapValue.fields.Salse?.arrayValue.values.map((item) => {
-            return item.stringValue
+        const arrayFromSalse = newDatiPanino.ingredients.Salse.map((item) => {
+            return item
         })
 
         setCart([...cart, { idAddedPanino: id, ...newDatiPanino, quantita: 1, salse: arrayFromSalse }])
@@ -133,8 +131,8 @@ function ContextData({ children }) {
         setaddPaninoToaster: setaddPaninoToaster,
         removePaninoToaster: removePaninoToaster,
         setRemovePaninoToaster: setRemovePaninoToaster,
-        update:update,
-        setUpdate:setUpdate
+        update: update,
+        setUpdate: setUpdate
 
     }
 
@@ -146,8 +144,7 @@ function ContextData({ children }) {
         errorDb: errorDb,
         setErrorDb: setErrorDb
     }
-    console.log('cart', cart);
-    console.log('update', update);
+
     return (
         <ShareContext.Provider value={{ DataShare, authFirebase }}>
             {loading ? null : children}
