@@ -6,11 +6,9 @@ import RiepilogoOrdine from './riepilogoOrdine'
 import ListItemCart from './listItemCart'
 import { BiArrowBack } from 'react-icons/bi'
 
-function Cart({ dati, openCart, setOpenCart, removeFromCart, setUpdate, addToCart }) {
+function Cart({ dati, openCart, setOpenCart, removeFromCart }) {
 
     const [openRiepilogo, setOpenRiepilogo] = useState(false)
-
-    const [cartAggiornato, setCartAggiornato] = useState()
 
     useEffect(() => {
         if (!dati.length) {
@@ -18,19 +16,6 @@ function Cart({ dati, openCart, setOpenCart, removeFromCart, setUpdate, addToCar
         }
     }, [dati])
 
-    useEffect(() => {
-
-        const agg = dati.map((item) => {
-            if (cartAggiornato && (item.idAddedPanino === cartAggiornato.idAddedPanino)) {
-                return { ...item, ...cartAggiornato }
-            } else {
-                return item
-            }
-        })
-        setUpdate(agg)
-
-        //cartAggiornato && addToCart(cartAggiornato, cartAggiornato.idAddedPanino)
-    }, [cartAggiornato])
 
 
     return (
@@ -42,7 +27,7 @@ function Cart({ dati, openCart, setOpenCart, removeFromCart, setUpdate, addToCar
                     animate="animate"
                     exit="exit">
                     <div className={style.headerCart}><button className="close" onClick={() => setOpenCart(false)}><BiArrowBack /></button> <h2>Il tuo carrello</h2></div>
-                    <ListItemCart setCartAggiornato={setCartAggiornato} dati={dati} removeFromCart={removeFromCart} />
+                    <ListItemCart dati={dati} removeFromCart={removeFromCart} />
                     <button className={style.buttonOrdine} onClick={() => { setOpenRiepilogo(true) }}>Riepilogo</button>
                 </motion.div>
                     <RiepilogoOrdine dati={dati} openRiepilogo={openRiepilogo} setOpenRiepilogo={setOpenRiepilogo} /></>

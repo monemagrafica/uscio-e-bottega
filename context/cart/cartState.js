@@ -2,17 +2,22 @@ import { useEffect, useReducer } from "react";
 import CartContext from "./cartContext";
 import CartReducer from "./cartReducer";
 
-const ISSERVER = typeof window === "undefined";
-const cartFromLocalStorage =
-  !ISSERVER && JSON.parse(localStorage.getItem("uscioCart"));
-
 const CartState = ({ children }) => {
+  // Gestione localStorage NEXTJS
+  const ISSERVER = typeof window === "undefined";
+  const cartFromLocalStorage =
+    !ISSERVER && JSON.parse(localStorage.getItem("uscioCart"));
+
   const initialState = {
     showCart: true,
     cart: cartFromLocalStorage || [],
   };
 
   const [state, dispatch] = useReducer(CartReducer, initialState);
+
+  useEffect(() => {
+    localStorage.setItem("uscioCart", JSON.stringify(state.cart));
+  }, [state.cart]);
 
   const addToCart = (datiPanino, id) => {
     const arrayFromSalse = datiPanino.ingredients.Salse.map((item) => {
@@ -68,10 +73,6 @@ const CartState = ({ children }) => {
       },
     });
   };
-
-  useEffect(() => {
-    localStorage.setItem("uscioCart", JSON.stringify(state.cart));
-  }, [state.cart]);
 
   return (
     <CartContext.Provider
