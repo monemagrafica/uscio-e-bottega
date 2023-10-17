@@ -5,7 +5,7 @@ import Dettagli from './dettagli'
 import { BiChevronDown } from 'react-icons/bi'
 
 
-function ItemCart({ dati, setCartAggiornato, removeFromCart }) {
+function ItemCart({ dati, removeFromCart }) {
 
   const arrayListaSalse = dati.ingredients.Salse
   const arrayFromSalse = arrayListaSalse.map((item) => {

@@ -4,26 +4,24 @@ import { motion } from 'framer-motion'
 import { animateSearchPage } from '../../components/utils/animations'
 import { BiArrowBack } from 'react-icons/bi'
 import { useRouter } from 'next/router'
-import { ShareContext } from '../../context/context'
+import { fetchDataFromFirebase } from '../../firebase/utils'
 import SearchList from '../../components/search/searchList'
 
 
-function Search() {
+function Search({ data }) {
   const router = useRouter()
   const inputRicerca = useRef()
   const [filtroRicerca, setFiltroRicerca] = useState([])
 
-  let dati = useContext(ShareContext)
-  dati = dati.DataShare
-  const prodotti = dati.prodotti
-
+  const prodotti = data
+  console.log(filtroRicerca, 'prodotti')
   function risultatiRicerca(inputString) {
 
     const prodottiByNome = prodotti.filter((item) => {
-      return item._document.data.value.mapValue.fields.name.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
-        item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Formaggio?.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
-        item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Insaccato?.stringValue.toLowerCase().includes(inputString.toLowerCase()) ||
-        item._document.data.value.mapValue.fields.ingredients.mapValue.fields.Salse?.arrayValue.values.some((item) => item.stringValue.toLowerCase().includes(inputString.toLowerCase()))
+      return item.name.toLowerCase().includes(inputString.toLowerCase()) ||
+        item.ingredients.Formaggio?.toLowerCase().includes(inputString.toLowerCase()) ||
+        item.ingredients.Insaccato?.toLowerCase().includes(inputString.toLowerCase()) ||
+        item.ingredients.Salse?.some((item) => item.toLowerCase().includes(inputString.toLowerCase()))
     })
     setFiltroRicerca(inputString && prodottiByNome)
 
@@ -46,8 +44,8 @@ function Search() {
         {filtroRicerca?.map((item) => {
 
           return (<SearchList
-            key={item._document.data.value.mapValue.fields.name.stringValue}
-            data={item._document.data.value.mapValue.fields}
+            key={item.name}
+            data={item}
           />)
 
         })}
@@ -57,3 +55,9 @@ function Search() {
 }
 
 export default Search
+
+export const getServerSideProps = (async () => {
+  const data = await fetchDataFromFirebase('panini')
+
+  return { props: { data } }
+}) 

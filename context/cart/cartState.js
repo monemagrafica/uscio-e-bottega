@@ -59,10 +59,11 @@ const CartState = ({ children }) => {
     });
   };
 
-  const setNote = (note) => {
+  const setNote = (id, note) => {
     dispatch({
       type: "SET_NOTE",
       payload: {
+        idAddedPanino: id,
         note: note,
       },
     });

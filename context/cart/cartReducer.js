@@ -45,7 +45,11 @@ function CartReducer(state, action) {
     case "SET_NOTE": {
       return {
         ...state,
-        note: action.payload.note,
+        cart: state.cart.map((item) =>
+          item.idAddedPanino === action.payload.idAddedPanino
+            ? { ...item, note: action.payload.note }
+            : item
+        ),
       };
     }
     default:

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { fetchDataFromFirebase } from '../../firebase/utils'
-import { ShareContext } from '../../context/context';
 import { useContext, useState, useEffect } from 'react'
 import Image from 'next/image'
 import style from './store.module.scss'

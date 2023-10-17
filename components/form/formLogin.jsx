@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from 'framer-motion'
-import { animateLogin } from '../animations'
+import { animateLogin } from '../../utils/animation'
 function FormLogin({ auth, formAuth, setFormAuth }) {
 
   const router = useRouter()

@@ -3,9 +3,9 @@ import style from '../../pages/store/store.module.scss'
 import Image from 'next/image'
 import cartContext from '../../context/cart/cartContext'
 
-function Dettagli({ salseLista, arrayFromSalse, dettagliOpen, immagine, idAddedPanino, noteCart, setNote, setSalseLista }) {
+function Dettagli({ salseLista, arrayFromSalse, dettagliOpen, immagine, idAddedPanino, noteCart }) {
 
-    const { changeSalse } = useContext(cartContext)
+    const { changeSalse, setNote } = useContext(cartContext)
 
     function checkboxSalse(checked, salsa) {
 
@@ -60,7 +60,7 @@ function Dettagli({ salseLista, arrayFromSalse, dettagliOpen, immagine, idAddedP
                 </ul>}
                 <div className={style.noteDettagli}>
                     <h3>note</h3>
-                    <textarea onChange={(e) => setNote(e.target.value)} defaultValue={noteCart} name="note" id="note" cols="30" rows="5"></textarea>
+                    <textarea onChange={(e) => setNote(idAddedPanino, e.target.value)} defaultValue={noteCart} name="note" id="note" cols="30" rows="5"></textarea>
                 </div>
             </div>
         </div>

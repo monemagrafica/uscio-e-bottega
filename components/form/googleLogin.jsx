@@ -1,7 +1,7 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase/initFirebase";
 import { motion, AnimatePresence } from 'framer-motion'
-import { animateLogin } from '../animations'
+import { animateLogin } from '../../utils/animation'
 
 const GoogleLogin = ({ formAuth, setFormAuth }) => {
 
@@ -50,7 +50,7 @@ const GoogleLogin = ({ formAuth, setFormAuth }) => {
             >
                 <p>Accedi con il tuo account Google</p>
                 <button className="back-login" onClick={login}> Login </button>
-                <button className='back-login' onClick={()=>setFormAuth(false)}>Back</button>
+                <button className='back-login' onClick={() => setFormAuth(false)}>Back</button>
             </motion.div>}
             </AnimatePresence>
         </>

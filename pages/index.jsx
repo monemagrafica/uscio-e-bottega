@@ -5,7 +5,7 @@ import FormLogin from '../components/form/formLogin'
 import FormSignUp from '../components/form/formSignUp'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ShareContext } from '../context/context'
-import { animazioneLogo, animazioneForm, animazioneBackground } from '../components/animations'
+import { animazioneLogo, animazioneForm, animazioneBackground } from '../utils/animation'
 
 
 function LoginUi({ tipoForm, setFormAuth }) {
