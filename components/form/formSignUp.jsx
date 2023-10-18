@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from 'framer-motion'
-import { animateLogin } from '../../utils/animation'
+import { animateLogin } from '../utils/animations'
 import { FcGoogle } from 'react-icons/fc'
 import { useForm } from 'react-hook-form';
 

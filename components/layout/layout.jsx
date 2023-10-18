@@ -7,11 +7,11 @@ import { ToasterLoggedInMemo, ToasterAggiuntoCart, ToasterRimossoCart } from '..
 import Drawer from '../drawer';
 import Image from 'next/image'
 import cartContext from '../../context/cart/cartContext';
+import { getQuantita } from '../utils/utils';
 
 function Layout({ children }) {
     const router = useRouter()
     const context = useContext(ShareContext)
-
     const dati = context.DataShare
     const authData = context.authFirebase.user
     const {
@@ -38,7 +38,7 @@ function Layout({ children }) {
             {(router.asPath !== '/' && authData) &&
                 <>
                     <Navbar
-                        statoCarrello={cart.length}
+                        statoCarrello={cart.length ? getQuantita(cart) : 0}
                         openCart={showCart}
                         setOpenCart={toggleCart}
                         setOpenDrawer={dati.setOpenDrawer}
@@ -50,8 +50,6 @@ function Layout({ children }) {
                         removeFromCart={removeFromCart}
                         setOpenCart={toggleCart}
                         setSelezionaPanini={dati.setSelezionaPanini}
-                        update={dati.update}
-                        setUpdate={dati.setUpdate}
                         addToCart={addToCart}
                     />
                     <ToasterAggiuntoCart addPaninoToaster={dati.addPaninoToaster} setaddPaninoToaster={dati.setaddPaninoToaster} />

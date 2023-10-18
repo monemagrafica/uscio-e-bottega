@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react"
-import { firestore, auth } from '../firebase/initFirebase';
+import { auth } from '../firebase/initFirebase';
 import { useRouter } from 'next/router'
 import {
     onAuthStateChanged,
@@ -8,16 +8,9 @@ import {
 
 } from "firebase/auth";
 
-import {
-    collection,
-    query,
-    getDocs
-} from "@firebase/firestore";
 
 
 const ShareContext = createContext()
-const todosCollection = collection(firestore, 'panini')
-
 
 
 function ContextData({ children }) {
@@ -28,7 +21,6 @@ function ContextData({ children }) {
     const [removePaninoToaster, setRemovePaninoToaster] = useState(false)
     const [openDrawer, setOpenDrawer] = useState(false)
     const [errorDb, setErrorDb] = useState(false)
-    const [update, setUpdate] = useState([])
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
@@ -50,17 +42,6 @@ function ContextData({ children }) {
 
     }, []);
 
-
-
-
-
-
-
-
-
-
-
-
     function handleLogin(email, password) {
         return signInWithEmailAndPassword(auth, email, password)
     }
@@ -78,16 +59,12 @@ function ContextData({ children }) {
     };
 
     const DataShare = {
-
         openDrawer: openDrawer,
         setOpenDrawer: setOpenDrawer,
         addPaninoToaster: addPaninoToaster,
         setaddPaninoToaster: setaddPaninoToaster,
         removePaninoToaster: removePaninoToaster,
         setRemovePaninoToaster: setRemovePaninoToaster,
-        update: update,
-        setUpdate: setUpdate
-
     }
 
     const authFirebase = {

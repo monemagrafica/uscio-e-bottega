@@ -5,18 +5,8 @@ import FormLogin from '../components/form/formLogin'
 import FormSignUp from '../components/form/formSignUp'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ShareContext } from '../context/context'
-import { animazioneLogo, animazioneForm, animazioneBackground } from '../utils/animation'
+import { animazioneLogo, animazioneForm, animazioneBackground } from '../components/utils/animations'
 
-
-function LoginUi({ tipoForm, setFormAuth }) {
-  if (tipoForm === false) {
-    return (
-      <>
-        <button className='back-login' onClick={() => setFormAuth(0)}>Login</button>
-        <button className='back-login' onClick={() => setFormAuth(1)}>Registrati</button>
-      </>)
-  }
-}
 
 
 export default function Home() {

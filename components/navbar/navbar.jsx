@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Empty from './empty'
 
 function Navbar({ setOpenCart, statoCarrello, setOpenDrawer }) {
-
+    console.log(statoCarrello, 'test ');
     const [animateC, setAnimateC] = useState(false)
 
 
@@ -27,7 +27,7 @@ function Navbar({ setOpenCart, statoCarrello, setOpenDrawer }) {
 
     return (
         <nav>
-            <div className="trigger" onClick={()=>setOpenDrawer((prev)=>!prev)}>
+            <div className="trigger" onClick={() => setOpenDrawer((prev) => !prev)}>
                 <div className="icon">
                     <BiMenu />
                 </div>
