@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navbar from '../navbar/navbar'
 import { useRouter } from 'next/router';
 import Cart from '../cart/cart';
@@ -8,12 +8,46 @@ import Drawer from '../drawer';
 import Image from 'next/image'
 import cartContext from '../../context/cart/cartContext';
 import { getQuantita } from '../utils/utils';
+import { auth } from '../../firebase/initFirebase';
+import { onAuthStateChanged } from "firebase/auth";
 
 function Layout({ children }) {
+
+    const [authData, setAuthData] = useState(-1)
     const router = useRouter()
+
+
+    useEffect(() => {
+        //LOGIN - evita che si disconnetta al refresh dell'applicazione (?)
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+
+            if (user) {
+                setAuthData({
+                    uid: user.uid,
+                    email: user.email,
+                    displayName: user.displayName
+                })
+            } else { setAuthData(-1) }
+
+        })
+        unsubscribe()
+        return () => unsubscribe()
+
+    }, []);
+
+    useEffect(() => {
+        if (authData === -1) {
+            router.push('/')
+        } else {
+            router.push('/store')
+        }
+    }, [authData])
+
+
+
     const context = useContext(ShareContext)
     const dati = context.DataShare
-    const authData = context.authFirebase.user
+
     const {
         toggleCart,
         showCart,
@@ -21,14 +55,8 @@ function Layout({ children }) {
         cart,
         addToCart } = useContext(cartContext)
 
-    useEffect(() => {
-        if (!authData) {
-            router.push('/')
-        } else { router.push('/store') }
-    }, [])
-
-
     return (
+
 
         <div className={`layout ${router.asPath === '/' && 'login'}`}>
             <div className='web-app-warning'>
@@ -43,7 +71,7 @@ function Layout({ children }) {
                         setOpenCart={toggleCart}
                         setOpenDrawer={dati.setOpenDrawer}
                     />
-                    {children}
+                    {authData ? children : <div>loading</div>}
                     <Cart
                         dati={cart}
                         openCart={showCart}
@@ -60,6 +88,7 @@ function Layout({ children }) {
             }
             {(router.asPath === '/' || !authData) && <>{children}</>}
         </div>
+
 
     )
 }

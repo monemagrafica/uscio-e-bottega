@@ -3,10 +3,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import FormLogin from '../components/form/formLogin'
 import FormSignUp from '../components/form/formSignUp'
+import GoogleLogin from '../components/form/googleLogin'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ShareContext } from '../context/context'
 import { animazioneLogo, animazioneForm, animazioneBackground } from '../components/utils/animations'
-
 
 
 export default function Home() {
@@ -51,6 +51,10 @@ export default function Home() {
                 formAuth={formAuth}
                 auth={userData} />
               <FormLogin
+                setFormAuth={setFormAuth}
+                formAuth={formAuth}
+                auth={userData} />
+              <GoogleLogin
                 setFormAuth={setFormAuth}
                 formAuth={formAuth}
                 auth={userData} />

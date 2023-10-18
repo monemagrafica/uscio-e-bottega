@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { animateDrawer } from './utils/animations'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-
-function Drawer({ setOpenDrawer, openDrawer, logout, authData }) {
+import { auth } from '../firebase/initFirebase';
+function Drawer({ setOpenDrawer, openDrawer, authData }) {
     const router = useRouter()
-    const name = authData.email.split('@')[0]
+    const name = authData?.email?.split('@')[0]
 
     function openTutorial() {
         router.push('/tutorial')
@@ -16,7 +16,12 @@ function Drawer({ setOpenDrawer, openDrawer, logout, authData }) {
         router.push('/chi-siamo')
         setOpenDrawer(false)
     }
+    function logout() {
+        auth.signOut();
+        router.push('/')
+        setOpenDrawer(false)
 
+    }
     return (
         <>
             <AnimatePresence>
@@ -33,7 +38,7 @@ function Drawer({ setOpenDrawer, openDrawer, logout, authData }) {
                     <div className="user-data">
                         <h2>Ciao {name}!</h2>
                         <p className='presentazione'>Tramite questa app potrai ordinare i tuoi <span>panini preferiti</span>, modificarli e... mangiarli</p>
-                        <p style={{ textDecoration: 'underline' }} onClick={() => openTutorial()}>  Vuoi capire come ordinare un panino?</p>
+                        <p style={{ textDecoration: 'underline' }} onClick={() => openTutorial()}>  Sai come ordinare un panino?</p>
                         <p style={{ textDecoration: 'underline' }} onClick={() => openChiSiamo()}>  Vuoi conoscerci meglio?</p>
 
                     </div>

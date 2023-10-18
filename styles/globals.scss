@@ -148,6 +148,7 @@ nav .search {
     margin: 0rem 0 0 auto;
   }
   .google-registrazione-ui {
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -324,7 +325,8 @@ div#addedPanino {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    line-height: 60px;
+    line-height: 0px;
+    margin: 0 0 0 1rem;
   }
   .back-login {
     margin-top: 1rem;
