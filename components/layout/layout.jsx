@@ -8,41 +8,11 @@ import Drawer from '../drawer';
 import Image from 'next/image'
 import cartContext from '../../context/cart/cartContext';
 import { getQuantita } from '../utils/utils';
-import { auth } from '../../firebase/initFirebase';
-import { onAuthStateChanged } from "firebase/auth";
 
 function Layout({ children }) {
 
     const [authData, setAuthData] = useState(-1)
     const router = useRouter()
-
-
-    useEffect(() => {
-        //LOGIN - evita che si disconnetta al refresh dell'applicazione (?)
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-
-            if (user) {
-                setAuthData({
-                    uid: user.uid,
-                    email: user.email,
-                    displayName: user.displayName
-                })
-            } else { setAuthData(-1) }
-
-        })
-        unsubscribe()
-        return () => unsubscribe()
-
-    }, []);
-
-    useEffect(() => {
-        if (authData === -1) {
-            router.push('/')
-        } else {
-            router.push('/store')
-        }
-    }, [authData])
-
 
 
     const context = useContext(ShareContext)
