@@ -1,4 +1,3 @@
-import { useContext, useEffect } from "react";
 import "../styles/globals.scss";
 import { ContextData } from "../context/context";
 import CartState from "../context/cart/cartState";
@@ -12,6 +11,7 @@ import Error from "next/error";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+
   if (pageProps.error) {
     return (
       <Error

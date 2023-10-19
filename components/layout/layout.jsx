@@ -8,12 +8,22 @@ import Drawer from '../drawer';
 import Image from 'next/image'
 import cartContext from '../../context/cart/cartContext';
 import { getQuantita } from '../utils/utils';
+import { useAuth } from '../../context/authContext';
 
 function Layout({ children }) {
-
-    const [authData, setAuthData] = useState(-1)
+    const { logOut, authData } = useAuth()
     const router = useRouter()
 
+    useEffect(() => {
+
+        if (authData) {
+            router.push('/store')
+        } else {
+            router.push('/')
+        }
+
+    }, [authData])
+    console.log(authData, 'authData')
 
     const context = useContext(ShareContext)
     const dati = context.DataShare
@@ -27,13 +37,12 @@ function Layout({ children }) {
 
     return (
 
-
         <div className={`layout ${router.asPath === '/' && 'login'}`}>
             <div className='web-app-warning'>
                 <Image src="/images/logo.svg" width={240} height={240} layout="intrinsic" alt="logo" />
                 <div>Questa è una WebApp, accedi al login tramite smartphone!</div>
             </div>
-            {(router.asPath !== '/' && authData) &&
+            {(router.asPath !== '/') &&
                 <>
                     <Navbar
                         statoCarrello={cart.length ? getQuantita(cart) : 0}
@@ -41,7 +50,7 @@ function Layout({ children }) {
                         setOpenCart={toggleCart}
                         setOpenDrawer={dati.setOpenDrawer}
                     />
-                    {authData ? children : <div>loading</div>}
+                    {children}
                     <Cart
                         dati={cart}
                         openCart={showCart}
@@ -51,12 +60,12 @@ function Layout({ children }) {
                         addToCart={addToCart}
                     />
                     <ToasterAggiuntoCart addPaninoToaster={dati.addPaninoToaster} setaddPaninoToaster={dati.setaddPaninoToaster} />
-                    <ToasterLoggedInMemo authData={authData} />
+                    <ToasterLoggedInMemo />
                     <ToasterRimossoCart removePaninoToaster={dati.removePaninoToaster} setRemovePaninoToaster={dati.setRemovePaninoToaster} />
-                    <Drawer logout={context.authFirebase.logout} openDrawer={dati.openDrawer} setOpenDrawer={dati.setOpenDrawer} authData={authData} />
+                    <Drawer logOut={logOut} openDrawer={dati.openDrawer} setOpenDrawer={dati.setOpenDrawer} authData={authData} />
                 </>
             }
-            {(router.asPath === '/' || !authData) && <>{children}</>}
+            {(router.asPath === '/') && <>{children}</>}
         </div>
 
 

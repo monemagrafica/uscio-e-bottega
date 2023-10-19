@@ -1,4 +1,4 @@
-import { ShareContext } from '../../context/context';
+
 import { useContext } from 'react'
 import React, { useState, useRef } from 'react';
 import style from '../../pages/store/store.module.scss'
@@ -18,16 +18,16 @@ function ListaProdotti({ prodotti }) {
                     const datiPanino = item
 
                     return (
-                        <>
-                            <ListaProdottiItem
-                                item={item}
-                                key={datiPanino.id}
-                                index={index}
-                                setSelectedPanino={setSelectedPanino}
-                                selectedPanino={selectedPanino}
-                                cart={cart}
-                                addToCart={addToCart} />
-                        </>
+
+                        <ListaProdottiItem
+                            item={item}
+                            key={datiPanino.id}
+                            index={index}
+                            setSelectedPanino={setSelectedPanino}
+                            selectedPanino={selectedPanino}
+                            cart={cart}
+                            addToCart={addToCart} />
+
 
                     )
                 })

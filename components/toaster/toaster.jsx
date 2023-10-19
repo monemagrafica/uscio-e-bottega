@@ -15,7 +15,7 @@ function ToasterAggiuntoCart({ addPaninoToaster, setaddPaninoToaster }) {
             draggable: true,
             progress: undefined,
         });
-     setaddPaninoToaster(false)   
+        setaddPaninoToaster(false)
     }
 
 
@@ -51,10 +51,10 @@ function ToasterLoggedIn({ authData }) {
     const [userStato, setUserStato] = useState(null)
 
     useEffect(() => {
-        if (authData.uid) { setUserStato(authData.uid) }
+        if (true) { setUserStato(false) }
     }, [])
 
-    if (userStato !== null) {
+    if (true) {
         toast('Benvenuto!', {
             position: "bottom-right",
             toastId: 'addedPanino',

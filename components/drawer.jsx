@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { animateDrawer } from './utils/animations'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { auth } from '../firebase/initFirebase';
-function Drawer({ setOpenDrawer, openDrawer, authData }) {
+
+function Drawer({ setOpenDrawer, openDrawer, logOut, authData }) {
     const router = useRouter()
     const name = authData?.email?.split('@')[0]
 
@@ -16,11 +16,9 @@ function Drawer({ setOpenDrawer, openDrawer, authData }) {
         router.push('/chi-siamo')
         setOpenDrawer(false)
     }
-    function logout() {
-        auth.signOut();
-        router.push('/')
+    function signOut() {
+        logOut()
         setOpenDrawer(false)
-
     }
     return (
         <>
@@ -45,7 +43,7 @@ function Drawer({ setOpenDrawer, openDrawer, authData }) {
                     <div className="datiApp">
 
                     </div>
-                    <button className='logout' onClick={() => logout()}>logout</button>
+                    <button className='logout' onClick={() => signOut()}>logout</button>
                 </motion.div>}
             </AnimatePresence>
         </>
