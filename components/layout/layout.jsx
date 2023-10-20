@@ -1,7 +1,5 @@
-import React, { useContext, useLayoutEffect } from 'react'
-import Navbar from '../navbar/navbar'
+import React, { useContext, useEffect } from 'react'
 import { useRouter } from 'next/router';
-import Cart from '../cart/cart';
 import { ShareContext } from '../../context/context';
 import { ToasterLoggedInMemo, ToasterAggiuntoCart, ToasterRimossoCart } from '../toaster/toaster'
 import Drawer from '../drawer';
@@ -9,21 +7,24 @@ import Image from 'next/image'
 import cartContext from '../../context/cart/cartContext';
 import { getQuantita } from '../utils/utils';
 import { useAuth } from '../../context/authContext';
+import dynamic from 'next/dynamic';
+const Navbar = dynamic(() => import('../navbar/navbar'), { ssr: false })
+const Cart = dynamic(() => import('../cart/cart'), { ssr: false })
 
 function Layout({ children }) {
     const { logOut, authData } = useAuth()
     const router = useRouter()
 
-    useLayoutEffect(() => {
+    useEffect(() => {
 
         if (authData) {
             router.push('/store')
         } else {
             router.push('/')
         }
-
         console.log(authData, 'test')
     }, [authData])
+
     console.log(authData, 'authData')
 
     const context = useContext(ShareContext)

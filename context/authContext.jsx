@@ -59,11 +59,15 @@ const ContextAuth = ({ children }) => {
 
     };
 
-    async function login(email, password,) {
-
+    function login(email, password,) {
 
         signInWithEmailAndPassword(getAuth(), email, password).then((user) => {
-            console.log(user);
+
+            if (JSON.parse(localStorage.getItem('userEmail')) !== email) {
+                localStorage.removeItem('cart')
+                localStorage.removeItem('userEmail')
+                localStorage.setItem('userEmail', JSON.stringify(user.user.email))
+            } else { localStorage.setItem('userEmail', JSON.stringify(user.user.email)) }
             router.push('/store')
         }).catch((error) => {
             const errorCode = error.code;
