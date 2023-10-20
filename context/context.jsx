@@ -8,21 +8,9 @@ const ShareContext = createContext()
 
 function ContextData({ children }) {
 
-
-    const route = useRouter()
     const [addPaninoToaster, setaddPaninoToaster] = useState(false)
     const [removePaninoToaster, setRemovePaninoToaster] = useState(false)
     const [openDrawer, setOpenDrawer] = useState(false)
-    const [errorDb, setErrorDb] = useState(false)
-    const [user, setUser] = useState(null)
-
-    const logout = async () => {
-        console.log("logout");
-        route.push('/')
-        setOpenDrawer(false)
-        setUser(null)
-        await auth.signOut();
-    };
 
     const DataShare = {
         openDrawer: openDrawer,
@@ -33,15 +21,10 @@ function ContextData({ children }) {
         setRemovePaninoToaster: setRemovePaninoToaster,
     }
 
-    const authFirebase = {
-        user: user,
-        logout: logout,
-        errorDb: errorDb,
-        setErrorDb: setErrorDb
-    }
+
 
     return (
-        <ShareContext.Provider value={{ DataShare, authFirebase }}>
+        <ShareContext.Provider value={{ DataShare }}>
             {children}
         </ShareContext.Provider>
     )

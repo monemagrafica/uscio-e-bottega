@@ -1,28 +1,36 @@
-import { createContext, useContext, useState, useEffect, use } from "react";
-import { signInWithEmailAndPassword, signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider } from "firebase/auth";
+import { createContext, useContext, useState, useEffect } from "react";
+import { signInWithEmailAndPassword, signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { auth } from '../firebase/initFirebase';
 
+const errori = {
+    nofield: 'Campi obbligarori',
+    errore: 'Dati non corretti',
+    firebase: 'Errore connessione, controllare email e password'
+}
 
 const AuthContext = createContext();
 
 const ContextAuth = ({ children }) => {
 
     const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(true)
+    const [erroriFirebase, setErroriFirebase] = useState(null)
 
     useEffect(() => {
+
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log(currentUser, 'utente stato');
             if (currentUser) {
-                setUser(user)
+                setUser(currentUser)
             } else if (currentUser === null) {
                 setUser(false)
                 console.log('utente non loggato');
             }
             return () => { unsubscribe(); }
+        })
 
-        });
+
+
+
     }, [auth]);
 
     const provider = new GoogleAuthProvider();
@@ -51,15 +59,9 @@ const ContextAuth = ({ children }) => {
 
     };
 
-    async function login(e, email, password, controlForm, setControlForm) {
+    async function login(email, password,) {
 
-        const errori = {
-            nofield: 'Campi obbligarori',
-            errore: 'Dati non corretti',
-            firebase: 'Errore connessione, controllare email e password'
-        }
 
-        e.preventDefault()
         signInWithEmailAndPassword(getAuth(), email, password).then((user) => {
             console.log(user);
             router.push('/store')
@@ -67,16 +69,35 @@ const ContextAuth = ({ children }) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             if (errorCode === 'auth/wrong-password') {
-                setControlForm(errori.errore)
+                setErroriFirebase('Password errata')
             } else if (errorCode === 'auth/user-not-found') {
-                setControlForm(errori.firebase)
+                setErroriFirebase('Utente non trovato')
             } else {
-                setControlForm(errori.nofield)
+                setErroriFirebase(errori.nofield)
             }
             console.log({ errorCode, errorMessage });
         }
         )
 
+    }
+
+    function handleSignUp(email, password) {
+
+        createUserWithEmailAndPassword(getAuth(), email, password).then((user) => {
+            console.log(user);
+        }).catch((error) => {
+            setTimeout(() => {
+                setErroriFirebase('')
+            }, 5000);
+            const errorCode = error.code;
+            if (errorCode === 'auth/email-already-in-use') {
+                setErroriFirebase('Email già in uso')
+            } else if (errorCode === 'auth/invalid-email') {
+                setErroriFirebase('Email non valida')
+            }
+
+        }
+        )
     }
 
     function logOut() {
@@ -96,7 +117,10 @@ const ContextAuth = ({ children }) => {
             login: login,
             logOut: logOut,
             authData: user,
-            setAuthData: setUser
+            setAuthData: setUser,
+            handleSignUp: handleSignUp,
+            erroriFirebase: erroriFirebase,
+
         }}>
             {children}
         </AuthContext.Provider >

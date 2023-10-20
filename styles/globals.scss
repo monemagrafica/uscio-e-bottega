@@ -156,7 +156,7 @@ nav .search {
   .wrapper-logo {
     position: relative;
     z-index: 2;
-    max-width: 240px;
+    max-width: 160px;
     width: 100%;
     margin-bottom: 2rem;
   }
@@ -338,9 +338,9 @@ div#addedPanino {
   }
 
   p {
-    font-size: 1rem;
-    background-color: v.$brownNoteDettagli;
-    padding: 1rem;
+    font-size: 0.9rem;
+    background-color: #e86565;
+    padding: 0.3rem;
     border-radius: 20px;
   }
 }

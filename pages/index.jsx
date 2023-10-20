@@ -33,7 +33,7 @@ export default function Home() {
           animate="animate"
           transition={{ delay: 0.5 }}
         >
-          <Image src="/images/logo.svg" width={240} height={240} layout="responsive" alt="logo" />
+          <Image src="/images/logo.svg" width={140} height={140} layout="responsive" alt="logo" />
         </motion.div>
 
         <motion.div

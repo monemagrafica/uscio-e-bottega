@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useLayoutEffect } from 'react'
 import Navbar from '../navbar/navbar'
 import { useRouter } from 'next/router';
 import Cart from '../cart/cart';
@@ -14,7 +14,7 @@ function Layout({ children }) {
     const { logOut, authData } = useAuth()
     const router = useRouter()
 
-    useEffect(() => {
+    useLayoutEffect(() => {
 
         if (authData) {
             router.push('/store')
@@ -22,6 +22,7 @@ function Layout({ children }) {
             router.push('/')
         }
 
+        console.log(authData, 'test')
     }, [authData])
     console.log(authData, 'authData')
 

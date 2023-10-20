@@ -1,24 +1,17 @@
 import React, { useState } from 'react'
-import { useRouter } from 'next/router'
+
 import { motion, AnimatePresence } from 'framer-motion'
 import { animateLogin } from '../utils/animations'
-
 import style from './form.module.scss'
 import { FcGoogle } from 'react-icons/fc'
-
+import { useForm } from 'react-hook-form';
 
 function FormLogin({ formAuth, setFormAuth, useAuth }) {
-  const { loginGoogle, login } = useAuth()
-  const router = useRouter()
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [controlForm, setControlForm] = useState('')
+  const { loginGoogle, login, erroriFirebase } = useAuth()
 
-
-
-
-
-
+  const form = useForm()
+  const { register, handleSubmit, formState, watch } = form
+  const { errors } = formState
 
   return (
     <>
@@ -30,21 +23,40 @@ function FormLogin({ formAuth, setFormAuth, useAuth }) {
           exit='exit'
           variants={animateLogin}
         >
-          {controlForm && <div className={style.errore} >{controlForm}</div>}
-          <form className='form-login' onSubmit={() => ('test')}>
-            <label htmlFor="user">
+          {erroriFirebase && <p>{erroriFirebase}</p>}
+          <form className='form-login' onSubmit={handleSubmit((data) => {
+            login(data.userName, data.password)
+          })}>
+            <label htmlFor="userName">
               <input
-                onChange={(e) => setEmail(e.target.value)}
                 type="text"
                 placeholder='Email'
-                name="user" id="user"
-
+                name="userName"
+                id="userName"
+                {...register("userName", {
+                  required: {
+                    value: true,
+                    message: "Campo obbligatorio"
+                  },
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Formato password errato"
+                  }
+                })
+                }
               />
+              {errors.userName && <p>{errors.userName?.message}</p>}
+
+
             </label>
             <label htmlFor="password">
-              <input onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder='Password' id="password" />
+              <input {...register("password", {
+                required: { value: true, message: 'Campo Obbligatorio' },
+                minLength: { value: 6, message: 'Inserire almeno 6 caratteri' },
+              })} type="text" name="password" placeholder='Password' id="password" />
+              {errors.password && <p>{errors.password?.message}</p>}
             </label>
-            <button onClick={(e) => login(e, email, password, controlForm, setControlForm)}>Entra</button>
+            <button type="submit">Entra</button>
             <button className='button-register' onClick={(e) => { e.preventDefault(); setFormAuth(1) }}>Registrati!</button>
           </form>
           <div className="google-registrazione-ui"><span>Accedi con:</span><button className='google-login-button' onClick={loginGoogle}><FcGoogle /></button></div>

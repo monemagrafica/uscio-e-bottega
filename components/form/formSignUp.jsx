@@ -1,29 +1,16 @@
-import React, { useState } from 'react'
-import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { animateLogin } from '../utils/animations'
 import { useForm } from 'react-hook-form';
-import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { getAuth } from 'firebase/auth'
+import { useAuth } from '../../context/authContext'
+
 function FormSignUp({ auth, formAuth, setFormAuth }) {
 
-  const router = useRouter()
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const { register, handleSubmit, formState: { errors } } = useForm();
 
-  async function handleSignUp(email, password) {
+  const { handleSignUp, erroriFirebase } = useAuth()
+  const form = useForm()
+  const { register, handleSubmit, formState, watch } = form
+  const { errors } = formState
 
-    createUserWithEmailAndPassword(getAuth(), email, password).then((user) => {
-      console.log(user);
-      setFormAuth(0)
-    }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log({ errorCode, errorMessage });
-    }
-    )
-  }
 
   return (
     <>
@@ -36,16 +23,52 @@ function FormSignUp({ auth, formAuth, setFormAuth }) {
           variants={animateLogin}
         >
 
-          <form className='form-login' onSubmit={() => handleSignUp(email, password)}>
+          <form className='form-login' onSubmit={handleSubmit((data) => {
+            handleSignUp(data.userName, data.password)
+          })}>
+            {erroriFirebase && <p>{erroriFirebase}</p>}
             <label htmlFor="user">
-              <input {...register("user", { required: true, pattern: /^\S+@\S+$/i })} onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Email' name="user" id="user" />
-              {errors.user && <span>Errore inserimento mail</span>}
+              <input
+                type="text"
+                placeholder='Email'
+                name="userName"
+                id="userName"
+                {...register("userName", {
+                  required: {
+                    value: true,
+                    message: "Campo obbligatorio"
+                  },
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Formato password errato"
+                  }
+                })
+                }
+              />
+              {errors.userName && <p>{errors.userName?.message}</p>}
+
             </label>
             <label htmlFor="password">
-              <input {...register("password", { required: true, minLength: 6 })} onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder='Password' id="password" />
-              {errors.password && <span>Errore inserimento password (min 6 caratteri)</span>}
+              <input {...register("password", {
+                required: { value: true, message: 'Campo Obbligatorio' },
+                minLength: { value: 6, message: 'Inserire almeno 6 caratteri' },
+              })} type="text" name="password" placeholder='Password' id="password" />
+              {errors.password && <p>{errors.password?.message}</p>}
             </label>
-            {/* <button onClick={(e) => signUp(e)}>Registrati</button> */}
+            <label htmlFor="passwordConfirm">
+              <input
+                {...register("passwordConfirm", {
+                  required: {
+                    value: true,
+                    message: 'Campo Obbligatorio'
+                  },
+                  validate: (value) => (watch('password') != value) ? 'Le password non coincidono' : true,
+
+
+                })} type="text" name="passwordConfirm" placeholder='Conferma Password' id="passwordConfirm" />
+              {errors.passwordConfirm && <p>{errors.passwordConfirm?.message}</p>}
+            </label>
+
             <button type="submit">Registrati</button>
           </form>
 
