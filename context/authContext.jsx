@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { signInWithEmailAndPassword, signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { auth } from '../firebase/initFirebase';
-import { removeCart } from './cart/cartState'
+
 
 const errori = {
     nofield: 'Campi obbligarori',
@@ -107,7 +107,7 @@ const ContextAuth = ({ children }) => {
         signOut(auth).then(() => {
             router.push('/')
             localStorage.removeItem('userEmail')
-            removeCart()
+
         }).catch((error) => {
             // An error happened.
             console.log(error);
