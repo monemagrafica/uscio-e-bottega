@@ -6,6 +6,26 @@ import Link from 'next/link'
 import { animateInfo, animatePrice, animateIcon } from '../utils/animations'
 import Plus1 from '../cart/plus1'
 import { v4 as uuidv4 } from 'uuid';
+
+
+
+
+
+/**
+ * Componente Ui lista prodotti
+ * @date 23/10/2023 - 18:06:02
+ *
+ * @param {*} data
+ * dati del singolo prodotto
+ * @param {*} selectedPanino
+ * indice panino selezionato
+ * @param {*} index
+ * indice prodotto nella lista
+ * @param {*} addToCart
+ * funzione per aggiungere un panino al carrello
+ * @returns {*}
+ */
+
 function UiLista({
   data,
   selectedPanino,

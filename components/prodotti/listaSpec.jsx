@@ -1,7 +1,18 @@
 import React from 'react'
 import style from '../../pages/store/store.module.scss'
-function ListaSpec({ item }) {
-    let listaIngredienti = item.ingredients
+
+
+
+/**
+ * Componente visualizzazione lista ingredienti
+ * @date 23/10/2023 - 18:03:57
+ *
+ * @param {*} listaIngredienti
+ * lista ingredienti
+ */
+
+function ListaSpec({ listaIngredienti }) {
+
 
     return (
         <div className={style.listaSpec}>

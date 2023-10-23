@@ -4,6 +4,23 @@ import { animateDrawer } from './utils/animations'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
+
+
+/**
+ * Componenten drawer
+ * @date 23/10/2023 - 18:09:34
+ *
+ * @param {*} setOpenDrawer
+ * setta lo stato del drawer
+ * @param {*} openDrawer
+ * stato del drawer
+ * @param {*} logOut
+ * funzione per il logout da AuthContext
+ * @param {*} authData
+ * dati di autenticazione da AuthContext
+ * 
+ */
+
 function Drawer({ setOpenDrawer, openDrawer, logOut, authData }) {
     const router = useRouter()
     const name = authData?.email?.split('@')[0]

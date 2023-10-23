@@ -7,6 +7,26 @@ import { motion } from 'framer-motion'
 import { animateListItem } from '../utils/animations';
 
 
+
+/**
+ * Componente per la visualizzazione di un singolo panino nella lista
+ * @date 23/10/2023 - 18:02:16
+ *
+ * 
+ * @param {*} item
+ * dati singolo prodotto
+ * @param {*} index
+ * indice prodotto
+ * @param {*} setSelectedPanino
+ * funzione per settare con l'index il panino selezionato
+ * @param {*} selectedPanino
+ * indice panino selezionato
+ * @param {*} cart
+ * dati carrello
+ * @param {*} addToCart
+ * funzione per aggiungere un panino al carrello
+ * @returns {*}
+ */
 function ListaProdottiItem({
     item,
     index,
@@ -59,7 +79,7 @@ function ListaProdottiItem({
 
                 <h2>{datiPanino.name}</h2>
 
-                <ListaSpec item={datiPanino} />
+                <ListaSpec listaIngredienti={datiPanino.ingredients} />
             </div>
 
             <UiLista

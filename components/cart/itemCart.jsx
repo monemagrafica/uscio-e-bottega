@@ -5,6 +5,18 @@ import Dettagli from './dettagli'
 import { BiChevronDown } from 'react-icons/bi'
 
 
+/**
+ * Componente per la visualizzazione del singolo panino nel carrello
+ * @date 23/10/2023 - 17:50:39
+ *
+ * 
+ * @param {*} dati
+ * dati del singolo panino
+ * @param {*} removeFromCart
+ * funzione per rimuovere il panino dal carrello dal cartContext
+ * @returns {*}
+ */
+
 function ItemCart({ dati, removeFromCart }) {
 
   const arrayListaSalse = dati.ingredients.Salse

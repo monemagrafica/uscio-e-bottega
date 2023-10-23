@@ -1,6 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
 
+
+
+/**
+ * Componente lista ricerca
+ * @date 23/10/2023 - 18:07:48
+ *
+ * @param {*} data
+ * @returns {*}
+ */
+
 function SearchList(data) {
 
   return (

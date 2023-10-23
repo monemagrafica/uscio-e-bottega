@@ -6,8 +6,6 @@ import RiepilogoOrdine from './riepilogoOrdine'
 import ListItemCart from './listItemCart'
 import { BiArrowBack } from 'react-icons/bi'
 
-
-
 /**
  * Componente per la visualizzazione del carrello
  * @date 23/10/2023 - 16:18:53
@@ -27,13 +25,12 @@ function Cart({ dati, openCart, setOpenCart, removeFromCart }) {
 
     const [openRiepilogo, setOpenRiepilogo] = useState(false)
 
+
     useEffect(() => {
         if (!dati.length) {
             setOpenCart(false)
-
         }
     }, [dati])
-
 
 
     return (

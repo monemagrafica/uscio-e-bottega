@@ -24,11 +24,10 @@ import cartContext from '../../context/cart/cartContext'
  * @function checkboxSalse
  * funzione per selezionare le salse: 
  * se il checkbox è selezionato aggiunge la salsa all'array salseLista, altrimenti 
- * rimuove la salsa dall'array salseLista
+ * filtra e rimuove la salsa dall'array salseLista
  * @var presenteInCart
- * variabile per verificare se la salsa è presente nell'array salseLista
- * se è presente il checkbox è selezionato, altrimenti no
- * inizialmente tutti i checkbox sono selezionati  
+ * se la salsa è presente nell'array salseLista
+ * allora il checkbox è selezionato
  */
 
 function Dettagli({ salseLista, arrayFromSalse, dettagliOpen, immagine, idAddedPanino, noteCart }) {

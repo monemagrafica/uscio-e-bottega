@@ -1,3 +1,11 @@
+
+
+/**
+ * Configurazione delle animazioni framer motion
+ * @date 23/10/2023 - 18:08:28
+ *
+ */
+
 const animateTitle = {
     initial: { opacity: 0, top: 20, scale: 0.8, rotate: 9 },
     animate: { opacity: 1, top: 0, scale: 1, rotate: -4, transition: { delay: 0.7 } },

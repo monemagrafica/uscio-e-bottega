@@ -5,6 +5,19 @@ import Link from 'next/link'
 import Plus1 from '../cart/plus1'
 import { v4 as uuidv4 } from 'uuid';
 
+
+
+/**
+ * Componente footer scheda prodotto
+ * @date 23/10/2023 - 18:00:40
+ *
+ * 
+ * @param {*} datiPanino
+ * dati del singolo prodotto
+ * @param {*} newAddToCart
+ * funzione per aggiungere il prodotto al carrello
+ * @returns {*}
+ */
 function Footer({ datiPanino, newAddToCart }) {
 
   const [plusOne, setPlusOne] = useState(false)

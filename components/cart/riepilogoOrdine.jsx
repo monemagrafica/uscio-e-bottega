@@ -3,13 +3,28 @@ import { motion, AnimatePresence } from 'framer-motion'
 import style from '../../pages/store/store.module.scss'
 import { BiArrowBack, BiEuro } from 'react-icons/bi'
 import { animateRiepilogo } from '../utils/animations'
-
 import Image from 'next/image'
 
+
+
+
+/**
+ * Compoente per la visualizzazione del riepilogo dell'ordine
+ * @date 23/10/2023 - 17:59:17
+ *
+ * 
+ * 
+ * @param {*} openRiepilogo
+ * stato per l'apertura del riepilogo
+ * @param {*} setOpenRiepilogo
+ * funzione per settare il valore di openRiepilogo
+ * @param {*} dati
+ * dati carrello prodotti
+ * @returns {*}
+ */
 function RiepilogoOrdine({ openRiepilogo, setOpenRiepilogo, dati }) {
 
     const totale = dati.reduce((acc, item) => {
-
         return acc + (parseInt(item.price) * item.quantita)
     }, 0)
 
