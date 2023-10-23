@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import style from '../../pages/store/store.module.scss'
 import Quantita from './quantita'
 import Dettagli from './dettagli'
@@ -14,7 +14,7 @@ function ItemCart({ dati, removeFromCart }) {
 
   const [dettagliOpen, setDettagliOpen] = useState(false)
 
-
+  console.log(dati, 'dati')
   return (
     <>
       {dati && <div

@@ -17,7 +17,6 @@ function ListItemCart({ dati, removeFromCart }) {
                             animate="animate"
                             exit="exit">
                             <ItemCart
-
                                 dati={item}
                                 removeFromCart={removeFromCart} />
                         </motion.li>

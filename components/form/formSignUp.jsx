@@ -3,9 +3,23 @@ import { animateLogin } from '../utils/animations'
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../context/authContext'
 
+
+
+/**
+ * Componente per il form di registrazione
+ * @date 23/10/2023 - 16:17:50
+ *
+ * 
+ * @param {*} formAuth
+ * gestisce la visualizzazione dei form login e registrazione nella pagina di login
+ * @param {*} setFormAuth
+ * setta il valore di formAuth
+ * @function useForm
+ * React hook form per la gestione dei form
+ * @url https://react-hook-form.com/
+ */
+
 function FormSignUp({ formAuth, setFormAuth }) {
-
-
   const { handleSignUp, erroriFirebase } = useAuth()
   const form = useForm()
   const { register, handleSubmit, formState, watch } = form

@@ -4,6 +4,29 @@ import { animateLogin } from '../utils/animations'
 import { FcGoogle } from 'react-icons/fc'
 import { useForm } from 'react-hook-form';
 
+
+/**
+ * Componente per il form di login generico e con google popup
+ * @date 23/10/2023 - 16:01:33
+ *
+ * @param {{ formAuth: any; setFormAuth: any; useAuth: any; }} param0
+ * 
+ * 
+ * @param {*} param0.useAuth 
+ * Context AuthContext con le funzioni di login e errore Firebase
+ * @function loginGoogle
+ * @function login
+ * @function erroriFirebase
+ * 
+ * @param {*} param0.formAuth 
+ * gestisce la visualizzazione dei form login e registrazione nella pagina di login
+ * @param {*} param0.setFormAuth
+ * setta il valore di formAuth
+ * @function useForm
+ * React hook form per la gestione dei form
+ * @url https://react-hook-form.com/
+ */
+
 function FormLogin({ formAuth, setFormAuth, useAuth }) {
   const { loginGoogle, login, erroriFirebase } = useAuth()
   const form = useForm()

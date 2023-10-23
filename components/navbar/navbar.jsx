@@ -4,10 +4,21 @@ import { BsCart, BsCartFill } from 'react-icons/bs'
 import Link from 'next/link'
 import Empty from './empty'
 
+
+
+/**
+ * Componete che gestisce la navbar
+ * @date 23/10/2023 - 15:54:10
+ *
+ * @param {*} setOpenCart (true/false) apre/chiude il carrello
+ * @param {*} statoCarrello numero di panini nel carrello
+ * @param {*} setOpenDrawer (true/false) apre/chiude il drawer
+ * 
+ */
+
 function Navbar({ setOpenCart, statoCarrello, setOpenDrawer }) {
 
     const [animateC, setAnimateC] = useState(false)
-
 
     useEffect(() => {
 

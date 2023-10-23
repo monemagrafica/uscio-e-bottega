@@ -3,6 +3,34 @@ import style from '../../pages/store/store.module.scss'
 import Image from 'next/image'
 import cartContext from '../../context/cart/cartContext'
 
+
+
+/**
+ * Componente per la visualizzazione dei dettagli del panino
+ * @date 23/10/2023 - 16:20:53
+ *
+ * @param {*} salseLista
+ * array per le salse selezionate
+ * @param {*} arrayFromSalse
+ * array con le salse disponibili per prodotto
+ * @param {*} dettagliOpen
+ * stato per la visualizzazione dei dettagli
+ * @param {*} immagine
+ * immagine del panino
+ * @param {*} idAddedPanino
+ * id del panino aggiunto al carrello
+ * @param {*} noteCart
+ * note del panino
+ * @function checkboxSalse
+ * funzione per selezionare le salse: 
+ * se il checkbox è selezionato aggiunge la salsa all'array salseLista, altrimenti 
+ * rimuove la salsa dall'array salseLista
+ * @var presenteInCart
+ * variabile per verificare se la salsa è presente nell'array salseLista
+ * se è presente il checkbox è selezionato, altrimenti no
+ * inizialmente tutti i checkbox sono selezionati  
+ */
+
 function Dettagli({ salseLista, arrayFromSalse, dettagliOpen, immagine, idAddedPanino, noteCart }) {
 
     const { changeSalse, setNote } = useContext(cartContext)
@@ -10,14 +38,12 @@ function Dettagli({ salseLista, arrayFromSalse, dettagliOpen, immagine, idAddedP
     function checkboxSalse(checked, salsa) {
 
         if (!checked) {
-
             if (salseLista.length) {
                 const arrayFiltrato = salseLista.filter((item) => {
                     if (item !== salsa) {
                         return item
                     }
                 })
-
                 changeSalse(idAddedPanino, arrayFiltrato)
             }
         }

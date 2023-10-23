@@ -12,6 +12,24 @@ import LoaderImage from '../loader/loaderImage';
 const Navbar = dynamic(() => import('../navbar/navbar'), { ssr: false })
 const Cart = dynamic(() => import('../cart/cart'), { ssr: false })
 
+
+
+
+/**
+ * Layout che importa la navbar e il carrello
+ * @date 23/10/2023 - 16:00:57
+ * 
+ * @var authData 
+ * dati utente - se non ci sono dati utente e la route è diversa da '/' mostra il loader - protected route. Da testare next-auth.
+ * 
+ * @var router.asPath("/")
+ * se la route è '/' non mostra la navbar e il carrello
+ * 
+ * @param {*} children children
+ * 
+ */
+
+
 function Layout({ children }) {
     const { logOut, authData } = useAuth()
     const router = useRouter()
@@ -29,7 +47,8 @@ function Layout({ children }) {
 
     return (
         <>
-            {!authData && router.pathname != '/' ? <div><LoaderImage /></div> :
+            {!authData && router.pathname != '/' ?
+                <div><LoaderImage /></div> :
                 <div className={`layout ${router.asPath === '/' && 'login'}`}>
                     <div className='web-app-warning'>
                         <Image src="/images/logo.svg" width={240} height={240} layout="intrinsic" alt="logo" />
