@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import FormLogin from '../components/form/formLogin'
 import FormSignUp from '../components/form/formSignUp'
-import GoogleLogin from '../components/form/googleLogin'
+
 import { motion, AnimatePresence } from 'framer-motion'
 import { ShareContext } from '../context/context'
 import { animazioneLogo, animazioneForm, animazioneBackground } from '../components/utils/animations'
@@ -13,7 +13,7 @@ export default function Home() {
 
   const context = useContext(ShareContext)
   const userData = context.authFirebase
-  const [formAuth, setFormAuth, loginGoogle] = useState(0)
+  const [formAuth, setFormAuth] = useState(0)
   const router = useRouter()
   const { authData } = useAuth()
 
@@ -64,11 +64,7 @@ export default function Home() {
                 formAuth={formAuth}
                 auth={userData}
                 useAuth={useAuth} />
-              <GoogleLogin
-                setFormAuth={setFormAuth}
-                formAuth={formAuth}
-                auth={userData}
-                loginGoogle={loginGoogle} />
+
             </div>
           </AnimatePresence>
 
