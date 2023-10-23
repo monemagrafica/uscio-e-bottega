@@ -19,7 +19,7 @@ function Drawer({ setOpenDrawer, openDrawer, logOut, authData }) {
     function signOut() {
         logOut(router)
         setOpenDrawer(false)
-        console.log('logout', authData);
+
     }
     return (
         <>

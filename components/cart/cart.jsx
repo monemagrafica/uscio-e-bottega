@@ -17,7 +17,7 @@ function Cart({ dati, openCart, setOpenCart, removeFromCart }) {
         }
     }, [dati])
 
-    console.log(openCart)
+
 
     return (
         <AnimatePresence>

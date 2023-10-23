@@ -1,4 +1,4 @@
-import { use, useEffect, useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import CartContext from "./cartContext";
 import CartReducer from "./cartReducer";
 import { useAuth } from "../authContext";
@@ -19,7 +19,7 @@ const CartState = ({ children }) => {
 
   useEffect(() => {
     if (!localStorage.getItem("userEmail")) {
-      removeCart();
+      removeCart(false);
     }
   }, [authData]);
 
@@ -96,7 +96,6 @@ const CartState = ({ children }) => {
         changeQuantity,
         changeSalse,
         removeFromCart,
-
         toggleCart,
         setNote,
       }}
