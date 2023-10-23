@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { use, useContext, useEffect, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import FormLogin from '../components/form/formLogin'
@@ -8,13 +8,20 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ShareContext } from '../context/context'
 import { animazioneLogo, animazioneForm, animazioneBackground } from '../components/utils/animations'
 import { useAuth } from '../context/authContext'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 export default function Home() {
 
   const context = useContext(ShareContext)
   const userData = context.authFirebase
-  const [formAuth, setFormAuth] = useState(0)
+  const [formAuth, setFormAuth, loginGoogle] = useState(0)
+  const router = useRouter()
+  const { authData } = useAuth()
 
+  useEffect(() => {
+    if (authData) {
+      router.push('/store')
+    }
+  }, [authData])
 
   return (
     <div>
@@ -60,7 +67,8 @@ export default function Home() {
               <GoogleLogin
                 setFormAuth={setFormAuth}
                 formAuth={formAuth}
-                auth={userData} />
+                auth={userData}
+                loginGoogle={loginGoogle} />
             </div>
           </AnimatePresence>
 

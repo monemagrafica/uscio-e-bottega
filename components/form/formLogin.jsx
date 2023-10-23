@@ -3,14 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { animateLogin } from '../utils/animations'
 import { FcGoogle } from 'react-icons/fc'
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/router';
+
 function FormLogin({ formAuth, setFormAuth, useAuth }) {
   const { loginGoogle, login, erroriFirebase } = useAuth()
-
   const form = useForm()
-  const { register, handleSubmit, formState, watch } = form
+  const { register, handleSubmit, formState } = form
   const { errors } = formState
-  const router = useRouter()
+
   return (
     <>
       <AnimatePresence exitBeforeEnter > {(formAuth === 0) &&
@@ -23,7 +22,7 @@ function FormLogin({ formAuth, setFormAuth, useAuth }) {
         >
           {erroriFirebase && <p>{erroriFirebase}</p>}
           <form className='form-login' onSubmit={handleSubmit((data) => {
-            login(data.userName, data.password, router)
+            login(data.userName, data.password)
           })}>
             <label htmlFor="userName">
               <input

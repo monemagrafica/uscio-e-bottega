@@ -22,6 +22,7 @@ const ContextAuth = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
                 setUser(currentUser)
+
             } else if (currentUser === null) {
                 setUser(false)
                 console.log('utente non loggato');
@@ -34,6 +35,7 @@ const ContextAuth = ({ children }) => {
     const provider = new GoogleAuthProvider();
 
     const loginGoogle = () => {
+
         signInWithPopup(auth, provider)
             .then((result) => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
@@ -41,8 +43,8 @@ const ContextAuth = ({ children }) => {
                 const token = credential?.accessToken;
                 // The signed-in user info.
                 const user = result.user;
+                localStorage.setItem('userEmail', JSON.stringify(user.email))
 
-                console.log({ credential, token, user });
             })
             .catch((error) => {
                 // Handle Errors here.
@@ -55,14 +57,15 @@ const ContextAuth = ({ children }) => {
                 console.log({ errorCode, errorMessage, email, credential });
             });
 
+
     };
 
-    function login(email, password, router) {
+    function login(email, password) {
 
         signInWithEmailAndPassword(getAuth(), email, password).then((user) => {
 
-            localStorage.setItem('userEmail', JSON.stringify(user.user.email))
-            router.push('/store')
+            localStorage.setItem('userEmail', JSON.stringify(email))
+
 
         }).catch((error) => {
             const errorCode = error.code;
@@ -82,8 +85,8 @@ const ContextAuth = ({ children }) => {
 
     function handleSignUp(email, password) {
 
-        createUserWithEmailAndPassword(getAuth(), email, password).then((user) => {
-
+        createUserWithEmailAndPassword(getAuth(), email, password).then(() => {
+            localStorage.setItem('userEmail', JSON.stringify(email))
         }).catch((error) => {
             setTimeout(() => {
                 setErroriFirebase('')

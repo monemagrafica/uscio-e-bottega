@@ -3,7 +3,7 @@ import { animateLogin } from '../utils/animations'
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../context/authContext'
 
-function FormSignUp({ auth, formAuth, setFormAuth }) {
+function FormSignUp({ formAuth, setFormAuth }) {
 
 
   const { handleSignUp, erroriFirebase } = useAuth()
