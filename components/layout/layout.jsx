@@ -43,7 +43,7 @@ function Layout({ children }) {
         cart,
         addToCart } = useContext(cartContext)
 
-
+    console.log(cart, 'dati test')
 
     return (
         <>

@@ -14,7 +14,7 @@ function ItemCart({ dati, removeFromCart }) {
 
   const [dettagliOpen, setDettagliOpen] = useState(false)
 
-  console.log(dati, 'dati')
+
   return (
     <>
       {dati && <div

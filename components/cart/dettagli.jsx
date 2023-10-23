@@ -35,23 +35,22 @@ function Dettagli({ salseLista, arrayFromSalse, dettagliOpen, immagine, idAddedP
 
     const { changeSalse, setNote } = useContext(cartContext)
 
-    function checkboxSalse(checked, salsa) {
 
+    function checkboxSalse(checked, salsa) {
         if (!checked) {
-            if (salseLista.length) {
-                const arrayFiltrato = salseLista.filter((item) => {
-                    if (item !== salsa) {
-                        return item
-                    }
-                })
-                changeSalse(idAddedPanino, arrayFiltrato)
-            }
+            console.log(checked, salsa, 'not checked')
+            const arrayFiltrato = salseLista.filter((item) => {
+                if (item !== salsa) {
+                    return item
+                }
+            })
+            changeSalse(idAddedPanino, [...arrayFiltrato])
         }
         else {
             changeSalse(idAddedPanino, [...salseLista, salsa])
         }
     }
-
+    console.log(salseLista, 'salseLista')
 
 
     return (
@@ -62,9 +61,7 @@ function Dettagli({ salseLista, arrayFromSalse, dettagliOpen, immagine, idAddedP
                 </div>
                 {arrayFromSalse && <ul>
                     {arrayFromSalse.map((item) => {
-
                         const presenteInCart = salseLista.includes(item)
-
                         return (
                             <li key={item}>
                                 <form>

@@ -37,7 +37,7 @@ const CartState = ({ children }) => {
         ...datiPanino,
         idAddedPanino: id,
         quantita: 1,
-        salse: arrayFromSalse || [],
+        salse: [],
       },
     });
   };
