@@ -8,7 +8,7 @@ function Quantita({ setDettagliOpen, setQuantita, idAddedPanino, quantita }) {
 
     const { changeQuantity, cart } = useContext(cartContext)
     const inputQuantita = useRef(null)
-    console.log(cart, 'cart')
+
     function more() {
         setDettagliOpen(true)
         if (inputQuantita.current.value >= 0) {

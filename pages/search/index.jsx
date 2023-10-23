@@ -14,7 +14,7 @@ function Search({ data }) {
   const [filtroRicerca, setFiltroRicerca] = useState([])
 
   const prodotti = data
-  console.log(filtroRicerca, 'prodotti')
+
   function risultatiRicerca(inputString) {
 
     const prodottiByNome = prodotti.filter((item) => {

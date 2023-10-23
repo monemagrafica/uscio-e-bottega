@@ -10,7 +10,6 @@ function UiLista({
   data,
   selectedPanino,
   index,
-  cart,
   addToCart,
 
 }) {

@@ -17,8 +17,9 @@ function Drawer({ setOpenDrawer, openDrawer, logOut, authData }) {
         setOpenDrawer(false)
     }
     function signOut() {
-        logOut()
+        logOut(router)
         setOpenDrawer(false)
+        console.log('logout', authData);
     }
     return (
         <>
@@ -44,6 +45,7 @@ function Drawer({ setOpenDrawer, openDrawer, logOut, authData }) {
 
                     </div>
                     <button className='logout' onClick={() => signOut()}>logout</button>
+
                 </motion.div>}
             </AnimatePresence>
         </>

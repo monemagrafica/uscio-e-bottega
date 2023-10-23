@@ -30,7 +30,7 @@ const GoogleLogin = ({ formAuth, setFormAuth }) => {
                 const credential = GoogleAuthProvider.credentialFromError(error);
                 console.log({ errorCode, errorMessage, email, credential });
             });
-        console.log('gugol');
+
     };
 
     const signOut = async () => {

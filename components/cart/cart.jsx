@@ -10,17 +10,12 @@ function Cart({ dati, openCart, setOpenCart, removeFromCart }) {
 
     const [openRiepilogo, setOpenRiepilogo] = useState(false)
 
-    useEffect(() => {
-        if (!dati.length) {
-            setOpenCart(false)
-        }
-    }, [dati])
 
-
+    console.log(openCart)
 
     return (
         <AnimatePresence>
-            {(openCart && dati.length) &&
+            {(openCart) &&
                 <> <motion.div className={style.wrapperCart}
                     variants={animateCart}
                     initial="initial"

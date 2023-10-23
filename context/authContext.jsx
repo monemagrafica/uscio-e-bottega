@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { signInWithEmailAndPassword, signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { auth } from '../firebase/initFirebase';
+import { removeCart } from './cart/cartState'
 
 const errori = {
     nofield: 'Campi obbligarori',
@@ -17,7 +18,7 @@ const ContextAuth = ({ children }) => {
     const [erroriFirebase, setErroriFirebase] = useState(null)
 
     useEffect(() => {
-
+        //funzione per mantenere l'utente loggato
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
                 setUser(currentUser)
@@ -27,9 +28,6 @@ const ContextAuth = ({ children }) => {
             }
             return () => { unsubscribe(); }
         })
-
-
-
 
     }, [auth]);
 
@@ -59,16 +57,13 @@ const ContextAuth = ({ children }) => {
 
     };
 
-    function login(email, password,) {
+    function login(email, password, router) {
 
         signInWithEmailAndPassword(getAuth(), email, password).then((user) => {
 
-            if (JSON.parse(localStorage.getItem('userEmail')) !== email) {
-                localStorage.removeItem('cart')
-                localStorage.removeItem('userEmail')
-                localStorage.setItem('userEmail', JSON.stringify(user.user.email))
-            } else { localStorage.setItem('userEmail', JSON.stringify(user.user.email)) }
+            localStorage.setItem('userEmail', JSON.stringify(user.user.email))
             router.push('/store')
+
         }).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
@@ -88,7 +83,7 @@ const ContextAuth = ({ children }) => {
     function handleSignUp(email, password) {
 
         createUserWithEmailAndPassword(getAuth(), email, password).then((user) => {
-            console.log(user);
+
         }).catch((error) => {
             setTimeout(() => {
                 setErroriFirebase('')
@@ -104,11 +99,12 @@ const ContextAuth = ({ children }) => {
         )
     }
 
-    function logOut() {
+    function logOut(router) {
+
         signOut(auth).then(() => {
-            // Sign-out successful.
-            console.log('logout');
-            setUser(null)
+            router.push('/')
+            localStorage.removeItem('userEmail')
+            removeCart()
         }).catch((error) => {
             // An error happened.
             console.log(error);
@@ -121,7 +117,6 @@ const ContextAuth = ({ children }) => {
             login: login,
             logOut: logOut,
             authData: user,
-            setAuthData: setUser,
             handleSignUp: handleSignUp,
             erroriFirebase: erroriFirebase,
 

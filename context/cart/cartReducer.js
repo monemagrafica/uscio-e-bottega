@@ -3,16 +3,23 @@ function CartReducer(state, action) {
     case "TOGGLE_CART": {
       return {
         ...state,
-        showCart: !state.showCart,
+        showCart: action.payload.statoCart || !state.showCart,
       };
     }
+
     case "ADD_TO_CART": {
       return {
         ...state,
         cart: [...state.cart, action.payload],
       };
     }
-
+    case "REMOVE_CART": {
+      localStorage.removeItem("uscioCart");
+      return {
+        ...state,
+        cart: [],
+      };
+    }
     case "CHANGE_QUANTITY": {
       return {
         ...state,

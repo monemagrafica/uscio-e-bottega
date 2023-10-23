@@ -1,26 +1,34 @@
-import { useEffect, useReducer } from "react";
+import { use, useEffect, useReducer } from "react";
 import CartContext from "./cartContext";
 import CartReducer from "./cartReducer";
+import { useAuth } from "../authContext";
 
 const CartState = ({ children }) => {
   // Gestione localStorage NEXTJS
+  const { authData } = useAuth();
   const ISSERVER = typeof window === "undefined";
   const cartFromLocalStorage =
     !ISSERVER && JSON.parse(localStorage.getItem("uscioCart"));
 
   const initialState = {
-    showCart: true,
+    showCart: false,
     cart: cartFromLocalStorage || [],
   };
 
   const [state, dispatch] = useReducer(CartReducer, initialState);
 
   useEffect(() => {
+    if (!localStorage.getItem("userEmail")) {
+      removeCart();
+    }
+  }, [authData]);
+
+  useEffect(() => {
     localStorage.setItem("uscioCart", JSON.stringify(state.cart));
   }, [state.cart]);
 
   const addToCart = (datiPanino, id) => {
-    const arrayFromSalse = datiPanino.ingredients.Salse.map((item) => {
+    const arrayFromSalse = datiPanino.ingredients.Salse?.map((item) => {
       return item;
     });
     dispatch({
@@ -29,13 +37,14 @@ const CartState = ({ children }) => {
         ...datiPanino,
         idAddedPanino: id,
         quantita: 1,
-        salse: arrayFromSalse,
+        salse: arrayFromSalse || [],
       },
     });
   };
-  const toggleCart = () => {
+  const toggleCart = (statoCart) => {
     dispatch({
       type: "TOGGLE_CART",
+      payload: statoCart,
     });
   };
   const removeFromCart = (id) => {
@@ -63,7 +72,11 @@ const CartState = ({ children }) => {
       },
     });
   };
-
+  const removeCart = () => {
+    dispatch({
+      type: "REMOVE_CART",
+    });
+  };
   const setNote = (id, note) => {
     dispatch({
       type: "SET_NOTE",

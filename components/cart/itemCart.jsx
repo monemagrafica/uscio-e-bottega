@@ -8,14 +8,11 @@ import { BiChevronDown } from 'react-icons/bi'
 function ItemCart({ dati, removeFromCart }) {
 
   const arrayListaSalse = dati.ingredients.Salse
-  const arrayFromSalse = arrayListaSalse.map((item) => {
+  const arrayFromSalse = arrayListaSalse ? arrayListaSalse.map((item) => {
     return item
-  })
+  }) : []
 
   const [dettagliOpen, setDettagliOpen] = useState(false)
-  const [note, setNote] = useState(dati.note || '')
-
-
 
 
   return (
@@ -40,7 +37,6 @@ function ItemCart({ dati, removeFromCart }) {
         <Dettagli
           idAddedPanino={dati.idAddedPanino}
           noteCart={dati.note}
-          setNote={setNote}
           immagine={dati.svg}
           dettagliOpen={dettagliOpen}
           arrayFromSalse={arrayFromSalse}

@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ShareContext } from '../context/context'
 import { animazioneLogo, animazioneForm, animazioneBackground } from '../components/utils/animations'
 import { useAuth } from '../context/authContext'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 export default function Home() {
 
   const context = useContext(ShareContext)
@@ -23,7 +23,6 @@ export default function Home() {
         <meta name="description" content="uscio e bottega app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className='login-page' >
 
         <motion.div
@@ -46,7 +45,9 @@ export default function Home() {
 
 
           <AnimatePresence>
+
             <div className="wrapper-form-login">
+
               <FormSignUp
                 setFormAuth={setFormAuth}
                 formAuth={formAuth}

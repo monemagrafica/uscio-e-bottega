@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 function SearchList(data) {
-  console.log(data, 'data')
+
   return (
     <Link href={{
       pathname: `/store/${data.data.slug}`,
