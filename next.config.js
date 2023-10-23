@@ -12,7 +12,6 @@ const nextConfig = {
   images: {
     dangerouslyAllowSVG: true,
     domains: ["firebasestorage.googleapis.com"],
-    quality: 100,
   },
   i18n: {
     locales: ["it"],
