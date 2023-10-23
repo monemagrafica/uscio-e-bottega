@@ -7,7 +7,7 @@ const withPWA = require("next-pwa")({
   disable: process.env.NODE_ENV === "development",
 });
 
-const nextConfig = {
+const nextConfig = withPWA({
   reactStrictMode: true,
   images: {
     dangerouslyAllowSVG: true,
@@ -17,6 +17,6 @@ const nextConfig = {
     locales: ["it"],
     defaultLocale: "it",
   },
-};
+});
 
 module.exports = nextConfig;
