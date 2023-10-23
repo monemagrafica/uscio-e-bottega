@@ -96,6 +96,7 @@ const CartState = ({ children }) => {
         changeQuantity,
         changeSalse,
         removeFromCart,
+        removeCart,
         toggleCart,
         setNote,
       }}
