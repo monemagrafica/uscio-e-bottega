@@ -34,14 +34,14 @@ function SchedaPanino({ panino }) {
 
   const listaIngredienti = datiPanino && datiPanino.ingredients
 
-  const animationControls = useAnimation();
+  const animationControlsPiccante = useAnimation();
 
   async function sequence() {
-    await animationControls.start({ opacity: 0 });
-    await animationControls.start({ rotate: -360, opacity: 0 });
-    await animationControls.start({ rotate: 0, opacity: 1 });
-    await animationControls.start({ scale: 1 });
-    animationControls.start({
+    await animationControlsPiccante.start({ opacity: 0 });
+    await animationControlsPiccante.start({ rotate: -360, opacity: 0 });
+    await animationControlsPiccante.start({ rotate: 0, opacity: 1 });
+    await animationControlsPiccante.start({ scale: 1 });
+    animationControlsPiccante.start({
       y: -5,
       transition: {
         ease: "easeInOut",
@@ -101,11 +101,12 @@ function SchedaPanino({ panino }) {
 
                   </motion.div>
                   <motion.div
-                    animate={animationControls}
+                    animate={animationControlsPiccante}
                     className={style.piccante}>
                     {datiPanino.spicy ?
                       <Image src="/images/piccante.svg" width="30" height="31" alt="piccante" layout='fill' /> :
-                      ''}</motion.div>
+                      ''}
+                  </motion.div>
                 </div>
                 <motion.div className={style.dati}
                   initial="initial"

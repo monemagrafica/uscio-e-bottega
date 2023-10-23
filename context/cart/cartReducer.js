@@ -1,9 +1,10 @@
 function CartReducer(state, action) {
   switch (action.type) {
     case "TOGGLE_CART": {
+      console.log(action.payload, "action");
       return {
         ...state,
-        showCart: action.payload.statoCart || !state.showCart,
+        showCart: !state.showCart || action.payload,
       };
     }
 

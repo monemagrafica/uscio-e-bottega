@@ -10,6 +10,12 @@ function Cart({ dati, openCart, setOpenCart, removeFromCart }) {
 
     const [openRiepilogo, setOpenRiepilogo] = useState(false)
 
+    useEffect(() => {
+        if (!dati.length) {
+            setOpenCart(false)
+            console.log(openCart, 'opencart')
+        }
+    }, [dati])
 
     console.log(openCart)
 
