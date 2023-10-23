@@ -4,7 +4,7 @@ function CartReducer(state, action) {
       console.log("action.payload", action.payload);
       return {
         ...state,
-        showCart: action.payload || !state.showCart,
+        showCart: action.payload,
       };
     }
 
