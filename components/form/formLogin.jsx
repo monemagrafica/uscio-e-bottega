@@ -73,7 +73,7 @@ function FormLogin({ formAuth, setFormAuth, useAuth }) {
               <input {...register("password", {
                 required: { value: true, message: 'Campo Obbligatorio' },
                 minLength: { value: 6, message: 'Inserire almeno 6 caratteri' },
-              })} type="text" name="password" placeholder='Password' id="password" />
+              })} type="password" name="password" placeholder='Password' id="password" />
               {errors.password && <p>{errors.password?.message}</p>}
             </label>
             <button type="submit">Entra</button>
