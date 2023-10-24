@@ -1,4 +1,5 @@
 import "../styles/globals.scss";
+import { useEffect, useState } from "react";
 import { ContextData } from "../context/context";
 import CartState from "../context/cart/cartState";
 import { ContextAuth } from "../context/authContext";
@@ -8,10 +9,30 @@ import Layout from "../components/layout/layout";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import Error from "next/error";
+import LoaderImage from "../components/loader/loaderImage";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const start = () => {
+      console.log("start");
+      setLoading(true);
+    };
+    const end = () => {
+      console.log("findished");
+      setLoading(false);
+    };
+    router.events.on("routeChangeStart", start);
+    router.events.on("routeChangeComplete", end);
+    router.events.on("routeChangeError", end);
+    return () => {
+      router.events.off("routeChangeStart", start);
+      router.events.off("routeChangeComplete", end);
+      router.events.off("routeChangeError", end);
+    };
+  }, []);
+  console.log(loading, "loading");
   if (pageProps.error) {
     return (
       <Error
@@ -32,22 +53,26 @@ function MyApp({ Component, pageProps }) {
               ></meta>
               <title>Uscio e Bottega web app</title>
             </Head>
-            <AnimatePresence
-              exitBeforeEnter
-              onExitComplete={() => window.scrollTo(0, 0)}
-            >
-              <motion.div
-                key={router.asPath}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className={`wrapper-main ${
-                  router.asPath === "/store" ? "store" : ""
-                }`}
+            {loading ? (
+              <LoaderImage />
+            ) : (
+              <AnimatePresence
+                exitBeforeEnter
+                onExitComplete={() => window.scrollTo(0, 0)}
               >
-                <Component {...pageProps} />
-              </motion.div>
-            </AnimatePresence>
+                <motion.div
+                  key={router.asPath}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className={`wrapper-main ${
+                    router.asPath === "/store" ? "store" : ""
+                  }`}
+                >
+                  <Component {...pageProps} />
+                </motion.div>
+              </AnimatePresence>
+            )}
           </Layout>
         </CartState>
       </ContextAuth>
