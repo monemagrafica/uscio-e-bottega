@@ -1,3 +1,14 @@
+/**
+ * Reducer per il context del carrello
+ * @date 24/10/2023 - 12:16:26
+ *
+ * @param {*} state
+ * oggetto con lo stato iniziale del carrello
+ * @param {*} action
+ * oggetto con eventuale payload con l'aggiornamento dello stato
+ * @returns {*}
+ * stato aggiornato
+ */
 function CartReducer(state, action) {
   switch (action.type) {
     case "TOGGLE_CART": {

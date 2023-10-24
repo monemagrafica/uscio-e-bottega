@@ -10,6 +10,15 @@ const errori = {
     firebase: 'Errore connessione, controllare email e password'
 }
 
+
+
+/**
+ * Context per la gestione dell'autenticazione
+ * @date 24/10/2023 - 12:18:13
+ *
+ * @type {*}
+ */
+
 const AuthContext = createContext();
 
 const ContextAuth = ({ children }) => {

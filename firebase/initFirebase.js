@@ -2,7 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-// Configurazione firebase
+/**
+ * Funzioni di configurazione di firebase
+ * @date 24/10/2023 - 12:19:23
+ *
+ * @type {*}
+ */
+
 const conf = initializeApp({
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,

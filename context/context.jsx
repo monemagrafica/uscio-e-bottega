@@ -3,6 +3,12 @@ import { auth } from '../firebase/initFirebase';
 import { useRouter } from 'next/router'
 
 
+/**
+ * Context generico per stati condivisi open/close e toaster
+ * @date 24/10/2023 - 12:18:38
+ *
+ * @type {*}
+ */
 const ShareContext = createContext()
 
 

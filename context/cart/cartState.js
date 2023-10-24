@@ -3,6 +3,15 @@ import CartContext from "./cartContext";
 import CartReducer from "./cartReducer";
 import { useAuth } from "../authContext";
 
+/**
+ * Funzioni per la gestione del carrello
+ * @date 24/10/2023 - 12:14:12
+ * @description
+ * @var initialState
+ * stato iniziale del carrello
+ * @function addToCart...
+ * Funzioni dispatch per il cartReducer
+ */
 const CartState = ({ children }) => {
   // Gestione localStorage NEXTJS
   const { authData } = useAuth();
