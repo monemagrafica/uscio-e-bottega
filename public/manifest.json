@@ -3,7 +3,7 @@
     "background_color": "#D4C9A7",
     "display": "standalone",
     "scope": "https://uscio-e-bottega.vercel.app/",
-    "start_url": "https://uscio-e-bottega.vercel.app/",
+    "start_url": "/",
     "name": "Uscio e Bottega",
     "short_name": "Uscio e Bottega",
     "description": "Prenotazione panini da Uscio e Bottega",
@@ -27,11 +27,12 @@
             "src": "/images/icon-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
-        },    {
+        },
+        {
             "src": "/images/icon-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
-            "purpose":"maskable"
+            "purpose": "maskable"
         }
     ]
 }

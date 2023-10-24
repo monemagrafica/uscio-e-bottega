@@ -44,6 +44,7 @@ input[type="checkbox"] {
 
 main {
   margin-top: 4rem;
+  margin-bottom: 4rem;
   position: relative;
 }
 ul {
@@ -125,7 +126,7 @@ nav .search {
 }
 
 .wrapper-main {
-  overflow: scroll;
+  overflow-y: auto;
   margin-bottom: 90px;
 }
 //ANCHOR: LOGIN PAGE
