@@ -156,7 +156,9 @@ ul.listaSalse {
   margin: 2rem auto;
   padding: 0 1rem;
   position: relative;
-
+  .listaSpec {
+    max-width: 75%;
+  }
   .immaginePanino {
     max-width: 200px;
     display: block;
