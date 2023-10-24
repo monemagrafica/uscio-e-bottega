@@ -66,7 +66,7 @@ function FormSignUp({ formAuth, setFormAuth }) {
               <input {...register("password", {
                 required: { value: true, message: 'Campo Obbligatorio' },
                 minLength: { value: 6, message: 'Inserire almeno 6 caratteri' },
-              })} type="text" name="password" placeholder='Password' id="password" />
+              })} type="password" name="password" placeholder='Password' id="password" />
               {errors.password && <p>{errors.password?.message}</p>}
             </label>
             <label htmlFor="passwordConfirm">
@@ -79,7 +79,7 @@ function FormSignUp({ formAuth, setFormAuth }) {
                   validate: (value) => (watch('password') != value) ? 'Le password non coincidono' : true,
 
 
-                })} type="text" name="passwordConfirm" placeholder='Conferma Password' id="passwordConfirm" />
+                })} type="password" name="passwordConfirm" placeholder='Conferma Password' id="passwordConfirm" />
               {errors.passwordConfirm && <p>{errors.passwordConfirm?.message}</p>}
             </label>
 

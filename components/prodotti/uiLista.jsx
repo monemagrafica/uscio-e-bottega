@@ -60,7 +60,7 @@ function UiLista({
             <Link href={{
               pathname: `/store/${data.slug}`,
               query: { id: data.id }
-            }} scroll={false}>
+            }} >
               <motion.div
                 className={style.info}
                 variants={animateIcon}
