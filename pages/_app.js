@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import Error from "next/error";
 import LoaderImage from "../components/loader/loaderImage";
+import { AddToHomeScreen } from "react-pwa-add-to-homescreen";
 
 /**
  * App component
@@ -61,6 +62,8 @@ function MyApp({ Component, pageProps }) {
               ></meta>
               <title>Uscio e Bottega web app</title>
             </Head>
+            <AddToHomeScreen />
+
             {loading ? (
               <LoaderImage />
             ) : (
