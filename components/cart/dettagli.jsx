@@ -20,7 +20,7 @@ import cartContext from '../../context/cart/cartContext'
  * @param {*} idAddedPanino
  * id del panino aggiunto al carrello
  * @param {*} noteCart
- * note del panino
+ * note del panozzo
  * @function checkboxSalse
  * funzione per selezionare le salse: 
  * se il checkbox è selezionato aggiunge la salsa all'array salseLista, altrimenti 

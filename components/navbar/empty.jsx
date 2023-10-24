@@ -8,7 +8,6 @@ import { BiSad } from 'react-icons/bi'
  * Componente per l'animazione del cart vuoto
  * @date 23/10/2023 - 15:57:24
  *
- * @param {{ animateC: any; statoCarrello: any; }} param0
  * @param {*} param0.animateC true/false animazione carello vuoto
  * @param {*} param0.statoCarrello numero di panini nel carrello
  * 
