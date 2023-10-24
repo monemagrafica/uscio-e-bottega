@@ -27,6 +27,7 @@ import { animateListItem } from '../utils/animations';
  * funzione per aggiungere un panino al carrello
  * @returns {*}
  */
+
 function ListaProdottiItem({
     item,
     index,
@@ -38,7 +39,7 @@ function ListaProdottiItem({
 }) {
 
     const datiPanino = item
-
+    console.log(datiPanino, 'datiPanino')
     function handleClickPanino(index) {
         window.scroll({
             top: singoloPanino.current.offsetTop - (window.outerHeight / 3),

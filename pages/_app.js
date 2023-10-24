@@ -11,6 +11,14 @@ import Head from "next/head";
 import Error from "next/error";
 import LoaderImage from "../components/loader/loaderImage";
 
+/**
+ * App component
+ * @date 24/10/2023 - 11:37:30
+ * @var loading
+ * variabile per il caricamento della pagina con il getserver side props
+ * @function setLoading
+ * setter per la variabile loading
+ */
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
