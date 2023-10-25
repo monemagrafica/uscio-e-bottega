@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import Error from "next/error";
 import LoaderImage from "../components/loader/loaderImage";
-import InstallPWA from "../components/pwabutton/pwabutton";
+
 /**
  * App component
  * @date 24/10/2023 - 11:37:30
@@ -22,6 +22,7 @@ import InstallPWA from "../components/pwabutton/pwabutton";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const start = () => {
       console.log("start");
@@ -49,6 +50,7 @@ function MyApp({ Component, pageProps }) {
       />
     );
   }
+
   return (
     <ContextData>
       <ContextAuth>
@@ -61,7 +63,7 @@ function MyApp({ Component, pageProps }) {
               ></meta>
               <title>Uscio e Bottega web app</title>
             </Head>
-            <InstallPWA />
+
             {loading ? (
               <LoaderImage />
             ) : (
