@@ -30,17 +30,19 @@ function Search({ data }) {
 
   return (
     <motion.main className="search"
-      initial='initial'
-      animate='animate'
-      variants={animateSearchPage}
+
     >
       <div className="headerRicerca">
-        <button className="close" onClick={() => router.back()}><BiArrowBack /></button> <h1>Ricerca</h1></div>
-      <Image src="/images/search.svg" width={200} height={150} alt="search" />
-      <h2 className="subSearch">Ricerca per nome o ingrediente</h2>
-      <label htmlFor="search" >
-        <input onChange={() => risultatiRicerca(inputRicerca.current.value)} ref={inputRicerca} type="text" className="searchInput" id="search" placeholder='cerca' />
-      </label>
+        <button className="close" onClick={() => router.back()}><BiArrowBack /></button> <h1>Ricerca</h1>
+      </div>
+
+      <div className='wrapper-search-field'>
+        <h2 className="subSearch">Ricerca per nome o ingrediente</h2>
+
+        <label htmlFor="search" >
+          <input onChange={() => risultatiRicerca(inputRicerca.current.value)} ref={inputRicerca} type="text" className="searchInput" id="search" placeholder='cerca' />
+        </label>
+      </div>
       {(filtroRicerca.length > 0) && <div className="wrapperListaSearch">
         {filtroRicerca?.map((item) => {
 

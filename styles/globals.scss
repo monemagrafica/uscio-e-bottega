@@ -2,6 +2,11 @@
 @import "./fonts";
 @import "./mixin/media";
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
 html,
 body {
   padding: 0;
@@ -127,7 +132,7 @@ nav .search {
 }
 
 .wrapper-main {
-  overflow-y: auto;
+  //overflow-y: auto;
   margin-bottom: 90px;
 }
 //ANCHOR: LOGIN PAGE
@@ -258,6 +263,12 @@ div#addedPanino {
     margin: 0 1rem 0 0;
     color: white;
     font-size: 24px;
+  }
+  .wrapper-search-field {
+    position: sticky;
+    top: 60px;
+    background-color: v.$lightbrown;
+    padding: 1rem;
   }
   .subSearch {
     font-size: 20px;

@@ -23,15 +23,15 @@ function Quantita({ setDettagliOpen, idAddedPanino, quantita }) {
     const inputQuantita = useRef(null)
 
     function more() {
-        setDettagliOpen(true)
-        if (inputQuantita.current.value >= 0) {
+
+        if (inputQuantita.current.value >= 1) {
             inputQuantita.current.value = quantita + 1
             changeQuantity(idAddedPanino, quantita + 1)
         }
     }
 
     function less() {
-        if (inputQuantita.current.value > 0) {
+        if (inputQuantita.current.value > 1) {
             inputQuantita.current.value = quantita - 1
             changeQuantity(idAddedPanino, quantita - 1)
         }

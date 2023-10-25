@@ -134,14 +134,20 @@ ul.listaSalse {
 }
 
 .dati {
-  margin: 1.2rem 0 0 0;
   position: relative;
+  background-color: #d7cbc2;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 14px;
+  z-index: -1;
 }
 
 .wrapperSpec {
   display: flex;
   justify-content: center;
-  margin: 0 15px;
+
+  align-items: baseline;
 
   > div {
     flex: 1;
@@ -246,7 +252,7 @@ ul.listaSalse {
     span {
       display: block;
       background-color: v.$brownBackBtn;
-      outline: 3px solid v.$brownNeon;
+
       padding: 7px 15px;
       width: 140px;
       margin: 0 auto;
@@ -371,7 +377,7 @@ ul.listaSalse {
   width: 100%;
   background-color: #e1d3c8f0;
   z-index: 1;
-  overflow: scroll;
+  overflow: auto;
   z-index: 100;
 
   .headerCart {
