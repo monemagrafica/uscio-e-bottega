@@ -456,7 +456,7 @@ ul.listaSalse {
     border-bottom-right-radius: 10px;
     background-color: v.$brownPulsanteNote;
     text-align: center;
-    padding: 5px;
+    padding: 13px 5px;
     color: v.$backInput;
   }
 
@@ -480,6 +480,7 @@ ul.listaSalse {
       background-color: #dcc2af;
       height: 100px;
       overflow: hidden;
+      box-shadow: inset 0px 0px 20px 0px #84333347;
       span {
         top: -60px;
       }
@@ -492,7 +493,37 @@ ul.listaSalse {
       position: relative;
       margin-top: -100%;
       transition: margin-top ease-out 0.5s;
-
+      .wrapperSalse {
+        display: flex;
+        background-color: #c1a18b;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-bottom: 0.5rem;
+        .boxDx {
+        }
+        .boxSx {
+          z-index: 1;
+          position: relative;
+          padding-left: 0.5rem;
+          &::after {
+            content: "";
+            display: block;
+            width: 35px;
+            border-radius: 50%;
+            height: 35px;
+            background-color: #7f5d42;
+            margin-left: 0.5rem;
+            position: absolute;
+            top: -5px;
+            left: 2px;
+            z-index: -1;
+          }
+        }
+        .titleSalse {
+          padding: 1rem 0 0.5rem 1rem;
+          width: 100%;
+        }
+      }
       &.dettagliOpen {
         opacity: 1;
         margin-top: 0;
@@ -502,9 +533,9 @@ ul.listaSalse {
     .noteDettagli {
       display: flex;
       justify-content: center;
-
+      align-items: center;
       background-color: #d7bba6;
-      padding: 10px;
+      padding: 1rem 10px;
 
       h3 {
         background-color: v.$brownNeon;
@@ -526,8 +557,7 @@ ul.listaSalse {
       display: flex;
       flex-wrap: wrap;
       margin: 0;
-      padding: 20px 10px;
-      background-color: v.$midbrown;
+      padding: 10px 10px 13px 10px;
 
       li {
         input {
