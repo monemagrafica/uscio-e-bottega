@@ -52,12 +52,7 @@ function Drawer({ setOpenDrawer, openDrawer, logOut, authData }) {
                     <div className="image-drawer">
                         <Image src="/images/logo.svg" alt="uscio e bottega logo" layout="fill" />
                     </div>
-                    <div className="user-data">
 
-                        <p className='presentazione'>Tramite questa app potrai ordinare i tuoi <span>panini preferiti</span>, modificarli e... mangiarli</p>
-
-
-                    </div>
                     <div className="dati-app">
                         <h2 className="nome-utente">Ciao <br />{name}!</h2>
                         <a onClick={() => openTutorial()}>
