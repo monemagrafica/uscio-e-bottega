@@ -18,7 +18,7 @@ import { animateListCart } from '../utils/animations'
  * @returns {*}
  */
 
-function ListItemCart({ dati, removeFromCart }) {
+function ListItemCart({ dati, removeFromCart, setOpenCart }) {
 
     return (
         <ul>
@@ -32,6 +32,7 @@ function ListItemCart({ dati, removeFromCart }) {
                             animate="animate"
                             exit="exit">
                             <ItemCart
+                                setOpenCart={setOpenCart}
                                 dati={item}
                                 removeFromCart={removeFromCart} />
                         </motion.li>

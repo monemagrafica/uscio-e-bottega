@@ -42,7 +42,7 @@ function Cart({ dati, openCart, setOpenCart, removeFromCart }) {
                     animate="animate"
                     exit="exit">
                     <div className={style.headerCart}><button className="close" onClick={() => setOpenCart(false)}><BiArrowBack /></button> <h2>Il tuo carrello</h2></div>
-                    <ListItemCart dati={dati} removeFromCart={removeFromCart} />
+                    <ListItemCart setOpenCart={setOpenCart} dati={dati} removeFromCart={removeFromCart} />
                     <button className={style.buttonOrdine} onClick={() => { setOpenRiepilogo(true) }}>Riepilogo</button>
                 </motion.div>
                     <RiepilogoOrdine dati={dati} openRiepilogo={openRiepilogo} setOpenRiepilogo={setOpenRiepilogo} /></>

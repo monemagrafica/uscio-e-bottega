@@ -54,7 +54,7 @@
     letter-spacing: -4px;
     border-radius: 7px;
     display: block;
-    margin: -6px 11% 0 auto;
+    margin: -6px 60px 0 auto;
     color: white;
     box-shadow: 0px 0px 3px #a39292;
     position: relative;
@@ -465,9 +465,13 @@ ul.listaSalse {
     flex: 1;
     align-items: center;
 
+    font-family: "short stack";
+
     h2 {
       font-size: 1rem;
       margin-left: 5px;
+      display: inline-block;
+      border-bottom: 1px solid #7f5d4280;
     }
   }
 
@@ -520,7 +524,7 @@ ul.listaSalse {
           }
         }
         .titleSalse {
-          padding: 1rem 0 0.5rem 1rem;
+          padding: 1rem 0 1rem 0.5rem;
           width: 100%;
         }
       }
@@ -622,7 +626,7 @@ ul.listaSalse {
   top: 0px;
 
   .wrapperItemriepilogo {
-    background-color: v.$brownNeon;
+    background-color: #f2e8e0;
     margin: 15px;
     border-radius: 15px;
   }

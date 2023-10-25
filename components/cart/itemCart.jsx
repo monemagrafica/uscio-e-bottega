@@ -3,8 +3,9 @@ import style from '../../pages/store/store.module.scss'
 import Quantita from './quantita'
 import Dettagli from './dettagli'
 import { BiChevronDown } from 'react-icons/bi'
-
-
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { set } from 'react-hook-form'
 /**
  * Componente per la visualizzazione del singolo panino nel carrello
  * @date 23/10/2023 - 17:50:39
@@ -17,7 +18,7 @@ import { BiChevronDown } from 'react-icons/bi'
  * @returns {*}
  */
 
-function ItemCart({ dati, removeFromCart }) {
+function ItemCart({ dati, removeFromCart, setOpenCart }) {
 
   const arrayListaSalse = dati.ingredients.Salse
   const arrayFromSalse = arrayListaSalse ? arrayListaSalse.map((item) => {
@@ -25,15 +26,24 @@ function ItemCart({ dati, removeFromCart }) {
   }) : []
 
   const [dettagliOpen, setDettagliOpen] = useState(false)
+  const router = useRouter()
 
+  function goToPanino(slug, id) {
+    setOpenCart(false)
+    router.push({
+      pathname: `/store/${slug}`,
+      query: { id: id },
+    })
+  }
 
   return (
     <>
       {dati && <div
         className={style.wrapperItemCart}>
         <div className={style.wrapDatiItem}>
-          <button className={style.note} onClick={() => setDettagli((prevState) => !prevState)}><BiChevronDown /></button>
-          <div className={style.wrapperNomePanino} onClick={() => setDettagliOpen((prevState) => !prevState)}>
+
+          <div className={style.wrapperNomePanino} onClick={() => goToPanino(dati.slug, dati.id)} >
+
             <h2>{dati.name}</h2>
           </div>
           <Quantita
