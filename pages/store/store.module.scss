@@ -387,7 +387,9 @@ ul.listaSalse {
   z-index: 1;
   overflow: auto;
   z-index: 100;
-
+  > ul {
+    margin-top: 75px;
+  }
   .headerCart {
     background-color: v.$brownBackHeadCart;
     padding: 1px;
@@ -396,7 +398,9 @@ ul.listaSalse {
     align-items: center;
     padding: 0px;
     margin-bottom: 1rem;
-
+    position: fixed;
+    width: 100%;
+    z-index: 100;
     h2 {
       font-family: v.$titles;
       color: v.$lightbrown;
@@ -635,7 +639,7 @@ ul.listaSalse {
 
   .wrapperItemriepilogo {
     background-color: #fff;
-    margin: 15px;
+    margin: 100px 15px 15px 15px;
     border-radius: 15px;
     font-family: "Roboto Mono", monospace;
     font-size: 0.9rem;
