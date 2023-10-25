@@ -141,6 +141,10 @@ ul.listaSalse {
   padding: 1rem;
   border-radius: 14px;
   z-index: -1;
+  li {
+    font-family: "short stack";
+    letter-spacing: -1px;
+  }
 }
 
 .wrapperSpec {
@@ -626,9 +630,13 @@ ul.listaSalse {
   top: 0px;
 
   .wrapperItemriepilogo {
-    background-color: #f2e8e0;
+    background-color: #fff;
     margin: 15px;
     border-radius: 15px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.9rem;
+
+    box-shadow: 4px 3px 0px #00000045;
   }
 
   li {
@@ -639,7 +647,7 @@ ul.listaSalse {
   }
 
   .immagineRiepilogo {
-    width: 100px;
+    min-width: 100px;
   }
 
   .totale {
@@ -649,11 +657,13 @@ ul.listaSalse {
     h2 {
       margin: 0;
       border-bottom: 2px dotted v.$brownBackBtn;
-      font-family: v.$titles;
+      font-family: "Roboto Mono", monospace;
+      font-weight: 400;
     }
 
     .prezzoTotale {
       font-size: 2rem;
+      font-family: "Roboto Mono", monospace;
     }
   }
 
@@ -667,7 +677,7 @@ ul.listaSalse {
 
     h2 {
       margin: 0;
-      font-family: v.$titles;
+      font-weight: 400;
       font-size: 1.3rem;
     }
   }

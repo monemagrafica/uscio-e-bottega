@@ -1,16 +1,16 @@
 @font-face {
-    font-family: "short stack";
-    src: url("/fonts/ShortStack-Regular.ttf");
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    unicode-range: U+0025-00FF;
-  }
-  @font-face {
-    font-family: "source sans";
-    src: url("/fonts/SourceSansPro-Regular.ttf");
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    unicode-range: U+0025-00FF;
-  }
+  font-family: "short stack";
+  src: url("/fonts/ShortStack-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0025-00FF;
+}
+@font-face {
+  font-family: "Roboto Mono", monospace;
+  src: url("/fonts/RobotoMono-VariableFont_wght.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0025-00FF;
+}

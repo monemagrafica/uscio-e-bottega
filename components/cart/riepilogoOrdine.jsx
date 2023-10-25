@@ -6,10 +6,8 @@ import { animateRiepilogo } from '../utils/animations'
 import Image from 'next/image'
 
 
-
-
 /**
- * Compoente per la visualizzazione del riepilogo dell'ordine
+ * Componente per la visualizzazione del riepilogo dell'ordine
  * @date 23/10/2023 - 17:59:17
  *
  * 
