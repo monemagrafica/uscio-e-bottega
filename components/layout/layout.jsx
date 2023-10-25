@@ -17,6 +17,7 @@ const Cart = dynamic(() => import('../cart/cart'), { ssr: false })
 
 /**
  * Layout che importa la navbar e il carrello
+ * Cambia la presenza della navbar e del carrello in base alla route
  * @date 23/10/2023 - 16:00:57
  * 
  * @var authData 

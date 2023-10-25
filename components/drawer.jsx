@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { animateDrawer } from './utils/animations'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-
+import { BiArrowBack } from 'react-icons/bi'
 
 
 /**
@@ -48,20 +48,28 @@ function Drawer({ setOpenDrawer, openDrawer, logOut, authData }) {
                     animate='animate'
                     exit='exit'
                 >
+
                     <div className="image-drawer">
                         <Image src="/images/logo.svg" alt="uscio e bottega logo" layout="fill" />
                     </div>
                     <div className="user-data">
-                        <h2>Ciao {name}!</h2>
+
                         <p className='presentazione'>Tramite questa app potrai ordinare i tuoi <span>panini preferiti</span>, modificarli e... mangiarli</p>
-                        <p style={{ textDecoration: 'underline' }} onClick={() => openTutorial()}>  Sai come ordinare un panino?</p>
-                        <p style={{ textDecoration: 'underline' }} onClick={() => openChiSiamo()}>  Vuoi conoscerci meglio?</p>
+
 
                     </div>
-                    <div className="datiApp">
+                    <div className="dati-app">
+                        <h2 className="nome-utente">Ciao <br />{name}!</h2>
+                        <a onClick={() => openTutorial()}>
+                            <h2 >  Sai come ordinare un panino?</h2></a>
+                        <a onClick={() => openChiSiamo()}>
+                            <h2>  Vuoi conoscerci meglio?</h2></a>
+                    </div>
+                    <div className='wrapper-btn-drawer'>
+                        <button className='logout' onClick={() => setOpenDrawer(false)}>Back</button>
+                        <button className='logout' onClick={() => signOut()}>logout</button>
 
                     </div>
-                    <button className='logout' onClick={() => signOut()}>logout</button>
 
                 </motion.div>}
             </AnimatePresence>

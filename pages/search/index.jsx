@@ -43,7 +43,7 @@ function Search({ data }) {
           <input onChange={() => risultatiRicerca(inputRicerca.current.value)} ref={inputRicerca} type="text" className="searchInput" id="search" placeholder='cerca' />
         </label>
       </div>
-      {(filtroRicerca.length > 0) && <div className="wrapperListaSearch">
+      {(filtroRicerca.length > 0) ? <div className="wrapperListaSearch">
         {filtroRicerca?.map((item) => {
 
           return (<SearchList
@@ -52,7 +52,7 @@ function Search({ data }) {
           />)
 
         })}
-      </div>}
+      </div> : <Image src="/images/search.svg" width={200} height={150} alt="search" />}
     </motion.main>
   )
 }
