@@ -16,7 +16,6 @@ import { collection, getDocs } from "firebase/firestore";
 const fetchDataFromFirebase = async (collectionName) => {
   const collectionFromFirebase = collection(firestore, collectionName);
   const g = await getDocs(collectionFromFirebase);
-
   return g.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 };
 

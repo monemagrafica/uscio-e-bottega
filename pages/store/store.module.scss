@@ -304,6 +304,7 @@ ul.listaSalse {
 .footerScheda {
   position: fixed;
   display: flex;
+
   align-items: center;
   background-color: v.$midbrown;
   padding: 20px 5px;
@@ -369,6 +370,10 @@ ul.listaSalse {
   font-size: 1rem;
   display: block;
   margin: 1rem 1rem 0 auto;
+  &[disabled] {
+    background-color: v.$lightbrown;
+    color: v.$midbrown;
+  }
 }
 
 .immaginePaninoScheda {
@@ -389,6 +394,19 @@ ul.listaSalse {
   z-index: 100;
   > ul {
     margin-top: 75px;
+  }
+  footer {
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    padding: 1.5rem 1rem;
+    background-color: #d7beac;
+    .buttonOrdine {
+      margin: 0;
+    }
   }
   .headerCart {
     background-color: v.$brownBackHeadCart;
@@ -712,4 +730,28 @@ ul.listaSalse {
   margin: 0px 33px 0 auto;
   top: 15px;
   opacity: 0;
+}
+
+//ANCHOR: data_ritiro
+
+.dataRitiro {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: v.$darkRed;
+  top: 0;
+  left: 0;
+  .listaFascia {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    li {
+      margin: 5px 0;
+      background-color: v.$brownNeon;
+      padding: 10px;
+    }
+  }
 }

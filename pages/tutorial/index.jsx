@@ -11,7 +11,7 @@ function Tutorial() {
                 <li>Aggiungi quantità e accedi alla configurazione <br /> (modifica le salse, scrivici le modifiche)</li>
                 <li>Procedi con l&apos;ordine!</li>
             </ol>
-            <button><Link href="/store">Vai al negozio</Link></button>
+            <button className='btn-generico'><Link href="/store">Vai al negozio</Link></button>
         </div>
     )
 }

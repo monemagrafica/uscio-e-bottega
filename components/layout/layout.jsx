@@ -42,7 +42,10 @@ function Layout({ children }) {
         showCart,
         removeFromCart,
         cart,
-        addToCart } = useContext(cartContext)
+        addToCart,
+        setFasciaOraria,
+        fasciaOraria
+    } = useContext(cartContext)
 
     console.log(cart, 'dati test')
 
@@ -72,6 +75,8 @@ function Layout({ children }) {
                                 setOpenCart={toggleCart}
                                 setSelezionaPanini={dati.setSelezionaPanini}
                                 addToCart={addToCart}
+                                setFasciaOraria={setFasciaOraria}
+                                fasciaOraria={fasciaOraria}
                             />
                             <ToasterAggiuntoCart addPaninoToaster={dati.addPaninoToaster} setaddPaninoToaster={dati.setaddPaninoToaster} />
                             <ToasterLoggedInMemo />

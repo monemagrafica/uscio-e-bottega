@@ -306,7 +306,7 @@ div#addedPanino {
 
 //ANCHOR: login page
 .login-page {
-  .logout {
+  .btn-generico {
     z-index: 100;
     font-family: v.$titles;
     background-color: v.$brownBackBtn;
@@ -314,6 +314,7 @@ div#addedPanino {
     padding: 1rem 1.5rem;
     border-radius: 37px;
     font-size: 1.5rem;
+    cursor: pointer;
   }
 }
 .wrapperLogin,

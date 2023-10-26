@@ -71,6 +71,12 @@ function CartReducer(state, action) {
         ),
       };
     }
+    case "SET_FASCIA_ORARIA": {
+      return {
+        ...state,
+        fasciaOraria: { id: action.payload.id, fascia: action.payload.fascia },
+      };
+    }
     default:
       return state;
   }

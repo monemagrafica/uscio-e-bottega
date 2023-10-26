@@ -61,8 +61,8 @@ function Drawer({ setOpenDrawer, openDrawer, logOut, authData }) {
                             <h2>  Vuoi conoscerci meglio?</h2></a>
                     </div>
                     <div className='wrapper-btn-drawer'>
-                        <button className='logout' onClick={() => setOpenDrawer(false)}>Back</button>
-                        <button className='logout' onClick={() => signOut()}>logout</button>
+                        <button className='btn-generico' onClick={() => setOpenDrawer(false)}>Back</button>
+                        <button className='btn-generico' onClick={() => signOut()}>logout</button>
 
                     </div>
 

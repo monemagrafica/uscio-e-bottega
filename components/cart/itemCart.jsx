@@ -5,7 +5,7 @@ import Dettagli from './dettagli'
 import { BiChevronDown } from 'react-icons/bi'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { set } from 'react-hook-form'
+import { fetchDataFromFirebase } from '../../firebase/utils'
 /**
  * Componente per la visualizzazione del singolo panino nel carrello
  * @date 23/10/2023 - 17:50:39
@@ -42,9 +42,9 @@ function ItemCart({ dati, removeFromCart, setOpenCart }) {
         className={style.wrapperItemCart}>
         <div className={style.wrapDatiItem}>
 
-          <div className={style.wrapperNomePanino} onClick={() => goToPanino(dati.slug, dati.id)} >
+          <div className={style.wrapperNomePanino}  >
 
-            <h2>{dati.name}</h2>
+            <h2 onClick={() => goToPanino(dati.slug, dati.id)}>{dati.name}</h2>
           </div>
           <Quantita
             valueCampoQuantita={dati.quantita}

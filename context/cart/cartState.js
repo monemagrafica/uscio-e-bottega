@@ -21,6 +21,7 @@ const CartState = ({ children }) => {
 
   const initialState = {
     showCart: false,
+    fasciaOraria: {},
     cart: cartFromLocalStorage || [],
   };
 
@@ -37,9 +38,6 @@ const CartState = ({ children }) => {
   }, [state.cart]);
 
   const addToCart = (datiPanino, id) => {
-    const arrayFromSalse = datiPanino.ingredients.Salse?.map((item) => {
-      return item;
-    });
     dispatch({
       type: "ADD_TO_CART",
       payload: {
@@ -95,7 +93,15 @@ const CartState = ({ children }) => {
       },
     });
   };
-
+  const setFasciaOraria = (id, fasciaOraria) => {
+    dispatch({
+      type: "SET_NOTE",
+      payload: {
+        id: id,
+        fasciaOraria: fasciaOraria,
+      },
+    });
+  };
   return (
     <CartContext.Provider
       value={{
@@ -107,6 +113,8 @@ const CartState = ({ children }) => {
         removeFromCart,
         toggleCart,
         setNote,
+        setFasciaOraria,
+        fasciaOraria: state.fasciaOraria,
       }}
     >
       {children}
