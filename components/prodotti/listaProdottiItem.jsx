@@ -39,7 +39,7 @@ function ListaProdottiItem({
 }) {
 
     const datiPanino = item
-    console.log(datiPanino, 'datiPanino')
+
     function handleClickPanino(index) {
         window.scroll({
             top: singoloPanino.current.offsetTop - (window.outerHeight / 3),

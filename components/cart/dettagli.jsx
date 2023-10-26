@@ -49,7 +49,7 @@ function Dettagli({ salseLista, arrayFromSalse, dettagliOpen, immagine, idAddedP
             changeSalse(idAddedPanino, [...salseLista, salsa])
         }
     }
-    console.log(arrayFromSalse, 'arrayFromSalse')
+
 
 
     return (

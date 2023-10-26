@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { useRouter } from 'next/router';
 import { ShareContext } from '../../context/context';
-import { ToasterLoggedInMemo, ToasterAggiuntoCart, ToasterRimossoCart } from '../toaster/toaster'
+
 import Drawer from '../drawer';
 import Image from 'next/image'
 import cartContext from '../../context/cart/cartContext';
@@ -9,6 +9,8 @@ import { getQuantita } from '../utils/utils';
 import { useAuth } from '../../context/authContext';
 import dynamic from 'next/dynamic';
 import LoaderImage from '../loader/loaderImage';
+import { Toaster } from "react-hot-toast";
+
 const Navbar = dynamic(() => import('../navbar/navbar'), { ssr: false })
 const Cart = dynamic(() => import('../cart/cart'), { ssr: false })
 
@@ -47,7 +49,7 @@ function Layout({ children }) {
         fasciaOraria
     } = useContext(cartContext)
 
-    console.log(cart, 'dati test')
+
 
     return (
         <>
@@ -78,16 +80,16 @@ function Layout({ children }) {
                                 setFasciaOraria={setFasciaOraria}
                                 fasciaOraria={fasciaOraria}
                             />
-                            <ToasterAggiuntoCart addPaninoToaster={dati.addPaninoToaster} setaddPaninoToaster={dati.setaddPaninoToaster} />
-                            <ToasterLoggedInMemo />
-                            <ToasterRimossoCart removePaninoToaster={dati.removePaninoToaster} setRemovePaninoToaster={dati.setRemovePaninoToaster} />
+
                             <Drawer logOut={logOut} openDrawer={dati.openDrawer} setOpenDrawer={dati.setOpenDrawer} authData={authData} />
                         </>
                     }
                     {(router.asPath === '/') && <>{children}</>}
                 </div >
 
-            }</>
+            }
+            <Toaster />
+        </>
     )
 }
 

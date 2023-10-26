@@ -737,13 +737,30 @@ ul.listaSalse {
 .dataRitiro {
   position: absolute;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100%;
   background-color: v.$darkRed;
   top: 0;
   left: 0;
+  .carouselWrapper {
+    max-width: 200px;
+    height: 100%;
+    .fascia {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #9a523e;
+      border: 10px solid v.$darkRed;
+      border-radius: 15px;
+      font-size: 1.2rem;
+      font-family: "Roboto Mono";
+      color: white;
+      margin-left: 6px;
+    }
+  }
   .listaFascia {
     display: flex;
     flex-wrap: wrap;
@@ -752,6 +769,22 @@ ul.listaSalse {
       margin: 5px 0;
       background-color: v.$brownNeon;
       padding: 10px;
+    }
+  }
+  .buttonOrdineFascia {
+    background-color: #853f2b;
+    padding: 10px;
+    height: 80%;
+    color: white;
+    width: 150px;
+    border-radius: 5px;
+    font-family: "Roboto Mono";
+    font-size: 1rem;
+    display: block;
+    margin-right: 1rem;
+    &[disabled] {
+      background-color: v.$lightbrown;
+      color: gray;
     }
   }
 }

@@ -28,7 +28,8 @@ function Cart({
     setOpenCart,
     removeFromCart,
     setFasciaOraria,
-    fasciaOraria }) {
+    fasciaOraria,
+}) {
 
     const [openRiepilogo, setOpenRiepilogo] = useState(false)
     const [isDataRitiroOpen, setIsDataRitiroOpen] = useState(false)
@@ -38,6 +39,7 @@ function Cart({
         if (!dati.length) {
             setOpenCart(false)
         }
+
     }, [dati])
 
     useEffect(() => {
@@ -59,17 +61,22 @@ function Cart({
                     initial="initial"
                     animate="animate"
                     exit="exit">
+
                     <header className={style.headerCart}><button className="close" onClick={() => setOpenCart(false)}><BiArrowBack /></button> <h2>Il tuo carrello</h2></header>
                     <ListItemCart setOpenCart={setOpenCart} dati={dati} removeFromCart={removeFromCart} />
                     <footer>
-                        <button className={style.buttonOrdine} >Prenota il ritiro</button>
-                        <DataRitiro
-                            isDataRitiroOpen={isDataRitiroOpen}
-                            setIsDataRitiroOpen={setIsDataRitiroOpen}
-                            listaFasciaOraria={listaFasciaOraria}
-                            setFasciaOraria={setFasciaOraria}
-                        />
-                        <button className={style.buttonOrdine} disabled={Object.keys(fasciaOraria).length === 0} onClick={() => { setOpenRiepilogo(true) }}>Riepilogo</button></footer>
+                        <button onClick={() => setIsDataRitiroOpen(true)} className={style.buttonOrdine} >Orario di ritiro</button>
+                        <AnimatePresence>
+                            {isDataRitiroOpen && <DataRitiro
+                                isDataRitiroOpen={isDataRitiroOpen}
+                                setIsDataRitiroOpen={setIsDataRitiroOpen}
+                                listaFasciaOraria={listaFasciaOraria}
+                                setFasciaOraria={setFasciaOraria}
+                                fasciaOraria={fasciaOraria}
+                            />}
+                        </AnimatePresence>
+                        {!isDataRitiroOpen &&
+                            <button className={style.buttonOrdine} disabled={!fasciaOraria} onClick={() => { setOpenRiepilogo(true) }}>Riepilogo</button>}</footer>
                 </motion.div>
                     <RiepilogoOrdine dati={dati} openRiepilogo={openRiepilogo} setOpenRiepilogo={setOpenRiepilogo} /></>
             }

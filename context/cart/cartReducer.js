@@ -12,7 +12,6 @@
 function CartReducer(state, action) {
   switch (action.type) {
     case "TOGGLE_CART": {
-      console.log("action.payload", action.payload);
       return {
         ...state,
         showCart: action.payload,
@@ -74,7 +73,7 @@ function CartReducer(state, action) {
     case "SET_FASCIA_ORARIA": {
       return {
         ...state,
-        fasciaOraria: { id: action.payload.id, fascia: action.payload.fascia },
+        fasciaOraria: action.payload,
       };
     }
     default:

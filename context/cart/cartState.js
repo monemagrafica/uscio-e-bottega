@@ -21,7 +21,7 @@ const CartState = ({ children }) => {
 
   const initialState = {
     showCart: false,
-    fasciaOraria: {},
+    fasciaOraria: null,
     cart: cartFromLocalStorage || [],
   };
 
@@ -93,13 +93,10 @@ const CartState = ({ children }) => {
       },
     });
   };
-  const setFasciaOraria = (id, fasciaOraria) => {
+  const setFasciaOraria = (id) => {
     dispatch({
-      type: "SET_NOTE",
-      payload: {
-        id: id,
-        fasciaOraria: fasciaOraria,
-      },
+      type: "SET_FASCIA_ORARIA",
+      payload: id,
     });
   };
   return (
