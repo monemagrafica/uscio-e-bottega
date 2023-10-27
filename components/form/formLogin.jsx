@@ -19,7 +19,7 @@ import { useForm } from 'react-hook-form';
  * @function erroriFirebase
  * 
  * @param {*} param0.formAuth 
- * gestisce la visualizzazione dei form login e registrazione nella pagina di login
+ * visualizzazione dei form login e registrazione 
  * @param {*} param0.setFormAuth
  * setta il valore di formAuth
  * @function useForm

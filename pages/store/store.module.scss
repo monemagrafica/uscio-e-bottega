@@ -362,7 +362,7 @@ ul.listaSalse {
 }
 
 .buttonOrdine {
-  background-color: v.$brownBackBtn;
+  background-color: #7f5d42;
   padding: 10px;
   color: white;
   border-radius: 5px;
@@ -752,18 +752,18 @@ ul.listaSalse {
     height: 100%;
     position: relative;
     .fascia {
-      height: 90%;
+      height: 55%;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #7f5d42;
-      border: 10px solid #a48164;
-      border-radius: 15px;
+
+      border-radius: 5px;
       font-size: 1.2rem;
-      font-family: "Roboto Mono";
+      font-family: "Roboto Mono", monospace;
       color: white;
       margin-left: 6px;
-      margin-top: 5px;
+      margin-top: 21px;
     }
   }
   .listaFascia {
@@ -778,10 +778,10 @@ ul.listaSalse {
   }
   .buttonOrdineFascia {
     background-color: #7f5d42;
-    padding: 10px;
-    height: 70%;
+    padding: 5px;
+    height: 55%;
     color: white;
-    width: 150px;
+    width: 120px;
     border-radius: 5px;
     font-family: "Short Stack";
     font-size: 1rem;
@@ -797,7 +797,7 @@ ul.listaSalse {
     height: 10px;
     color: #cda9a9;
     font-size: 1.2rem;
-    top: 35px;
+    top: 37px;
     pointer-events: none;
     z-index: 100;
     text-align: center;

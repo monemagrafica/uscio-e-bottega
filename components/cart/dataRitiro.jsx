@@ -21,10 +21,9 @@ function DataRitiro(
         return false
     }
 
+    //se fasciaOraria è gia stata settata, allora setto l'indice attivo altrimenti lo setto a 1
 
-
-
-    const [activeIndex, setActiveIndex] = useState(1)
+    const [activeIndex, setActiveIndex] = useState(1 || fasciaOraria)
 
     return (
 

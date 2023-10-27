@@ -76,6 +76,7 @@ function CartReducer(state, action) {
         fasciaOraria: action.payload,
       };
     }
+
     default:
       return state;
   }

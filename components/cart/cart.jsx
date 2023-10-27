@@ -35,9 +35,21 @@ function Cart({
     const [isDataRitiroOpen, setIsDataRitiroOpen] = useState(false)
     const [listaFasciaOraria, setListaFasciaOraria] = useState([])
 
+    function renderFasciaOraria(lista, idItemLista) {
+        if (lista[idItemLista - 1]) {
+            return (
+                <>
+                    <br />
+                    {lista[idItemLista - 1].from + '-' + lista[idItemLista - 1].to}
+                </>
+            )
+        }
+
+    }
     useEffect(() => {
         if (!dati.length) {
             setOpenCart(false)
+            setFasciaOraria(null)
         }
 
     }, [dati])
@@ -65,7 +77,9 @@ function Cart({
                     <header className={style.headerCart}><button className="close" onClick={() => setOpenCart(false)}><BiArrowBack /></button> <h2>Il tuo carrello</h2></header>
                     <ListItemCart setOpenCart={setOpenCart} dati={dati} removeFromCart={removeFromCart} />
                     <footer>
-                        <button onClick={() => setIsDataRitiroOpen(true)} className={style.buttonOrdine} >Orario di ritiro</button>
+                        <button onClick={() => setIsDataRitiroOpen(true)} className={style.buttonOrdine}>Orario di ritiro
+                            {renderFasciaOraria(listaFasciaOraria, fasciaOraria)}
+                        </button>
                         <AnimatePresence>
                             {isDataRitiroOpen && <DataRitiro
                                 isDataRitiroOpen={isDataRitiroOpen}

@@ -22,6 +22,7 @@ const CartState = ({ children }) => {
   const initialState = {
     showCart: false,
     fasciaOraria: null,
+    phoneNumber: null,
     cart: cartFromLocalStorage || [],
   };
 
@@ -99,6 +100,7 @@ const CartState = ({ children }) => {
       payload: id,
     });
   };
+
   return (
     <CartContext.Provider
       value={{

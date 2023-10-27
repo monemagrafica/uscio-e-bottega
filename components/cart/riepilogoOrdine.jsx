@@ -4,6 +4,7 @@ import style from '../../pages/store/store.module.scss'
 import { BiArrowBack, BiEuro } from 'react-icons/bi'
 import { animateRiepilogo } from '../utils/animations'
 import Image from 'next/image'
+import { useForm } from 'react-hook-form';
 
 
 /**
@@ -21,11 +22,17 @@ import Image from 'next/image'
  * @returns {*}
  */
 function RiepilogoOrdine({ openRiepilogo, setOpenRiepilogo, dati }) {
+    const form = useForm()
+    const { register, handleSubmit, formState } = form
+    const { errors } = formState
 
     const totale = dati.reduce((acc, item) => {
         return acc + (parseInt(item.price) * item.quantita)
     }, 0)
 
+    function setOrder(data) {
+        console.log(data)
+    }
     return (
         <AnimatePresence>
             {openRiepilogo && <motion.div className={`${style.wrapperCart} ${style.riepilogo}`}
@@ -61,7 +68,28 @@ function RiepilogoOrdine({ openRiepilogo, setOpenRiepilogo, dati }) {
                     <h2>TOTALE:</h2>
                     <div className={style.prezzoTotale}>{Number(totale).toFixed(2)}<BiEuro /></div>
                 </div>
-                <button className={`${style.buttonOrdine} ${style.ordine}`} >Vai al pagamento</button>
+                <form >
+                    {<label htmlFor="phoneNumber">
+                        <input
+                            type="phone"
+                            placeholder='telefono'
+                            name="phoneNumber"
+                            id="phoneNumber"
+                            {...register("phoneNumber", {
+                                pattern: {
+                                    value: /^[0-9]{10}$/i,
+                                    message: "Numero non corretto"
+                                }
+                            })
+                            }
+                        />
+                        {errors.phoneNumber && <p>{errors.phoneNumber?.message}</p>}
+
+                    </label>}
+
+                    <button onClick={handleSubmit((data) => console.log(data))} className={`${style.buttonOrdine} ${style.ordine}`} >Conferma l&apos;ordine</button>
+                </form>
+
             </motion.div>}
         </AnimatePresence>
     )
