@@ -61,7 +61,7 @@ function RiepilogoOrdine({ openRiepilogo, setOpenRiepilogo, dati }) {
                     <h2>TOTALE:</h2>
                     <div className={style.prezzoTotale}>{Number(totale).toFixed(2)}<BiEuro /></div>
                 </div>
-                <button className={style.buttonOrdine} >Vai al pagamento</button>
+                <button className={`${style.buttonOrdine} ${style.ordine}`} >Vai al pagamento</button>
             </motion.div>}
         </AnimatePresence>
     )

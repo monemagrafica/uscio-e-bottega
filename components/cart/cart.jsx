@@ -76,7 +76,7 @@ function Cart({
                             />}
                         </AnimatePresence>
                         {!isDataRitiroOpen &&
-                            <button className={style.buttonOrdine} disabled={!fasciaOraria} onClick={() => { setOpenRiepilogo(true) }}>Riepilogo</button>}</footer>
+                            <button className={`${style.buttonOrdine} ${style.ordine}`} disabled={!fasciaOraria} onClick={() => { setOpenRiepilogo(true) }}>Riepilogo</button>}</footer>
                 </motion.div>
                     <RiepilogoOrdine dati={dati} openRiepilogo={openRiepilogo} setOpenRiepilogo={setOpenRiepilogo} /></>
             }

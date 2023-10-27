@@ -2,8 +2,7 @@ import style from '../../pages/store/store.module.scss'
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { motion } from 'framer-motion'
-import toast from 'react-hot-toast';
-import { TfasciaOrariaNonDisponibile } from '../utils/toaster';
+import { BiChevronLeft, BiChevronRight } from 'react-icons/bi'
 import "swiper/css";
 
 function DataRitiro(
@@ -35,6 +34,10 @@ function DataRitiro(
             exit={{ opacity: 0, y: 100 }}
         >
             <div className={style.carouselWrapper} >
+                <div className={`${style.swipeIcons} ${style.left}`} >
+                    <BiChevronLeft />
+
+                </div>
                 <Swiper
                     id="fasciaOraria"
                     effect="coverflow"
@@ -46,17 +49,23 @@ function DataRitiro(
                         return (
                             <SwiperSlide key={item.id}>
                                 <div className={style.fascia}>
-                                    {item.from} - {item.to}
+                                    {item.from}-{item.to}
                                 </div>
                             </SwiperSlide>
                         )
                     })}
                 </Swiper>
+                <div className={`${style.swipeIcons} ${style.right}`} >
+
+                    <BiChevronRight />
+                </div>
             </div>
-            <button className={style.buttonOrdineFascia} disabled={!isFasciaOrariaDisponibile(activeIndex)} onClick={() => {
-                setIsDataRitiroOpen(false)
-                isFasciaOrariaDisponibile(activeIndex)
-            }} >
+            <button className={style.buttonOrdineFascia}
+                disabled={!isFasciaOrariaDisponibile(activeIndex)}
+                onClick={() => {
+                    setIsDataRitiroOpen(false)
+                    setFasciaOraria(activeIndex)
+                }} >
                 {isFasciaOrariaDisponibile(activeIndex) ? 'Conferma' :
                     'Non disponibile'}
             </button>
